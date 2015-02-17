@@ -11,12 +11,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150217022406) do
+ActiveRecord::Schema.define(version: 20150217025449) do
+
+  create_table "brackets", force: true do |t|
+    t.integer  "tournament_id"
+    t.string   "gender"
+    t.integer  "min_age"
+    t.integer  "max_age"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "coaches", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "team_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "games", force: true do |t|
     t.integer  "team1_score"
     t.integer  "team2_score"
     t.date     "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "guardians", force: true do |t|
+    t.string   "relation"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "household_id"
+  end
+
+  create_table "households", force: true do |t|
+    t.string   "street"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "home_phone"
+    t.string   "county"
+    t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -48,6 +84,24 @@ ActiveRecord::Schema.define(version: 20150217022406) do
     t.datetime "updated_at"
   end
 
+  create_table "roster_spots", force: true do |t|
+    t.integer  "team_id"
+    t.integer  "student_id"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "schools", force: true do |t|
+    t.string   "name"
+    t.string   "district"
+    t.string   "county"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "students", force: true do |t|
     t.integer  "household_id"
     t.string   "first_name"
@@ -72,6 +126,24 @@ ActiveRecord::Schema.define(version: 20150217022406) do
   create_table "team_games", force: true do |t|
     t.integer  "game_id"
     t.integer  "team_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "teams", force: true do |t|
+    t.integer  "bracket_id"
+    t.string   "name"
+    t.integer  "num_students"
+    t.integer  "max_students"
+    t.integer  "num_wins"
+    t.integer  "num_losses"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tournaments", force: true do |t|
+    t.date     "start_date"
+    t.date     "end_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
