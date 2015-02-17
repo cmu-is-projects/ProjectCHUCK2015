@@ -1,4 +1,6 @@
 ProjectChuck2015::Application.routes.draw do
+  resources :brackets
+
   resources :teams
 
   resources :registrations
