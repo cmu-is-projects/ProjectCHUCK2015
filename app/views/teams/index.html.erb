@@ -1,0 +1,37 @@
+<h1>Listing teams</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bracket</th>
+      <th>Name</th>
+      <th>Num students</th>
+      <th>Max students</th>
+      <th>Num wins</th>
+      <th>Num losses</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @teams.each do |team| %>
+      <tr>
+        <td><%= team.bracket_id %></td>
+        <td><%= team.name %></td>
+        <td><%= team.num_students %></td>
+        <td><%= team.max_students %></td>
+        <td><%= team.num_wins %></td>
+        <td><%= team.num_losses %></td>
+        <td><%= link_to 'Show', team %></td>
+        <td><%= link_to 'Edit', edit_team_path(team) %></td>
+        <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Team', new_team_path %>
