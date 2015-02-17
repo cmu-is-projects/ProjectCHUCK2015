@@ -32,6 +32,9 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+
+gem 'shoulda'
+gem 'shoulda-matchers'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

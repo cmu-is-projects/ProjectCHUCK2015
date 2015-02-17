@@ -6,12 +6,12 @@ class StudentTest < ActiveSupport::TestCase
   # end
 
   #relationship validations
-  should belong_to(:household)
-  should belong_to(:school)
+  should belong_to (:household)
+  should belong_to (:school)
   should have_many(:rosterspots)
   should have_many(:registrations)
   should have_many(:teams).through(:rosterspots)
   should have_many(:guardians).through(:household)
 
-  
+
 end
