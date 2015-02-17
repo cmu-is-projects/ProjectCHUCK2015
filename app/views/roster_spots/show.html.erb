@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Team:</strong>
+  <%= @roster_spot.team_id %>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @roster_spot.student_id %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @roster_spot.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @roster_spot.end_date %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @roster_spot.position %>
+</p>
+
+<%= link_to 'Edit', edit_roster_spot_path(@roster_spot) %> |
+<%= link_to 'Back', roster_spots_path %>

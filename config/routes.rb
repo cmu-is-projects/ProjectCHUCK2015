@@ -1,4 +1,12 @@
 ProjectChuck2015::Application.routes.draw do
+  resources :roster_spots
+
+  resources :guardians
+
+  resources :households
+
+  resources :schools
+
   resources :registrations
 
   resources :users

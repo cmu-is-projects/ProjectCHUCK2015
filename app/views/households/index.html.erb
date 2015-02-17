@@ -1,0 +1,39 @@
+<h1>Listing households</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Street</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+      <th>Home phone</th>
+      <th>County</th>
+      <th>Active</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @households.each do |household| %>
+      <tr>
+        <td><%= household.street %></td>
+        <td><%= household.city %></td>
+        <td><%= household.state %></td>
+        <td><%= household.zip %></td>
+        <td><%= household.home_phone %></td>
+        <td><%= household.county %></td>
+        <td><%= household.active %></td>
+        <td><%= link_to 'Show', household %></td>
+        <td><%= link_to 'Edit', edit_household_path(household) %></td>
+        <td><%= link_to 'Destroy', household, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Household', new_household_path %>
