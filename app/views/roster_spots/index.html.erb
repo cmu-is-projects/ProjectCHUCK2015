@@ -1,0 +1,35 @@
+<h1>Listing roster_spots</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Team</th>
+      <th>Student</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Position</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @roster_spots.each do |roster_spot| %>
+      <tr>
+        <td><%= roster_spot.team_id %></td>
+        <td><%= roster_spot.student_id %></td>
+        <td><%= roster_spot.start_date %></td>
+        <td><%= roster_spot.end_date %></td>
+        <td><%= roster_spot.position %></td>
+        <td><%= link_to 'Show', roster_spot %></td>
+        <td><%= link_to 'Edit', edit_roster_spot_path(roster_spot) %></td>
+        <td><%= link_to 'Destroy', roster_spot, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Roster spot', new_roster_spot_path %>
