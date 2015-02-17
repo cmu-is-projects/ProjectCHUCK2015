@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Household:</strong>
+  <%= @student.household_id %>
+</p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @student.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @student.last_name %>
+</p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @student.dob %>
+</p>
+
+<p>
+  <strong>Cell phone:</strong>
+  <%= @student.cell_phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @student.email %>
+</p>
+
+<p>
+  <strong>Grade:</strong>
+  <%= @student.grade %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @student.gender %>
+</p>
+
+<p>
+  <strong>Emergency contact name:</strong>
+  <%= @student.emergency_contact_name %>
+</p>
+
+<p>
+  <strong>Emergency contact phone:</strong>
+  <%= @student.emergency_contact_phone %>
+</p>
+
+<p>
+  <strong>Has birth certificate:</strong>
+  <%= @student.has_birth_certificate %>
+</p>
+
+<p>
+  <strong>Allergies:</strong>
+  <%= @student.allergies %>
+</p>
+
+<p>
+  <strong>Medications:</strong>
+  <%= @student.medications %>
+</p>
+
+<p>
+  <strong>Security question:</strong>
+  <%= @student.security_question %>
+</p>
+
+<p>
+  <strong>Security response:</strong>
+  <%= @student.security_response %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @student.active %>
+</p>
+
+<%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Back', students_path %>
