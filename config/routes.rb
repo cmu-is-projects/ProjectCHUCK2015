@@ -1,5 +1,5 @@
 ProjectChuck2015::Application.routes.draw do
-<<<<<<< HEAD
+
   resources :roster_spots
 
   resources :guardians
@@ -7,13 +7,20 @@ ProjectChuck2015::Application.routes.draw do
   resources :households
 
   resources :schools
-=======
+
+  resources :coaches
+
+  resources :tournaments
+
+  resources :brackets
+
+  resources :teams
+
   resources :locations
 
   resources :games
 
   resources :team_games
->>>>>>> 4bd601c10458ab35872e7db518a7078d9279961a
 
   resources :registrations
 

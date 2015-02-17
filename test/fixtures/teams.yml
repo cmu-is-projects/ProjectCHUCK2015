@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bracket_id: 1
+  name: MyString
+  num_students: 1
+  max_students: 1
+  num_wins: 1
+  num_losses: 1
+
+two:
+  bracket_id: 1
+  name: MyString
+  num_students: 1
+  max_students: 1
+  num_wins: 1
+  num_losses: 1

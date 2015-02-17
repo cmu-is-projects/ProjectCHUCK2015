@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tournament:</strong>
+  <%= @bracket.tournament_id %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @bracket.gender %>
+</p>
+
+<p>
+  <strong>Min age:</strong>
+  <%= @bracket.min_age %>
+</p>
+
+<p>
+  <strong>Max age:</strong>
+  <%= @bracket.max_age %>
+</p>
+
+<%= link_to 'Edit', edit_bracket_path(@bracket) %> |
+<%= link_to 'Back', brackets_path %>
