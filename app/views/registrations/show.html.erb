@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @registration.student_id %>
+</p>
+
+<p>
+  <strong>Bracket:</strong>
+  <%= @registration.bracket_id %>
+</p>
+
+<p>
+  <strong>Has report card:</strong>
+  <%= @registration.has_report_card %>
+</p>
+
+<p>
+  <strong>Has proof of insurance:</strong>
+  <%= @registration.has_proof_of_insurance %>
+</p>
+
+<p>
+  <strong>Insurance provider:</strong>
+  <%= @registration.insurance_provider %>
+</p>
+
+<p>
+  <strong>Insurance policy no:</strong>
+  <%= @registration.insurance_policy_no %>
+</p>
+
+<p>
+  <strong>Family physician:</strong>
+  <%= @registration.family_physician %>
+</p>
+
+<p>
+  <strong>Physician phone:</strong>
+  <%= @registration.physician_phone %>
+</p>
+
+<p>
+  <strong>Has physical:</strong>
+  <%= @registration.has_physical %>
+</p>
+
+<p>
+  <strong>Physical date:</strong>
+  <%= @registration.physical_date %>
+</p>
+
+<p>
+  <strong>Jersey size:</strong>
+  <%= @registration.jersey_size %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @registration.active %>
+</p>
+
+<%= link_to 'Edit', edit_registration_path(@registration) %> |
+<%= link_to 'Back', registrations_path %>

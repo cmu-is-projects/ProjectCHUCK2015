@@ -1,0 +1,65 @@
+<%= form_for(@registration) do |f| %>
+  <% if @registration.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@registration.errors.count, "error") %> prohibited this registration from being saved:</h2>
+
+      <ul>
+      <% @registration.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :student_id %><br>
+    <%= f.number_field :student_id %>
+  </div>
+  <div class="field">
+    <%= f.label :bracket_id %><br>
+    <%= f.number_field :bracket_id %>
+  </div>
+  <div class="field">
+    <%= f.label :has_report_card %><br>
+    <%= f.check_box :has_report_card %>
+  </div>
+  <div class="field">
+    <%= f.label :has_proof_of_insurance %><br>
+    <%= f.check_box :has_proof_of_insurance %>
+  </div>
+  <div class="field">
+    <%= f.label :insurance_provider %><br>
+    <%= f.text_field :insurance_provider %>
+  </div>
+  <div class="field">
+    <%= f.label :insurance_policy_no %><br>
+    <%= f.text_field :insurance_policy_no %>
+  </div>
+  <div class="field">
+    <%= f.label :family_physician %><br>
+    <%= f.text_field :family_physician %>
+  </div>
+  <div class="field">
+    <%= f.label :physician_phone %><br>
+    <%= f.text_field :physician_phone %>
+  </div>
+  <div class="field">
+    <%= f.label :has_physical %><br>
+    <%= f.check_box :has_physical %>
+  </div>
+  <div class="field">
+    <%= f.label :physical_date %><br>
+    <%= f.check_box :physical_date %>
+  </div>
+  <div class="field">
+    <%= f.label :jersey_size %><br>
+    <%= f.text_field :jersey_size %>
+  </div>
+  <div class="field">
+    <%= f.label :active %><br>
+    <%= f.check_box :active %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

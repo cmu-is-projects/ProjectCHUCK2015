@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  student_id: 1
+  bracket_id: 1
+  has_report_card: false
+  has_proof_of_insurance: false
+  insurance_provider: MyString
+  insurance_policy_no: MyString
+  family_physician: MyString
+  physician_phone: MyString
+  has_physical: false
+  physical_date: false
+  jersey_size: MyString
+  active: false
+
+two:
+  student_id: 1
+  bracket_id: 1
+  has_report_card: false
+  has_proof_of_insurance: false
+  insurance_provider: MyString
+  insurance_policy_no: MyString
+  family_physician: MyString
+  physician_phone: MyString
+  has_physical: false
+  physical_date: false
+  jersey_size: MyString
+  active: false

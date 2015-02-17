@@ -1,4 +1,6 @@
 ProjectChuck2015::Application.routes.draw do
+  resources :registrations
+
   resources :users
 
   resources :students
