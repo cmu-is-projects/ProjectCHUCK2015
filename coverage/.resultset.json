@@ -114,10 +114,23 @@
       ],
       "/Users/siddarthsivakumar/Documents/ProjectCHUCK2015/projectChuck2015/app/models/household.rb": [
         1,
+        null,
+        null,
+        1,
+        1,
+        null,
         null
       ],
       "/Users/siddarthsivakumar/Documents/ProjectCHUCK2015/projectChuck2015/app/models/school.rb": [
         1,
+        null
+      ],
+      "/Users/siddarthsivakumar/Documents/ProjectCHUCK2015/projectChuck2015/app/models/guardian.rb": [
+        1,
+        null,
+        null,
+        1,
+        null,
         null
       ],
       "/Users/siddarthsivakumar/Documents/ProjectCHUCK2015/projectChuck2015/app/models/registration.rb": [
@@ -126,9 +139,22 @@
       ],
       "/Users/siddarthsivakumar/Documents/ProjectCHUCK2015/projectChuck2015/app/models/roster_spot.rb": [
         1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/siddarthsivakumar/Documents/ProjectCHUCK2015/projectChuck2015/app/models/team.rb": [
+        1,
+        null,
+        null,
+        1,
+        null,
         null
       ]
     },
-    "timestamp": 1424298224
+    "timestamp": 1424300973
   }
 }

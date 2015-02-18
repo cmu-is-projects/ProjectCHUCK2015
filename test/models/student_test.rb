@@ -5,7 +5,7 @@ class StudentTest < ActiveSupport::TestCase
   #   assert true
   # end
 
-  #relationship validations
+  #relationships
   should belong_to (:household)
   should belong_to (:school)
   should have_many(:rosterSpots)
