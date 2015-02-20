@@ -5,6 +5,6 @@ class Team < ActiveRecord::Base
     has_many :coaches
     belongs_to :bracket
     has_many :team_games
-    has_many :registrations, through: :bracket
+    has_many :registrations, through: :brackets
     
 end
