@@ -1,6 +1,6 @@
 class Team < ActiveRecord::Base
 
-	#relationships
+	#Relationship Validations
 	has_many :roster_spots
     has_many :coaches
     belongs_to :bracket

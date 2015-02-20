@@ -1,6 +1,6 @@
 class Location < ActiveRecord::Base
   
-  #relationships
+  #Relationship Validations
   has_many :games
   
 end

@@ -1,6 +1,6 @@
 class Game < ActiveRecord::Base
   
-  #relationships
+  #Relationship Validations
   belongs_to :location
   has_many :team_games
   

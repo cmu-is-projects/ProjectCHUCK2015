@@ -1,6 +1,6 @@
 class School < ActiveRecord::Base
   
-  #relationships
+  #Relationship Validations
   has_many :students
   
 end

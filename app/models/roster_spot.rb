@@ -1,6 +1,6 @@
 class RosterSpot < ActiveRecord::Base
 
-	#relationships
+	#Relationship Validations
 	belongs_to :student
 	belongs_to :team
 

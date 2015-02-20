@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   
-  #relationships
+  #Relationship Validations
   has_many :coaches
   has_one :guardian
   

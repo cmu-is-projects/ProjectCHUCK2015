@@ -1,6 +1,6 @@
 class TeamGame < ActiveRecord::Base
   
-  #relationships
+  #Relationship Validations
   belongs_to :team
   belongs_to :game
   has_many :coaches, through: :teams
