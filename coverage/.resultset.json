@@ -97,7 +97,7 @@
   },
   "Unit Tests": {
     "coverage": {
-      "/Users/siddarthsivakumar/Documents/ProjectCHUCK2015/projectChuck2015/app/models/student.rb": [
+      "/Users/allisonwilson/real_project_chuck_2015/ProjectCHUCK2015/app/models/student.rb": [
         1,
         null,
         null,
@@ -112,7 +112,7 @@
         null,
         null
       ],
-      "/Users/siddarthsivakumar/Documents/ProjectCHUCK2015/projectChuck2015/app/models/household.rb": [
+      "/Users/allisonwilson/real_project_chuck_2015/ProjectCHUCK2015/app/models/household.rb": [
         1,
         null,
         null,
@@ -121,32 +121,32 @@
         null,
         null
       ],
-      "/Users/siddarthsivakumar/Documents/ProjectCHUCK2015/projectChuck2015/app/models/school.rb": [
+      "/Users/allisonwilson/real_project_chuck_2015/ProjectCHUCK2015/app/models/school.rb": [
         1,
         null
       ],
-      "/Users/siddarthsivakumar/Documents/ProjectCHUCK2015/projectChuck2015/app/models/guardian.rb": [
+      "/Users/allisonwilson/real_project_chuck_2015/ProjectCHUCK2015/app/models/guardian.rb": [
         1,
         null,
         null,
-        1,
-        null,
-        null
-      ],
-      "/Users/siddarthsivakumar/Documents/ProjectCHUCK2015/projectChuck2015/app/models/registration.rb": [
-        1,
-        null
-      ],
-      "/Users/siddarthsivakumar/Documents/ProjectCHUCK2015/projectChuck2015/app/models/roster_spot.rb": [
-        1,
-        null,
-        null,
-        1,
         1,
         null,
         null
       ],
-      "/Users/siddarthsivakumar/Documents/ProjectCHUCK2015/projectChuck2015/app/models/team.rb": [
+      "/Users/allisonwilson/real_project_chuck_2015/ProjectCHUCK2015/app/models/registration.rb": [
+        1,
+        null
+      ],
+      "/Users/allisonwilson/real_project_chuck_2015/ProjectCHUCK2015/app/models/roster_spot.rb": [
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/allisonwilson/real_project_chuck_2015/ProjectCHUCK2015/app/models/team.rb": [
         1,
         null,
         null,
@@ -155,6 +155,6 @@
         null
       ]
     },
-    "timestamp": 1424300973
+    "timestamp": 1424391163
   }
 }

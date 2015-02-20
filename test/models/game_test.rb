@@ -4,4 +4,8 @@ class GameTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
+  
+  should belong_to(:location)
+  should have_many(:team_games)
+  
 end
