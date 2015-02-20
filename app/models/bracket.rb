@@ -1,10 +1,9 @@
 class Bracket < ActiveRecord::Base
 
-	#relationships
+  #Relationship Validations
   has_many :teams
   belongs_to :tournament
   has_many :registrations
   has_many :teams, through: :registrations
-
 
 end

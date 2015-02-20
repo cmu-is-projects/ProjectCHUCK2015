@@ -1,6 +1,6 @@
 class Student < ActiveRecord::Base
 
-	#relationships
+	#Relationship Validations
 	belongs_to :household
 	belongs_to :school
 	has_many :roster_spots

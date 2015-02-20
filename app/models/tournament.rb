@@ -1,6 +1,6 @@
 class Tournament < ActiveRecord::Base
   
-  #relationships
+  #Relationship Validations
   has_many :brackets
   
 end

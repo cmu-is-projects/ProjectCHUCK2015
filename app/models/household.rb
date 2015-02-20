@@ -1,6 +1,6 @@
 class Household < ActiveRecord::Base
 
-	#relationships
+	#Relationship Validations
 	has_many :guardians
 	has_many :students
 
