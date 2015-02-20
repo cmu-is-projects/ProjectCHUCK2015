@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150217043311) do
+ActiveRecord::Schema.define(version: 20150220004743) do
 
   create_table "brackets", force: true do |t|
     t.integer  "tournament_id"
@@ -134,7 +134,6 @@ ActiveRecord::Schema.define(version: 20150217043311) do
   create_table "teams", force: true do |t|
     t.integer  "bracket_id"
     t.string   "name"
-    t.integer  "num_students"
     t.integer  "max_students"
     t.integer  "num_wins"
     t.integer  "num_losses"
