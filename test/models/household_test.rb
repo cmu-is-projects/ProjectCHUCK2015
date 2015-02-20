@@ -6,6 +6,6 @@ class HouseholdTest < ActiveSupport::TestCase
   # end
   
   should have_many(:guardians)
-  should have_man(:students)
+  should have_many(:students)
   
 end
