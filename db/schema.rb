@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150220004743) do
+ActiveRecord::Schema.define(version: 20150220005703) do
 
   create_table "brackets", force: true do |t|
     t.integer  "tournament_id"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20150220004743) do
     t.integer  "max_age"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "max_students"
   end
 
   create_table "coaches", force: true do |t|
@@ -30,11 +31,10 @@ ActiveRecord::Schema.define(version: 20150220004743) do
   end
 
   create_table "games", force: true do |t|
-    t.integer  "team1_score"
-    t.integer  "team2_score"
     t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "location_id"
   end
 
   create_table "guardians", force: true do |t|
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 20150220004743) do
     t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   create_table "registrations", force: true do |t|
@@ -129,6 +130,7 @@ ActiveRecord::Schema.define(version: 20150220004743) do
     t.integer  "team_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "score"
   end
 
   create_table "teams", force: true do |t|
@@ -146,6 +148,8 @@ ActiveRecord::Schema.define(version: 20150220004743) do
     t.date     "end_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
+    t.text     "description"
   end
 
   create_table "users", force: true do |t|
