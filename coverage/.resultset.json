@@ -1,67 +1,105 @@
 {
   "MiniTest": {
     "coverage": {
-      "/Users/siddarthsivakumar/Documents/ProjectCHUCK2015/projectChuck2015/app/helpers/application_helper.rb": [
+      "/Users/siddarthsivakumar/localProjectChuck/ProjectCHUCK2015/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/siddarthsivakumar/Documents/ProjectCHUCK2015/projectChuck2015/app/helpers/brackets_helper.rb": [
+      "/Users/siddarthsivakumar/localProjectChuck/ProjectCHUCK2015/app/helpers/brackets_helper.rb": [
         1,
         null
       ],
-      "/Users/siddarthsivakumar/Documents/ProjectCHUCK2015/projectChuck2015/app/helpers/coaches_helper.rb": [
+      "/Users/siddarthsivakumar/localProjectChuck/ProjectCHUCK2015/app/helpers/coaches_helper.rb": [
         1,
         null
       ],
-      "/Users/siddarthsivakumar/Documents/ProjectCHUCK2015/projectChuck2015/app/helpers/games_helper.rb": [
+      "/Users/siddarthsivakumar/localProjectChuck/ProjectCHUCK2015/app/helpers/games_helper.rb": [
         1,
         null
       ],
-      "/Users/siddarthsivakumar/Documents/ProjectCHUCK2015/projectChuck2015/app/helpers/guardians_helper.rb": [
+      "/Users/siddarthsivakumar/localProjectChuck/ProjectCHUCK2015/app/helpers/guardians_helper.rb": [
         1,
         null
       ],
-      "/Users/siddarthsivakumar/Documents/ProjectCHUCK2015/projectChuck2015/app/helpers/households_helper.rb": [
+      "/Users/siddarthsivakumar/localProjectChuck/ProjectCHUCK2015/app/helpers/households_helper.rb": [
         1,
         null
       ],
-      "/Users/siddarthsivakumar/Documents/ProjectCHUCK2015/projectChuck2015/app/helpers/locations_helper.rb": [
+      "/Users/siddarthsivakumar/localProjectChuck/ProjectCHUCK2015/app/helpers/locations_helper.rb": [
         1,
         null
       ],
-      "/Users/siddarthsivakumar/Documents/ProjectCHUCK2015/projectChuck2015/app/helpers/registrations_helper.rb": [
+      "/Users/siddarthsivakumar/localProjectChuck/ProjectCHUCK2015/app/helpers/registrations_helper.rb": [
         1,
         null
       ],
-      "/Users/siddarthsivakumar/Documents/ProjectCHUCK2015/projectChuck2015/app/helpers/roster_spots_helper.rb": [
+      "/Users/siddarthsivakumar/localProjectChuck/ProjectCHUCK2015/app/helpers/roster_spots_helper.rb": [
         1,
         null
       ],
-      "/Users/siddarthsivakumar/Documents/ProjectCHUCK2015/projectChuck2015/app/helpers/schools_helper.rb": [
+      "/Users/siddarthsivakumar/localProjectChuck/ProjectCHUCK2015/app/helpers/schools_helper.rb": [
         1,
         null
       ],
-      "/Users/siddarthsivakumar/Documents/ProjectCHUCK2015/projectChuck2015/app/helpers/students_helper.rb": [
+      "/Users/siddarthsivakumar/localProjectChuck/ProjectCHUCK2015/app/helpers/students_helper.rb": [
         1,
         null
       ],
-      "/Users/siddarthsivakumar/Documents/ProjectCHUCK2015/projectChuck2015/app/helpers/team_games_helper.rb": [
+      "/Users/siddarthsivakumar/localProjectChuck/ProjectCHUCK2015/app/helpers/team_games_helper.rb": [
         1,
         null
       ],
-      "/Users/siddarthsivakumar/Documents/ProjectCHUCK2015/projectChuck2015/app/helpers/teams_helper.rb": [
+      "/Users/siddarthsivakumar/localProjectChuck/ProjectCHUCK2015/app/helpers/teams_helper.rb": [
         1,
         null
       ],
-      "/Users/siddarthsivakumar/Documents/ProjectCHUCK2015/projectChuck2015/app/helpers/tournaments_helper.rb": [
+      "/Users/siddarthsivakumar/localProjectChuck/ProjectCHUCK2015/app/helpers/tournaments_helper.rb": [
         1,
         null
       ],
-      "/Users/siddarthsivakumar/Documents/ProjectCHUCK2015/projectChuck2015/app/helpers/users_helper.rb": [
+      "/Users/siddarthsivakumar/localProjectChuck/ProjectCHUCK2015/app/helpers/users_helper.rb": [
         1,
         null
       ],
-      "/Users/siddarthsivakumar/Documents/ProjectCHUCK2015/projectChuck2015/app/models/student.rb": [
+      "/Users/siddarthsivakumar/localProjectChuck/ProjectCHUCK2015/app/models/bracket.rb": [
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/siddarthsivakumar/localProjectChuck/ProjectCHUCK2015/app/models/tournament.rb": [
+        1,
+        null,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/Users/siddarthsivakumar/localProjectChuck/ProjectCHUCK2015/app/models/registration.rb": [
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/siddarthsivakumar/localProjectChuck/ProjectCHUCK2015/app/models/coach.rb": [
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/siddarthsivakumar/localProjectChuck/ProjectCHUCK2015/app/models/team.rb": [
         1,
         null,
         null,
@@ -70,30 +108,96 @@
         1,
         1,
         1,
-        1,
-        null,
-        null,
         null,
         null
       ],
-      "/Users/siddarthsivakumar/Documents/ProjectCHUCK2015/projectChuck2015/app/models/household.rb": [
+      "/Users/siddarthsivakumar/localProjectChuck/ProjectCHUCK2015/app/models/user.rb": [
         1,
+        null,
+        null,
+        1,
+        1,
+        null,
         null
       ],
-      "/Users/siddarthsivakumar/Documents/ProjectCHUCK2015/projectChuck2015/app/models/school.rb": [
+      "/Users/siddarthsivakumar/localProjectChuck/ProjectCHUCK2015/app/models/game.rb": [
         1,
+        null,
+        null,
+        1,
+        1,
+        null,
         null
       ],
-      "/Users/siddarthsivakumar/Documents/ProjectCHUCK2015/projectChuck2015/app/models/registration.rb": [
+      "/Users/siddarthsivakumar/localProjectChuck/ProjectCHUCK2015/app/models/location.rb": [
         1,
+        null,
+        null,
+        1,
+        null,
         null
       ],
-      "/Users/siddarthsivakumar/Documents/ProjectCHUCK2015/projectChuck2015/app/models/roster_spot.rb": [
+      "/Users/siddarthsivakumar/localProjectChuck/ProjectCHUCK2015/app/models/team_game.rb": [
         1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/siddarthsivakumar/localProjectChuck/ProjectCHUCK2015/app/models/guardian.rb": [
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/siddarthsivakumar/localProjectChuck/ProjectCHUCK2015/app/models/household.rb": [
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/siddarthsivakumar/localProjectChuck/ProjectCHUCK2015/app/models/student.rb": [
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/siddarthsivakumar/localProjectChuck/ProjectCHUCK2015/app/models/roster_spot.rb": [
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/siddarthsivakumar/localProjectChuck/ProjectCHUCK2015/app/models/school.rb": [
+        1,
+        null,
+        null,
+        1,
+        null,
         null
       ]
     },
-    "timestamp": 1424298073
+    "timestamp": 1424476386
   },
   "Unit Tests": {
     "coverage": {
