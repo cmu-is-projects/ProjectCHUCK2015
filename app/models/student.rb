@@ -5,6 +5,6 @@ class Student < ActiveRecord::Base
 	belongs_to :school
 	has_many :roster_spots
 	has_many :registrations
-  has_many :guardians, through: :households
+    has_many :guardians, through: :households
 
 end
