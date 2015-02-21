@@ -9,6 +9,7 @@ class TeamTest < ActiveSupport::TestCase
   should have_many(:coaches)
   should belong_to(:bracket)
   should have_many(:team_games)
-  should have_many(:registrations).through(:brackets)
+  should have_many(:students).through(:roster_spots)
+  should have_many(:games).through(:team_games)
   
 end
