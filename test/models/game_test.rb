@@ -7,5 +7,5 @@ class GameTest < ActiveSupport::TestCase
   
   should belong_to(:location)
   should have_many(:team_games)
-  
+
 end
