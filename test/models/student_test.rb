@@ -10,6 +10,6 @@ class StudentTest < ActiveSupport::TestCase
   should belong_to(:school)
   should have_many(:roster_spots)
   should have_many(:registrations)
-  should have_many(:guardians).through(:households)
-
+  should have_many(:brackets).through(:registrations)
+  should have_many(:teams).through(:roster_spots)
 end
