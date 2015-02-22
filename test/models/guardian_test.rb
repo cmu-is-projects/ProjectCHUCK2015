@@ -6,7 +6,6 @@ class GuardianTest < ActiveSupport::TestCase
   # end
   
   should belong_to(:household)
-  should belong_to(:user)
-  should have_many(:students).through(:households)
+  should have_one(:user)
   
 end

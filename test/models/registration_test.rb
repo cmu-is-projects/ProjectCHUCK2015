@@ -7,6 +7,5 @@ class RegistrationTest < ActiveSupport::TestCase
   
   should belong_to(:bracket)
   should belong_to(:student)
-  should have_many(:teams).through(:brackets)
   
 end

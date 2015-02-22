@@ -5,8 +5,11 @@ class BracketTest < ActiveSupport::TestCase
   #   assert true
   # end
   
+  #test relationships
   should have_many(:teams)
   should belong_to(:tournament)
   should have_many(:registrations)
+  should have_many(:students).through(:registrations)
+
   
 end
