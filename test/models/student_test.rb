@@ -65,7 +65,7 @@ class StudentTest < ActiveSupport::TestCase
   should_not allow_value(2).for(:dob)
   should_not allow_value(3.14159).for(:dob)
   should_not allow_value(nil).for(:dob)
-  #should_not allow_value(Date.today.to_date).for(:dob)
+  should_not allow_value(Date.today).for(:dob)
   should_not allow_value(1.day.from_now.to_date).for(:dob)
   
   should allow_value(1).for(:grade)
