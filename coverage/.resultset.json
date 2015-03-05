@@ -200,67 +200,7 @@
   },
   "Unit Tests": {
     "coverage": {
-      "/Users/roei/Desktop/chuck/ProjectCHUCK2015/app/helpers/application_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/roei/Desktop/chuck/ProjectCHUCK2015/app/helpers/brackets_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/roei/Desktop/chuck/ProjectCHUCK2015/app/helpers/coaches_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/roei/Desktop/chuck/ProjectCHUCK2015/app/helpers/games_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/roei/Desktop/chuck/ProjectCHUCK2015/app/helpers/guardians_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/roei/Desktop/chuck/ProjectCHUCK2015/app/helpers/households_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/roei/Desktop/chuck/ProjectCHUCK2015/app/helpers/locations_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/roei/Desktop/chuck/ProjectCHUCK2015/app/helpers/registrations_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/roei/Desktop/chuck/ProjectCHUCK2015/app/helpers/roster_spots_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/roei/Desktop/chuck/ProjectCHUCK2015/app/helpers/schools_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/roei/Desktop/chuck/ProjectCHUCK2015/app/helpers/students_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/roei/Desktop/chuck/ProjectCHUCK2015/app/helpers/team_games_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/roei/Desktop/chuck/ProjectCHUCK2015/app/helpers/teams_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/roei/Desktop/chuck/ProjectCHUCK2015/app/helpers/tournaments_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/roei/Desktop/chuck/ProjectCHUCK2015/app/helpers/users_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/roei/Desktop/chuck/ProjectCHUCK2015/app/models/bracket.rb": [
+      "/Users/siddarthsivakumar/ProjectCHUCK2015/app/models/student.rb": [
         1,
         null,
         null,
@@ -268,18 +208,63 @@
         1,
         1,
         1,
-        null,
-        null
-      ],
-      "/Users/roei/Desktop/chuck/ProjectCHUCK2015/app/models/tournament.rb": [
+        1,
         1,
         null,
         null,
+        null,
+        null,
         1,
+        null,
+        5,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
         null,
         null
       ],
-      "/Users/roei/Desktop/chuck/ProjectCHUCK2015/app/models/registration.rb": [
+      "/Users/siddarthsivakumar/ProjectCHUCK2015/app/models/household.rb": [
         1,
         null,
         null,
@@ -288,33 +273,15 @@
         null,
         null
       ],
-      "/Users/roei/Desktop/chuck/ProjectCHUCK2015/app/models/student.rb": [
+      "/Users/siddarthsivakumar/ProjectCHUCK2015/app/models/school.rb": [
         1,
         null,
         null,
-        1,
-        1,
-        1,
-        1,
-        1,
         1,
         null,
         null
       ],
-      "/Users/roei/Desktop/chuck/ProjectCHUCK2015/app/models/team.rb": [
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null
-      ],
-      "/Users/roei/Desktop/chuck/ProjectCHUCK2015/app/models/coach.rb": [
+      "/Users/siddarthsivakumar/ProjectCHUCK2015/app/models/registration.rb": [
         1,
         null,
         null,
@@ -323,7 +290,18 @@
         null,
         null
       ],
-      "/Users/roei/Desktop/chuck/ProjectCHUCK2015/app/models/user.rb": [
+      "/Users/siddarthsivakumar/ProjectCHUCK2015/app/models/bracket.rb": [
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/siddarthsivakumar/ProjectCHUCK2015/app/models/roster_spot.rb": [
         1,
         null,
         null,
@@ -332,69 +310,20 @@
         null,
         null
       ],
-      "/Users/roei/Desktop/chuck/ProjectCHUCK2015/app/models/game.rb": [
+      "/Users/siddarthsivakumar/ProjectCHUCK2015/app/models/team.rb": [
         1,
         null,
         null,
         1,
         1,
         1,
-        null,
-        null
-      ],
-      "/Users/roei/Desktop/chuck/ProjectCHUCK2015/app/models/location.rb": [
-        1,
-        null,
-        null,
-        1,
-        null,
-        null
-      ],
-      "/Users/roei/Desktop/chuck/ProjectCHUCK2015/app/models/team_game.rb": [
-        1,
-        null,
-        null,
         1,
         1,
-        null,
-        null
-      ],
-      "/Users/roei/Desktop/chuck/ProjectCHUCK2015/app/models/guardian.rb": [
-        1,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null
-      ],
-      "/Users/roei/Desktop/chuck/ProjectCHUCK2015/app/models/household.rb": [
-        1,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null
-      ],
-      "/Users/roei/Desktop/chuck/ProjectCHUCK2015/app/models/roster_spot.rb": [
-        1,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null
-      ],
-      "/Users/roei/Desktop/chuck/ProjectCHUCK2015/app/models/school.rb": [
-        1,
-        null,
-        null,
         1,
         null,
         null
       ]
     },
-    "timestamp": 1424632029
+    "timestamp": 1425355934
   }
 }
