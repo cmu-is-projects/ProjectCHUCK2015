@@ -1,4 +1,4 @@
-class Coach < ActiveRecord::Base
+class Volunteer < ActiveRecord::Base
 	
     #Relationship Validations
 	belongs_to :team

@@ -5,6 +5,6 @@ class UserTest < ActiveSupport::TestCase
   #   assert true
   # end
   
-  should belong_to(:coach)
+  should belong_to(:volunteer)
   
 end

@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   
   #Relationship Validations
-  belongs_to :coach
+  belongs_to :volunteer
   
 end

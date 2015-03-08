@@ -8,7 +8,7 @@ ProjectChuck2015::Application.routes.draw do
 
   resources :schools
 
-  resources :coaches
+  resources :volunteers
 
   resources :tournaments
 
