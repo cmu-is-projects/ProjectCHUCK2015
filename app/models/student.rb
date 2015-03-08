@@ -5,10 +5,10 @@ class Student < ActiveRecord::Base
 	belongs_to :school
 	has_many :roster_spots
 	has_many :registrations
-    has_many :brackets, through: :registrations
-    has_many :teams, through: :roster_spots
+  has_many :brackets, through: :registrations
+  has_many :teams, through: :roster_spots
 
-    # Validations
+  # Validations
   # -----------------------------
   # make sure required fields are present
   validates_presence_of :school_id, :household_id, :first_name, :last_name, :gender, :emergency_contact_name, :emergency_contact_phone

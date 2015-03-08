@@ -6,7 +6,7 @@ class TeamTest < ActiveSupport::TestCase
   # end
   
   should have_many(:roster_spots)
-  should have_many(:coaches)
+  should have_many(:volunteers)
   should belong_to(:bracket)
   should have_many(:team_games)
   should have_many(:students).through(:roster_spots)

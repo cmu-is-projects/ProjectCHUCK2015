@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150220005703) do
+ActiveRecord::Schema.define(version: 20150308034043) do
 
   create_table "brackets", force: true do |t|
     t.integer  "tournament_id"
@@ -23,13 +23,6 @@ ActiveRecord::Schema.define(version: 20150220005703) do
     t.integer  "max_students"
   end
 
-  create_table "coaches", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "team_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "games", force: true do |t|
     t.date     "date"
     t.datetime "created_at"
@@ -39,10 +32,15 @@ ActiveRecord::Schema.define(version: 20150220005703) do
 
   create_table "guardians", force: true do |t|
     t.string   "relation"
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "household_id"
+    t.string   "email"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "cell_phone"
+    t.boolean  "receives_text_msgs"
+    t.boolean  "active"
   end
 
   create_table "households", force: true do |t|
@@ -161,12 +159,22 @@ ActiveRecord::Schema.define(version: 20150220005703) do
     t.date     "active_after"
     t.string   "password_reset_token"
     t.date     "password_reset_sent_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "volunteer_id"
+  end
+
+  create_table "volunteers", force: true do |t|
+    t.integer  "team_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "email"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "cell_phone"
     t.boolean  "receives_text_msgs"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.boolean  "active"
+    t.string   "role"
   end
 
 end

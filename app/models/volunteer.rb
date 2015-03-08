@@ -1,7 +1,7 @@
-class Coach < ActiveRecord::Base
+class Volunteer < ActiveRecord::Base
 	
     #Relationship Validations
-	belongs_to :user
 	belongs_to :team
+	has_one :user
 	
 end
