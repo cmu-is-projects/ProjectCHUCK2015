@@ -11,7 +11,7 @@ class Location < ActiveRecord::Base
   validates_presence_of :zip
   validates_presence_of :state
 
-  #format validations
+  	#format validations
 	validates_format_of :zip, with: /\A\d{5}\z/, message: "should be five digits long"
 
 
@@ -22,4 +22,12 @@ class Location < ActiveRecord::Base
 		'OK', 'OR', 'PW', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 
 		'VT', 'VI', 'VA', 'WA', 'WV', 'WI', 'WY']
 	validates :state, length: {is: 2}, inclusion: {in: us_state_abbrevs}
+
+	
+	#scopes
+	scope :active, -> { where(active: true) }
+	scope :inactive, -> { where(active: false) }
+	scope :alphabetical, -> { order('name') }
+
+
 end
