@@ -69,6 +69,6 @@ class GuardiansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def guardian_params
-      params.require(:guardian).permit(:relation, :user_id, :household_id)
+      params.require(:guardian).permit(:relation, :household_id, :email, :first_name, :last_name, :cell_phone, :receives_text_msgs, :active)
     end
 end

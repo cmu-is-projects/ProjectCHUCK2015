@@ -6,6 +6,5 @@ class GuardianTest < ActiveSupport::TestCase
   # end
   
   should belong_to(:household)
-  should belong_to(:user)
   
 end

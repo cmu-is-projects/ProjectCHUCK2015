@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150308025212) do
+ActiveRecord::Schema.define(version: 20150308034043) do
 
   create_table "brackets", force: true do |t|
     t.integer  "tournament_id"
@@ -32,10 +32,15 @@ ActiveRecord::Schema.define(version: 20150308025212) do
 
   create_table "guardians", force: true do |t|
     t.string   "relation"
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "household_id"
+    t.string   "email"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "cell_phone"
+    t.boolean  "receives_text_msgs"
+    t.boolean  "active"
   end
 
   create_table "households", force: true do |t|
@@ -163,6 +168,13 @@ ActiveRecord::Schema.define(version: 20150308025212) do
     t.integer  "team_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "cell_phone"
+    t.boolean  "receives_text_msgs"
+    t.boolean  "active"
+    t.string   "role"
   end
 
 end
