@@ -5,7 +5,6 @@ class UserTest < ActiveSupport::TestCase
   #   assert true
   # end
   
-  should have_many(:coaches)
-  should have_one(:guardian)
+  should belong_to(:coach)
   
 end
