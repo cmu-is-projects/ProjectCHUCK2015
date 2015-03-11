@@ -76,21 +76,55 @@ class StudentTest < ActiveSupport::TestCase
   should_not allow_value(15).for(:grade)
   should_not allow_value(nil).for(:grade)
   
+  
+  context "With a proper context, " do
+    
+    setup do
+      create_context
+    end
+    
+    teardown do
+      remove_context
+    end 
+    
+    should "show that all factory objects are properly created" do
+      assert_equal "Smith, Joe", @joe.name
+      assert_equal "Jones, Sue", @sue.name
+    end
+    
   #scopes
   
-  #alphabetical
-  #active
-  #inactive
-  #by_school (name of school)
-  #missing_birthcert
-  #by_grade
-  #by_gender
+  should "sort students in alphabetical order" do
+  end
+  
+  should "show that there are active students" do
+  end
+  
+  should "show that there are inactive students" do
+  end
+  
+  should "show all students attending a certain school" do
+  end
+  
+  should "show all students that are missing their birth certificate" do
+  end
+  
+  should "show all students in a certain grade" do
+  end
+  
+  should "show all students of a particular gender" do
+  end
   
   #methods
   
-  #proper_name
-  #name
-  #age
+  should "have a working age method" do
+  end
+  
+  should "have a working proper name method" do
+  end
+  
+  should "have a working name method" do
+  end
   
   
 end
