@@ -16,8 +16,7 @@ class Volunteer < ActiveRecord::Base
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
   scope :by_role, ->(role) { where("role = ?", role) }
-  scope :receives_text_msgs, -> { where(receives_text_msgs: true) }
-  scope :no_text_msgs, -> { where(receives_text_msgs: false) }
+  scope :by_receives_text_msgs, -> { where(receives_text_msgs: true) }
   
   def proper_name
     first_name + " " + last_name

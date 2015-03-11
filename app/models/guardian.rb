@@ -12,8 +12,7 @@ class Guardian < ActiveRecord::Base
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
   scope :alphabetical, -> { order('last_name, first_name') }
-  scope :receives_text_msgs, -> { where(receives_text_msgs: true) }
-  scope :no_text_msgs, -> { where(receives_text_msgs: false) }
+  scope :by_receives_text_msgs, -> { where(receives_text_msgs: true) }
   
   #methods
   def proper_name

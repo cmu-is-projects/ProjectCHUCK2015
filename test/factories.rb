@@ -20,3 +20,24 @@ FactoryGirl.define do
     security_response "Spot"
     active true
   end
+  
+  #households
+  factory :household do
+    street "100 Main St"
+    city "Pittsburgh"
+    state "PA"
+    zip "15213"
+    home_phone "412-000-0000"
+    county "Allegheny"
+    active true
+  end
+  
+  #users
+  factory :user do
+    association :volunteer
+    username "user123"
+    role "volunteer"
+    email "user123@user.com"
+    password_digest "secret"
+    active true
+  end
