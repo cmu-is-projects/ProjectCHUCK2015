@@ -16,17 +16,17 @@ class Bracket < ActiveRecord::Base
   validate :minlessmax
   validate :valid_tournament_id
 
-  #Scopes
-  #by gender 
-  scope :male, -> { where ("gender = ?"), 'M'}
-  scope :female, -> { where ("gender = ?"), 'F'}
+  # Scopes
+  # by gender 
+  scope :male, -> { where("gender = ?","M") }
+  scope :female, -> { where("gender = ?", "F") }
 
   #by age group
   #this needs some clarification 
 
   #is full
-  scope :full, -> { where("max_students = ? "), num_registered }
-  scope :not_full, -> { where("max_students > ?"), num_registered }
+  scope :full, -> { where("max_students = ? ", num_registered) }
+  scope :not_full, -> { where("max_students > ?", num_registered) }
 
 
   #Methods
