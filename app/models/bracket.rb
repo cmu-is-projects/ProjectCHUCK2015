@@ -22,6 +22,7 @@ class Bracket < ActiveRecord::Base
   scope :female, -> { where ("gender = ?"), 'F'}
 
   #by age group
+  #this needs some clarification 
 
   #is full
   scope :full, -> { where("max_students = ? "), num_registered }
@@ -47,8 +48,7 @@ class Bracket < ActiveRecord::Base
   #i.e. tounament is active
   def valid_tournament_id
   	all_tournaments = Tournament.to_a.map{|u| u.id}
-
-  	self.tournament.end_date 
+  	return all_tournaments.include?(self.tournament.id) && self.tournament.end_date.nil?
   end
 
   #HELPER FUNCTIONS
