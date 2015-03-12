@@ -9,9 +9,7 @@ class Bracket < ActiveRecord::Base
   #Validations
   validates_presence_of :gender
 
-  validates_numericality_of :max_students
-  validates_numericality_of :min_age
-  validates_numericality_of :max_age 
+  validates_numericality_of :max_students, :min_age, :max_age
 
   validate :minlessmax
   validate :valid_tournament_id
