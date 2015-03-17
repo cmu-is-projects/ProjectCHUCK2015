@@ -26,7 +26,7 @@ class Household < ActiveRecord::Base
   # Methods
   # -----------------------------
 
-#get city??
+#get city - might be useful later but NOT NOW
 
   private
      # We need to strip non-digits before saving to db
