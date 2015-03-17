@@ -8,9 +8,9 @@ class VolunteerTest < ActiveSupport::TestCase
   should belong_to(:team)
 
   # test validations
-  should validate_presence_of(:first_name)
-  should validate_presence_of(:last_name)
-  should validate_presence_of(:cell_phone)
+  # should validate_presence_of(:first_name)
+  # should validate_presence_of(:last_name)
+  # should validate_presence_of(:cell_phone)
 
   # should allow_value("fred@fred.com").for(:email)
   # should allow_value("fred@andrew.cmu.edu").for(:email)
