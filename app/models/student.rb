@@ -27,6 +27,8 @@ class Student < ActiveRecord::Base
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
   scope :by_school,   -> { joins(:school).order('schools.name') }
+  #by_district (district)?
+  #by_county (county)?
   scope :missing_birthcert,  -> { where(has_birth_certificate: 'false')}
   scope :by_grade, ->(grade) { where("grade = ?", grade) }
   scope :by_gender, ->(gender) { where("gender = ?", gender) }

@@ -76,21 +76,71 @@ class StudentTest < ActiveSupport::TestCase
   should_not allow_value(15).for(:grade)
   should_not allow_value(nil).for(:grade)
   
-  #scopes
   
-  #alphabetical
-  #active
-  #inactive
-  #by_school (name of school)
-  #missing_birthcert
-  #by_grade
-  #by_gender
+#context "With a proper context, " do
+#  
+#  setup do
+#    create_context
+#  end
+#  
+#  teardown do
+#    remove_context
+#  end 
+#  
+#  should "show that all factory objects are properly created" do
+#    assert_equal "Smith, Joe", @joe.name
+#    assert_equal "Jones, Sue", @sue.name
+#  end
+#  
+##scopes
+#
+#should "sort students in alphabetical order" do
+#  assert_equal ["Jones, Sue", "Smith, Joe"], Student.alphabetical.map(&:name)
+#end
+#
+#should "show that there are active students" do
+#  assert_equal ["Smith, Joe"], Student.active.map(&:name)
+#end
+#
+#should "show that there are inactive students" do
+#  assert_equal ["Jones, Sue"], Student.inactive.map(&:name)
+#end
+#
+#should "show all students attending a certain school" do
+#  assert_equal [], Student.by_school.map(&:name)
+#end
+#
+#should "show all students that are missing their birth certificate" do
+#  assert_equal ["Jones, Sue"], Student.missing_birthcert.map(&:name)
+#end
+#
+#should "show all students in a certain grade" do
+#  assert_equal ["Smith, Joe"], Student.grade(9).map(&:name)
+#  assert_equal ["Jones, Sue"], Student.grade(6).map(&:name)
+#end
+#
+#should "show all students of a particular gender" do
+#  assert_equal ["Smith, Joe"], Student.gender("male").map(&:name)
+#  assert_equal ["Jones, Sue"], Student.gender("female").map(&:name)
+#end
+#
+##methods
+#
+#should "have a working age method" do
+#  assert_equal 15, @joe.age
+#  assert_equal 12, @sue.age
+#end
+#
+#should "have a working proper name method" do
+#  assert_equal "Joe Smith", @joe.proper_name
+#  assert_equal "Sue Jones", @sue.proper_name
+#end
+#
+#should "have a working name method" do
+#  assert_equal "Smith, Joe", @joe.name
+#  assert_equal "Jones, Sue", @sue.name
+#end
   
-  #methods
-  
-  #proper_name
-  #name
-  #age
-  
+#end
   
 end
