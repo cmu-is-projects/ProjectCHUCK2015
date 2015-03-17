@@ -41,3 +41,5 @@ FactoryGirl.define do
     password_digest "secret"
     active true
   end
+
+end
