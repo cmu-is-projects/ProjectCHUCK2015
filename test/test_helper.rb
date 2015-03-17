@@ -30,13 +30,13 @@ class ActiveSupport::TestCase
     @old = FactoryGirl.create(:household, street: "50 Old Dr", active: false)
     
     #students, need school
-    @joe = FactoryGirl.create(:student, household: @main)
-    @sue = FactoryGirl.create(:student, household: @first, first_name: "Sue", last_name: "Jones", emergency_contact_name: "Michael Jones", dob: 12.years.ago.to_date, grade: 6, gender: "female", has_birth_certificate: false, active: false)
+    #@joe = FactoryGirl.create(:student, household: @main)
+    #@sue = FactoryGirl.create(:student, household: @first, first_name: "Sue", last_name: "Jones", emergency_contact_name: "Michael Jones", dob: 12.years.ago.to_date, grade: 6, gender: "female", has_birth_certificate: false, active: false)
     
     #users, need volunteer
-    @userv = FactoryGirl.create(:user, volunteer: )
-    @userc = FactoryGirl.create(:user, volunteer: , username: "itsme", role: "coach", email: "itsme@gmail.com")
-    @useri = FactoryGirl.create(:user, volunteer: , username: "olduser", email: "olduser@gmail.com", active: false)
+    #@userv = FactoryGirl.create(:user, volunteer: )
+    #@userc = FactoryGirl.create(:user, volunteer: , username: "itsme", role: "coach", email: "itsme@gmail.com")
+   # @useri = FactoryGirl.create(:user, volunteer: , username: "olduser", email: "olduser@gmail.com", active: false)
 
   end
   
@@ -46,12 +46,12 @@ class ActiveSupport::TestCase
     @first.destroy
     @old.destroy
     
-    @joe.destroy
-    @sue.destroy
+  #  @joe.destroy
+   # @sue.destroy
     
-    @userc.destroy
-    @userv.destroy
-    @useri.destroy
+   # @userc.destroy
+   # @userv.destroy
+   # @useri.destroy
     
   end
 

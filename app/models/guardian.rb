@@ -30,6 +30,6 @@ class Guardian < ActiveRecord::Base
        cell_phone.gsub!(/[^0-9]/,"") # strip all non-digits
        self.cell_phone = cell_phone       # reset self.phone to new string
      end
-   end
+    
 
 end

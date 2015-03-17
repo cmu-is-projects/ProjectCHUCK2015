@@ -6,7 +6,7 @@ FactoryGirl.define do
     association :school
     first_name "Joe"
     last_name "Smith"
-    dob 15.years.go.to_date
+    dob 15.years.ago.to_date
     cell_phone "412-000-000"
     email "joe_smith@comcast.net"
     grade 9
