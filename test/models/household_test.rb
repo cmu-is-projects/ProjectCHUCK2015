@@ -71,6 +71,6 @@ class HouseholdTest < ActiveSupport::TestCase
 #  end
   
   #methods - get_city?
-end
+#end
   
 end
