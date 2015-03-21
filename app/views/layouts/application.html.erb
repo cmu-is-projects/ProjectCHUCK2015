@@ -7,8 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
-</body>
+    <%= render :partial => "partials/nav" %>  
+    <div class="row">
+      <div class="col-xs-12 col-md-12" id="main_content">
+        <%= yield %>
+      </div>
+    </div>
+    <footer>
+      <div class="row">
+        <div class="col-xs-12 col-md-12" id="footer">
+          <%= render partial: 'partials/footer' %>
+        </div>
+      </div> 
+    </footer> 
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>
