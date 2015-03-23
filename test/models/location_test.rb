@@ -26,6 +26,6 @@ class LocationTest < ActiveSupport::TestCase
   should_not allow_value("15d32").for(:zip)
   should_not allow_value(nil).for(:zip)
 
-  
+ 
   
 end

@@ -33,18 +33,36 @@ class ActiveSupport::TestCase
     @msg.destroy
   end
 
-  
+  def create_tournaments
+    #@nba = FactoryGirl.create(:tournament, name:"NBA Championship", start_date:"")
+  end 
+  def remove_tournaments
+
+  end 
+
+  def create_students
+
+  end
+
+
 
   def create_context
-    
+    #schools
+    @perry = FactoryGirl.create(:school, name: "Perry Highschool", district: "Pittsburgh Public Schools", county: "Allegheny")
+    @scitech = FactoryGirl.create(:school, name: "Scitech Academy", district: "Pittsburgh Public Schools", county: "Other")
+    @obama = FactoryGirl.create(:school, name: "Obama 6-12", district: "Other", county: "Other")
+ 
     #households
-    @main = FactoryGirl.create(:household)
-    @first = FactoryGirl.create(:household, street: "2 First Ave")
-    @old = FactoryGirl.create(:household, street: "50 Old Dr", active: false)
+    @kevins = FactoryGirl.create(:household, county: "Greene", phone: "4127735465")
+    @first = FactoryGirl.create(:household, street: "2 First Ave", county:"Butler", state: "PA", zip:"15289", phone: "5552364537")
+    @old = FactoryGirl.create(:household, county: "Greene", phone: "4123376677", street: "50 Old Dr", active: false)
     
-    #students, need school
-    #@joe = FactoryGirl.create(:student, household: @main)
-    #@sue = FactoryGirl.create(:student, household: @first, first_name: "Sue", last_name: "Jones", emergency_contact_name: "Michael Jones", dob: 12.years.ago.to_date, grade: 6, gender: "female", has_birth_certificate: false, active: false)
+    #guardians
+    #@shaq = 
+
+    #students
+    @kd = FactoryGirl.create(:student, household: @main)
+    @klove = FactoryGirl.create(:student, household: @first, first_name: "Sue", last_name: "Jones", emergency_contact_name: "Michael Jones", dob: 12.years.ago.to_date, grade: 6, gender: "female", has_birth_certificate: false, active: false)
     
     #users, need volunteer
     #@userv = FactoryGirl.create(:user, volunteer: )
@@ -54,7 +72,10 @@ class ActiveSupport::TestCase
   end
   
   def remove_context
-    
+    @perry.destroy
+    @scitech.destroy
+    @obama.destroy
+
     @main.destroy
     @first.destroy
     @old.destroy
