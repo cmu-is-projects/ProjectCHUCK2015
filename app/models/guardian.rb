@@ -7,7 +7,8 @@ class Guardian < ActiveRecord::Base
   
   validates_format_of :email, :with => /\A[\w]([^@\s,;]+)@(([a-z0-9.-]+\.)+(com|edu|org|net|gov|mil|biz|info))\z/i, :message => "is not a valid format", :allow_blank => true
   validates_format_of :cell_phone, with: /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/, message: "should be 10 digits (area code needed) and delimited with dashes only", :allow_blank => true
-  
+  validate :valid_household_id
+
   #scopes
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
