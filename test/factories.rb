@@ -1,5 +1,11 @@
 FactoryGirl.define do
-  
+  #schools
+factory :school do
+   name "Park Elementary School"
+   district "Steel Valley"
+   county "Allegheny"
+end
+
   #students
   factory :student do
     association :household
@@ -31,6 +37,18 @@ FactoryGirl.define do
     county "Allegheny"
     active true
   end
+
+  #guardian
+factory :guardian do
+  association :household
+   relation "mother"
+   email "name@cmu.edu"
+   first_name "Charlie"
+   last_name "Batch"
+   cell_phone "412-678-9000"
+   receives_text_msgs true
+   active true
+end
   
   #users
   factory :user do
@@ -41,5 +59,17 @@ FactoryGirl.define do
     password_digest "secret"
     active true
   end
+
+#volunteer
+factory :volunteer do
+   association :team
+   role "volunteer"
+   email "pranz@cmu.edu"
+   first_name "Pranita"
+   last_name "Ramakrishnan"
+   cell_phone "571-478-3829"
+   receives_text_msgs true
+   active true
+end
 
 end
