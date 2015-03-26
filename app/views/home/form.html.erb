@@ -1,29 +1,25 @@
 <div class= "col-sm-2">
-	<%= image_tag 'projectChuckLogo.jpg' %>
+	<%#= image_tag 'projectChuckLogo.jpg' %>
 </div>
 <div class= "col-sm-10">
 
-		<p>If you would like to register a student for Project C.H.U.C.K. 2015, 
-			<%= render :partial => "students/form" %>
-			<div class="btn-group">
-				<%= link_to "Register a Student", new_registration_path, :class => 'btn btn-default' %>
-			</div>
-		</p>
-		<p>If you would like to add another student to a household, 
-			<div class="btn-group">
-				<%= link_to "Add Student to Household", new_student_path,:class => 'btn btn-default'  %>
-			</div>
-		</p>
-		<p>If you would like to add another guardian to a previously completed registration, 
-			<div class="btn-group">
-				<%= link_to "Add Guardian to Registration", new_guardian_path, :class => 'btn btn-default' %>
-			</div>
-		</p>
-
-		<!-- <h2>Are you new to Project C.H.U.C.K.?</h2>
-			<%#= link_to 'Click here to register', 'contact' %><br> 
-		<h2>Are you a returning member?</h2>
-			<h3>Click here to update your information.</h3> -->
+	<div data-role="collapsible-set">
+		<div data-role="collapsible">
+			<h3>Parent/Guardian Information</h3>
+			<p>I'm the collapsible content for section 1</p>
+			<%#= render :partial => "students/form" %>
+		</div>
+		<div data-role="collapsible">
+			<h3>Student Information</h3>
+			<p>I'm the collapsible content for section 2</p>
+			<%#= render :partial => "households/form" %>
+		</div>
+		<div data-role="collapsible">
+			<h3>LALALA SECTION</h3>
+			<p>I'm the collapsible content for section 3</p>
+			<%#= render :partial => "guardians/form" %>
+		</div>
+	</div>	
 </div>
 
 

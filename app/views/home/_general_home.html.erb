@@ -1,13 +1,21 @@
+<%= render :partial => "partials/admin_nav" %>
+
 <br><br>
 <div class = "row">
-	<div class= "col-sm-2">
-		<%= image_tag 'projectChuckLogo.jpg' %>
+	<div class= "col-sm-1">
+		<%#= image_tag 'projectChuckLogo.jpg' %>
 	</div>
-	<div class= "col-sm-10">
+	<div class= "col-sm-11">
 		<h1>Welcome to Project C.H.U.C.K. 2015 Registration!</h1><br>
+		<!-- <h2><%#= link_to 'Are you new to Project C.H.U.C.K.?', 'home/form'%></h2><br> -->
+
 		<h2>Are you new to Project C.H.U.C.K.?</h2>
-			<%= link_to 'Click here to register', 'home/form' %><br> 
+			<!-- <div class="btn-group"> -->
+				<!-- <%#= link_to 'Yes', 'home/form', :class => 'btn btn-default' %><br>  -->
+			<!-- </div> --> 
+				<%#= link_to "Register a Student", new_registration_path, :class => 'btn btn-default' %>
+		
 		<h2>Are you a returning member?</h2>
-			<h3>Click here to update your information.</h3>
+			<!-- <h3>Click here to update your information.</h3> -->
 	</div>
 </div>
