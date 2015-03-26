@@ -11,7 +11,7 @@ class Student < ActiveRecord::Base
   # Validations
   # -----------------------------
   # make sure required fields are present
-  validates_presence_of :school_id, :household_id, :first_name, :last_name, :gender, :emergency_contact_name, :emergency_contact_phone
+  validates_presence_of :school_id, :household_id, :first_name, :last_name, :gender, :emergency_contact_name, :emergency_contact_phone, :dob
   #validates_date :dob, :before => lambda { Date.current }, :message => "cannot be in the future", allow_blank: false, on: :create
   validates_date :dob, :before => lambda { Date.today }
   #validates_uniqueness_of :email, allow_blank: true
