@@ -29,7 +29,7 @@ class Bracket < ActiveRecord::Base
 
   #Methods
   def get_teams
-  	return self.teams
+  	return self.teams.to_a
   end
 
 
