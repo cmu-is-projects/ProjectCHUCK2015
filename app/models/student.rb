@@ -20,6 +20,7 @@ class Student < ActiveRecord::Base
   validates_format_of :emergency_contact_phone, with: /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/, message: "should be 10 digits (area code needed) and delimited with dashes only", :allow_blank => false
   grades_array = (0..12).to_a
   validates :grade, numericality: { only_integer: true, allow_blank: false }, inclusion: { in: grades_array, allow_blank: false }  
+  validate :household_is_active_in_system
 
 	# Scopes
   # -----------------------------
@@ -61,4 +62,12 @@ class Student < ActiveRecord::Base
        emergency_contact_phone.gsub!(/[^0-9]/,"") # strip all non-digits
        self.emergency_contact_phone = emergency_contact_phone       # reset self.phone to new string
      end
+
+    #household_id is valid in system
+    def household_is_active_in_system
+      all_active_households = Household.active.to_a.map{|u| u.id}
+      unless all_active_households.include?(self.household_id)
+        errors.add(:household_id, "is not an active household in the system")
+      end
+    end 
 end

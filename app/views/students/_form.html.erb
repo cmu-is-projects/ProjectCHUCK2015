@@ -10,12 +10,14 @@
   </ul>
 </div>
 <% end %>
-  <!-- <div class="field">
-    <%#= f.label :household_id %><br>
-    <%#= f.number_field :household_id %>
-  </div> -->
   <div class="container">
     <div class="row">
+      <div class="col-xs-6 col-sm-4">
+        <div class="field">
+          <%= f.label :household_id %><br>
+          <%= f.collection_select :household_id, Household.all, :id, :id, prompt: "Select..." %>
+        </div>
+      </div>
       <div class="col-xs-6 col-sm-4">
         <div class="field">
           <%= f.label :first_name %><br>

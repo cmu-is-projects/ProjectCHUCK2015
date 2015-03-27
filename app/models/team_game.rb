@@ -13,8 +13,8 @@ class TeamGame < ActiveRecord::Base
   #team_id exists in system
   #game_id exists in the system
   def valid_team_and_game_id
-    all_teams = Team.to_a.map{|u| u.id}
-    all_games = Game.to_a.map{|u| u.id}
+    all_teams = Team.all.to_a.map{|u| u.id}
+    all_games = Game.all.to_a.map{|u| u.id}
     return all_teams.include?(self.team.id) && all_games.include?(self.game.id)
   end
 

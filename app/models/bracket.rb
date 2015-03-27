@@ -45,7 +45,7 @@ class Bracket < ActiveRecord::Base
   #AND end_date of that tournament is null 
   #i.e. tounament is active
   def valid_tournament_id
-  	all_tournaments = Tournament.to_a.map{|u| u.id}
+  	all_tournaments = Tournament.all.to_a.map{|u| u.id}
   	return all_tournaments.include?(self.tournament.id) && self.tournament.end_date.nil?
   end
 
