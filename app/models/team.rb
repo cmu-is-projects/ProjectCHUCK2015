@@ -11,12 +11,13 @@ class Team < ActiveRecord::Base
     #validations
     validates :name, presence: true, uniqueness: true
 
-    validates_numericality_of :num_wins, :num_losses, :max_students
+    validates_numericality_of :num_wins, :num_losses, allow_blank: true
+    validates_numericality_of :max_students
     validate :valid_bracket_id
 
     #custom validation: bracket_id exists in the system
     def valid_bracket_id
-        all_brackets = Bracket.to_a.map{|u| u.id}
+        all_brackets = Bracket.all.to_a.map{|u| u.id}
         return all_brackets.include?(self.bracket.id) 
     end
 

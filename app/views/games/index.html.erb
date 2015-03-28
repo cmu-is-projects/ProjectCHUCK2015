@@ -3,8 +3,6 @@
 <table>
   <thead>
     <tr>
-      <th>Team1 score</th>
-      <th>Team2 score</th>
       <th>Date</th>
       <th></th>
       <th></th>
@@ -15,8 +13,6 @@
   <tbody>
     <% @games.each do |game| %>
       <tr>
-        <td><%= game.team1_score %></td>
-        <td><%= game.team2_score %></td>
         <td><%= game.date %></td>
         <td><%= link_to 'Show', game %></td>
         <td><%= link_to 'Edit', edit_game_path(game) %></td>

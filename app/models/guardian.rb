@@ -7,7 +7,7 @@ class Guardian < ActiveRecord::Base
   
   validates_format_of :email, :with => /\A[\w]([^@\s,;]+)@(([a-z0-9.-]+\.)+(com|edu|org|net|gov|mil|biz|info))\z/i, :message => "is not a valid format", :allow_blank => true
   validates_format_of :cell_phone, with: /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/, message: "should be 10 digits (area code needed) and delimited with dashes only", :allow_blank => true
-  validate :valid_household_id
+  validate :household_is_active_in_system
 
   #scopes
   scope :active, -> { where(active: true) }
@@ -33,9 +33,11 @@ class Guardian < ActiveRecord::Base
      end
     
    #household_id is valid in system
-   def valid_household_id
-    all_households = Household.to_a.map{ |u| u.id }
-    return all_households.include?(self.household.id)
-   end  
+  def household_is_active_in_system
+    all_active_households = Household.active.to_a.map{|u| u.id}
+    unless all_active_households.include?(self.household_id)
+      errors.add(:household_id, "is not an active household in the system")
+    end
+  end 
 
 end

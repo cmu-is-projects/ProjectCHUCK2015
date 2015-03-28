@@ -4,7 +4,6 @@
   <thead>
     <tr>
       <th>Relation</th>
-      <th>User</th>
       <th></th>
       <th></th>
       <th></th>
@@ -15,7 +14,6 @@
     <% @guardians.each do |guardian| %>
       <tr>
         <td><%= guardian.relation %></td>
-        <td><%= guardian.user_id %></td>
         <td><%= link_to 'Show', guardian %></td>
         <td><%= link_to 'Edit', edit_guardian_path(guardian) %></td>
         <td><%= link_to 'Destroy', guardian, method: :delete, data: { confirm: 'Are you sure?' } %></td>
