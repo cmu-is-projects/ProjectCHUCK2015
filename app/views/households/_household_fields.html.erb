@@ -1,42 +1,23 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-6 col-sm-4">
-      <div class="field">
+<!-- <div class="container">
+  <div class="row"> -->
+
+<div class="fields">
+  <div class="min_attraction">
+
         <%= f.input :street, input_html: {class: "avg"} %>
-      </div>
-    </div>
-    <div class="col-xs-6 col-sm-4">
-      <div class="field">
-         <%= f.input :city, input_html: {class: "avg"} %>
-      </div>
-    </div>
-    <div class="col-xs-6 col-sm-4">
-      <div class="field">
+
+        <%= f.input :city, input_html: {class: "avg"} %>
+
         <%= f.input :state, collection: Household::STATES_LIST %>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-6 col-sm-4">
-      <div class="field">
+
         <%= f.input :zip, input_html: {class: "avg"} %>
-      </div>
-    </div>
-    <div class="col-xs-6 col-sm-4">
-      <div class="field">
+
         <%= f.input :county, collection: Household::COUNTY_ARRAY %>
-      </div>
-    </div>
-    <div class="col-xs-6 col-sm-4">
-      <div class="field">
+
         <%= f.input :home_phone, input_html: {class: "avg"} %>
-      </div>
-    </div>
-    <div class="col-xs-6 col-sm-4">
-      <div class="field">
+
         <%= f.input :active, as: :boolean, checked_value: true, unchecked_value: false %>
-      </div>
-    </div>
+
   </div>
 </div>
 
