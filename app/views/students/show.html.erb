@@ -6,6 +6,11 @@
 </p>
 
 <p>
+  <strong>Name:</strong>
+  <%= @student.proper_name %>
+</p>
+
+<!-- <p>
   <strong>First name:</strong>
   <%= @student.first_name %>
 </p>
@@ -13,10 +18,10 @@
 <p>
   <strong>Last name:</strong>
   <%= @student.last_name %>
-</p>
+</p> -->
 
 <p>
-  <strong>Dob:</strong>
+  <strong>Date of Birth:</strong>
   <%= @student.dob %>
 </p>
 
@@ -65,7 +70,7 @@
   <%= @student.medications %>
 </p>
 
-<p>
+<!-- <p>
   <strong>Security question:</strong>
   <%= @student.security_question %>
 </p>
@@ -73,12 +78,12 @@
 <p>
   <strong>Security response:</strong>
   <%= @student.security_response %>
-</p>
+</p> -->
 
-<p>
+<!-- <p>
   <strong>Active:</strong>
   <%= @student.active %>
-</p>
+</p> -->
 
 <%= link_to 'Edit', edit_student_path(@student) %> |
 <%= link_to 'Back', students_path %>

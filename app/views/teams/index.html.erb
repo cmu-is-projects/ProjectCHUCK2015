@@ -1,14 +1,16 @@
-<h1>Listing teams</h1>
+<div class="container">
+<h1>Project C.H.U.C.K. Teams</h1><br>
+<%= link_to 'New Team', new_team_path %>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Bracket</th>
       <th>Name</th>
-      <th>Num students</th>
+      <th>Students enrolled</th>
       <th>Max students</th>
-      <th>Num wins</th>
-      <th>Num losses</th>
+      <th># wins</th>
+      <th># losses</th>
       <th></th>
       <th></th>
       <th></th>
@@ -31,7 +33,4 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Team', new_team_path %>
+</div>
