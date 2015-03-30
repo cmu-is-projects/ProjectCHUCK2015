@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150308034043) do
+ActiveRecord::Schema.define(version: 20150327010400) do
 
   create_table "brackets", force: true do |t|
     t.integer  "tournament_id"
@@ -76,11 +76,11 @@ ActiveRecord::Schema.define(version: 20150308034043) do
     t.string   "family_physician"
     t.string   "physician_phone"
     t.boolean  "has_physical"
-    t.boolean  "physical_date"
     t.string   "jersey_size"
     t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "physical_date"
   end
 
   create_table "roster_spots", force: true do |t|

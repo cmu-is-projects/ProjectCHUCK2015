@@ -3,7 +3,6 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
       <th>Team</th>
       <th></th>
       <th></th>
@@ -14,7 +13,6 @@
   <tbody>
     <% @volunteers.each do |volunteer| %>
       <tr>
-        <td><%= volunteer.user_id %></td>
         <td><%= volunteer.team_id %></td>
         <td><%= link_to 'Show', volunteer %></td>
         <td><%= link_to 'Edit', edit_volunteer_path(volunteer) %></td>
