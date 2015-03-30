@@ -7,15 +7,18 @@
 	</div>
 	<div class= "col-sm-11">
 		<h1>Welcome to Project C.H.U.C.K. 2015 Registration!</h1><br>
-		<!-- <h2><%#= link_to 'Are you new to Project C.H.U.C.K.?', 'home/form'%></h2><br> -->
+		<%#= render :partial => 'students/form' %>
+		<h2><%#= link_to 'Are you new to Project C.H.U.C.K.?', 'home/form'%></h2><br> 
 
 		<h2>Are you new to Project C.H.U.C.K.?</h2>
 			<!-- <div class="btn-group"> -->
-				<!-- <%#= link_to 'Yes', 'home/form', :class => 'btn btn-default' %><br>  -->
+				<%= link_to 'Yes', new_student_path %><br>
 			<!-- </div> --> 
 				<%#= link_to "Register a Student", new_registration_path, :class => 'btn btn-default' %>
 		
 		<h2>Are you a returning member?</h2>
+			<!-- <h3>Click here to update your information.</h3> -->
+		<h2><%= link_to 'Are you interested in volunteering?', new_user_path %></h2>
 			<!-- <h3>Click here to update your information.</h3> -->
 	</div>
 </div>
