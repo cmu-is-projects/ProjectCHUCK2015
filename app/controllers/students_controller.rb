@@ -15,6 +15,7 @@ class StudentsController < ApplicationController
   # GET /students/new
   def new
     @student = Student.new
+    @student.household_id = params[:household_id] unless params[:household_id].nil?
   end
 
   # GET /students/1/edit

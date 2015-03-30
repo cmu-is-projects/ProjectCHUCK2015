@@ -11,7 +11,7 @@ class Student < ActiveRecord::Base
   # Validations
   # -----------------------------
   # make sure required fields are present
-  validates_presence_of :school_id, :household_id, :first_name, :last_name, :gender, :emergency_contact_name, :emergency_contact_phone, :dob
+  validates_presence_of :school_id, :first_name, :last_name, :gender, :emergency_contact_name, :emergency_contact_phone, :dob
   #validates_date :dob, :before => lambda { Date.current }, :message => "cannot be in the future", allow_blank: false, on: :create
   validates_date :dob, :before => lambda { Date.today }
   #validates_uniqueness_of :email, allow_blank: true
@@ -20,7 +20,7 @@ class Student < ActiveRecord::Base
   validates_format_of :emergency_contact_phone, with: /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/, message: "should be 10 digits (area code needed) and delimited with dashes only", :allow_blank => false
   grades_array = (0..12).to_a
   validates :grade, numericality: { only_integer: true, allow_blank: false }, inclusion: { in: grades_array, allow_blank: false }  
-  validate :household_is_active_in_system
+  # validate :household_is_active_in_system
 
 	# Scopes
   # -----------------------------
@@ -64,10 +64,10 @@ class Student < ActiveRecord::Base
      end
 
     #household_id is valid in system
-    def household_is_active_in_system
-      all_active_households = Household.active.to_a.map{|u| u.id}
-      unless all_active_households.include?(self.household_id)
-        errors.add(:household_id, "is not an active household in the system")
-      end
-    end 
+    # def household_is_active_in_system
+    #   all_active_households = Household.active.to_a.map{|u| u.id}
+    #   unless all_active_households.include?(self.household_id)
+    #     errors.add(:household_id, "is not an active household in the system")
+    #   end
+    # end 
 end

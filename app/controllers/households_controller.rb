@@ -15,6 +15,7 @@ class HouseholdsController < ApplicationController
   # GET /households/new
   def new
     @household = Household.new
+    @household.students.build
   end
 
   # GET /households/1/edit
@@ -69,6 +70,6 @@ class HouseholdsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def household_params
-      params.require(:household).permit(:street, :city, :state, :zip, :home_phone, :county, :active)
+      params.require(:household).permit(:street, :city, :state, :zip, :home_phone, :county, :active, students_attributes: [ :first_name, :last_name, :dob, :cell_phone, :email, :grade, :gender, :emergency_contact_name, :emergency_contact_phone, :has_birth_certificate, :allergies, :medications, :security_question, :security_response, :active, :school_id])
     end
 end
