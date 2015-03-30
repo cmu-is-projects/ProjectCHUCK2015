@@ -15,6 +15,7 @@
 
 <fieldset>
   <div class="row">
+
     <div class="span7">
       <legend>Household Information</legend>
       <%= render :partial => "household_fields", :locals => { :f => household_form } %>
@@ -36,7 +37,7 @@
       <legend>Students in this Household</legend>
       <div id="household_students">
         <%= household_form.simple_fields_for :students do |student_form| %>
-        <%= render :partial => "student_fields", :locals => { :f => student_form } %>
+          <%= render :partial => "student_fields", :locals => { :f => student_form } %>
         <% end %> 
         <p>
           <br /><%= household_form.link_to_add("Add Another Student", :students, :class => 'button tiny') %>

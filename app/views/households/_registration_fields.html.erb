@@ -1,0 +1,27 @@
+<!-- <div class="fields">
+  <div class="min_attraction"> -->
+
+    <%= f.input :bracket_id, input_html: {class: "avg"} %>
+
+    <%= f.input :has_report_card, as: :boolean, checked_value: true, unchecked_value: false %>
+
+    <%= f.input :has_proof_of_insurance, as: :boolean, checked_value: true, unchecked_value: false %>
+
+    <%= f.input :insurance_provider, input_html: {class: "avg"} %>
+
+    <%= f.input :insurance_policy_no, input_html: {class: "avg"} %>
+
+    <%= f.input :family_physician, input_html: {class: "avg"} %>
+
+    <%= f.input :physician_phone, input_html: {class: "avg"} %>
+
+    <%= f.input :has_physical, as: :boolean, checked_value: true, unchecked_value: false %>
+
+    <%= f.input :jersey_size, collection: Registration::JERSEYSIZES %>
+
+    <%= f.input :active, as: :boolean, checked_value: true, unchecked_value: false %>
+
+    <%= f.input :physical_date, input_html: {class: "avg"} %>
+
+<!--   </div>
+</div> -->

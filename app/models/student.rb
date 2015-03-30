@@ -8,6 +8,8 @@ class Student < ActiveRecord::Base
   has_many :brackets, through: :registrations
   has_many :teams, through: :roster_spots
 
+  accepts_nested_attributes_for :registrations, reject_if: lambda { |registration| registration[:has_report_card].blank? }, allow_destroy: true
+
   # Validations
   # -----------------------------
   # make sure required fields are present
