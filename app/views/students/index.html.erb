@@ -53,6 +53,9 @@
           <!-- <div class="desc">Bracket: 13-15</div> -->
           <div class="desc">Allergic to: <%= student.allergies %></div>
           <div class="desc"><%= student.medications %></div>
+          <div class="desc"><%= link_to 'Show', student %></div>
+          <div class="desc"><%= link_to 'Edit', edit_student_path(student) %></div>
+          <div class="desc"><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></div>
         </div>
       </div>
 
@@ -75,9 +78,9 @@
        <!--  <td><%= student.security_question %></td>
        <td><%= student.security_response %></td> -->
        <!-- <td><%= student.active %></td> -->
-       <td><%= link_to 'Show', student %></td>
-       <td><%= link_to 'Edit', edit_student_path(student) %></td>
-       <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <!--  <td><%=# link_to 'Show', student %></td>
+       <td><%#= link_to 'Edit', edit_student_path(student) %></td>
+       <td><%#= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
        <!-- </tr> -->
        <% end %>
    <!-- </tbody>
