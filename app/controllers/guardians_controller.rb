@@ -15,6 +15,7 @@ class GuardiansController < ApplicationController
   # GET /guardians/new
   def new
     @guardian = Guardian.new
+    @guardian.household_id = params[:household_id] unless params[:household_id].nil?
   end
 
   # GET /guardians/1/edit

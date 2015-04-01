@@ -15,6 +15,7 @@ class RegistrationsController < ApplicationController
   # GET /registrations/new
   def new
     @registration = Registration.new
+    @registration.student_id = params[:student_id] unless params[:student_id].nil?
   end
 
   # GET /registrations/1/edit
