@@ -1,0 +1,23 @@
+
+        <%= f.input :street, input_html: {class: "avg"} %>
+
+        <%= f.input :city, input_html: {class: "avg"} %>
+
+        <%= f.input :state, collection: Household::STATES_LIST %>
+
+        <%= f.input :zip, input_html: {class: "avg"} %>
+
+        <%= f.input :county, collection: Household::COUNTY_ARRAY %>
+
+        <%= f.input :home_phone, input_html: {class: "avg"} %>
+
+        <%= f.input :active, as: :boolean, checked_value: true, unchecked_value: false %>
+
+
+
+
+
+   
+
+
+
