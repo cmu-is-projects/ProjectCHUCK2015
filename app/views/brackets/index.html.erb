@@ -1,20 +1,22 @@
-<h1>Listing brackets</h1>
+<div class="container">
+  <h1>Project C.H.U.C.K. Brackets</h1><br>
+  <%= link_to 'New Bracket', new_bracket_path %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Tournament</th>
-      <th>Gender</th>
-      <th>Min age</th>
-      <th>Max age</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Tournament</th>
+        <th>Gender</th>
+        <th>Min age</th>
+        <th>Max age</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
 
-  <tbody>
-    <% @brackets.each do |bracket| %>
+    <tbody>
+      <% @brackets.each do |bracket| %>
       <tr>
         <td><%= bracket.tournament_id %></td>
         <td><%= bracket.gender %></td>
@@ -24,10 +26,7 @@
         <td><%= link_to 'Edit', edit_bracket_path(bracket) %></td>
         <td><%= link_to 'Destroy', bracket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Bracket', new_bracket_path %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

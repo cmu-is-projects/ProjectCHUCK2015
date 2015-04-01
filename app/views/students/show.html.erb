@@ -1,11 +1,29 @@
 <p id="notice"><%= notice %></p>
+<center><div class="row">
+  
+  <div class="col-sm-12">
+      <% if @student.gender=="M" %>
+        <%=link_to image_tag("maleuser64.png")%>
+      <% else %>
+        <%=link_to image_tag("femaleuser64.png")%>
+      <% end %>
+  </div>
 
-<p>
-  <strong>Household:</strong>
-  <%= @student.household_id %>
-</p>
+  <div class="col-sm-12">
+    <p>
+      <!-- <strong>Name:</strong> -->
+      <%= @student.proper_name %>
+    </p>
+  </div>
 
-<p>
+  <div class="col-sm-12">
+    <p>
+      <strong>Household:</strong>
+      <%= @student.household_id %>
+    </p>
+  </div>
+
+<!-- <p>
   <strong>First name:</strong>
   <%= @student.first_name %>
 </p>
@@ -13,59 +31,78 @@
 <p>
   <strong>Last name:</strong>
   <%= @student.last_name %>
-</p>
-
+</p> -->
+<div class="col-sm-12">
 <p>
-  <strong>Dob:</strong>
+  <strong>Date of Birth:</strong>
   <%= @student.dob %>
 </p>
+</div>
 
+<div class="col-sm-12">
 <p>
   <strong>Cell phone:</strong>
   <%= @student.cell_phone %>
 </p>
+</div>
 
+<div class="col-sm-12">
 <p>
   <strong>Email:</strong>
   <%= @student.email %>
 </p>
+</div>
 
+<div class="col-sm-12">
 <p>
   <strong>Grade:</strong>
   <%= @student.grade %>
 </p>
+</div>
 
+<div class="col-sm-12">
 <p>
   <strong>Gender:</strong>
   <%= @student.gender %>
 </p>
+</div>
 
+<div class="col-sm-12">
 <p>
   <strong>Emergency contact name:</strong>
   <%= @student.emergency_contact_name %>
 </p>
+</div>
 
+<div class="col-sm-12">
 <p>
   <strong>Emergency contact phone:</strong>
   <%= @student.emergency_contact_phone %>
 </p>
+</div>
 
+<div class="col-sm-12">
 <p>
   <strong>Has birth certificate:</strong>
   <%= @student.has_birth_certificate %>
 </p>
+</div>
 
+<div class="col-sm-12">
 <p>
   <strong>Allergies:</strong>
   <%= @student.allergies %>
 </p>
+</div>
 
+<div class="col-sm-12">
 <p>
   <strong>Medications:</strong>
-  <%= @student.medications %>
+  <%= @student.medications.nil? ? "N/A" : @student.medications %>
 </p>
+</div>
 
-<p>
+<!-- <p>
   <strong>Security question:</strong>
   <%= @student.security_question %>
 </p>
@@ -73,12 +110,14 @@
 <p>
   <strong>Security response:</strong>
   <%= @student.security_response %>
-</p>
+</p> -->
 
-<p>
+<!-- <p>
   <strong>Active:</strong>
   <%= @student.active %>
-</p>
-
-<%= link_to 'Edit', edit_student_path(@student) %> |
-<%= link_to 'Back', students_path %>
+</p> -->
+<div class="col-sm-12">
+  <%= link_to 'Edit', edit_student_path(@student) %> |
+  <%= link_to 'Back', students_path %>
+  </div>
+</div></center>
