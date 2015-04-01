@@ -15,9 +15,9 @@ class HouseholdsController < ApplicationController
   # GET /households/new
   def new
     @household = Household.new
-    students = @household.students.build
+    student = @household.students.build
     @household.guardians.build
-    students.registrations.build
+    student.registrations.build
   end
 
   # GET /households/1/edit
