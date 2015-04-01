@@ -1,31 +1,134 @@
-
+<div class="container">
     <%= f.link_to_remove("x") %>
+    <div class="row">
 
-    <%= f.input :first_name, input_html: {class: "avg"} %>
+    <div class="col-xs-6 col-sm-6">
+        <div class="field">
+          <%= f.label :first_name %> <br>
+          <%= f.text_field :first_name %>
+      </div>
+    </div>
+    <div class="col-xs-6 col-sm-6">
+        <div class="field">
+          <%= f.label :last_name %> <br>
+          <%= f.text_field :last_name %>
+        </div>
+    </div>
+    </div>
 
-    <%= f.input :last_name, input_html: {class: "avg"} %>
+<br>
 
-    <%= f.input :gender, input_html: {class: "avg"} %>
+<div class ="row">
+    <div class="col-xs-6 col-sm-6">
+        <div class="field">
+          <%= f.label :gender %> <br>
+          <%= f.text_field :gender %>
+      </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="field">
+      <%= f.label "Date of Birth" %> <br>
+      <%= f.date_select :dob %>
+  </div>
+</div>
+</div>
 
-    <%= f.input :dob, input_html: {class: "avg"} %>
+<div class="row">
 
-    <%= f.input :grade, input_html: {class: "avg"} %>
+   <div class="col-sm-6">
+    <div class="field">
+      <%= f.label :school_id %><br>
+      <%= f.number_field :school_id %>
+  </div>
+</div>
+<div class="col-sm-6">
+    <div class="field">
+      <%= f.label :grade %> <br>
+      <%= f.number_field :grade %>
+  </div>
+</div>
+</div>
 
-    <%= f.input :cell_phone, input_html: {class: "avg"} %>
+<br>
 
-    <%= f.input :email, input_html: {class: "avg"} %>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="field">
+      <%= f.label :cell_phone %><br>
+      <%= f.text_field :cell_phone %>
+  </div>
+</div>
+<div class="col-sm-6">
+    <div class="field">
+      <%= f.label :email %><br>
+      <%= f.text_field :email %>
+  </div>
+</div>
+</div>
 
-    <%= f.input :emergency_contact_name, input_html: {class: "avg"} %>
+<br>
 
-    <%= f.input :emergency_contact_phone, input_html: {class: "avg"} %>
+<!-- <h1>Health Information</h1> -->
 
-    <%= f.input :allergies, input_html: {class: "avg"} %>
+<br>
 
-    <%= f.input :medications, input_html: {class: "avg"} %>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="field">
+      <%= f.label :emergency_contact_name %> <br>
+      <%= f.text_field :emergency_contact_name %>
+  </div>
+</div>
+<div class="col-sm-6">
+    <div class="field">
+      <%= f.label :emergency_contact_phone %> <br>
+      <%= f.text_field :emergency_contact_phone %>
+  </div>
+</div>
+</div>
 
-    <%= f.input :school_id, input_html: {class: "avg"} %>
+<br>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="field">
+      <%= f.label :allergies %><br>
+      <%= f.text_area :allergies %>
+  </div>
+</div> 
+<div class="col-sm-6">
+    <div class="field">
+      <%= f.label :medications %><br>
+      <%= f.text_area :medications %>
+  </div>
+</div>
+
+</div>
+
+      <!-- div class="col-sm-3">
+        <div class="field">
+          # f.label :household_id %><br>
+          <%#= f.collection_select :household_id, Household.all, :id, :id, prompt: "Select..." %>
+        </div>
+    </div> -->
+
+
+<%#= f.input :first_name, input_html: {class: "avg"} %>
+<%#= f.input :last_name, input_html: {class: "avg"} %>
+<%#= f.input :gender, input_html: {class: "avg"} %>
+<%#= f.input :dob, input_html: {class: "avg"} %>
+<%#= f.input :grade, input_html: {class: "avg"} %>
+<%#= f.input :cell_phone, input_html: {class: "avg"} %>
+<%#= f.input :email, input_html: {class: "avg"} %>
+<%#= f.input :emergency_contact_name, input_html: {class: "avg"} %>
+<%#= f.input :emergency_contact_phone, input_html: {class: "avg"} %>
+<%#= f.input :allergies, input_html: {class: "avg"} %>
+<%#= f.input :medications, input_html: {class: "avg"} %>
+<%#= f.input :school_id, input_html: {class: "avg"} %>
+
+
 
 <!--     <legend>Registration Details</legend>
-    <%= f.simple_fields_for :registrations do |registration_form| %>
-      <%= render :partial => "registration_fields", :locals => { :f => registration_form } %>
-    <% end %>  -->
+    <%#= f.simple_fields_for :registrations do |registration_form| %>
+      <%#= render :partial => "registration_fields", :locals => { :f => registration_form } %>
+      <%# end %>  -->
