@@ -8,10 +8,10 @@ class Registration < ActiveRecord::Base
   belongs_to :student
 
   #Validations
-  validate :student_is_active_in_system
+  # validate :student_is_active_in_system
   validates_format_of :physician_phone, with: /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/, message: "should be 10 digits (area code needed) and delimited with dashes only", :allow_blank => true
-  jerseysizes = ["S","M","L","XL", "2XL", "3XL"]
-  validates :jersey_size, inclusion: { in: jerseysizes, allow_blank: false }
+  JERSEYSIZES = ["S","M","L","XL", "2XL", "3XL"]
+  validates :jersey_size, inclusion: { in: JERSEYSIZES, allow_blank: false }
   validates_date :physical_date, :on_or_after => lambda { 1.year.ago.to_date}
 
   #Scopes
@@ -37,12 +37,12 @@ class Registration < ActiveRecord::Base
   end
 
 private
-  def student_is_active_in_system
-    all_active_students = Student.active.to_a.map{|u| u.id}
-    unless all_active_students.include?(self.student_id)
-      errors.add(:student_id, "is not an active student in the system")
-    end
-  end
+  # def student_is_active_in_system
+  #   all_active_students = Student.active.to_a.map{|u| u.id}
+  #   unless all_active_students.include?(self.student_id)
+  #     errors.add(:student_id, "is not an active student in the system")
+  #   end
+  # end
 
   def reformat_physician_phone
     physician_phone = self.physician_phone.to_s  # change to string in case input as all numbers 

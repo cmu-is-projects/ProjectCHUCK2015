@@ -1,57 +1,87 @@
-<h1>Listing students</h1>
+<div class="container">
+  <h1>Students</h1> <br>
+  <%= link_to 'Add a Student', new_student_path %> <br>
 
-<table>
-  <thead>
-    <tr>
-      <th>Household</th>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Dob</th>
-      <th>Cell phone</th>
-      <th>Email</th>
+  <!-- <table class="table"> -->
+   <!-- <thead>
+      <tr>
+        <th>Name</th>
+         <th>Household</th> 
+        <th>First name</th>
+         <th>Last name</th> 
+        <th>Date of Birth</th>
+       <th>Cell phone</th>
+      <th>Email</th> 
       <th>Grade</th>
       <th>Gender</th>
       <th>Emergency contact name</th>
       <th>Emergency contact phone</th>
-      <th>Has birth certificate</th>
+       <th>Has birth certificate</th> 
       <th>Allergies</th>
       <th>Medications</th>
-     <!--  <th>Security question</th>
-      <th>Security response</th> -->
-      <th>Active</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+      <th>Security question</th>
+     <th>Security response</th> 
+      <th>Active</th> 
+     <th></th>
+     <th></th>
+     <th></th>
+   </tr>
+ </thead> --> 
 
-  <tbody>
-    <% @students.each do |student| %>
-      <tr>
-        <td><%= student.household_id %></td>
-        <td><%= student.first_name %></td>
-        <td><%= student.last_name %></td>
-        <td><%= student.dob %></td>
-        <td><%= student.cell_phone %></td>
-        <td><%= student.email %></td>
-        <td><%= student.grade %></td>
-        <td><%= student.gender %></td>
-        <td><%= student.emergency_contact_name %></td>
+ <!-- <tbody> -->
+ <% @students.each do |student| %>
+ <% if student.gender == "M" %><%end%>
+ <div class="row">
+  <div class="col-sm-3">
+    <div class="card hovercard">
+      <% if student.gender == "M" %>
+      <div class="cardheader" style="background-color:lightskyblue;">
+        <%end%>
+        <% if student.gender == "F" %>
+        <div class="cardheader" style="background-color:lightpink;">
+          <%end%>
+        </div>
+        <div class="avatar">
+          <!-- <img alt="" src="http://lorempixel.com/100/100/people/9/"> -->
+        </div>
+        <div class="info">
+          <div class="title">
+            <%= link_to student.proper_name, student %></a>
+          </div>
+          <div class="desc"><%= student.dob %></div>
+          <div class="desc">Grade: <%= student.grade %></div>
+          <!-- <div class="desc">Bracket: 13-15</div> -->
+          <div class="desc">Allergic to: <%= student.allergies %></div>
+          <div class="desc"><%= student.medications %></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- <tr> -->
+  <!-- <td><%= student.household_id %></td> -->
+  <!-- <td><%= student.proper_name %></td> -->
+  <!-- <td><%= student.last_name %></td> -->
+  <!-- <td><%= student.dob %></td> -->
+        <!-- <td><%= student.cell_phone %></td>
+        <td><%= student.email %></td> -->
+        <!-- <td><%= student.grade %></td> -->
+        <!-- <td><%= student.gender %></td> -->
+        <!-- <td><%= student.emergency_contact_name %></td>
         <td><%= student.emergency_contact_phone %></td>
-        <td><%= student.has_birth_certificate %></td>
-        <td><%= student.allergies %></td>
-        <td><%= student.medications %></td>
+        <td><%= student.has_birth_certificate %></td> -->
+        <!-- <td><%= student.allergies %></td> -->
+        <!-- <td><%= student.medications %></td> -->
        <!--  <td><%= student.security_question %></td>
-        <td><%= student.security_response %></td> -->
-        <td><%= student.active %></td>
-        <td><%= link_to 'Show', student %></td>
-        <td><%= link_to 'Edit', edit_student_path(student) %></td>
-        <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+       <td><%= student.security_response %></td> -->
+       <!-- <td><%= student.active %></td> -->
+       <!-- <td><%#= link_to 'Show', student %></td> -->
+       <td><%= link_to 'Edit', edit_student_path(student) %></td>
+       <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+       <!-- </tr> -->
+       <% end %>
+   <!-- </tbody>
+ </table> -->
 
-<br>
-
-<%= link_to 'New Student', new_student_path %>
+ <br>
+</div>
