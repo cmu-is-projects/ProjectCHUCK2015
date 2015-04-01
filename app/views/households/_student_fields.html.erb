@@ -1,5 +1,3 @@
-<div class="fields">
-  <div class="min_attraction">
 
     <%= f.link_to_remove("x") %>
 
@@ -31,6 +29,3 @@
     <%= f.simple_fields_for :registrations do |registration_form| %>
       <%= render :partial => "registration_fields", :locals => { :f => registration_form } %>
     <% end %> 
-
-  </div>
-</div>
