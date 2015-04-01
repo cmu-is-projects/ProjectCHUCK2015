@@ -27,6 +27,8 @@ ProjectChuck2015::Application.routes.draw do
   resources :users
 
   resources :students
+  
+  resources :sessions
 
   get 'user/edit' => 'users#edit', :as => :edit_current_user
   get 'signup' => 'users#new', :as => :signup
