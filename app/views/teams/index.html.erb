@@ -1,14 +1,15 @@
-<h1>Listing teams</h1>
+<h1>Project C.H.U.C.K. Teams</h1><br>
+<%= link_to 'New Team', new_team_path %>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Bracket</th>
       <th>Name</th>
-      <th>Num students</th>
+      <th>Students enrolled</th>
       <th>Max students</th>
-      <th>Num wins</th>
-      <th>Num losses</th>
+      <th># wins</th>
+      <th># losses</th>
       <th></th>
       <th></th>
       <th></th>
@@ -20,7 +21,7 @@
       <tr>
         <td><%= team.bracket_id %></td>
         <td><%= team.name %></td>
-        <td><%= team.num_students %></td>
+        <td><%= team.roster_spots.count %></td>
         <td><%= team.max_students %></td>
         <td><%= team.num_wins %></td>
         <td><%= team.num_losses %></td>
@@ -31,7 +32,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Team', new_team_path %>

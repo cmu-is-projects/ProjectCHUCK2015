@@ -18,7 +18,7 @@ class StudentTest < ActiveSupport::TestCase
   should validate_presence_of(:last_name)
   should validate_presence_of(:gender)
   should validate_presence_of(:emergency_contact_name)
-  should validate_presence_of(:household_id)
+  # should validate_presence_of(:household_id)
   should validate_presence_of(:school_id)
   should validate_presence_of(:emergency_contact_phone)
   

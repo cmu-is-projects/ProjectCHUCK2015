@@ -13,6 +13,6 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
+//= require jquery_nested_form
 //= require twitter/bootstrap
-//= require turbolinks
 //= require_tree .

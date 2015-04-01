@@ -1,6 +1,8 @@
-<h1>Listing tournaments</h1>
+<div class="container">
+<h1>Project C.H.U.C.K. Tournaments</h1><br>
+<%= link_to 'New Tournament', new_tournament_path %><br>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Start date</th>
@@ -23,7 +25,4 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Tournament', new_tournament_path %>
+</div>
