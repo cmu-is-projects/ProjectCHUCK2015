@@ -3,7 +3,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.13'
 
-gem 'pg'
+#gem 'pg'
+gem 'sqlite3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
@@ -31,9 +32,13 @@ gem 'google-webfonts-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+<<<<<<< HEAD
 gem 'simple_form', '3.0.1'
 gem 'nested_form', '0.3.2'
 # gem 'foundation-rails', '5.1.1.0'
+=======
+gem 'cancancan'
+>>>>>>> login
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
