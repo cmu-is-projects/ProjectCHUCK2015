@@ -46,7 +46,7 @@
         </div>
         <div class="info">
           <div class="title">
-            <a href="http://scripteden.com/"><%= student.proper_name %></a>
+            <%= link_to student.proper_name, student %></a>
           </div>
           <div class="desc"><%= student.dob %></div>
           <div class="desc">Grade: <%= student.grade %></div>
@@ -75,7 +75,7 @@
        <!--  <td><%= student.security_question %></td>
        <td><%= student.security_response %></td> -->
        <!-- <td><%= student.active %></td> -->
-       <td><%= link_to 'Show', student %></td>
+       <!-- <td><%#= link_to 'Show', student %></td> -->
        <td><%= link_to 'Edit', edit_student_path(student) %></td>
        <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
        <!-- </tr> -->
