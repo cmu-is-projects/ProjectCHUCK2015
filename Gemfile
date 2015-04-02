@@ -22,6 +22,8 @@ gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 gem 'jquery_mobile_rails'
 
+gem 'highcharts-rails', '~> 4.1.4'
+
 #for bootstrap and using Sass for CSS
 gem "twitter-bootstrap-rails"
 gem 'bootstrap-sass', '~> 3.3.3'

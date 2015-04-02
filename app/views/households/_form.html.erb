@@ -30,7 +30,7 @@
         <p>
           <%= household_form.link_to_add("+ Add Another Guardian", :guardians, :class => 'button tiny') %>
         </p>
-        <br />
+        <br /><br />
       </div> 
     </div>
 
@@ -42,15 +42,21 @@
         <% end %> 
         <p>
          <%= household_form.link_to_add("+ Add Another Student", :students, :class => 'button tiny') %>
-        </p> <br />
+        </p> <br /><br />
       </div> 
     </div>
   </div>
 </fieldset>
 
 <div class="actions">
-  <%= link_to 'Cancel', households_path, :class => 'button secondary' %>
-  <%= household_form.submit nil, :class => 'button radius' %>
+  <div class="row">
+    <div class="col-sm-6">
+      <%= link_to 'Cancel', households_path, :class => 'button secondary' %>
+    </div>
+    <div class="col-sm-6">
+      <%= household_form.submit nil, :class => 'button radius' %>
+    </div>
+  </div>
 </div>
 
 <% end %>

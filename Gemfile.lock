@@ -65,6 +65,8 @@ GEM
       i18n (~> 0.5)
     google-webfonts-rails (0.0.4)
       activesupport (> 3.2.0, < 5.0)
+    highcharts-rails (4.1.4)
+      railties (>= 3.1)
     hike (1.2.3)
     hirb (0.7.3)
     i18n (0.7.0)
@@ -188,6 +190,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   google-webfonts-rails
+  highcharts-rails (~> 4.1.4)
   hirb
   jbuilder (~> 1.2)
   jquery-rails

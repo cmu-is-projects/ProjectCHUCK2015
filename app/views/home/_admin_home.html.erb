@@ -1,3 +1,5 @@
+
+
 <%#= render :partial => 'partials/admin_nav' %>
 <div class="container">
 <!-- <h3>Welcome back, Tasha<%#= current_user.instructor.proper_name %>!</h3> -->
@@ -12,7 +14,8 @@
 
       <hr>
 
-      <div class="row-fluid marketing">
+
+      <!-- div class="row-fluid marketing">
         <div class="span6">
           <h4>By Bracket</h4>
           <p>7-9: 49</p>
@@ -23,15 +26,39 @@
         <div class="span6">
           <h4>Registration Statistics</h4>
           <img src="http://www.excelcharts.com/blog/wp-content/uploads/2011/11/pie-chart-hole2.png">
-          <!-- <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p> -->
         </div>
-      </div>
+      </div> -->
   </div>
+
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<div id="container" style="width:100%;height:400px;"></div>
+<script>
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: 'Fruit Consumption'
+        },
+        xAxis: {
+            categories: ['Apples', 'Bananas', 'Oranges']
+        },
+        yAxis: {
+            title: {
+                text: 'Fruit eaten'
+            }
+        },
+        series: [{
+            name: 'Jane',
+            data: [1, 0, 4]
+        }, {
+            name: 'John',
+            data: [5, 7, 3]
+        }]
+    });
+});
+</script>
 
 

@@ -20,8 +20,10 @@ class Student < ActiveRecord::Base
   validates_format_of :email, :with => /\A[\w]([^@\s,;]+)@(([a-z0-9.-]+\.)+(com|edu|org|net|gov|mil|biz|info))\z/i, :message => "is not a valid format", :allow_blank => true
   validates_format_of :cell_phone, with: /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/, message: "should be 10 digits (area code needed) and delimited with dashes only", :allow_blank => true
   validates_format_of :emergency_contact_phone, with: /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/, message: "should be 10 digits (area code needed) and delimited with dashes only", :allow_blank => false
-  grades_array = (0..12).to_a
-  validates :grade, numericality: { only_integer: true, allow_blank: false }, inclusion: { in: grades_array, allow_blank: false }  
+  GRADES_ARRAY = ["K"] + (1..12).to_a
+  GENDER_ARRAY = ["M","F"]
+  validates :grade, inclusion: { in: GRADES_ARRAY, allow_blank: false } 
+  validates :gender, inclusion: { in: GENDER_ARRAY, allow_blank: false } 
   # validate :household_is_active_in_system
 
 	# Scopes

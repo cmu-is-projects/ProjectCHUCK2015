@@ -11,8 +11,8 @@
     background-color: yellow;
 }
 
-.container.formcon{
-  border: 8px solid #0D80C5;
+.container .formcon{
+  border: 2px solid #0D80C5;
 border-radius: 10px;
 margin-top: 15px;
 margin-bottom: 15px;
@@ -67,6 +67,18 @@ margin-bottom: 15px;
 }
 .button.tiny{
   font-size: 1.5em;
+  color: #057ABF;
+}
+a.button {
+  background: transparent url('bg_button_a.gif') no-repeat scroll top right;
+  color: #444;
+  display: block;
+  float: left;
+  font: normal 12px arial, sans-serif;
+  height: 24px;
+  margin-right: 6px;
+  padding-right: 18px; /* sliding doors padding */
+  text-decoration: none;
 }
 /*.btn-primary.outline:active, .btn-primary.outline.active {
     border-color: white;
