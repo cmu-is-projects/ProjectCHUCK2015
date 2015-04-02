@@ -1,7 +1,7 @@
 <%# if logged_in? %>
 	<%# if current_user.role? :admin %>
-		<%= render :partial => 'admin_home' %>
+		<%#= render :partial => 'admin_home' %>
 	<%# end %>
 <%# else %>
-	<%#= render :partial => 'general_home' %>
+	<%= render :partial => 'general_home' %>
 <%# end %>

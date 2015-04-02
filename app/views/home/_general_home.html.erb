@@ -5,21 +5,27 @@
 		<center>
 			<%= image_tag "basketball-64.png" %> <br><br>
 			<p id="homebutton">STUDENTS</p>
-			<button type="button" class="btn btn-primary btn-lg outline" onclick="window.location = '/households/new'"> New
+			<%= link_to 'New', new_household_path, :class => 'btn btn-primary btn-lg outline' %> <br><br>
+			<!-- <button type="button" class="btn btn-primary btn-lg outline" onclick="window.location = '/households/new'"> New -->
 			<%#= image_tag "icon_coach.png" %> 
-			<%#= link_to 'New registration', new_household_path, :class => 'button' %> </button><br> <br>
-			<button type="button" class="btn btn-primary btn-lg outline"> Renew
+			<!-- <%#= link_to 'New registration', new_household_path, :class => 'button' %> </button><br> <br> -->
+			<!-- <button type="button" class="btn btn-primary btn-lg outline"> Renew -->
 			<%#= image_tag "icon_coach.png" %> 
-			<%#= link_to 'New registration', new_household_path %></button>
+			<%= link_to 'Renew', new_household_path, :class => 'btn btn-primary btn-lg outline' %>
+		<!-- </button> -->
 		</center>
 	</div>
 	<div class= "col-xs-6 col-sm-6">
     	<center>
     		<%= image_tag "icon_coach.png" %> <br><br> 
 			<p id="homebutton">VOLUNTEERS</p>
-    		 <button type="button" class="btn btn-primary btn-lg outline"> 
-    		<%#= image_tag "icon_coach.png" %>
-    		Register
-    	</button></center>
+    		 <!-- <button type="button" class="btn btn-primary btn-lg outline">  -->
+    		<%= link_to 'Register', new_volunteer_path, :class => 'btn btn-primary btn-lg outline' %>
+    	<!-- </button> -->
+    </center>
 	</div>
 </div>
+
+<br><br>
+
+<center><%= link_to 'Administrators: Login here', "home/form" %><center>

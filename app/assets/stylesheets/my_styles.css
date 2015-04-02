@@ -46,6 +46,16 @@ margin-bottom: 15px;
   font-size: 1.0em;
   }
 
+  .btn{
+    /*display:block;*/
+    width:100%;
+  }
+
+  input.btn{
+    /*display:block;*/
+    width:100%;
+  }
+
   .btn.outline {
     background: none;
     padding: 12px 22px;
@@ -78,6 +88,9 @@ a.button {
 }
 a:hover.ui-link{
   background-color:transparent;
+}
+#details_name{
+  font-size: 2.0em;
 }
 /*.btn-primary.outline:active, .btn-primary.outline.active {
     border-color: white;
