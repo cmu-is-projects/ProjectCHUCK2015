@@ -12,9 +12,38 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :team_id %><br>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </div>
+
+  <br>
+
+   <div class="field">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </div>
+
+  <br>
+
+   <div class="field">
+    <%= f.label :team_id %>
     <%= f.number_field :team_id %>
   </div>
+
+  <br>
+   
+  <div class="field">
+    <%= f.label :cell_phone %>
+    <%= f.text_field :cell_phone %>
+  </div>
+
+  <div class="field">
+    <%= f.label :receives_text_msgs %><br>
+    <%= f.check_box :receives_text_msgs %>
+  </div>
+
+  <br>
+
   <div class="actions">
     <%= f.submit %>
   </div>
