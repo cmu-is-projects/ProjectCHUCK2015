@@ -1,14 +1,26 @@
 <br><br>
 <div class = "row">
-	<div class= "col-sm-1">
+	<div class= "col-xs-6 col-sm-6">
+		<!-- <h1>Welcome to Project C.H.U.C.K. 2015 Registration!</h1><br> -->
+		<center>
+			<%= image_tag "basketball-64.png" %> <br><br>
+			<p id="homebutton">STUDENTS</p>
+			<!-- <button type="button" class="btn btn-primary btn-lg outline" onclick="<%= link_to new_household_path %>"> NEW -->
+			<button type="button" class="btn btn-primary btn-lg outline" onclick="window.location = '/households/new'"> New
+			<%#= image_tag "icon_coach.png" %> 
+			<%#= link_to 'New registration', new_household_path %></button> <br> <br>
+			<button type="button" class="btn btn-primary btn-lg outline"> Renew
+			<%#= image_tag "icon_coach.png" %> 
+			<%#= link_to 'New registration', new_household_path %></button>
+		</center>
 	</div>
-	<div class= "col-sm-11">
-		<h1>Welcome to Project C.H.U.C.K. 2015 Registration!</h1><br>
-
-		<h2>Are you new to Project C.H.U.C.K.?</h2>
-				<%= link_to 'Yes', new_household_path %><br>
-		
-		<h2>Are you a returning member?</h2>
-		<h2><%= link_to 'Are you interested in volunteering?', new_user_path %></h2>
+	<div class= "col-xs-6 col-sm-6">
+    	<center>
+    		<%= image_tag "icon_coach.png" %> <br><br> 
+			<p id="homebutton">VOLUNTEERS</p>
+    		<button type="button" class="btn btn-primary btn-lg outline">
+    		<%#= image_tag "icon_coach.png" %>
+    		Register
+    	</button></center>
 	</div>
 </div>
