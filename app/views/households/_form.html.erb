@@ -11,7 +11,7 @@
   </div>
 <% end %>
 
-<legend>Student Registration Form</legend>
+<center><h2>Student Registration Form</h2></center> <br><br>
 
 <fieldset>
   <div class="row">
@@ -28,8 +28,9 @@
         <%= render :partial => "guardian_fields", :locals => { :f => guardian_form } %>
         <% end %> 
         <p>
-          <br /><%= household_form.link_to_add("Add Another Guardian", :guardians, :class => 'button tiny') %>
+          <%= household_form.link_to_add("+ Add Another Guardian", :guardians, :class => 'button tiny') %>
         </p>
+        <br /><br />
       </div> 
     </div>
 
@@ -40,16 +41,22 @@
           <%= render :partial => "student_fields", :locals => { :f => student_form } %>
         <% end %> 
         <p>
-          <br /><%= household_form.link_to_add("Add Another Student", :students, :class => 'button tiny') %>
-        </p>
+         <%= household_form.link_to_add("+ Add Another Student", :students, :class => 'button tiny') %>
+        </p> <br /><br />
       </div> 
     </div>
   </div>
 </fieldset>
 
 <div class="actions">
-  <%= link_to 'Cancel', households_path, :class => 'button secondary' %>
-  <%= household_form.submit nil, :class => 'button radius' %>
+  <div class="row">
+    <div class="col-sm-6">
+      <%= link_to 'Cancel', households_path, :class => 'button secondary' %>
+    </div>
+    <div class="col-sm-6">
+      <%= household_form.submit nil, :class => 'button radius' %>
+    </div>
+  </div>
 </div>
 
 <% end %>
