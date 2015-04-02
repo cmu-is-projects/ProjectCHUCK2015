@@ -7,10 +7,6 @@
   font-size: 1.3em;
  }
 
- a:hover { 
-    background-color: yellow;
-}
-
 .container .formcon{
   border: 2px solid #0D80C5;
 border-radius: 10px;
@@ -80,9 +76,8 @@ a.button {
   padding-right: 18px; /* sliding doors padding */
   text-decoration: none;
 }
-li{
-  color: black;
-  font-size: 1.4em;
+a:hover.ui-link{
+  background-color:transparent;
 }
 /*.btn-primary.outline:active, .btn-primary.outline.active {
     border-color: white;
