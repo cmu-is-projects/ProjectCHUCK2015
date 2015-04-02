@@ -1,20 +1,33 @@
-
-
 <%#= render :partial => 'partials/admin_nav' %>
 <div class="container">
-<!-- <h3>Welcome back, Tasha<%#= current_user.instructor.proper_name %>!</h3> -->
+  <!-- <div class="row">
+    <div class="col-sm-12">
+    </div>
+  </div> -->
+  <div class="row">
+    <div class="col-sm-2">
+  <div class="masthead">
+    <ul class="nav nav-pills nav-stacked"><br>
+      <!-- link_to(image_tag('edit.png'), edit_location_path(location)) -->
+      <!-- <li><%= link_to (image_tag('maleuser64.png')), students_path %></li> -->
+      <li><%= link_to 'Teams', teams_path %></li>
+      <li><%= link_to 'Brackets', brackets_path %></li>
+      <li><%= link_to 'Tournaments', tournaments_path %></li>
+    </ul>
+    <!-- <h3 class="muted">Project name</h3> -->
+  </div>
+</div>
 
-      <div class="jumbotron">
-        <h2>Welcome, Tasha!</h2>
-        <p class="lead">Here are the most recent Project C.H.U.C.K. updates!</p>
+  <!-- <h3>Welcome back, Tasha<%#= current_user.instructor.proper_name %>!</h3> -->
+ <div class="col-sm-10">
+  <div class="jumbotron">
+    <h2>Welcome, Tasha!</h2>
+    <p class="lead">Here are the most recent Project C.H.U.C.K. updates!</p>
         <!-- #total registrations
         #female icon - female reg numbers
         #male icon - male reg members -->
       </div>
-
-      <hr>
-
-
+    </div>
       <!-- div class="row-fluid marketing">
         <div class="span6">
           <h4>By Bracket</h4>
@@ -28,37 +41,7 @@
           <img src="http://www.excelcharts.com/blog/wp-content/uploads/2011/11/pie-chart-hole2.png">
         </div>
       </div> -->
-  </div>
-
- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<script src="http://code.highcharts.com/highcharts.js"></script>
-<div id="container" style="width:100%;height:400px;"></div>
-<script>
-$(function () {
-    $('#container').highcharts({
-        chart: {
-            type: 'bar'
-        },
-        title: {
-            text: 'Fruit Consumption'
-        },
-        xAxis: {
-            categories: ['Apples', 'Bananas', 'Oranges']
-        },
-        yAxis: {
-            title: {
-                text: 'Fruit eaten'
-            }
-        },
-        series: [{
-            name: 'Jane',
-            data: [1, 0, 4]
-        }, {
-            name: 'John',
-            data: [5, 7, 3]
-        }]
-    });
-});
-</script>
+    </div>
+</div>
 
 

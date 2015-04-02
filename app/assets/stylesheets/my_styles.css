@@ -80,6 +80,10 @@ a.button {
   padding-right: 18px; /* sliding doors padding */
   text-decoration: none;
 }
+li{
+  color: black;
+  font-size: 1.4em;
+}
 /*.btn-primary.outline:active, .btn-primary.outline.active {
     border-color: white;
     color: white;

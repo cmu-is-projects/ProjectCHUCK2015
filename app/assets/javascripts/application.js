@@ -16,5 +16,4 @@
 //= require jquery.mobile
 //= require jquery_nested_form
 //= require twitter/bootstrap
-//= require highcharts
 //= require_tree .
