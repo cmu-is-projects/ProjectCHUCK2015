@@ -1,23 +1,68 @@
+<%#= f.input :street, input_html: {class: "avg"} %>
+<%#= f.input :city, input_html: {class: "avg"} %>
+<%#= f.input :state, collection: Household::STATES_LIST %>
+<%#= f.input :zip, input_html: {class: "avg"} %>
+<%#= f.input :county, collection: Household::COUNTY_ARRAY %>
+<%#= f.input :home_phone, input_html: {class: "avg"} %>
+<%#= f.input :active, as: :boolean, checked_value: true, unchecked_value: false %>
 
-        <%= f.input :street, input_html: {class: "avg"} %>
+<div class="container formcon">
+	<%= f.link_to_remove("X Remove household") %> <br><br>
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="field">
+				<%= f.label :street %> <br>
+				<%= f.text_field :street %>
+			</div>
+		</div>
+	</div>
 
-        <%= f.input :city, input_html: {class: "avg"} %>
+	<br>
 
-        <%= f.input :state, collection: Household::STATES_LIST %>
+	<div class="row">
+		<div class="col-xs-6 col-sm-6">
+			<div class="field">
+				<%= f.label :city %><br>
+				<%= f.text_field :city %>
+			</div>
+		</div>
 
-        <%= f.input :zip, input_html: {class: "avg"} %>
+		<div class="col-xs-6 col-sm-6">
+			<div class="field">
+				<%= f.label :state %><br>
+				<%= f.select :state, Household::STATES_LIST, :prompt => "Select state..."%>
+			</div>
+		</div>
+	</div>
 
-        <%= f.input :county, collection: Household::COUNTY_ARRAY %>
+	<br>
 
-        <%= f.input :home_phone, input_html: {class: "avg"} %>
+	<div class="row">
+		<div class="col-xs-6 col-sm-6">
+			<div class="field">
+				<%= f.label :zip %><br>
+				<%= f.number_field :zip %>
+			</div>
+		</div>
 
-        <%= f.input :active, as: :boolean, checked_value: true, unchecked_value: false %>
+		<div class="col-xs-6 col-sm-6">
+			<div class="field">
+				<%= f.label :county %><br>
+				<%= f.select :county, Household::COUNTY_ARRAY, :prompt => "Select county..."%>
+			</div>
+		</div>
+	</div>
 
+	<br>
 
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="field">
+				<%= f.label :home_phone %> <br>
+				<%= f.text_field :home_phone %>
+			</div>
+		</div>
+	</div>
+</div>
 
-
-
-   
-
-
-
+<br><br>

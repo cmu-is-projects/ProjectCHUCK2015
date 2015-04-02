@@ -1,22 +1,25 @@
-<%= render :partial => 'partials/admin_nav' %>
-<div class="container">
-<!-- <h3>Welcome back, Tasha<%#= current_user.instructor.proper_name %>!</h3> -->
+<%#= render :partial => 'partials/admin_nav' %>
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+    </div>
+  </div> -->
+  <div class="row">
+    <!-- <div class="col-sm-2">
+      <div class="masthead">
+        <ul class="nav nav-pills nav-stacked"><br>
+          link_to(image_tag('edit.png'), edit_location_path(location)) -->
+          <!-- <li><%#= link_to (image_tag('maleuser64.png')), students_path %></li> 
+          <li><%#= link_to 'Teams', teams_path %></li>
+          <li><%#= link_to 'Brackets', brackets_path %></li>
+          <li><%#= link_to 'Tournaments', tournaments_path %></li>
+        </ul>
+         <h3 class="muted">Project name</h3> 
+      </div>
+    </div> -->
 
-<!-- <div class="row">
-	<div class="col-sm-12">
-		<%# if @upcoming_camps.nil? || @upcoming_camps.empty? %>
-		 <p>You have no camps at this time</p> 
-		<%# else %>
-	</div>
-	<div class="col-sm-12">
-		<h3>Camps with No Registrations</h3>
-		<div><%#= render :partial => 'partials/no_registrations' %></div>
-		<h3>Instructors with No Assigned Camps</h3>
-		<div><%#= render :partial => 'partials/no_camps'%></div>
-		<h3>Students - Only Deposits Paid</h3>
-		<div><%#= render :partial => 'partials/no_full_payment'%></div>
-	</div>
-</div> -->
+    <!-- <h3>Welcome back, Tasha<%#= current_user.instructor.proper_name %>!</h3> -->
+    <div class="col-sm-12">
       <div class="jumbotron">
         <h2>Welcome, Tasha!</h2>
         <p class="lead">Here are the most recent Project C.H.U.C.K. updates!</p>
@@ -24,29 +27,36 @@
         #female icon - female reg numbers
         #male icon - male reg members -->
       </div>
+    </div>
+  </div>
+</div>
 
-      <hr>
+<div class="container">
+  <div class="row">
 
-      <div class="row-fluid marketing">
-        <div class="span6">
-          <h4>By Bracket</h4>
-          <p>7-9: 49</p>
-          <p>9-11: 37</p>
-          <p>11-13: 49</p>
-        </div>
-
-        <div class="span6">
-          <h4>Registration Statistics</h4>
-          <img src="http://www.excelcharts.com/blog/wp-content/uploads/2011/11/pie-chart-hole2.png">
-          <!-- <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p> -->
+    <div class="col-md-12">
+      <!-- <h3>Pills left</h3> -->
+      <!-- tabs left -->
+      <div class="tabbable">
+        <ul class="nav nav-pills nav-stacked col-md-2">
+          <li><a href="#a" data-toggle="tab">One</a></li>
+          <li class="active"><a href="#b" data-toggle="tab">Two</a></li>
+          <li><a href="#c" data-toggle="tab">Twee</a></li>
+        </ul>
+        <div class="tab-content col-md-10">
+          <div class="tab-pane active" id="a">Lorem ipsum dolor sit amet, charetra varius rci quis tortor imperdiet venenatis quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero.</div>
+          <div class="tab-pane" id="b">Secondo sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. Aliquam in felis sit amet augue.</div>
+          <div class="tab-pane" id="c">Thirdamuno, ipsum dolor sit amet, consectetur adipiscing elit. Duis elementum auctor accumsan. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae. </div>
         </div>
       </div>
+      <!-- /tabs -->
+    </div>
+
   </div>
+  <!-- /row -->
+</div>
 
 
+
+
+<hr>

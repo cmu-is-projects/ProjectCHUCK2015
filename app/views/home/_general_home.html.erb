@@ -1,24 +1,25 @@
-<%= render :partial => "partials/admin_nav" %>
-
 <br><br>
 <div class = "row">
-	<div class= "col-sm-1">
-		<%#= image_tag 'projectChuckLogo.jpg' %>
+	<div class= "col-xs-6 col-sm-6">
+		<!-- <h1>Welcome to Project C.H.U.C.K. 2015 Registration!</h1><br> -->
+		<center>
+			<%= image_tag "basketball-64.png" %> <br><br>
+			<p id="homebutton">STUDENTS</p>
+			<button type="button" class="btn btn-primary btn-lg outline" onclick="window.location = '/households/new'"> New
+			<%#= image_tag "icon_coach.png" %> 
+			<%#= link_to 'New registration', new_household_path, :class => 'button' %> </button><br> <br>
+			<button type="button" class="btn btn-primary btn-lg outline"> Renew
+			<%#= image_tag "icon_coach.png" %> 
+			<%#= link_to 'New registration', new_household_path %></button>
+		</center>
 	</div>
-	<div class= "col-sm-11">
-		<h1>Welcome to Project C.H.U.C.K. 2015 Registration!</h1><br>
-		<%#= render :partial => 'students/form' %>
-		<h2><%#= link_to 'Are you new to Project C.H.U.C.K.?', 'home/form'%></h2><br> 
-
-		<h2>Are you new to Project C.H.U.C.K.?</h2>
-			<!-- <div class="btn-group"> -->
-				<%= link_to 'Yes', 'form' %><br>
-			<!-- </div> --> 
-				<%#= link_to "Register a Student", new_registration_path, :class => 'btn btn-default' %>
-		
-		<h2>Are you a returning member?</h2>
-			<!-- <h3>Click here to update your information.</h3> -->
-		<h2><%= link_to 'Are you interested in volunteering?', new_user_path %></h2>
-			<!-- <h3>Click here to update your information.</h3> -->
+	<div class= "col-xs-6 col-sm-6">
+    	<center>
+    		<%= image_tag "icon_coach.png" %> <br><br> 
+			<p id="homebutton">VOLUNTEERS</p>
+    		 <button type="button" class="btn btn-primary btn-lg outline"> 
+    		<%#= image_tag "icon_coach.png" %>
+    		Register
+    	</button></center>
 	</div>
 </div>

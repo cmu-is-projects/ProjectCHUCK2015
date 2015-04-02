@@ -1,31 +1,131 @@
+<div class="container formcon">
+  <%= f.link_to_remove("X Remove student") %> <br><br>
+  <div class="row">
 
-    <%= f.link_to_remove("x") %>
+    <div class="col-xs-6 col-sm-6">
+      <div class="field">
+        <%= f.label :first_name %> <br>
+        <%= f.text_field :first_name %>
+      </div>
+    </div>
+    <div class="col-xs-6 col-sm-6">
+      <div class="field">
+        <%= f.label :last_name %> <br>
+        <%= f.text_field :last_name %>
+      </div>
+    </div>
+  </div>
 
-    <%= f.input :first_name, input_html: {class: "avg"} %>
+  <br>
 
-    <%= f.input :last_name, input_html: {class: "avg"} %>
+  <div class ="row">
+    <div class="col-xs-6 col-sm-6">
+      <div class="field">
+        <%= f.label :gender %> <br>
+        <%= f.select :gender, Student::GENDER_ARRAY, :prompt => "Select gender..."%>
+      </div>
+    </div>
+    <div class="col-xs-6 col-sm-6">
+      <div class="field">
+        <%= f.label "Date of Birth" %> <br>
+        <%= f.date_select :dob, :order =>[:day, :month, :year], :start_year => 1900, :end_year => 2015 %>
+      </div>
+    </div>
+  </div>
 
-    <%= f.input :gender, input_html: {class: "avg"} %>
+  <div class="row">
 
-    <%= f.input :dob, input_html: {class: "avg"} %>
+   <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :school_id %><br>
+      <%= f.number_field :school_id %>
+    </div>
+   </div>
+   <div class="col-xs-6 col-sm-6">
+     <div class="field">
+       <%= f.label :grade %> <br>
+       <%= f.select :grade, Student::GRADESWITHK_ARRAY, :prompt => "Select grade..."%>
+     </div>
+   </div>
+  </div>
 
-    <%= f.input :grade, input_html: {class: "avg"} %>
+<br>
 
-    <%= f.input :cell_phone, input_html: {class: "avg"} %>
+<div class="row">
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :cell_phone %><br>
+      <%= f.text_field :cell_phone %>
+    </div>
+  </div>
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :email %><br>
+      <%= f.text_field :email %>
+    </div>
+  </div>
+</div>
 
-    <%= f.input :email, input_html: {class: "avg"} %>
+<br>
 
-    <%= f.input :emergency_contact_name, input_html: {class: "avg"} %>
+<div class="row">
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :emergency_contact_name %> <br>
+      <%= f.text_field :emergency_contact_name %>
+    </div>
+  </div>
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :emergency_contact_phone %> <br>
+      <%= f.text_field :emergency_contact_phone %>
+    </div>
+  </div>
+</div>
 
-    <%= f.input :emergency_contact_phone, input_html: {class: "avg"} %>
+<br>
 
-    <%= f.input :allergies, input_html: {class: "avg"} %>
+<div class="row">
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :allergies %><br>
+      <%= f.text_area :allergies %>
+    </div>
+  </div> 
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :medications %><br>
+      <%= f.text_area :medications %>
+    </div>
+  </div>
+</div>
 
-    <%= f.input :medications, input_html: {class: "avg"} %>
+</div>
 
-    <%= f.input :school_id, input_html: {class: "avg"} %>
+      <!-- div class="col-sm-3">
+        <div class="field">
+          # f.label :household_id %><br>
+          <%#= f.collection_select :household_id, Household.all, :id, :id, prompt: "Select..." %>
+        </div>
+      </div> -->
+
+
+      <%#= f.input :first_name, input_html: {class: "avg"} %>
+      <%#= f.input :last_name, input_html: {class: "avg"} %>
+      <%#= f.input :gender, input_html: {class: "avg"} %>
+      <%#= f.input :dob, input_html: {class: "avg"} %>
+      <%#= f.input :grade, input_html: {class: "avg"} %>
+      <%#= f.input :cell_phone, input_html: {class: "avg"} %>
+      <%#= f.input :email, input_html: {class: "avg"} %>
+      <%#= f.input :emergency_contact_name, input_html: {class: "avg"} %>
+      <%#= f.input :emergency_contact_phone, input_html: {class: "avg"} %>
+      <%#= f.input :allergies, input_html: {class: "avg"} %>
+      <%#= f.input :medications, input_html: {class: "avg"} %>
+      <%#= f.input :school_id, input_html: {class: "avg"} %>
+
+
 
 <!--     <legend>Registration Details</legend>
-    <%= f.simple_fields_for :registrations do |registration_form| %>
-      <%= render :partial => "registration_fields", :locals => { :f => registration_form } %>
-    <% end %>  -->
+    <%#= f.simple_fields_for :registrations do |registration_form| %>
+      <%#= render :partial => "registration_fields", :locals => { :f => registration_form } %>
+      <%# end %>  -->

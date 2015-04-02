@@ -20,6 +20,7 @@ gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery_mobile_rails'
 
 #for bootstrap and using Sass for CSS
 gem "twitter-bootstrap-rails"
