@@ -34,7 +34,7 @@ gem 'google-webfonts-rails'
 gem 'jbuilder', '~> 1.2'
 
 gem 'simple_form', '3.0.1'
-gem 'nested_form', '0.3.2'
+gem 'nested_form'
 # gem 'foundation-rails', '5.1.1.0'
 
 group :doc do

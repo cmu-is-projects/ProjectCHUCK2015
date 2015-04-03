@@ -76,7 +76,7 @@ margin-bottom: 15px;
   color: #057ABF;
 }
 a.button {
-  background: transparent url('bg_button_a.gif') no-repeat scroll top right;
+  /*background: transparent url('bg_button_a.gif') no-repeat scroll top right;*/
   color: #444;
   display: block;
   float: left;

@@ -4,7 +4,7 @@ class Student < ActiveRecord::Base
 	belongs_to :household
 	belongs_to :school
 	has_many :roster_spots
-	has_many :registrations
+	has_many :registrations, :dependent => :destroy
   has_many :brackets, through: :registrations
   has_many :teams, through: :roster_spots
 
@@ -50,10 +50,10 @@ class Student < ActiveRecord::Base
     last_name + ", " + first_name
   end
 
-  def age
-    return nil if dob.blank?
-    (Time.now.to_s(:number).to_i - dob.to_time.to_s(:number).to_i)/10e9.to_i
-  end
+  # def age
+  #   return nil if dob.blank?
+  #   (Time.now.to_s(:number).to_i - dob.to_time.to_s(:number).to_i)/10e9.to_i
+  # end
 
   private
      # We need to strip non-digits before saving to db

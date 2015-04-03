@@ -28,7 +28,7 @@
         <%= render :partial => "guardian_fields", :locals => { :f => guardian_form } %>
         <% end %> 
         <p>
-          <%= household_form.link_to_add("+ Add Another Guardian", :guardians, :class => 'button tiny') %>
+          <%= household_form.link_to_add "+ Add Another Guardian", :guardians, :class => 'button tiny' %>
         </p><br /><br /><br />
       </div> 
     </div>
@@ -39,10 +39,10 @@
         <%= household_form.simple_fields_for :students do |student_form| %>
           <%= render :partial => "student_fields", :locals => { :f => student_form } %>
           
-<!--             <legend>Registration</legend>
-            <%#= student_form.simple_fields_for :registration do |registration_form| %>
-              <%#= render :partial => "registration_fields", :locals => { :f => registration_form } %>
-            <%# end %>  -->
+            <legend>Registration</legend>
+            <%= student_form.simple_fields_for :registration do |registration_form| %>
+              <%= render :partial => "registration_fields", :locals => { :f => registration_form } %>
+            <% end %> 
 
         <% end %> 
         <p>

@@ -193,7 +193,7 @@ DEPENDENCIES
   jquery-rails
   jquery_mobile_rails
   meta_request
-  nested_form (= 0.3.2)
+  nested_form
   populator3
   quiet_assets
   rails (= 4.0.13)

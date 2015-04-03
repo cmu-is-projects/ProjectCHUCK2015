@@ -1,8 +1,8 @@
 class Household < ActiveRecord::Base
 
 	#Relationship Validations
-	has_many :guardians
-	has_many :students
+	has_many :guardians, :dependent => :destroy
+	has_many :students, :dependent => :destroy
 
   accepts_nested_attributes_for :students, reject_if: lambda { |student| student[:first_name].blank? }, allow_destroy: true
   accepts_nested_attributes_for :guardians, reject_if: lambda { |guardian| guardian[:first_name].blank? }, allow_destroy: true
