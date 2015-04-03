@@ -1,6 +1,9 @@
-<h1>Listing roster_spots</h1>
+<div class="container">
+<h1>Roster Spots</h1>
+<%= link_to 'New Roster spot', new_roster_spot_path %>
+<br><br>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Team</th>
@@ -8,7 +11,7 @@
       <th>Start date</th>
       <th>End date</th>
       <th>Position</th>
-      <th></th>
+      <!-- <th></th> -->
       <th></th>
       <th></th>
     </tr>
@@ -22,14 +25,12 @@
         <td><%= roster_spot.start_date %></td>
         <td><%= roster_spot.end_date %></td>
         <td><%= roster_spot.position %></td>
-        <td><%= link_to 'Show', roster_spot %></td>
-        <td><%= link_to 'Edit', edit_roster_spot_path(roster_spot) %></td>
-        <td><%= link_to 'Destroy', roster_spot, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!-- <td><%#= link_to 'Show', roster_spot %></td> -->
+        <td><%= link_to(image_tag('edit.png'), edit_roster_spot_path(roster_spot)) %></td>
+        <td><%= link_to(image_tag('delete.png'), roster_spot, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Roster spot', new_roster_spot_path %>
+</div>
