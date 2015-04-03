@@ -40,7 +40,7 @@
           <%= render :partial => "student_fields", :locals => { :f => student_form } %>
           
             <legend>Registration</legend>
-            <%= student_form.simple_fields_for :registration do |registration_form| %>
+            <%= student_form.simple_fields_for :registrations do |registration_form| %>
               <%= render :partial => "registration_fields", :locals => { :f => registration_form } %>
             <% end %> 
 
