@@ -1,7 +1,7 @@
 class RosterSpotsController < ApplicationController
   before_action :set_roster_spot, only: [:show, :edit, :update, :destroy]
-  #before_action :check_login
-  #authorize_resource
+  before_action :check_login
+  authorize_resource
 
   # GET /roster_spots
   # GET /roster_spots.json

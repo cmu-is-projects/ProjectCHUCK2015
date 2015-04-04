@@ -1,7 +1,7 @@
 class TeamGamesController < ApplicationController
   before_action :set_team_game, only: [:show, :edit, :update, :destroy]
-  #before_action :check_login
-  #authorize_resource
+  before_action :check_login
+  authorize_resource
 
   # GET /team_games
   # GET /team_games.json
