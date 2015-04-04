@@ -91,7 +91,6 @@ namespace :db do
 
     # Step 5: Create some guardians
     daddydurant = Guardian.new
-    daddydurant.relation = "Father"
     daddydurant.household_id = durants.id
     daddydurant.email = "daddy.durant@gmail.com"
     daddydurant.first_name = "Daddy"
@@ -210,6 +209,7 @@ namespace :db do
     scottbrooks.first_name = "Scott"
     scottbrooks.last_name = "Brooks"
     scottbrooks.cell_phone = "2139198232"
+    scottbrooks.shirt_size = "L"
     scottbrooks.receives_text_msgs = true
     scottbrooks.active = true
     scottbrooks.save!
