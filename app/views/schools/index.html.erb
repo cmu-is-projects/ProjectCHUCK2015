@@ -1,12 +1,16 @@
-<h1>Listing schools</h1>
+<div class="container">
 
-<table>
+<h1>Schools</h1>
+<%= link_to 'New School', new_school_path %>
+<br><br>
+
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
       <th>District</th>
       <th>County</th>
-      <th></th>
+      <!-- <th></th> -->
       <th></th>
       <th></th>
     </tr>
@@ -18,14 +22,12 @@
         <td><%= school.name %></td>
         <td><%= school.district %></td>
         <td><%= school.county %></td>
-        <td><%= link_to 'Show', school %></td>
-        <td><%= link_to 'Edit', edit_school_path(school) %></td>
-        <td><%= link_to 'Destroy', school, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!-- <td><%#= link_to 'Show', school %></td> -->
+        <td><%= link_to(image_tag('edit.png'), edit_school_path(school)) %></td>
+        <td><%= link_to(image_tag('delete.png'), school, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New School', new_school_path %>
+</div>

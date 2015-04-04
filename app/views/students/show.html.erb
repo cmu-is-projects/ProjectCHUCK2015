@@ -1,105 +1,138 @@
+<div class="row">
+<div class="col-xs-3 col-sm-3">
+</div>
+
+<div class="col-xs-6 col-sm-6">
 <p id="notice"><%= notice %></p>
-<center><div class="row">
-  
-  <div class="col-sm-12">
-      <% if @student.gender=="M" %>
-        <%=link_to image_tag("maleuser64.png")%>
-      <% else %>
-        <%=link_to image_tag("femaleuser64.png")%>
-      <% end %>
-  </div>
+<div class="row">
 
   <div class="col-sm-12">
-    <p>
-      <!-- <strong>Name:</strong> -->
+    <% if @student.gender=="M" %>
+    <%=link_to image_tag("maleuser64.png")%>
+    <% else %>
+    <%=link_to image_tag("femaleuser64.png")%>
+    <% end %>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-sm-12">
+    <p id="details_name">
       <%= @student.proper_name %>
     </p>
   </div>
+</div>
 
+<br>
+
+<div class="row">
   <div class="col-sm-12">
     <p>
       <strong>Household:</strong>
       <%= @student.household_id %>
     </p>
   </div>
-
-<!-- <p>
-  <strong>First name:</strong>
-  <%= @student.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @student.last_name %>
-</p> -->
-<div class="col-sm-12">
-<p>
-  <strong>Date of Birth:</strong>
-  <%= @student.dob %>
-</p>
 </div>
 
+<div class="row">
 <div class="col-sm-12">
-<p>
-  <strong>Cell phone:</strong>
-  <%= @student.cell_phone %>
-</p>
+  <p>
+    <strong>Date of Birth:</strong>
+    <%= @student.dob %>
+  </p>
+</div>
 </div>
 
+<div class="row">
 <div class="col-sm-12">
-<p>
-  <strong>Email:</strong>
-  <%= @student.email %>
-</p>
+  <p>
+    <strong>Has birth certificate:</strong>
+    <%= @student.has_birth_certificate %>
+  </p>
+</div>
 </div>
 
+<div class="row">
 <div class="col-sm-12">
-<p>
-  <strong>Grade:</strong>
-  <%= @student.grade %>
-</p>
+  <p>
+    <strong>Grade:</strong>
+    <%= @student.grade %>
+  </p>
+</div>
 </div>
 
+<!-- <div class="row">
 <div class="col-sm-12">
+  <p>
+    <strong>Age:</strong>
+    <%#= @student.age %>
+  </p>
+</div>
+</div> -->
+
+<br>
+
+<div class="row">
+<div class="col-sm-12">
+  <p>
+    <strong>Cell phone:</strong>
+    <%= @student.cell_phone %>
+  </p>
+</div>
+</div>
+
+<div class="row">
+<div class="col-sm-12">
+  <p>
+    <strong>Email:</strong>
+    <%= @student.email %>
+  </p>
+</div>
+</div>
+
+<!-- <div class="col-sm-12">
 <p>
   <strong>Gender:</strong>
   <%= @student.gender %>
 </p>
+</div> -->
+
+<br>
+
+<div class="row">
+<div class="col-sm-12">
+  <p>
+    <strong>Emergency contact name:</strong>
+    <%= @student.emergency_contact_name %>
+  </p>
+</div>
 </div>
 
+<div class="row">
 <div class="col-sm-12">
-<p>
-  <strong>Emergency contact name:</strong>
-  <%= @student.emergency_contact_name %>
-</p>
+  <p>
+    <strong>Emergency contact phone:</strong>
+    <%= @student.emergency_contact_phone %>
+  </p>
+</div>
 </div>
 
+<div class="row">
 <div class="col-sm-12">
-<p>
-  <strong>Emergency contact phone:</strong>
-  <%= @student.emergency_contact_phone %>
-</p>
+  <p>
+    <strong>Allergies:</strong>
+    <%= @student.allergies %>
+  </p>
+</div>
 </div>
 
+<div class="row">
 <div class="col-sm-12">
-<p>
-  <strong>Has birth certificate:</strong>
-  <%= @student.has_birth_certificate %>
-</p>
+  <p>
+    <strong>Medications:</strong>
+    <%= @student.medications.nil? ? "N/A" : @student.medications %>
+  </p>
 </div>
-
-<div class="col-sm-12">
-<p>
-  <strong>Allergies:</strong>
-  <%= @student.allergies %>
-</p>
-</div>
-
-<div class="col-sm-12">
-<p>
-  <strong>Medications:</strong>
-  <%= @student.medications.nil? ? "N/A" : @student.medications %>
-</p>
 </div>
 
 <!-- <p>
@@ -119,5 +152,11 @@
 <div class="col-sm-12">
   <%= link_to 'Edit', edit_student_path(@student) %> |
   <%= link_to 'Back', students_path %>
-  </div>
-</div></center>
+</div>
+</div>
+</div>
+
+<div class="col-xs-3 col-sm-3">
+</div>
+
+</div>

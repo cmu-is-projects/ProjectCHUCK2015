@@ -33,7 +33,7 @@
       <div class="col-xs-6 col-sm-4">
         <div class="field">
           <%= f.label :gender %>
-          <%= f.text_field :gender %>
+          <%= f.select :gender, Student::GENDER_ARRAY, :prompt => "Select gender..."%>
         </div>
       </div>
     </div>
@@ -137,8 +137,8 @@
     <%#= f.text_area :security_response %>
   </div> -->
   <!-- <div class="field">
-    <%= f.label :active %><br>
-    <%= f.check_box :active %>
+    <%#= f.label :active %><br>
+    <%#= f.check_box :active %>
   </div> -->
   <div class="actions">
     <%= f.submit %>

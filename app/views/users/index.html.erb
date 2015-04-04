@@ -1,16 +1,19 @@
-<h1>Listing users</h1>
+<div class="container">
+<h1>Users</h1>
+<%= link_to 'New User', new_user_path %>
+<br><br>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Username</th>
       <th>Role</th>
       <th>Email</th>
-      <th>Active</th>
+      <!-- <th>Active</th>
       <th>Password digest</th>
       <th>Active after</th>
       <th>Password reset token</th>
-      <th>Password reset sent at</th>
+      <th>Password reset sent at</th> -->
       <th>First name</th>
       <th>Last name</th>
       <th>Cell phone</th>
@@ -27,23 +30,21 @@
         <td><%= user.username %></td>
         <td><%= user.role %></td>
         <td><%= user.email %></td>
-        <td><%= user.active %></td>
+        <!-- <td><%= user.active %></td>
         <td><%= user.password_digest %></td>
         <td><%= user.active_after %></td>
         <td><%= user.password_reset_token %></td>
-        <td><%= user.password_reset_sent_at %></td>
+        <td><%= user.password_reset_sent_at %></td> -->
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
         <td><%= user.cell_phone %></td>
         <td><%= user.receives_text_msgs %></td>
         <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to(image_tag('edit.png'), edit_user_path(user)) %></td>
+        <td><%= link_to(image_tag('delete.png'), user, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New User', new_user_path %>
+</div>
