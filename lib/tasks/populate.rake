@@ -13,6 +13,15 @@ namespace :db do
     # Docs at: http://faker.rubyforge.org/rdoc/
     require 'faker'
 
+
+    #required default information
+    #TEAMS NBA/WNBA
+
+    #Tournament(s)
+
+    #brackets
+
+
     # Step 1: Create some schools
     perry = School.new
     perry.name = "Perry High School"
