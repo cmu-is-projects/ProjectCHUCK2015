@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150327010400) do
+ActiveRecord::Schema.define(version: 20150404181508) do
 
   create_table "brackets", force: true do |t|
     t.integer  "tournament_id"
@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 20150327010400) do
   end
 
   create_table "guardians", force: true do |t|
-    t.string   "relation"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "household_id"
@@ -81,6 +80,14 @@ ActiveRecord::Schema.define(version: 20150327010400) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "physical_date"
+    t.string   "parent_consent_sign"
+    t.date     "parent_consent_date"
+    t.string   "parent_promise_sign"
+    t.date     "parent_promise_date"
+    t.string   "child_promise_sign"
+    t.date     "child_promise_date"
+    t.string   "parent_release_sign"
+    t.date     "parent_release_date"
   end
 
   create_table "roster_spots", force: true do |t|
@@ -175,6 +182,24 @@ ActiveRecord::Schema.define(version: 20150327010400) do
     t.boolean  "receives_text_msgs"
     t.boolean  "active"
     t.string   "role"
+    t.date     "date"
+    t.string   "street"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "day_phone"
+    t.integer  "years_with_proj_chuck"
+    t.string   "position"
+    t.string   "team_coached"
+    t.string   "child_name"
+    t.string   "shirt_size"
+    t.boolean  "has_school_clearance"
+    t.string   "clearance_copy"
+    t.text     "not_available"
+    t.text     "two_skills"
+    t.text     "suggestions"
+    t.string   "volunteer_sign"
+    t.date     "volunteer_sign_date"
   end
 
 end
