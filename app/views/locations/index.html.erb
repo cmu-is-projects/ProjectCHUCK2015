@@ -1,14 +1,16 @@
-<h1>Listing locations</h1>
+<div class="container">
+<h1>Locations</h1>
+<%= link_to 'New Location', new_location_path %><br><br>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Street</th>
       <th>City</th>
       <th>Zip</th>
       <th>State</th>
-      <th>Active</th>
-      <th></th>
+      <!-- <th>Active</th> -->
+      <!-- <th></th> -->
       <th></th>
       <th></th>
     </tr>
@@ -21,10 +23,10 @@
         <td><%= location.city %></td>
         <td><%= location.zip %></td>
         <td><%= location.state %></td>
-        <td><%= location.active %></td>
-        <td><%= link_to 'Show', location %></td>
-        <td><%= link_to 'Edit', edit_location_path(location) %></td>
-        <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!-- <td><%= location.active %></td> -->
+        <!-- <td><%#= link_to 'Show', location %></td> -->
+        <td><%= link_to(image_tag('edit.png'), edit_location_path(location)) %></td>
+        <td><%= link_to(image_tag('delete.png'), location, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Location', new_location_path %>
+</div>

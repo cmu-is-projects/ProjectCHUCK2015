@@ -1,5 +1,7 @@
-<h1>Project C.H.U.C.K. Teams</h1><br>
+<h1>Teams</h1>
 <%= link_to 'New Team', new_team_path %>
+
+<br><br>
 
 <table class="table">
   <thead>
@@ -10,7 +12,7 @@
       <th>Max students</th>
       <th># wins</th>
       <th># losses</th>
-      <th></th>
+      <!-- <th></th> -->
       <th></th>
       <th></th>
     </tr>
@@ -25,9 +27,9 @@
         <td><%= team.max_students %></td>
         <td><%= team.num_wins %></td>
         <td><%= team.num_losses %></td>
-        <td><%= link_to 'Show', team %></td>
-        <td><%= link_to 'Edit', edit_team_path(team) %></td>
-        <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!-- <td><%#= link_to 'Show', team %></td> -->
+        <td><%= link_to(image_tag('edit.png'), edit_team_path(team)) %></td>
+        <td><%= link_to(image_tag('delete.png'), team, method: :delete, data: { confirm: 'Are you sure?' })%></td>
       </tr>
     <% end %>
   </tbody>

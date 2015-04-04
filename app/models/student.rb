@@ -4,7 +4,7 @@ class Student < ActiveRecord::Base
 	belongs_to :household
 	belongs_to :school
 	has_many :roster_spots
-	has_many :registrations
+	has_many :registrations, :dependent => :destroy
   has_many :brackets, through: :registrations
   has_many :teams, through: :roster_spots
 
@@ -20,8 +20,12 @@ class Student < ActiveRecord::Base
   validates_format_of :email, :with => /\A[\w]([^@\s,;]+)@(([a-z0-9.-]+\.)+(com|edu|org|net|gov|mil|biz|info))\z/i, :message => "is not a valid format", :allow_blank => true
   validates_format_of :cell_phone, with: /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/, message: "should be 10 digits (area code needed) and delimited with dashes only", :allow_blank => true
   validates_format_of :emergency_contact_phone, with: /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/, message: "should be 10 digits (area code needed) and delimited with dashes only", :allow_blank => false
-  grades_array = (0..12).to_a
-  validates :grade, numericality: { only_integer: true, allow_blank: false }, inclusion: { in: grades_array, allow_blank: false }  
+  validates_numericality_of :grade
+  GRADESWITHK_ARRAY = [["K", 0]] + (1..12).to_a
+  GRADES_ARRAY = (0..12).to_a
+  GENDER_ARRAY = ["M","F"]
+  validates :grade, inclusion: { in: GRADES_ARRAY, allow_blank: false } 
+  validates :gender, inclusion: { in: GENDER_ARRAY, allow_blank: false } 
   # validate :household_is_active_in_system
 
 	# Scopes
@@ -46,10 +50,10 @@ class Student < ActiveRecord::Base
     last_name + ", " + first_name
   end
 
-  def age
-    return nil if dob.blank?
-    (Time.now.to_s(:number).to_i - dob.to_time.to_s(:number).to_i)/10e9.to_i
-  end
+  # def age
+  #   return nil if dob.blank?
+  #   (Time.now.to_s(:number).to_i - dob.to_time.to_s(:number).to_i)/10e9.to_i
+  # end
 
   private
      # We need to strip non-digits before saving to db

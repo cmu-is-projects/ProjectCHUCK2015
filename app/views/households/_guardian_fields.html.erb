@@ -1,14 +1,59 @@
+<%#= f.link_to_remove("x") %>
+<%#= f.input :first_name, input_html: {class: "avg"} %>
+<%#= f.input :last_name, input_html: {class: "avg"} %>
+<%#= f.input :relation, input_html: {class: "avg"} %>
+<%#= f.input :cell_phone, input_html: {class: "avg"} %>
+<%#= f.input :receives_text_msgs, input_html: {class: "avg"} %>
+<%#= f.input :email, input_html: {class: "avg"} %>
 
-    <%= f.link_to_remove("x") %>
+<div class="container formcon">
+  <%= f.link_to_remove("X Remove guardian") %> <br><br>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4">
+      <div class="field">
+        <%= f.label :first_name %> <br>
+        <%= f.text_field :first_name %>
+      </div>
+    </div>
+    <div class="col-xs-4 col-sm-4">
+      <div class="field">
+        <%= f.label :last_name %> <br>
+        <%= f.text_field :last_name %>
+      </div>
+    </div>
+    <div class="col-xs-4 col-sm-4">
+      <div class="field">
+        <%= f.label :relation %> <br>
+        <%= f.text_field :relation %>
+      </div>
+    </div>
+  </div>
 
-    <%= f.input :first_name, input_html: {class: "avg"} %>
 
-    <%= f.input :last_name, input_html: {class: "avg"} %>
+  <br>
 
-    <%= f.input :relation, input_html: {class: "avg"} %>
+  <div class="row">
+    <div class="col-xs-4 col-sm-4">
+      <div class="field">
+        <%= f.label :cell_phone %><br>
+        <%= f.text_field :cell_phone %>
+      </div>
+    </div>
 
-    <%= f.input :cell_phone, input_html: {class: "avg"} %>
-    
-    <%= f.input :receives_text_msgs, input_html: {class: "avg"} %>
+    <div class="col-xs-4 col-sm-4">
+      <div class="field">
+        <%= f.label :email %><br>
+        <%= f.text_field :email %>
+      </div>
+    </div>
 
-    <%= f.input :email, input_html: {class: "avg"} %>
+    <div class="col-xs-4 col-sm-4">
+      <div class="field">
+        <%= f.label "Receives Text Messages?" %><br>
+        <%= f.check_box :receives_text_msgs %>
+      </div>
+    </div>
+
+
+  </div>
+</div>
