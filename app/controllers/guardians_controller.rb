@@ -1,6 +1,6 @@
 class GuardiansController < ApplicationController
   before_action :set_guardian, only: [:show, :edit, :update, :destroy]
-  before_action :check_login
+  before_action :check_login, :except => [:show]
   authorize_resource
 
   # GET /guardians

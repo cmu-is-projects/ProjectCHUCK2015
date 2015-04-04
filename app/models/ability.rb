@@ -8,8 +8,12 @@ class Ability
       if user.role? :admin
         can :manage, :all
       else
-        can :read, Domain
-      end
+        can :create, Household
+        can :create, Student
+        can :create, Guardian
+        can :create, Registration
+        can :create, Volunteer
+      end   
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.

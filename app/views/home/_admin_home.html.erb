@@ -36,6 +36,9 @@
           <li><%= link_to 'Teams', teams_path %></li>
           <li><%= link_to 'Brackets', brackets_path %></li>
           <li><%= link_to 'Tournaments', tournaments_path %></li>
+		  <% if logged_in? %>
+		  	<li><%= link_to "Logout", logout_path %></li>
+		  <% end %>
           <!-- <li><a href="#a" data-toggle="tab">Students</a></li>
           <li class="active"><a href="#b" data-toggle="tab">Two</a></li>
           <li><a href="#c" data-toggle="tab">Twee</a></li> -->

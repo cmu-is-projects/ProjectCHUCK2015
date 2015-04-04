@@ -1,6 +1,6 @@
 class HouseholdsController < ApplicationController
   before_action :set_household, only: [:show, :edit, :update, :destroy]
-  before_action :check_login
+  before_action :check_login, :except => [:new, :show]
   authorize_resource
 
   # GET /households
