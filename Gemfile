@@ -71,6 +71,7 @@ group :test do
   gem 'single_test'
 end
 
+
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
