@@ -68,7 +68,7 @@ group :test do
   gem 'shoulda-matchers'
   gem 'simplecov'
   gem 'turn'
-  gem 'single_test'
+  #gem 'single_test'
 end
 
 
