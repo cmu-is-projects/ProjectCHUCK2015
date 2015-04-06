@@ -1,22 +1,98 @@
+<div class="container formcon">
+  <%= f.link_to_remove("X Remove student") %> <br><br>
+  <div class="row">
 
-    <%= f.input :bracket_id, input_html: {class: "avg"} %>
+    <div class="col-xs-6 col-sm-6">
+      <div class="field">
+        <%= f.label :bracket_id%> <br>
+        <%= f.collection_select :bracket_id, Bracket.all, :id, :id, prompt: "Select bracket..." %>
+      </div>
+    </div>
+    <div class="col-xs-6 col-sm-6">
+      <div class="field">
+        <%= f.label :has_report_card %> <br>
+        <%= f.check_box :has_report_card %>
+      </div>
+    </div>
+  </div>
 
-    <%= f.input :has_report_card, as: :boolean, checked_value: true, unchecked_value: false %>
+  <br>
 
-    <%= f.input :has_proof_of_insurance, as: :boolean, checked_value: true, unchecked_value: false %>
+  <div class ="row">
+    <div class="col-xs-6 col-sm-6">
+      <div class="field">
+        <%= f.label :has_proof_of_insurance %> <br>
+        <%= f.check_box :has_proof_of_insurance %>
+      </div>
+    </div>
+    <div class="col-xs-6 col-sm-6">
+      <div class="field">
+        <%= f.label :insurance_provider %> <br>
+        <%= f.text_field :insurance_provider %>
+      </div>
+    </div>
+  </div>
 
-    <%= f.input :insurance_provider, input_html: {class: "avg"} %>
+  <div class="row">
 
-    <%= f.input :insurance_policy_no, input_html: {class: "avg"} %>
+   <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :insurance_policy_no %><br>
+      <%= f.text_field :insurance_policy_no %>
+    </div>
+   </div>
+   <div class="col-xs-6 col-sm-6">
+     <div class="field">
+      <%= f.label :family_physician %><br>
+      <%= f.text_field :family_physician %>
+     </div>
+   </div>
+  </div>
 
-    <%= f.input :family_physician, input_html: {class: "avg"} %>
+<br>
 
-    <%= f.input :physician_phone, input_html: {class: "avg"} %>
+<div class="row">
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :physician_phone %><br>
+      <%= f.text_field :physician_phone %>
+    </div>
+  </div>
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :has_physical %><br>
+      <%= f.check_box :has_physical %>
+    </div>
+  </div>
+</div>
 
-    <%= f.input :has_physical, as: :boolean, checked_value: true, unchecked_value: false %>
+<br>
 
-    <%= f.input :jersey_size, collection: Registration::JERSEYSIZES %>
+<div class="row">
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+        <%= f.label :jersey_size %> <br>
+        <%= f.select :jersey_size, Registration::JERSEYSIZES, :prompt => "Select jersey size..." %>
+    </div>
+  </div>
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :active %> <br>
+      <%= f.check_box :active %>
+    </div>
+  </div>
+</div>
 
-    <%= f.input :active, as: :boolean, checked_value: true, unchecked_value: false %>
+<br>
 
-    <%= f.input :physical_date, input_html: {class: "avg"} %>
+<div class="row">
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :physical_date %><br>
+      <%= f.date_select :physical_date, :order =>[:month, :day, :year], :start_year => 1900, :end_year => 2015 %>
+    </div>
+  </div> 
+</div>
+
+</div>
+
