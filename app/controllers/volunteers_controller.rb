@@ -6,7 +6,7 @@ class VolunteersController < ApplicationController
   # GET /volunteers
   # GET /volunteers.json
   def index
-    @volunteers = Volunteer.all
+    @volunteers = Volunteer.alphabetical.alpha_paginate
   end
 
   # GET /volunteers/1
@@ -61,6 +61,20 @@ class VolunteersController < ApplicationController
       format.html { redirect_to volunteers_url }
       format.json { head :no_content }
     end
+  end
+  
+  def filter
+    	if params[:filter] == 'name'
+    		puts 'name'
+    		@volunteers = Volunteer.alphabetical
+    		puts @volunteers
+    	elsif params[:filter] == 'by_role'
+    		puts 'by_role'
+    		@volunteers = Volunteer.by_role
+      end
+  	respond_to do |format|
+  		format.json {render json: @volunteers.map {|r| r.to_json}}
+  	end
   end
 
   private
