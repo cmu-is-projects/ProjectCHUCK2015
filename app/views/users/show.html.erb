@@ -39,26 +39,8 @@
   <strong>Password reset sent at:</strong>
   <%= @user.password_reset_sent_at %>
 </p>
- -->
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
-
-<p>
-  <strong>Cell phone:</strong>
-  <%= @user.cell_phone %>
-</p>
-
-<p>
-  <strong>Receives text msgs:</strong>
-  <%= @user.receives_text_msgs %>
-</p>
+ 
+-->
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

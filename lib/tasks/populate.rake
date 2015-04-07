@@ -213,9 +213,29 @@ namespace :db do
     scottbrooks.receives_text_msgs = true
     scottbrooks.active = true
     scottbrooks.save!
+    
+    alliewilson = Volunteer.new
+    alliewilson.team_id = nets.id
+    alliewilson.role = "coach"
+    alliewilson.email = "aswilson@andrew.cmu.edu"
+    alliewilson.first_name = "Allie"
+    alliewilson.last_name = "Wilson"
+    alliewilson.cell_phone = "4107500575"
+    alliewilson.receives_text_msgs = false
+    alliewilson.active = true
+    alliewilson.save!
 
     # Step 12: Create some users
-
+    admintest = User.new
+    admintest.username = "admintest"
+    admintest.role = "admin"
+    admintest.email = "aswilson@andrew.cmu.edu"
+    admintest.active = true
+    admintest.password = "charliesangels"
+    admintest.password_confirmation = "charliesangels"
+    admintest.volunteer_id = alliewilson.id
+    admintest.save!
+    
 
     # Step 13: Create some games
     game1 = Game.new

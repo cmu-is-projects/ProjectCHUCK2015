@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
 
 
   # for use in authorizing with CanCan
-  ROLES = [['Administrator', :admin], ['Guardian', :guardian], ['Administrator', :volunteer]]
+  ROLES = [['Administrator', :admin], ['Guardian', :guardian], ['Volunteer', :volunteer]]
 
   def self.authenticate(username,password)
     find_by_username(username).try(:authenticate, password)

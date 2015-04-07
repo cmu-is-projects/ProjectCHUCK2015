@@ -28,4 +28,10 @@
 
 <br><br>
 
-<center><%= link_to 'Administrators: Login here', "home/index2" %><center>
+<center>
+  <% if logged_in? %>
+	<%= link_to 'Administrators', 'home/index2' %>
+<% else %>
+<%= link_to 'Administrators: Login here', new_session_path %>
+<% end %>
+<center>
