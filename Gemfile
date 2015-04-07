@@ -67,6 +67,12 @@ group :test do
   gem 'single_test'
 end
 
+
+# Other gems used by the project
+gem 'chronic', '0.10.2'
+gem 'font-awesome-sass-rails', '3.0.2.2'
+gem 'jquery-ui-rails', '4.1.1'
+gem 'cancancan', '1.7.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
