@@ -6,7 +6,7 @@ class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.all
+    @teams = Team.by_bracket.paginate(:page => params[:page]).per_page(10)
   end
 
   # GET /teams/1
@@ -61,6 +61,25 @@ class TeamsController < ApplicationController
       format.html { redirect_to teams_url }
       format.json { head :no_content }
     end
+  end
+  
+  def filter
+    	if params[:filter] == 'name'
+    		puts 'name'
+    		@teams = Team.alphabetical
+    		puts @teams
+    	elsif params[:filter] == 'wins'
+    		puts 'wins'
+    		@teams = Team.wins
+    	elsif params[:filter] == 'losses'
+    		puts 'losses'
+    		@teams = Team.losses
+    	elsif params[:filter] == 'by_bracket'
+    		puts 'by_bracket'
+    		@teams = Team.by_bracket
+  	respond_to do |format|
+  		format.json {render json: @teams.map {|r| r.to_json}}
+  	end
   end
 
   private

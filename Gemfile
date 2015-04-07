@@ -47,6 +47,7 @@ end
 
 gem 'validates_timeliness'
 gem 'will_paginate'
+gem 'alphabetical_paginate'
 
 # Gems used only in testing
 group :development, :test do
