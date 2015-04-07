@@ -77,6 +77,7 @@ class TeamsController < ApplicationController
     	elsif params[:filter] == 'by_bracket'
     		puts 'by_bracket'
     		@teams = Team.by_bracket
+      end
   	respond_to do |format|
   		format.json {render json: @teams.map {|r| r.to_json}}
   	end
