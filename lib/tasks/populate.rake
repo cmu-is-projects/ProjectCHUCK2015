@@ -4,11 +4,11 @@ namespace :db do
   # executing 'rake db:populate' will cause this script to run
   task :populate => :environment do
     # Drop the old db and recreate from scratch
-    Rake::Task['db:drop'].invoke
-    Rake::Task['db:create'].invoke
+    #Rake::Task['db:drop'].invoke
+    #Rake::Task['db:create'].invoke
     # Invoke rake db:migrate
-    Rake::Task['db:migrate'].invoke
-    Rake::Task['db:test:prepare'].invoke
+    #Rake::Task['db:migrate'].invoke
+    #Rake::Task['db:test:prepare'].invoke
     # Need gem to make this work when adding students later: faker
     # Docs at: http://faker.rubyforge.org/rdoc/
     require 'faker'
@@ -221,6 +221,7 @@ namespace :db do
     alliewilson.first_name = "Allie"
     alliewilson.last_name = "Wilson"
     alliewilson.cell_phone = "4107500575"
+    alliewilson.shirt_size = "S"
     alliewilson.receives_text_msgs = false
     alliewilson.active = true
     alliewilson.save!
