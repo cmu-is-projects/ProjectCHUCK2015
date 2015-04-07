@@ -221,6 +221,7 @@ namespace :db do
     alliewilson.first_name = "Allie"
     alliewilson.last_name = "Wilson"
     alliewilson.cell_phone = "4107500575"
+    alliewilson.shirt_size = "S"
     alliewilson.receives_text_msgs = false
     alliewilson.active = true
     alliewilson.save!
