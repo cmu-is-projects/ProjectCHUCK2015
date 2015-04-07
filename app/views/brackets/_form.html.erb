@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :tournament_id %><br>
-    <%= f.number_field :tournament_id %>
+    <%= f.collection_select :tournament_id, Tournament.all, :id, :name, prompt: "Select tournament..." %>
   </div>
   <div class="field">
     <%= f.label :gender %><br>
@@ -26,6 +26,10 @@
   <div class="field">
     <%= f.label :max_age %><br>
     <%= f.number_field :max_age %>
+  </div>
+  <div class="field">
+    <%= f.label :max_students %><br>
+    <%= f.number_field :max_students %>
   </div>
   <div class="actions">
     <%= f.submit %>

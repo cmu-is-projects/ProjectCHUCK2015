@@ -39,6 +39,8 @@ class Student < ActiveRecord::Base
   scope :missing_birthcert,  -> { where(has_birth_certificate: 'false')}
   scope :by_grade, ->(grade) { where("grade = ?", grade) }
   scope :by_gender, ->(gender) { where("gender = ?", gender) }
+  scope :has_allergies, -> { where('allergies IS NULL')}
+  scope :has_medications, -> { where('medications IS NULL')}
 
   # Methods
   # -----------------------------

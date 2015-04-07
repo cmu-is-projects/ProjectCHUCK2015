@@ -13,6 +13,15 @@ namespace :db do
     # Docs at: http://faker.rubyforge.org/rdoc/
     require 'faker'
 
+
+    #required default information
+    #TEAMS NBA/WNBA
+
+    #Tournament(s)
+
+    #brackets
+
+
     # Step 1: Create some schools
     perry = School.new
     perry.name = "Perry High School"
@@ -36,6 +45,16 @@ namespace :db do
     durants.county = "Allegheny"
     durants.active = true
     durants.save!
+
+    james = Household.new
+    james.street = "23 James Lane"
+    james.city = "Pittsburgh"
+    james.state = "PA"
+    james.zip = "15289"
+    james.home_phone = "4129999999"
+    james.county = "Armstrong"
+    james.active = true
+    james.save!
 
     # Step 3: Create some tournaments
     fourteen = Tournament.new
@@ -72,7 +91,6 @@ namespace :db do
 
     # Step 5: Create some guardians
     daddydurant = Guardian.new
-    daddydurant.relation = "Father"
     daddydurant.household_id = durants.id
     daddydurant.email = "daddy.durant@gmail.com"
     daddydurant.first_name = "Daddy"
@@ -102,14 +120,49 @@ namespace :db do
     kevindurant.active = true
     kevindurant.save!
 
+    lebron = Student.new
+    lebron.household_id = 2
+    lebron.school_id = perry.id
+    lebron.first_name = "Lebron"
+    lebron.last_name = "James"
+    lebron.dob = 8.years.ago.to_date
+    lebron.cell_phone = "4122323232"
+    lebron.email = "Lebron.james@gmail.com"
+    lebron.grade = 3
+    lebron.gender = "M"
+    lebron.emergency_contact_name = "Mommy James"
+    lebron.emergency_contact_phone = "4122184777"
+    lebron.has_birth_certificate = true
+    lebron.allergies = "Bees"
+    lebron.security_question = "What is your nba team"
+    lebron.security_response = "cavs"
+    lebron.active = true
+    lebron.save!
+
     # Step 7: Create some brackets
     boys1 = Bracket.new
     boys1.gender = "M"
     boys1.tournament_id = fifteen.id
-    boys1.min_age = 8
-    boys1.max_age = 10
+    boys1.min_age = 6
+    boys1.max_age = 9
     boys1.max_students = 100
     boys1.save!
+
+    boys2 = Bracket.new
+    boys2.gender = "M"
+    boys2.tournament_id = fifteen.id
+    boys2.min_age = 10
+    boys2.max_age = 13
+    boys2.max_students = 100
+    boys2.save!
+
+    boys3 = Bracket.new
+    boys3.gender = "M"
+    boys3.tournament_id = fifteen.id
+    boys3.min_age = 14
+    boys3.max_age = 18
+    boys3.max_students = 100
+    boys3.save!
 
     # Step 8: Create some registrations
     kdreg = Registration.new
@@ -156,12 +209,33 @@ namespace :db do
     scottbrooks.first_name = "Scott"
     scottbrooks.last_name = "Brooks"
     scottbrooks.cell_phone = "2139198232"
+    scottbrooks.shirt_size = "L"
     scottbrooks.receives_text_msgs = true
     scottbrooks.active = true
     scottbrooks.save!
+    
+    alliewilson = Volunteer.new
+    alliewilson.team_id = nets.id
+    alliewilson.role = "coach"
+    alliewilson.email = "aswilson@andrew.cmu.edu"
+    alliewilson.first_name = "Allie"
+    alliewilson.last_name = "Wilson"
+    alliewilson.cell_phone = "4107500575"
+    alliewilson.receives_text_msgs = false
+    alliewilson.active = true
+    alliewilson.save!
 
     # Step 12: Create some users
-
+    admintest = User.new
+    admintest.username = "admintest"
+    admintest.role = "admin"
+    admintest.email = "aswilson@andrew.cmu.edu"
+    admintest.active = true
+    admintest.password = "charliesangels"
+    admintest.password_confirmation = "charliesangels"
+    admintest.volunteer_id = alliewilson.id
+    admintest.save!
+    
 
     # Step 13: Create some games
     game1 = Game.new
@@ -181,6 +255,5 @@ namespace :db do
     netsgame1.team_id = nets.id
     netsgame1.score = "101"
     netsgame1.save!
-
-  end
+    end
 end
