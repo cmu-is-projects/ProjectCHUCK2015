@@ -38,7 +38,7 @@
    <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label :school_id %><br>
-      <%= f.collection_select :school_id, School.all, :id, :name, prompt: "Select school..." %>
+      <%= f.text_field :school_id %>
     </div>
    </div>
    <div class="col-xs-6 col-sm-6">
