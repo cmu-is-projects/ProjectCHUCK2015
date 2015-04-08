@@ -1,7 +1,7 @@
 <div class="container well">
-<h1>Volunteers</h1>
-<%= link_to 'New Volunteer', new_volunteer_path %>
-<br><br>
+<center><h2>Volunteers</h2>
+<%= link_to 'New Volunteer', new_volunteer_path %></center>
+<br>
 
 <table class="table">
   <thead>
@@ -20,7 +20,7 @@
     <% @volunteers.each do |volunteer| %>
       <tr>
         <td><%= link_to volunteer.proper_name, volunteer %></td>
-        <td><%= volunteer.team_id %></td>
+        <td><%= volunteer.team.name %></td>
         <td><%= volunteer.email %></td>
         <td><%= volunteer.cell_phone %></td>
         <td><%= volunteer.receives_text_msgs %></td>
