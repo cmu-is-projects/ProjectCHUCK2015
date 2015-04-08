@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container well">
 <center><h1>Guardians</h1>
 <%= link_to 'New Guardian', new_guardian_path %></center>
 <br>
@@ -28,5 +28,9 @@
     <% end %>
   </tbody>
 </table>
+
+<span class="paginate">
+<%= will_paginate @guardians, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>
 
 </div>

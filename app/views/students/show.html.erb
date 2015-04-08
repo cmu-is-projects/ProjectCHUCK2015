@@ -1,6 +1,4 @@
 <div class="row">
-<div class="col-xs-3 col-sm-3">
-</div>
 
 <div class="col-xs-6 col-sm-6">
 <p id="notice"><%= notice %></p>
@@ -15,12 +13,9 @@
     <% end %>
   </div>
 </div>
-<br>
 <div class="row">
   <div class="col-sm-12">
-    <p id="details_name">
-      <%= @student.proper_name %>
-    </p>
+    <h1> <%= @student.proper_name %></h1>
   </div>
 </div>
 
@@ -30,7 +25,7 @@
   <div class="col-sm-12">
     <p>
       <strong>Household:</strong>
-      <%= @student.household_id %>
+      <%= link_to @student.last_name, @student.household %>
     </p>
   </div>
 </div>
@@ -48,10 +43,16 @@
 <div class="col-sm-12">
   <p>
     <strong>Has birth certificate:</strong>
-    <%= @student.has_birth_certificate %>
+    <% if @student.has_birth_certificate == true %>
+        <%=link_to image_tag("check16.png")%>
+      <% else %>
+        <%=link_to image_tag("missing16.png")%>
+      <% end %>
   </p>
 </div>
 </div>
+
+<h3>School Information</h3>
 
 <div class="row">
 <div class="col-sm-12">
@@ -62,16 +63,16 @@
 </div>
 </div>
 
-<!-- <div class="row">
+<div class="row">
 <div class="col-sm-12">
   <p>
-    <strong>Age:</strong>
-    <%#= @student.age %>
+    <strong>School:</strong>
+    <%= @student.school.name %>
   </p>
 </div>
-</div> -->
+</div>
 
-<br>
+<h3>Contact Information</h3>
 
 <div class="row">
 <div class="col-sm-12">
@@ -98,7 +99,7 @@
 </p>
 </div> -->
 
-<br>
+<h3>Medical Information</h3>
 
 <div class="row">
 <div class="col-sm-12">
@@ -122,7 +123,7 @@
 <div class="col-sm-12">
   <p>
     <strong>Allergies:</strong>
-    <%= @student.allergies %>
+    <%= @student.allergies.nil? ? "N/A" : @student.allergies %>
   </p>
 </div>
 </div>
@@ -136,28 +137,12 @@
 </div>
 </div>
 
-<!-- <p>
-  <strong>Security question:</strong>
-  <%= @student.security_question %>
-</p>
-
-<p>
-  <strong>Security response:</strong>
-  <%= @student.security_response %>
-</p> -->
-
-<!-- <p>
-  <strong>Active:</strong>
-  <%= @student.active %>
-</p> -->
+<br> 
 <div class="col-sm-12">
   <%= link_to 'Edit', edit_student_path(@student) %> |
   <%= link_to 'Back', students_path %>
 </div>
 </div>
-</div>
-
-<div class="col-xs-3 col-sm-3">
 </div>
 
 </div>

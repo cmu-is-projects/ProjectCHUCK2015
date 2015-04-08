@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container well">
 <center><h2>Schools</h2>
 <%= link_to 'New School', new_school_path %></center>
 <br>
@@ -26,5 +26,9 @@
     <% end %>
   </tbody>
 </table>
+
+<span class="paginate">
+<%= will_paginate @schools, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>
 
 </div>

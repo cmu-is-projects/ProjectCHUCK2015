@@ -6,7 +6,7 @@ class RosterSpotsController < ApplicationController
   # GET /roster_spots
   # GET /roster_spots.json
   def index
-    @roster_spots = RosterSpot.all
+    @roster_spots = RosterSpot.all.paginate(:page => params[:page]).per_page(10)
   end
 
   # GET /roster_spots/1

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container well">
 <center><h2>Registrations</h2>
 <%= link_to 'New Registration', new_registration_path %></center>
 <br>
@@ -6,18 +6,13 @@
 <table class="table">
   <thead>
     <tr>
+      <th></th>
       <th>Student</th>
       <th>Bracket</th>
-      <th>Insurance provider</th>
-      <th>Insurance policy no</th>
-      <th>Family physician</th>
-      <th>Physician phone</th>
-      <th>Physical date</th>
       <th>Jersey size</th>
-      <th>Has report card</th>
-      <th>Has proof of insurance</th>
-      <th>Has physical</th>
-      <!-- <th></th> -->
+      <th>Report card</th>
+      <th>Proof of insurance</th>
+      <th>Physical</th>
       <th></th>
       <th></th>
     </tr>
@@ -26,17 +21,31 @@
   <tbody>
     <% @registrations.each do |registration| %>
       <tr>
-        <td><%= registration.student_id %></td>
-        <td><%= registration.bracket_id %></td>
-        <td><%= registration.insurance_provider %></td>
-        <td><%= registration.insurance_policy_no %></td>
-        <td><%= registration.family_physician %></td>
-        <td><%= registration.physician_phone %></td>
-        <td><%= registration.physical_date %></td>
+        <td><%= link_to(image_tag('expand24.png'), registration) %></td>
+        <td><%= registration.student.proper_name %></td>
+        <td><%= registration.bracket.min_age.to_s + " - " + registration.bracket.max_age.to_s %></td>
         <td><%= registration.jersey_size %></td>
-        <td><%= registration.has_report_card %></td>
-        <td><%= registration.has_proof_of_insurance %></td>
-        <td><%= registration.has_physical %></td>
+        <td>
+         <% if registration.has_report_card == true %>
+         <%= link_to(image_tag('check16.png')) %> 
+         <%else%>
+         <%= link_to(image_tag('missing16.png')) %> 
+         <%end%>
+        </td>
+        <td>
+          <% if registration.has_proof_of_insurance %>
+         <%= link_to(image_tag('check16.png')) %> 
+         <%else%>
+         <%= link_to(image_tag('missing16.png')) %> 
+         <%end%>
+        </td>
+        <td>
+          <% if registration.has_physical %>
+         <%= link_to(image_tag('check16.png')) %> 
+         <%else%>
+         <%= link_to(image_tag('missing16.png')) %> 
+         <%end%>
+       </td>
         <!-- <td><%#= link_to 'Show', registration %></td> -->
         <td><%= link_to(image_tag('edit.png'), edit_registration_path(registration)) %></td>
         <td><%= link_to(image_tag('delete.png'), registration, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
@@ -44,4 +53,9 @@
     <% end %>
   </tbody>
 </table>
+
+<span class="paginate">
+<%= will_paginate @registrations, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>
+
 </div>

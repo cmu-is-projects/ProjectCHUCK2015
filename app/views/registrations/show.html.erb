@@ -1,24 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Student:</strong>
-  <%= @registration.student_id %>
-</p>
+<h2>
+  <!-- <strong>Student:</strong> -->
+  <%= @registration.student.proper_name %>
+</h2>
 
 <p>
   <strong>Bracket:</strong>
-  <%= @registration.bracket_id %>
+  <%= @registration.bracket.min_age.to_s + " - " + @registration.bracket.max_age.to_s %>
 </p>
 
 <p>
-  <strong>Has report card:</strong>
-  <%= @registration.has_report_card %>
+  <strong>Jersey size:</strong>
+  <%= @registration.jersey_size %>
 </p>
 
-<p>
-  <strong>Has proof of insurance:</strong>
-  <%= @registration.has_proof_of_insurance %>
-</p>
+<h3>Insurance Information </h3>
 
 <p>
   <strong>Insurance provider:</strong>
@@ -26,9 +23,11 @@
 </p>
 
 <p>
-  <strong>Insurance policy no:</strong>
+  <strong>Insurance policy number:</strong>
   <%= @registration.insurance_policy_no %>
 </p>
+
+<h3>Medical Information </h3>
 
 <p>
   <strong>Family physician:</strong>
@@ -41,24 +40,46 @@
 </p>
 
 <p>
-  <strong>Has physical:</strong>
-  <%= @registration.has_physical %>
-</p>
-
-<p>
   <strong>Physical date:</strong>
   <%= @registration.physical_date %>
 </p>
 
+<h3>Documents</h3>
+
 <p>
-  <strong>Jersey size:</strong>
-  <%= @registration.jersey_size %>
+  <strong>Has report card:</strong>
+  <% if @registration.has_report_card == true %>
+         <%= link_to(image_tag('check16.png')) %> 
+         <%else%>
+         <%= link_to(image_tag('missing16.png')) %> 
+         <%end%>
 </p>
 
 <p>
+  <strong>Has proof of insurance:</strong>
+  <% if @registration.has_proof_of_insurance %>
+         <%= link_to(image_tag('check16.png')) %> 
+         <%else%>
+         <%= link_to(image_tag('missing16.png')) %> 
+         <%end%>
+</p>
+
+<p>
+  <strong>Has physical:</strong>
+  <% if @registration.has_physical == true %>
+         <%= link_to(image_tag('check16.png')) %> 
+         <%else%>
+         <%= link_to(image_tag('missing16.png')) %> 
+         <%end%>
+</p>
+
+<!-- 
+<p>
   <strong>Active:</strong>
   <%= @registration.active %>
-</p>
+</p> -->
+
+<br> 
 
 <%= link_to 'Edit', edit_registration_path(@registration) %> |
 <%= link_to 'Back', registrations_path %>

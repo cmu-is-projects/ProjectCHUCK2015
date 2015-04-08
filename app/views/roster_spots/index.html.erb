@@ -1,7 +1,7 @@
-<div class="container">
-<h1>Roster Spots</h1>
-<%= link_to 'New Roster spot', new_roster_spot_path %>
-<br><br>
+<div class="container well">
+<center><h1>Roster Spots</h1>
+<%= link_to 'New Roster Spot', new_roster_spot_path %></center>
+<br>
 
 <table class="table">
   <thead>
@@ -11,7 +11,6 @@
       <th>Start date</th>
       <th>End date</th>
       <th>Position</th>
-      <!-- <th></th> -->
       <th></th>
       <th></th>
     </tr>
@@ -20,17 +19,20 @@
   <tbody>
     <% @roster_spots.each do |roster_spot| %>
       <tr>
-        <td><%= roster_spot.team_id %></td>
-        <td><%= roster_spot.student_id %></td>
+        <td><%= roster_spot.team.name %></td>
+        <td><%= roster_spot.student.proper_name %></td>
         <td><%= roster_spot.start_date %></td>
         <td><%= roster_spot.end_date %></td>
         <td><%= roster_spot.position %></td>
-        <!-- <td><%#= link_to 'Show', roster_spot %></td> -->
         <td><%= link_to(image_tag('edit.png'), edit_roster_spot_path(roster_spot)) %></td>
         <td><%= link_to(image_tag('delete.png'), roster_spot, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<span class="paginate">
+<%= will_paginate @roster_spots, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>
 
 </div>

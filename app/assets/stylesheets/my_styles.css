@@ -299,3 +299,17 @@ h2.resp-accordion:first-child {
     color: white;
     box-shadow: none;
 }*/
+
+.boy{
+  border-left: 2px solid DeepSkyBlue;
+/*border-radius: 10px;
+margin-top: 15px;
+margin-bottom: 15px;*/
+}
+
+.girl{
+  border-left: 2px solid HotPink;
+/*border-radius: 10px;*/
+/*margin-top: 15px;
+margin-bottom: 15px;*/
+}

@@ -1,7 +1,7 @@
-<div class="container">
-  <h1>Tournaments</h1>
-  <%= link_to 'New Tournament', new_tournament_path %>
-  <br><br>
+<div class="container well">
+  <center><h1>Tournaments</h1>
+  <%= link_to 'New Tournament', new_tournament_path %></center>
+  <br>
 
   <table class="table">
     <thead>
@@ -26,4 +26,9 @@
       <% end %>
     </tbody>
   </table>
+
+  <span class="paginate">
+<%= will_paginate @tournaments, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>
+
 </div>

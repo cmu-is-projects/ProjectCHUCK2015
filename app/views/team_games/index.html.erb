@@ -1,13 +1,14 @@
-<div class="container">
-  <h1>Team Games</h1>
-  <%= link_to 'New Team Game', new_team_game_path %>
-  <br><br>
+<div class="container well">
+  <center><h1>Team Games</h1>
+  <%= link_to 'New Team Game', new_team_game_path %></center>
+  <br>
 
   <table class="table">
     <thead>
       <tr>
         <th>Game</th>
         <th>Team</th>
+        <th>Score</th>
         <th></th>
         <th></th>
       </tr>
@@ -16,13 +17,18 @@
     <tbody>
       <% @team_games.each do |team_game| %>
       <tr>
-        <td><%= link_to team_game.game_id, team_game.game %></td>
-        <td><%= link_to team_game.team_id, team_game.team %></td>
+        <td><%= link_to team_game.game.date, team_game.game %></td>
+        <td><%= link_to team_game.team.name, team_game.team %></td>
+        <td><%= team_game.score %></td>
         <td><%= link_to(image_tag('edit.png'), edit_team_game_path(team_game)) %></td>
         <td><%= link_to(image_tag('delete.png'), team_game, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
       </tr>
       <% end %>
     </tbody>
   </table>
+
+  <span class="paginate">
+<%= will_paginate @team_games, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>
 
 </div>
