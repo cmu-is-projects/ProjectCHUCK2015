@@ -5,12 +5,12 @@ namespace :db do
   task :populate => :environment do
     # Drop the old db and recreate from scratch
 
-#commented this stuff out to get populate to work:
-    # Rake::Task['db:drop'].invoke
-    # Rake::Task['db:create'].invoke
-    # # Invoke rake db:migrate
-    # Rake::Task['db:migrate'].invoke
-    # Rake::Task['db:test:prepare'].invoke
+#comment this stuff out to get populate to work locally:
+    Rake::Task['db:drop'].invoke
+    Rake::Task['db:create'].invoke
+    # Invoke rake db:migrate
+    Rake::Task['db:migrate'].invoke
+    Rake::Task['db:test:prepare'].invoke
 
     # Need gem to make this work when adding students later: faker
     # Docs at: http://faker.rubyforge.org/rdoc/
