@@ -46,7 +46,8 @@
 
         <% end %> 
         <p>
-         <%= household_form.link_to_add("+ Add Another Student", :students, :class => 'button tiny') %>
+         <%# household_form.link_to_add("+ Add Another Student", :students, :class => 'button tiny') %>
+         <%= link_to_add_double("+ Add Another Student", household_form, :students, :registrations) %>
         </p> <br /><br />
       </div> 
     </div>
