@@ -1,17 +1,15 @@
 <div class="container">
-<h1>Guardians</h1>
-<%= link_to 'New Guardian', new_guardian_path %>
-<br><br>
+<center><h1>Guardians</h1>
+<%= link_to 'New Guardian', new_guardian_path %></center>
+<br>
 
 <table class="table">
   <thead>
     <tr>
       <th>Name</th>
-      <th>Relation</th>
       <th>Email</th>
       <th>Cell phone</th>
       <th>Receives text messages?</th>
-      <!-- <th></th> -->
       <th></th>
       <th></th>
     </tr>
@@ -20,12 +18,10 @@
   <tbody>
     <% @guardians.each do |guardian| %>
       <tr>
-        <td><%= guardian.proper_name %></td>
-        <!-- <td><%= guardian.relation %></td> -->
+        <td><%= link_to guardian.proper_name, guardian %></td>
         <td><%= guardian.email %></td>
         <td><%= guardian.cell_phone %></td>
         <td><%= guardian.receives_text_msgs %></td>
-        <!-- <td><%#= link_to 'Show', guardian %></td> -->
         <td><%= link_to(image_tag('edit.png'), edit_guardian_path(guardian)) %></td>
         <td><%= link_to(image_tag('delete.png'), guardian, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
       </tr>

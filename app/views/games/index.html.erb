@@ -1,10 +1,14 @@
-<h1>Listing games</h1>
+<div class="container">
+  <center><h1>Games</h1>
+  <%= link_to 'New Game', new_game_path %></center>
 
-<table>
+  <br>
+
+<table class="table">
   <thead>
     <tr>
       <th>Date</th>
-      <th></th>
+      <!-- <th></th> -->
       <th></th>
       <th></th>
     </tr>
@@ -13,15 +17,12 @@
   <tbody>
     <% @games.each do |game| %>
       <tr>
-        <td><%= game.date %></td>
-        <td><%= link_to 'Show', game %></td>
-        <td><%= link_to 'Edit', edit_game_path(game) %></td>
-        <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to game.date, game %></td>
+        <!-- <td><%#= link_to 'Show', game %></td> -->
+        <td><%= link_to(image_tag('edit.png'), edit_game_path(game)) %></td>
+        <td><%= link_to(image_tag('delete.png'), game, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Game', new_game_path %>
+</div>

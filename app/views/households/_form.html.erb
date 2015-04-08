@@ -13,7 +13,7 @@
 
 <center><h2>Student Registration Form</h2></center> <br><br>
 
-<fieldset>
+<fieldset class="well">
   <div class="row">
 
     <div class="span7">
@@ -56,7 +56,7 @@
 <div class="actions">
   <div class="row">
     <div class="col-sm-6">
-      <%= link_to 'Cancel', households_path, :class => 'btn btn-primary btn-lg outline' %>
+      <%= link_to 'Cancel', "/home", :class => 'btn btn-primary btn-lg outline' %>
     </div>
     <div class="col-sm-6">
       <%= household_form.submit nil, :class => 'btn btn-primary btn-lg outline' %>

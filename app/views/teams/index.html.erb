@@ -1,18 +1,16 @@
-<h1>Teams</h1>
-<%= link_to 'New Team', new_team_path %>
+<div class="container">
+<center><h2>Teams</h2>
+<%= link_to 'New Team', new_team_path %></center>
 
-<br><br>
+<br>
 
 <table class="table">
   <thead>
     <tr>
-      <th>Bracket</th>
       <th>Name</th>
-      <th>Students enrolled</th>
-      <th>Max students</th>
-      <th># wins</th>
-      <th># losses</th>
-      <!-- <th></th> -->
+      <th>Bracket</th>
+      <th>Enrollment</th>
+      <th>Record</th>
       <th></th>
       <th></th>
     </tr>
@@ -21,16 +19,14 @@
   <tbody>
     <% @teams.each do |team| %>
       <tr>
-        <td><%= team.bracket_id %></td>
-        <td><%= team.name %></td>
-        <td><%= team.roster_spots.count %></td>
-        <td><%= team.max_students %></td>
-        <td><%= team.num_wins %></td>
-        <td><%= team.num_losses %></td>
-        <!-- <td><%#= link_to 'Show', team %></td> -->
+        <td><%= link_to team.name, team %></td>
+        <td><%= "#{team.bracket.min_age} - #{team.bracket.max_age}" %></td>
+        <td><%= "#{team.roster_spots.count} out of #{team.max_students}"  %></td>
+        <td><%= "#{team.num_wins} wins by #{team.num_losses} losses"  %></td>
         <td><%= link_to(image_tag('edit.png'), edit_team_path(team)) %></td>
         <td><%= link_to(image_tag('delete.png'), team, method: :delete, data: { confirm: 'Are you sure?' })%></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>

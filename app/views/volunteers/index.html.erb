@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container well">
 <h1>Volunteers</h1>
 <%= link_to 'New Volunteer', new_volunteer_path %>
 <br><br>
@@ -11,7 +11,6 @@
       <th>Email</th>
       <th>Cell phone</th>
       <th>Receives text messages?</th>
-      <!-- <th></th> -->
       <th></th>
       <th></th>
     </tr>
@@ -20,12 +19,11 @@
   <tbody>
     <% @volunteers.each do |volunteer| %>
       <tr>
-        <td><%= volunteer.proper_name %></td>
+        <td><%= link_to volunteer.proper_name, volunteer %></td>
         <td><%= volunteer.team_id %></td>
         <td><%= volunteer.email %></td>
         <td><%= volunteer.cell_phone %></td>
         <td><%= volunteer.receives_text_msgs %></td>
-        <!-- <td><%#= link_to 'Show', volunteer %></td> -->
         <td><%= link_to(image_tag('edit.png'), edit_volunteer_path(volunteer)) %></td>
         <td><%= link_to(image_tag('delete.png'), volunteer, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
       </tr>

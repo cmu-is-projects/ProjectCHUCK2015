@@ -1,7 +1,7 @@
 <div class="container">
-<h1>Households</h1>
-<%= link_to 'New Household', new_household_path %>
-<br><br>
+<center><h1>Households</h1>
+<%= link_to 'New Household', new_household_path %></center>
+<br>
 
 <table class="table">
   <thead>
@@ -12,8 +12,6 @@
       <th>Zip</th>
       <th>Home phone</th>
       <th>County</th>
-      <!-- <th>Active</th> -->
-      <!-- <th></th> -->
       <th></th>
       <th></th>
     </tr>
@@ -28,7 +26,6 @@
         <td><%= household.zip %></td>
         <td><%= household.home_phone %></td>
         <td><%= household.county %></td>
-        <!-- <td><%= household.active %></td> -->
         <!-- <td><%#= link_to 'Show', household %></td> -->
         <td><%= link_to(image_tag('edit.png'), edit_household_path(household)) %></td>
         <td><%= link_to(image_tag('delete.png'), household, method: :delete, data: { confirm: 'Are you sure?' }) %></td>

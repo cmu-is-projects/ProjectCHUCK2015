@@ -1,21 +1,23 @@
-<h1>Listing registrations</h1>
+<div class="container">
+<center><h2>Registrations</h2>
+<%= link_to 'New Registration', new_registration_path %></center>
+<br>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Student</th>
       <th>Bracket</th>
-      <th>Has report card</th>
-      <th>Has proof of insurance</th>
       <th>Insurance provider</th>
       <th>Insurance policy no</th>
       <th>Family physician</th>
       <th>Physician phone</th>
-      <th>Has physical</th>
       <th>Physical date</th>
       <th>Jersey size</th>
-      <th>Active</th>
-      <th></th>
+      <th>Has report card</th>
+      <th>Has proof of insurance</th>
+      <th>Has physical</th>
+      <!-- <th></th> -->
       <th></th>
       <th></th>
     </tr>
@@ -26,24 +28,20 @@
       <tr>
         <td><%= registration.student_id %></td>
         <td><%= registration.bracket_id %></td>
-        <td><%= registration.has_report_card %></td>
-        <td><%= registration.has_proof_of_insurance %></td>
         <td><%= registration.insurance_provider %></td>
         <td><%= registration.insurance_policy_no %></td>
         <td><%= registration.family_physician %></td>
         <td><%= registration.physician_phone %></td>
-        <td><%= registration.has_physical %></td>
         <td><%= registration.physical_date %></td>
         <td><%= registration.jersey_size %></td>
-        <td><%= registration.active %></td>
-        <td><%= link_to 'Show', registration %></td>
-        <td><%= link_to 'Edit', edit_registration_path(registration) %></td>
-        <td><%= link_to 'Destroy', registration, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= registration.has_report_card %></td>
+        <td><%= registration.has_proof_of_insurance %></td>
+        <td><%= registration.has_physical %></td>
+        <!-- <td><%#= link_to 'Show', registration %></td> -->
+        <td><%= link_to(image_tag('edit.png'), edit_registration_path(registration)) %></td>
+        <td><%= link_to(image_tag('delete.png'), registration, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Registration', new_registration_path %>
+</div>

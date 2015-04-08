@@ -8,7 +8,6 @@
       <tr>
         <th>Game</th>
         <th>Team</th>
-        <!-- <th></th> -->
         <th></th>
         <th></th>
       </tr>
@@ -17,9 +16,8 @@
     <tbody>
       <% @team_games.each do |team_game| %>
       <tr>
-        <td><%= team_game.game_id %></td>
-        <td><%= team_game.team_id %></td>
-        <!-- <td><%#= link_to 'Show', team_game %></td> -->
+        <td><%= link_to team_game.game_id, team_game.game %></td>
+        <td><%= link_to team_game.team_id, team_game.team %></td>
         <td><%= link_to(image_tag('edit.png'), edit_team_game_path(team_game)) %></td>
         <td><%= link_to(image_tag('delete.png'), team_game, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
       </tr>

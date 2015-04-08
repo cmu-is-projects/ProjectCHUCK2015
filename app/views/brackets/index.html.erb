@@ -1,15 +1,15 @@
 <div class="container">
-  <h1>Project C.H.U.C.K. Brackets</h1><br>
-  <%= link_to 'New Bracket', new_bracket_path %>
+  <center><h1>Brackets</h1>
+  <%= link_to 'New Bracket', new_bracket_path %></center>
+
+  <br>
 
   <table class="table">
     <thead>
       <tr>
-        <th>Tournament</th>
+        <th>Bracket</th>
         <th>Gender</th>
-        <th>Min age</th>
-        <th>Max age</th>
-        <th></th>
+        <th>Tournament</th>
         <th></th>
         <th></th>
       </tr>
@@ -18,13 +18,11 @@
     <tbody>
       <% @brackets.each do |bracket| %>
       <tr>
-        <td><%= bracket.tournament_id %></td>
+        <td><%= link_to "#{bracket.min_age} - #{bracket.max_age}", bracket %></td>
         <td><%= bracket.gender %></td>
-        <td><%= bracket.min_age %></td>
-        <td><%= bracket.max_age %></td>
-        <td><%= link_to 'Show', bracket %></td>
-        <td><%= link_to 'Edit', edit_bracket_path(bracket) %></td>
-        <td><%= link_to 'Destroy', bracket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= bracket.tournament_id %></td>
+        <td><%= link_to(image_tag('edit.png'), edit_bracket_path(bracket)) %></td>
+        <td><%= link_to(image_tag('delete.png'), bracket, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
       </tr>
       <% end %>
     </tbody>
