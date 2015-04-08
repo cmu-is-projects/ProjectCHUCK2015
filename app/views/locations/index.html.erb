@@ -10,7 +10,7 @@
       <th>Name</th>
       <th>Street</th>
       <th>City</th>
-      <th>Zip</th>
+      <!-- <th>Zip</th> -->
       <th>State</th>
       <!-- <th></th> -->
       <th></th>
@@ -24,7 +24,7 @@
         <td><%= link_to location.name, location %></td>
         <td><%= location.street %></td>
         <td><%= location.city %></td>
-        <td><%= location.zip %></td>
+        <!-- <td><%= location.zip %></td> -->
         <td><%= location.state %></td>
         <td><%= link_to(image_tag('edit.png'), edit_location_path(location)) %></td>
         <td><%= link_to(image_tag('delete.png'), location, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
