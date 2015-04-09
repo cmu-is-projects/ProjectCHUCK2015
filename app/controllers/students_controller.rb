@@ -6,13 +6,35 @@ class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
   def index
-    @students = Student.alphabetical
-    # @students = Student.alphabetical.alpha_paginate(params[:letter])
+    @filterrific = initialize_filterrific(
+      Student,
+      params[:filterrific],
+      select_options: {
+        sorted_by: Student.options_for_sorted_by
+        },
+        persistence_id: 'shared_key',
+        default_filter_params: {},
+        available_filters: [],
+        ) or return
+
+    @students = @filterrific.find.page(params[:page])
+
+    # Respond to html for initial page load and to js for AJAX filter updates.
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
+  rescue ActiveRecord::RecordNotFound => e
+    puts "Had to reset filterrific params: #{ e.message }"
+    redirect_to(reset_filterrific_url(format: :html)) and return
   end
 
   # GET /students/1
   # GET /students/1.json
   def show
+    @households = Household.all
+    @guardians = Guardian.all
   end
 
   # GET /students/new
@@ -66,30 +88,30 @@ class StudentsController < ApplicationController
     end
   end
   
-  def filter
-    	if params[:filter] == 'last_name'
-    		puts 'last_name'
-    		@students = Student.alphabetical
-    		puts @students
-    	elsif params[:filter] == 'missing_birthcert'
-    		puts 'missing_birthcert'
-    		@students = Student.missing_birthcert
-    	elsif params[:filter] == 'by_school'
-    		puts 'by_school'
-    		@students = Student.by_school
-    	elsif params[:filter] == 'allergies'
-    		puts 'allergies'
-    		@students = Student.has_allergies
-    	elsif params[:filter] == 'medications'
-    		puts 'medications'
-    		@students = Student.has_medications
-      #jersey size?
-      #teams?
-    	end
-  	respond_to do |format|
-  		format.json {render json: @students.map {|r| r.to_json}}
-  	end
-  end
+  # def filter
+  #  if params[:filter] == 'last_name'
+  #   puts 'last_name'
+  #   @students = Student.alphabetical
+  #   puts @students
+  # elsif params[:filter] == 'missing_birthcert'
+  #   puts 'missing_birthcert'
+  #   @students = Student.missing_birthcert
+  # elsif params[:filter] == 'by_school'
+  #   puts 'by_school'
+  #   @students = Student.by_school
+  # elsif params[:filter] == 'allergies'
+  #   puts 'allergies'
+  #   @students = Student.has_allergies
+  # elsif params[:filter] == 'medications'
+  #   puts 'medications'
+  #   @students = Student.has_medications
+  #     #jersey size?
+  #     #teams?
+  #   end
+  #   respond_to do |format|
+  #     format.json {render json: @students.map {|r| r.to_json}}
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -101,4 +123,4 @@ class StudentsController < ApplicationController
     def student_params
       params.require(:student).permit(:household_id, :first_name, :last_name, :dob, :cell_phone, :email, :grade, :gender, :emergency_contact_name, :emergency_contact_phone, :has_birth_certificate, :allergies, :medications, :security_question, :security_response, :active, :school_id, :_destroy, registrations_attributes: [:id, :bracket_id, :has_report_card, :has_proof_of_insurance, :insurance_provider, :insurance_policy_no, :family_physician, :physician_phone, :has_physical, :physical_date, :jersey_size, :report_card, :active, :_destroy])
     end
-end
+  end

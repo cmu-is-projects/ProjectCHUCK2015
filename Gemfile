@@ -19,12 +19,14 @@ gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+# gem 'jquery-ui-rails'
 
 #for bootstrap and using Sass for CSS
 gem "twitter-bootstrap-rails"
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'google-webfonts-rails'
 gem 'lazy_high_charts'
+gem 'filterrific'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'

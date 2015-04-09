@@ -3,33 +3,42 @@
     <h1>Students</h1>
     <%= link_to(image_tag('add_student.png'), new_student_path) %>
   </center>
-  
-  <br>
 
-  <ul class="nav nav-pills">
-  <li class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Filter
-      <span class="caret"></span>
-    </a>
-    <ul class="dropdown-menu centerMe">
-      <li>
-        <a filter_type="price" id="price_button">Name</a>
-      </li>
-      <li>
-        <a filter_type="distance" id="distance_button">School</a>
-      </li>
-      <li>
-        <a class="filter_button" filter_type="time">Missing birth certificate</a>
-      </li>
-      <li>
-        <a class="filter_button" filter_type="rating">Allergies</a>
-      </li>
-      <li>
-        <a class="filter_button" filter_type="rating">Medications</a>
-      </li>
-    </ul>
-  </li>
-</ul>
+<%#
+  Filterrific adds the `form_for_filterrific` view helper:
+  * adds dom id 'filterrific_filter'
+  * applies javascript behaviors:
+      * AJAX form submission on change
+      * AJAX spinner while AJAX request is being processed
+  * sets form_for options like :url, :method and input name prefix
+%>
+<%= form_for_filterrific @filterrific do |f| %>
+  <div>
+    Search
+    <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+    <%= f.text_field(
+      :search_query,
+      class: 'filterrific-periodically-observed'
+    ) %>
+  </div>
+  <div>
+    Sorted by
+    <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
+  </div>
+  <div>
+    <%= link_to(
+      'Reset filters',
+      reset_filterrific_url,
+    ) %>
+  </div>
+  <%# add an automated spinner to your form when the list is refreshed %>
+  <%= render_filterrific_spinner %>
+<% end %>
+
+<%#= render(
+  partial: 'students/list',
+  locals: { students: @students }
+) %>
 
 <br>
 

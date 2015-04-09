@@ -28,8 +28,6 @@
   <div class="row">
 
     <div class="col-md-12">
-      <!-- <h3>Pills left</h3> -->
-      <!-- tabs left -->
       <div class="tabbable">
         <ul class="nav nav-pills nav-stacked col-md-2">
           <li><%= link_to 'Students', students_path %></li> 
@@ -39,15 +37,25 @@
 		  <% if logged_in? %>
 		  	<li><%= link_to "Logout", logout_path %></li>
 		  <% end %>
-          <!-- <li><a href="#a" data-toggle="tab">Students</a></li>
-          <li class="active"><a href="#b" data-toggle="tab">Two</a></li>
-          <li><a href="#c" data-toggle="tab">Twee</a></li> -->
         </ul>
         <div class="tab-content col-md-10">
           <div class="jumbotron">
-        <h2>Welcome, Tasha!</h2>
+        <h2>Welcome, <%= current_user.volunteer.first_name %>!</h2>
         <p class="lead">Here are the most recent Project C.H.U.C.K. updates!</p>
-        </div> 
+        <br>
+        <center><p id="update">There are currently <b><%= Student.all.count %></b> students registered for Project CHUCK</p></center>
+        </div>
+
+        <div class="col-sm-12 col-md-12 col-lg-7">
+          <h3>Demographics</h3>
+          <%# if (@male_students.size + @female_students.size) > 2 %>
+              <%= high_chart("my_id1", @gender_chart) %> <br>
+              <%= high_chart("my_id2", @school_district_chart) %> <br>
+          <%# else %>
+            <%#= "None at this time." %>
+          <%# end %>
+        <!-- </div> -->
+
       </div>
       <!-- /tabs -->
     </div>
@@ -55,8 +63,5 @@
   </div>
   <!-- /row -->
 </div>
-
-
-
 
 <hr>
