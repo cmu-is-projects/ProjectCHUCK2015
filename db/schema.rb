@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150407043508) do
+ActiveRecord::Schema.define(version: 20150409210037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,15 +83,14 @@ ActiveRecord::Schema.define(version: 20150407043508) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "physical_date"
-    t.string   "parent_consent_sign"
-    t.date     "parent_consent_date"
-    t.string   "parent_promise_sign"
-    t.date     "parent_promise_date"
     t.string   "child_promise_sign"
     t.date     "child_promise_date"
-    t.string   "parent_release_sign"
-    t.date     "parent_release_date"
     t.string   "report_card"
+    t.boolean  "parent_consent_agree"
+    t.boolean  "parent_promise_agree"
+    t.boolean  "parent_release_agree"
+    t.string   "parent_signature"
+    t.date     "parent_sign_date"
   end
 
   create_table "roster_spots", force: true do |t|
