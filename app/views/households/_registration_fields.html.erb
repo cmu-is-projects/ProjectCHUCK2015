@@ -5,7 +5,7 @@
     <div class="col-xs-6 col-sm-6">
       <div class="field">
         <%= f.label :bracket_id%> <br>
-        <%= f.collection_select :bracket_id, Bracket.all, :id, :id, prompt: "Select bracket..." %>
+        <%= f.text_field :insurance_provider %>
       </div>
     </div>
     <div class="col-xs-6 col-sm-6">
@@ -92,7 +92,14 @@
       <%= f.date_select :physical_date, :order =>[:month, :day, :year], :start_year => 1900, :end_year => 2015 %>
     </div>
   </div> 
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.input :report_card, :as => :file, :label => "Report Card Upload: " %>
+    </div>
+  </div> 
 </div>
+
+
 
 </div>
 
