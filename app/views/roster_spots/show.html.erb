@@ -2,12 +2,17 @@
 
 <p>
   <strong>Team:</strong>
-  <%= @roster_spot.team_id %>
+  <%= @roster_spot.team.name %>
 </p>
 
 <p>
   <strong>Student:</strong>
-  <%= @roster_spot.student_id %>
+  <%= @roster_spot.student.proper_name %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @roster_spot.position %>
 </p>
 
 <p>
@@ -18,11 +23,6 @@
 <p>
   <strong>End date:</strong>
   <%= @roster_spot.end_date %>
-</p>
-
-<p>
-  <strong>Position:</strong>
-  <%= @roster_spot.position %>
 </p>
 
 <%= link_to 'Edit', edit_roster_spot_path(@roster_spot) %> |

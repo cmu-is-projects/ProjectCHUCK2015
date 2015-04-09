@@ -41,6 +41,9 @@ ProjectChuck2015::Application.routes.draw do
   get 'home/contact', to: 'home#contact', as: :contact
   get 'home/index2', to: 'home#index2', as: :index2
 
+  get 'graph/index'
+  get 'graph/data', :defaults => { :format => 'json' }
+
   # set the root url
   root to: 'home#index'
 

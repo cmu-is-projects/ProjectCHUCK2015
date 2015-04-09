@@ -2,12 +2,12 @@
 
 <p>
   <strong>Game:</strong>
-  <%= @team_game.game_id %>
+  <%= @team_game.game.date %>
 </p>
 
 <p>
   <strong>Team:</strong>
-  <%= @team_game.team_id %>
+  <%= @team_game.team.name %>
 </p>
 
 <%= link_to 'Edit', edit_team_game_path(@team_game) %> |

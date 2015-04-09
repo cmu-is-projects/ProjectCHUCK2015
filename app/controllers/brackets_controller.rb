@@ -6,7 +6,8 @@ class BracketsController < ApplicationController
   # GET /brackets
   # GET /brackets.json
   def index
-    @brackets = Bracket.all
+    @male_brackets = Bracket.male.paginate(:page => params[:page]).per_page(10)
+    @female_brackets = Bracket.female.paginate(:page => params[:page]).per_page(10)
   end
 
   # GET /brackets/1
