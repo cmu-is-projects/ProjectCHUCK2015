@@ -1,7 +1,7 @@
 class BracketsController < ApplicationController
   before_action :set_bracket, only: [:show, :edit, :update, :destroy]
-  # before_action :check_login
-  # authorize_resource
+  before_action :check_login
+  authorize_resource
 
   # GET /brackets
   # GET /brackets.json
