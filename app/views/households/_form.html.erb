@@ -16,7 +16,7 @@
 <ul class="nav nav-tabs">
     <li><a href="#house">Household Information</a></li>
     <li><a href="#guardian">Parents/Guardians in this Household</a></li>
-    <li><a href="#student">Students in this Household</a></li>
+    <li><a href="#student">Participant</a></li>
 </ul>
 
 <fieldset class="well">
@@ -40,7 +40,7 @@
     </div>
 
     <div class="span7">
-      <legend id="student">Students in this Household</legend>
+      <legend id="student">Participant</legend>
       <div id="household_students">
         <%= household_form.simple_fields_for :students do |student_form| %>
           <%= render :partial => "student_fields", :locals => { :f => student_form } %>
