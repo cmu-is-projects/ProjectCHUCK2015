@@ -6,11 +6,12 @@
 <table class="table">
   <thead>
     <tr>
+      <th></th>
       <th>Team</th>
       <th>Student</th>
+      <th>Position</th>
       <th>Start date</th>
       <th>End date</th>
-      <th>Position</th>
       <th></th>
       <th></th>
     </tr>
@@ -19,11 +20,12 @@
   <tbody>
     <% @roster_spots.each do |roster_spot| %>
       <tr>
-        <td><%= roster_spot.team.name %></td>
-        <td><%= roster_spot.student.proper_name %></td>
+        <td><%= link_to(image_tag('expand24.png'), roster_spot) %></td>
+        <td><%= link_to roster_spot.team.name, roster_spot.team %></td>
+        <td><%= link_to roster_spot.student.proper_name, roster_spot.student %></td>
+        <td><%= roster_spot.position %></td>
         <td><%= roster_spot.start_date %></td>
         <td><%= roster_spot.end_date %></td>
-        <td><%= roster_spot.position %></td>
         <td><%= link_to(image_tag('edit.png'), edit_roster_spot_path(roster_spot)) %></td>
         <td><%= link_to(image_tag('delete.png'), roster_spot, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
       </tr>

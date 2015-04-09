@@ -6,6 +6,7 @@
   <table class="table">
     <thead>
       <tr>
+        <th></th>
         <th>Game</th>
         <th>Team</th>
         <th>Score</th>
@@ -17,6 +18,7 @@
     <tbody>
       <% @team_games.each do |team_game| %>
       <tr>
+        <td><%= link_to(image_tag('expand24.png'), team_game) %></td>
         <td><%= link_to team_game.game.date, team_game.game %></td>
         <td><%= link_to team_game.team.name, team_game.team %></td>
         <td><%= team_game.score %></td>
