@@ -1,0 +1,21 @@
+<div id="filterrific_results">
+
+  <div>
+    <%#= page_entries_info students # provided by will_paginate %>
+  </div>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+    <% students.each do |student| %>
+      <tr>
+        <td><%= link_to(student.proper_name, student) %></td>
+        <td><%= student.email %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<%= will_paginate students %>

@@ -2,6 +2,10 @@
   font-family: 'Open Sans', sans-serif;
  }
 
+ #update{
+  font-size: 1.25em;
+ }
+
  #homebutton{
   font-family: 'Oswald', sans-serif;
   font-size: 1.3em;
@@ -19,7 +23,7 @@ margin-bottom: 15px;*/
  }
 
   .jumbotron {
-  	height: 150px;
+  	height: 200px;
   	margin-top: 0;
   	margin-bottom: 10px;
     padding:0;
