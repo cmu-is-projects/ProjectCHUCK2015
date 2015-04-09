@@ -6,7 +6,7 @@ class HouseholdsController < ApplicationController
   # GET /households
   # GET /households.json
   def index
-    @households = Household.all
+    @households = Household.all.paginate(:page => params[:page]).per_page(10)
   end
 
   # GET /households/1

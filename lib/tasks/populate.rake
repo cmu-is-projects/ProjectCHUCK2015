@@ -3,6 +3,7 @@ namespace :db do
   # creating a rake task within db namespace called 'populate'
   # executing 'rake db:populate' will cause this script to run
   task :populate => :environment do
+<<<<<<< HEAD
 
 #comment this stuff out to get populate to work locally:
     #Rake::Task['db:drop'].invoke
@@ -10,6 +11,15 @@ namespace :db do
     # Invoke rake db:migrate
     #Rake::Task['db:migrate'].invoke
     #Rake::Task['db:test:prepare'].invoke
+=======
+    # Drop the old db and recreate from scratch
+    # Rake::Task['db:drop'].invoke
+    # Rake::Task['db:create'].invoke
+    # Invoke rake db:migrate
+    # Rake::Task['db:migrate'].invoke
+    # Rake::Task['db:test:prepare'].invoke
+
+>>>>>>> 0d618a79ecc22fe8019130549ef249394e28e71c
     # Need gem to make this work when adding students later: faker
     # Docs at: http://faker.rubyforge.org/rdoc/
     require 'faker'

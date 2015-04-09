@@ -6,7 +6,7 @@ class TournamentsController < ApplicationController
   # GET /tournaments
   # GET /tournaments.json
   def index
-    @tournaments = Tournament.all
+    @tournaments = Tournament.all.paginate(:page => params[:page]).per_page(10)
   end
 
   # GET /tournaments/1

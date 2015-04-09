@@ -13,16 +13,22 @@
 
 <center><h2>Student Registration Form</h2></center> <br><br>
 
-<fieldset>
+<ul class="nav nav-tabs">
+    <li><a href="#house">Household Information</a></li>
+    <li><a href="#guardian">Parents/Guardians in this Household</a></li>
+    <li><a href="#student">Participant</a></li>
+</ul>
+
+<fieldset class="well">
   <div class="row">
 
     <div class="span7">
-      <legend>Household Information</legend>
+      <legend id ="house">Household Information</legend>
       <%= render :partial => "household_fields", :locals => { :f => household_form } %>
     </div>
 
     <div class="span7">
-      <legend>Parents/Guardians in this Household</legend>
+      <legend id="guardian">Parents/Guardians in this Household</legend>
       <div id="household_guardians">
         <%= household_form.simple_fields_for :guardians do |guardian_form| %>
         <%= render :partial => "guardian_fields", :locals => { :f => guardian_form } %>
@@ -34,7 +40,7 @@
     </div>
 
     <div class="span7">
-      <legend>Students in this Household</legend>
+      <legend id="student">Participant</legend>
       <div id="household_students">
         <%= household_form.simple_fields_for :students do |student_form| %>
           <%= render :partial => "student_fields", :locals => { :f => student_form } %>
@@ -56,10 +62,10 @@
 <div class="actions">
   <div class="row">
     <div class="col-sm-6">
-      <%= link_to 'Cancel', households_path, :class => 'btn btn-primary btn-lg outline' %>
+      <%= link_to 'Cancel', "/home", :class => 'btn btn-primary btn-lg outline' %>
     </div>
     <div class="col-sm-6">
-      <%= household_form.submit nil, :class => 'btn btn-primary btn-lg outline ui-link' %>
+      <%= household_form.submit nil, :class => 'btn btn-primary btn-lg outline' %>
     </div>
   </div>
 </div>

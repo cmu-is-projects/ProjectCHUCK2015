@@ -1,32 +1,69 @@
-<div class="container">
-  <h1>Project C.H.U.C.K. Brackets</h1><br>
-  <%= link_to 'New Bracket', new_bracket_path %>
+<div class="container well">
+  <center><h1>Brackets</h1>
+    <%= link_to 'New Bracket', new_bracket_path %></center>
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Tournament</th>
-        <th>Gender</th>
-        <th>Min age</th>
-        <th>Max age</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
+    <br>
 
-    <tbody>
-      <% @brackets.each do |bracket| %>
-      <tr>
-        <td><%= bracket.tournament_id %></td>
-        <td><%= bracket.gender %></td>
-        <td><%= bracket.min_age %></td>
-        <td><%= bracket.max_age %></td>
-        <td><%= link_to 'Show', bracket %></td>
-        <td><%= link_to 'Edit', edit_bracket_path(bracket) %></td>
-        <td><%= link_to 'Destroy', bracket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+    <div class="row">
+      <div class="col-sm-6">
+        <center><h3>MALE</h3></center>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Bracket</th>
+              <th>Gender</th>
+              <th>Tournament</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @male_brackets.each do |bracket| %>
+            <tr>
+              <td><%= link_to "#{bracket.min_age} - #{bracket.max_age}", bracket %></td>
+              <td><%= bracket.gender %></td>
+              <td><%= bracket.tournament.name %></td>
+              <td><%= link_to(image_tag('edit.png'), edit_bracket_path(bracket)) %></td>
+              <td><%= link_to(image_tag('delete.png'), bracket, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+        <span class="paginate">
+          <%= will_paginate @male_brackets, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+        </span>
+      </div>
+
+      <div class="col-sm-6">
+        <center><h3>FEMALE</h3></center>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Bracket</th>
+              <th>Gender</th>
+              <th>Tournament</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @female_brackets.each do |bracket| %>
+            <tr>
+              <td><%= link_to "#{bracket.min_age} - #{bracket.max_age}", bracket %></td>
+              <td><%= bracket.gender %></td>
+              <td><%= bracket.tournament.name %></td>
+              <td><%= link_to(image_tag('edit.png'), edit_bracket_path(bracket)) %></td>
+              <td><%= link_to(image_tag('delete.png'), bracket, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <span class="paginate">
+          <%= will_paginate @female_brackets, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+        </span>
+      </div>
+    </div>
+  </div>

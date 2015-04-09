@@ -1,15 +1,17 @@
-<div class="container">
-<h1>Locations</h1>
-<%= link_to 'New Location', new_location_path %><br><br>
+<div class="container well">
+<center><h1>Locations</h1>
+<%= link_to 'New Location', new_location_path %></center>
+
+<br>
 
 <table class="table">
   <thead>
     <tr>
+      <th>Name</th>
       <th>Street</th>
       <th>City</th>
-      <th>Zip</th>
+      <!-- <th>Zip</th> -->
       <th>State</th>
-      <!-- <th>Active</th> -->
       <!-- <th></th> -->
       <th></th>
       <th></th>
@@ -19,12 +21,11 @@
   <tbody>
     <% @locations.each do |location| %>
       <tr>
+        <td><%= link_to location.name, location %></td>
         <td><%= location.street %></td>
         <td><%= location.city %></td>
-        <td><%= location.zip %></td>
+        <!-- <td><%= location.zip %></td> -->
         <td><%= location.state %></td>
-        <!-- <td><%= location.active %></td> -->
-        <!-- <td><%#= link_to 'Show', location %></td> -->
         <td><%= link_to(image_tag('edit.png'), edit_location_path(location)) %></td>
         <td><%= link_to(image_tag('delete.png'), location, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
       </tr>
@@ -32,6 +33,8 @@
   </tbody>
 </table>
 
-<br>
+<span class="paginate">
+<%= will_paginate @locations, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>
 
 </div>

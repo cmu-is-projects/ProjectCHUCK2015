@@ -6,7 +6,11 @@ class VolunteersController < ApplicationController
   # GET /volunteers
   # GET /volunteers.json
   def index
+<<<<<<< HEAD
     @volunteers = Volunteer.alphabetical.alpha_paginate
+=======
+    @volunteers = Volunteer.all.paginate(:page => params[:page]).per_page(10)
+>>>>>>> 0d618a79ecc22fe8019130549ef249394e28e71c
   end
 
   # GET /volunteers/1

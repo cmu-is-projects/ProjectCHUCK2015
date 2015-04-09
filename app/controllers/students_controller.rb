@@ -6,7 +6,8 @@ class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
   def index
-    @students = Student.alphabetical.alpha_paginate
+    @students = Student.alphabetical
+    # @students = Student.alphabetical.alpha_paginate(params[:letter])
   end
 
   # GET /students/1

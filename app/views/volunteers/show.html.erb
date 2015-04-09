@@ -1,9 +1,67 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <h2><strong><%= @volunteer.proper_name %></strong></h2>
+
   <strong>Team:</strong>
-  <%= @volunteer.team_id %>
+  <%= @volunteer.team.name %>
 </p>
+
+<h3>Address</h3>
+
+<p>
+  <%= @volunteer.street %><br>
+  <%= @volunteer.city %>, <%= @volunteer.state %> , <%= @volunteer.zip %>
+</p>
+
+<h3>Contact Information</h3>
+<p>
+	<strong>Day Phone:</strong>
+  		<%= @volunteer.day_phone %><br>
+
+  	<strong>Cell Phone:</strong>
+  		<%= @volunteer.cell_phone %> <br>
+
+  	<strong>Receives text messages:</strong>
+  		<% if @volunteer.receives_text_msgs==true %>
+    		<%=link_to image_tag("check16.png")%>
+    	<% else %>
+    		<%=link_to image_tag("missing16.png")%>
+    	<% end %>
+    <br>
+  	<strong>Email:</strong>
+  		<%= @volunteer.email %>
+</p>
+
+
+<h3>Project CHUCK Experience</h3>
+<p>
+	<strong>Been with Project CHUCK for </strong> <%= @volunteer.years_with_proj_chuck%> years<br>
+	<strong>Position:</strong>
+		<%= @volunteer.position %><br>
+	<strong>Team Coached:</strong>
+		<%= @volunteer.team_coached %><br>
+	<strong>If your child is playing, what is his/her name?</strong>
+		<%= @volunteer.child_name %><br>
+	<strong>Shirt Size:</strong>
+		<%= @volunteer.shirt_size %><br>
+	<strong>Has school clearance:</strong>
+  		<% if @volunteer.has_school_clearance==true %>
+    		<%=link_to image_tag("check16.png")%>
+    	<% else %>
+    		<%=link_to image_tag("missing16.png")%>
+    	<% end %>
+</p>
+
+<h3>Availability and Feedback</h3>
+<p>
+	<strong>Days Not Available:</strong>
+		<%= @volunteer.not_available %><br>
+	<strong>What are two important skills you want to focus on in this year’s camp?</strong>
+		<%= @volunteer.two_skills %><br>
+	<strong>What suggestions would you have to improve this year’s camp if you volunteered last year?</strong>
+		<%= @volunteer.suggestions %><br>
+</p><br>
 
 <%= link_to 'Edit', edit_volunteer_path(@volunteer) %> |
 <%= link_to 'Back', volunteers_path %>

@@ -2,9 +2,8 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.13'
-
-gem 'pg'
 #gem 'sqlite3'
+gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
@@ -25,6 +24,7 @@ gem 'jquery-rails'
 gem "twitter-bootstrap-rails"
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'google-webfonts-rails'
+gem 'lazy_high_charts'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'
@@ -40,7 +40,6 @@ gem 'nested_form'
 gem 'cancancan'
 
 gem 'carrierwave'
-
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -92,5 +91,5 @@ gem 'bcrypt', '~> 3.1.7'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'rails_12factor', group: :production
+gem 'rails_12factor' , group: :production
 
