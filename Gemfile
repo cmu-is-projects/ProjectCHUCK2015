@@ -24,6 +24,7 @@ gem 'jquery-rails'
 gem "twitter-bootstrap-rails"
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'google-webfonts-rails'
+gem 'lazy_high_charts'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'
