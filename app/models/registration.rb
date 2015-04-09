@@ -7,6 +7,8 @@ class Registration < ActiveRecord::Base
   belongs_to :bracket
   belongs_to :student
 
+  mount_uploader :report_card, AvatarUploader
+
   #Validations
   # validate :student_is_active_in_system
   validates_format_of :physician_phone, with: /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/, message: "should be 10 digits (area code needed) and delimited with dashes only", :allow_blank => true

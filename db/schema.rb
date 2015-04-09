@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150404181508) do
+ActiveRecord::Schema.define(version: 20150407043508) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 20150404181508) do
     t.date     "child_promise_date"
     t.string   "parent_release_sign"
     t.date     "parent_release_date"
+    t.string   "report_card"
   end
 
   create_table "roster_spots", force: true do |t|

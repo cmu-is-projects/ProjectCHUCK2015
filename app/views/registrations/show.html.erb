@@ -81,5 +81,10 @@
 
 <br> 
 
+<p>
+  <strong>Report Card:</strong>
+  <%= (link_to "Click to View", @registration.report_card.url) %>
+</p>
+
 <%= link_to 'Edit', edit_registration_path(@registration) %> |
 <%= link_to 'Back', registrations_path %>
