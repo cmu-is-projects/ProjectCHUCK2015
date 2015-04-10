@@ -144,7 +144,7 @@ namespace :db do
     boys1 = Bracket.new
     boys1.gender = "M"
     boys1.tournament_id = fifteen.id
-    boys1.min_age = 6
+    boys1.min_age = 7
     boys1.max_age = 9
     boys1.max_students = 100
     boys1.save!
@@ -153,17 +153,25 @@ namespace :db do
     boys2.gender = "M"
     boys2.tournament_id = fifteen.id
     boys2.min_age = 10
-    boys2.max_age = 13
+    boys2.max_age = 12
     boys2.max_students = 100
     boys2.save!
 
     boys3 = Bracket.new
     boys3.gender = "M"
     boys3.tournament_id = fifteen.id
-    boys3.min_age = 14
-    boys3.max_age = 18
+    boys3.min_age = 13
+    boys3.max_age = 15
     boys3.max_students = 100
     boys3.save!
+
+    boys4 = Bracket.new
+    boys4.gender = "M"
+    boys4.tournament_id = fifteen.id
+    boys4.min_age = 16
+    boys4.max_age = 18
+    boys4.max_students = 100
+    boys4.save!
 
     # Step 8: Create some registrations
     kdreg = Registration.new
