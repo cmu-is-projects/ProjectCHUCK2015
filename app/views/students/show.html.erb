@@ -139,17 +139,22 @@
     </div>
 
   </div>
+  
   <div class="col-xs-6 col-sm-6">
-    <!-- <div class="row">
-      <div class="col-sm-12">
-        <%= link_to  %>
-      </div>
-    </div> -->
-
     <div class="row">
       <div class="col-sm-12">
+        <%= render :partial => 'reg_details' %>
       </div>
-      <%#= render 'reg_details' %>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+      <%= render :partial =>  'household_details' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+      <%= render :partial => 'guardian_details' %>
+      </div>
     </div>
   </div>
 </div>

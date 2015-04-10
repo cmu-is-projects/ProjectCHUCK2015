@@ -11,25 +11,30 @@
   </div>
 <% end %>
 
+<script type="text/javascript">
+$(function() {
+    $( "#accordion" ).accordion({
+      heightStyle: "content"
+    });
+  });
+</script>
+
 <center><h2>Student Registration Form</h2></center> <br><br>
 
-<ul class="nav nav-tabs">
-    <li><a href="#house">Household Information</a></li>
-    <li><a href="#guardian">Parents/Guardians in this Household</a></li>
-    <li><a href="#student">Participant</a></li>
-</ul>
+<fieldset>
+  <div id = "accordion">
+  <!-- <div class="row"> -->
 
-<fieldset class="well">
-  <div class="row">
-
-    <div class="span7">
-      <legend id ="house">Household Information</legend>
+    <!-- <div class="span7"> -->
+      <h3>Household Information</h3>
+      <div class="well">
       <%= render :partial => "household_fields", :locals => { :f => household_form } %>
     </div>
+    <!-- </div>  -->
 
-    <div class="span7">
-      <legend id="guardian">Parents/Guardians in this Household</legend>
-      <div id="household_guardians">
+    <!-- <div class="span7">  -->
+      <h3>Parents/Guardians in this Household</h3>
+      <div id="household_guardians" class ="well">
         <%= household_form.simple_fields_for :guardians do |guardian_form| %>
         <%= render :partial => "guardian_fields", :locals => { :f => guardian_form } %>
         <% end %> 
@@ -37,15 +42,15 @@
           <%= household_form.link_to_add "+ Add Another Guardian", :guardians, :class => 'button tiny' %>
         </p><br /><br /><br />
       </div> 
-    </div>
+    <!-- </div> -->
 
-    <div class="span7">
-      <legend id="student">Participant</legend>
-      <div id="household_students">
+    <!-- <div class="span7">  -->
+      <h3>Participant</h3>
+      <div id="household_students" class="well">
         <%= household_form.simple_fields_for :students do |student_form| %>
           <%= render :partial => "student_fields", :locals => { :f => student_form } %>
           
-            <legend>Registration</legend>
+            <!-- <legend>Registration</legend> -->
             <%= student_form.simple_fields_for :registrations do |registration_form| %>
               <%= render :partial => "registration_fields", :locals => { :f => registration_form } %>
             <% end %> 
@@ -55,7 +60,9 @@
          <%= household_form.link_to_add("+ Add Another Student", :students, :class => 'button tiny') %>
         </p> <br /><br />
       </div> 
-    </div>
+    <!-- </div>  -->
+
+    <!-- </div> -->
   </div>
 </fieldset>
 

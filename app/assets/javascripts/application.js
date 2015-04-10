@@ -14,6 +14,8 @@
 //= require highcharts/highcharts-more                                                         
 //= require highcharts/highstock
 //= require jquery
+//= require jquery-ui
+//= require filterrific/filterrific-jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require jquery_nested_form

@@ -1,5 +1,15 @@
 class Student < ActiveRecord::Base
 
+  filterrific(
+    default_filter_params: { sorted_by: 'last_name' },
+    available_filters: [
+      :sorted_by,
+      :search_query,
+      :with_country_id,
+      :with_created_at_gte
+    ]
+  )
+
 	#Relationship Validations
 	belongs_to :household
 	belongs_to :school
@@ -34,15 +44,87 @@ class Student < ActiveRecord::Base
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
   scope :by_school,   -> { joins(:school).order('schools.name') }
-  #by_district (district)?
-  #by_county (county)?
+  scope :by_district,   -> { joins(:school).order('schools.district') }
+  scope :by_county,   -> { joins(:school).order('schools.county') }
   scope :missing_birthcert,  -> { where(has_birth_certificate: 'false')}
   scope :by_grade, ->(grade) { where("grade = ?", grade) }
   scope :by_gender, ->(gender) { where("gender = ?", gender) }
   scope :male, -> { where("gender = ?","M") }
   scope :female, -> { where("gender = ?", "F") }
-  scope :has_allergies, -> { where('allergies IS NULL')}
-  scope :has_medications, -> { where('medications IS NULL')}
+  scope :has_allergies, -> { where('allergies IS NOT NULL')}
+  scope :has_medications, -> { where('medications IS NOT NULL')}
+
+  # scope :sorted_by, lambda { |key|
+  #   direction = (key =~ /desc$/) ? 'desc' : 'asc'
+
+  #   case key.to_s
+  #   when /^id_/
+  #     order("projects.id #{direction}")
+  #   else
+  #     raise(ArgumentError, "Invalid sort option")
+  #   end
+  # }
+
+  # scope :search_query, lambda { |query|
+  #   where("id LIKE ?", "%#{query}%")
+  # }
+
+  # scope :with_client_id, lambda { |client_ids|
+  #   where(client_id: [*client_ids])
+  # }
+
+  # scope :with_status_id, lambda { |project_status_ids|
+  #   where(project_status_id: [*project_status_ids])
+  # }
+
+  # def self.options_for_sorted_by
+  #   [
+  #     ['ID (a-z)', 'id_desc']
+  #   ]
+  # end
+
+  scope :search_query, lambda { |query|
+  # Searches the students table on the 'first_name' and 'last_name' columns.
+  # Matches using LIKE, automatically appends '%' to each term.
+  # LIKE is case INsensitive with MySQL, however it is case
+  # sensitive with PostGreSQL. To make it work in both worlds,
+  # we downcase everything.
+  return nil  if query.blank?
+
+  # condition query, parse into individual keywords
+  terms = query.downcase.split(/\s+/)
+
+  # replace "*" with "%" for wildcard searches,
+  # append '%', remove duplicate '%'s
+  terms = terms.map { |e|
+    (e.gsub('*', '%') + '%').gsub(/%+/, '%')
+  }
+  # configure number of OR conditions for provision
+  # of interpolation arguments. Adjust this if you
+  # change the number of OR conditions.
+  num_or_conds = 2
+  where(
+    terms.map { |term|
+      "(LOWER(students.first_name) LIKE ? OR LOWER(students.last_name) LIKE ?)"
+    }.join(' AND '),
+    *terms.map { |e| [e] * num_or_conds }.flatten
+  )
+  }
+  scope :sorted_by, lambda { |sort_option|
+  # extract the sort direction from the param value.
+  direction = (sort_option =~ /desc$/) ? 'desc' : 'asc'
+  case sort_option.to_s
+  when /^created_at_/
+    # Simple sort on the created_at column.
+    # Make sure to include the table name to avoid ambiguous column names.
+    # Joining on other tables is quite common in Filterrific, and almost
+    # every ActiveRecord table has a 'created_at' column.
+    order("students.created_at #{ direction }")
+  when /^name_/
+    # Simple sort on the name colums
+    order("LOWER(students.last_name) #{ direction }, LOWER(students.first_name) #{ direction }")
+  end
+}
 
   # Methods
   # -----------------------------
@@ -58,6 +140,18 @@ class Student < ActiveRecord::Base
   #   return nil if dob.blank?
   #   (Time.now.to_s(:number).to_i - dob.to_time.to_s(:number).to_i)/10e9.to_i
   # end
+
+   def self.options_for_sorted_by
+    [
+      ['Name (a-z)', 'last_name'],
+      ['Male students', 'male'],
+      ['Female students', 'female'],
+      ['By School', 'by_school'],
+      ['By Grade', 'by_grade'],
+      ['Has Allergies', 'has_allergies'],
+      ['Has Medications', 'has_medications']   
+    ]
+  end
 
   private
      # We need to strip non-digits before saving to db
