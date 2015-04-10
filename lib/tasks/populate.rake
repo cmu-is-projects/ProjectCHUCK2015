@@ -189,17 +189,17 @@ namespace :db do
 
 
     # Step 9: Create some teams
-    okc = Team.new
-    okc.name = "Thunder"
-    okc.max_students = 20
-    okc.bracket_id = boys1.id
-    okc.save!
+    # okc = Team.new
+    # okc.name = "Thunder"
+    # okc.max_students = 20
+    # okc.bracket_id = boys1.id
+    # okc.save!
 
-    nets = Team.new
-    nets.name = "Nets"
-    nets.max_students = 20
-    nets.bracket_id = boys1.id
-    nets.save!
+    # nets = Team.new
+    # nets.name = "Nets"
+    # nets.max_students = 20
+    # nets.bracket_id = boys1.id
+    # nets.save!
 
     # Step 10: Create some roster spots
     # kdrs = RosterSpot.new
@@ -211,7 +211,7 @@ namespace :db do
 
     # Step 11: Create some volunteers
     scottbrooks = Volunteer.new
-    scottbrooks.team_id = okc.id
+    scottbrooks.team_id = 1
     scottbrooks.role = "coach"
     scottbrooks.email = "scottbrooks@gmail.com"
     scottbrooks.first_name = "Scott"
@@ -223,7 +223,7 @@ namespace :db do
     scottbrooks.save!
     
     alliewilson = Volunteer.new
-    alliewilson.team_id = nets.id
+    alliewilson.team_id = 1
     alliewilson.role = "coach"
     alliewilson.email = "aswilson@andrew.cmu.edu"
     alliewilson.first_name = "Allie"
@@ -253,18 +253,47 @@ namespace :db do
     game1.save!
     
     # Step 14: Create some teams games
-    okcgame1 = TeamGame.new
-    okcgame1.game_id = game1.id
-    okcgame1.team_id = okc.id
-    okcgame1.score = "100"
-    okcgame1.save!
+    # okcgame1 = TeamGame.new
+    # okcgame1.game_id = game1.id
+    # okcgame1.team_id = okc.id
+    # okcgame1.score = "100"
+    # okcgame1.save!
 
-    netsgame1 = TeamGame.new
-    netsgame1.game_id = game1.id
-    netsgame1.team_id = nets.id
-    netsgame1.score = "101"
-    netsgame1.save!
+    # netsgame1 = TeamGame.new
+    # netsgame1.game_id = game1.id
+    # netsgame1.team_id = nets.id
+    # netsgame1.score = "101"
+    # netsgame1.save!
     
+    #create teams
+    nba_teams = ["Boston Celtics", "Brooklyn Nets", "NY Knicks", "Philidephia 76ers",
+        "Toronto Raptors", "Golden State Warriors", "LA Clippers", "LA Lakers", "Pheonix Suns",
+        "Sacramento Kings", "Chicago Bulls", "Cleveland Cavaliers", "Detroit Pistons", "Indiana Pacers", 
+        "Mikwaukee Bucks", "Dallas Mavericks", "Houston Rockets", "Memphis Grizzlies", 
+        "New Orleans Pelicans", "San Antonio Spurs", "Atlanta Hawks", "Charlotte Hornets", 
+        "Miami Heat", "Orlando Magic", "Washington Wizards", "Denver Nuggets", "Minnesota Timberwolves", 
+        "Oklahoma City Thunder", "Portland Trail Blazers", "Utah Jazz"]
+
+    wnba_teams = ["Atlanta Dream", "Chicago Sky", "Connecticut Sun", "Indiana Fever", 
+        "NY Liberty", "Washington Mystics", "LA Sparks", "Minnesota Lynx", "Pheonix Mercury", 
+        "San Antonio Stars", "Seattle Storm", "Tulsa Shock"]
+
+    nba_teams.each do |tname|
+        team = Team.new
+        team.name = tname
+        team.max_students = 10
+        team.bracket_id = [1,2,3,4].sample
+        team.save!
+    end
+
+    wnba_teams.each do |tname|
+        team = Team.new
+        team.name = tname
+        team.max_students = 10
+        team.bracket_id = 5
+        team.save!
+    end
+
     #trying faker
     #create 70 households with 1-4 students in each
     70.times do |i|
@@ -285,7 +314,7 @@ namespace :db do
             s.household_id = h.id
             s.first_name = Faker::Name.first_name
             s.last_name = Faker::Name.last_name
-            s.dob = Faker::Date.between(18.years.ago, 7.years.ago)
+            s.dob = Faker::Date.between(17.years.ago, 7.years.ago)
             s.cell_phone = rand(10 ** 10).to_s.rjust(10,'0')
             s.email = "#{s.first_name}.#{s.last_name}@example.com".downcase
             s.grade = (0..12).to_a.sample
@@ -322,17 +351,15 @@ namespace :db do
         num_gs.times do |k|
             g = Guardian.new
             g.household_id = h.id
-            g.email = "#{g.first_name}.#{g.last_name}@example.com".downcase
             g.first_name = Faker::Name.first_name
             g.last_name = Faker::Name.last_name
+            g.email = "#{g.first_name}.#{g.last_name}@example.com".downcase
             g.cell_phone = rand(10 ** 10).to_s.rjust(10,'0')
+            g.receives_text_msgs = true
             g.active = true
-
+            g.save!
         end
                 
-
-
-
 
 
     end
