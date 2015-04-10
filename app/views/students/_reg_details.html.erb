@@ -1,85 +1,57 @@
-<p id="notice"><%= notice %></p>
+<!-- <div class="container well"> --> 
+<center><h2>Registrations</h2>
 
-<p>
-  <strong>Bracket:</strong>
-  <%= @registration.bracket.min_age.to_s + " - " + @registration.bracket.max_age.to_s %>
-</p>
+<br>
 
-<p>
-  <strong>Jersey size:</strong>
-  <%= @registration.jersey_size %>
-</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <!-- <th>Student</th> -->
+      <th>Bracket</th>
+      <th>Jersey size</th>
+      <th>Report card</th>
+      <th>Proof of insurance</th>
+      <th>Physical</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
 
-<h3>Insurance Information </h3>
-
-<p>
-  <strong>Insurance provider:</strong>
-  <%= @registration.insurance_provider %>
-</p>
-
-<p>
-  <strong>Insurance policy number:</strong>
-  <%= @registration.insurance_policy_no %>
-</p>
-
-<h3>Medical Information </h3>
-
-<p>
-  <strong>Family physician:</strong>
-  <%= @registration.family_physician %>
-</p>
-
-<p>
-  <strong>Physician phone:</strong>
-  <%= @registration.physician_phone %>
-</p>
-
-<p>
-  <strong>Physical date:</strong>
-  <%= @registration.physical_date %>
-</p>
-
-<h3>Documents</h3>
-
-<p>
-  <strong>Has report card:</strong>
-  <% if @registration.has_report_card == true %>
+  <tbody>
+    <% @registrations.each do |registration| %>
+      <tr>
+        <td><%= link_to(image_tag('expand24.png'), registration) %></td>
+        <!-- <td><%= registration.student.proper_name %></td> -->
+        <td><%= registration.bracket.min_age.to_s + " - " + registration.bracket.max_age.to_s %></td>
+        <td><%= registration.jersey_size %></td>
+        <td>
+         <% if registration.has_report_card == true %>
          <%= link_to(image_tag('check16.png')) %> 
          <%else%>
          <%= link_to(image_tag('missing16.png')) %> 
          <%end%>
-</p>
-
-<p>
-  <strong>Has proof of insurance:</strong>
-  <% if @registration.has_proof_of_insurance %>
+        </td>
+        <td>
+          <% if registration.has_proof_of_insurance %>
          <%= link_to(image_tag('check16.png')) %> 
          <%else%>
          <%= link_to(image_tag('missing16.png')) %> 
          <%end%>
-</p>
-
-<p>
-  <strong>Has physical:</strong>
-  <% if @registration.has_physical == true %>
+        </td>
+        <td>
+          <% if registration.has_physical %>
          <%= link_to(image_tag('check16.png')) %> 
          <%else%>
          <%= link_to(image_tag('missing16.png')) %> 
          <%end%>
-</p>
+       </td>
+        <!-- <td><%#= link_to 'Show', registration %></td> -->
+        <td><%= link_to(image_tag('edit.png'), edit_registration_path(registration)) %></td>
+        <td><%= link_to(image_tag('delete.png'), registration, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<!-- 
-<p>
-  <strong>Active:</strong>
-  <%= @registration.active %>
-</p> -->
-
-<br> 
-
-<p>
-  <strong>Report Card:</strong>
-  <%= (link_to "Click to View", @registration.report_card.url) %>
-</p>
-
-<%= link_to 'Edit', edit_registration_path(@registration) %> |
-<%= link_to 'Back', registrations_path %>
+<!-- </div>

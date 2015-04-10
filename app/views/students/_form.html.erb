@@ -44,7 +44,7 @@
       <div class="col-sm-8">
         <div class="field">
           <%= f.label "Date of Birth" %>
-          <%= f.date_select :dob %>
+          <%= f.date_select :dob,:start_year=>1950,:end_year=>2015%>
         </div>
       </div>
       <div class="col-sm-4">

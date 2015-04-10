@@ -33,6 +33,7 @@
           <li><%= link_to 'Students', students_path %></li> 
           <li><%= link_to 'Teams', teams_path %></li>
           <li><%= link_to 'Brackets', brackets_path %></li>
+          <li><%= link_to 'Volunteers', volunteers_path %></li>
           <li><%= link_to 'Tournaments', tournaments_path %></li>
 		  <% if logged_in? %>
 		  	<li><%= link_to "Logout", logout_path %></li>
@@ -47,13 +48,13 @@
         </div>
 
         <div class="col-sm-12 col-md-12 col-lg-7">
-          <h3>Demographics</h3>
-          <%# if (@male_students.size + @female_students.size) > 2 %>
+          <!-- <h3>Demographics</h3> -->
+          <% if (@male_students.size + @female_students.size) > 2 %>
               <%= high_chart("my_id1", @gender_chart) %> <br>
               <%= high_chart("my_id2", @school_district_chart) %> <br>
-          <%# else %>
-            <%#= "None at this time." %>
-          <%# end %>
+          <% else %>
+            <%= "None at this time." %>
+          <% end %>
         <!-- </div> -->
 
       </div>

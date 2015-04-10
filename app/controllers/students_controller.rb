@@ -33,8 +33,10 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def show
-    @households = Household.all
-    @guardians = Guardian.all
+    @household = @student.household
+    @guardians = @household.guardians
+    @registrations = @student.registrations
+    # @students = Student.all
   end
 
   # GET /students/new
@@ -87,31 +89,6 @@ class StudentsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
-  # def filter
-  #  if params[:filter] == 'last_name'
-  #   puts 'last_name'
-  #   @students = Student.alphabetical
-  #   puts @students
-  # elsif params[:filter] == 'missing_birthcert'
-  #   puts 'missing_birthcert'
-  #   @students = Student.missing_birthcert
-  # elsif params[:filter] == 'by_school'
-  #   puts 'by_school'
-  #   @students = Student.by_school
-  # elsif params[:filter] == 'allergies'
-  #   puts 'allergies'
-  #   @students = Student.has_allergies
-  # elsif params[:filter] == 'medications'
-  #   puts 'medications'
-  #   @students = Student.has_medications
-  #     #jersey size?
-  #     #teams?
-  #   end
-  #   respond_to do |format|
-  #     format.json {render json: @students.map {|r| r.to_json}}
-  #   end
-  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
