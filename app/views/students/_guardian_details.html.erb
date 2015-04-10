@@ -1,6 +1,6 @@
-<div class="container well">
-<center><h1>Guardians</h1>
-<%= link_to 'New Guardian', new_guardian_path %></center>
+<!-- <div class="container well"> -->
+<center><h2>Guardians</h2>
+
 <br>
 
 <table class="table">
@@ -21,11 +21,14 @@
         <td><%= link_to guardian.proper_name, guardian %></td>
         <td><%= guardian.email %></td>
         <td><%= guardian.cell_phone %></td>
-        <td><% if guardian.receives_text_msgs==true %>
-        <%=link_to image_tag("check16.png")%>
-      <% else %>
-        <%=link_to image_tag("missing16.png")%>
-      <% end %></td>
+        <td>
+         <% if guardian.receives_text_msgs == true %>
+         <%= link_to(image_tag('check16.png')) %> 
+         <%else%>
+         <%= link_to(image_tag('missing16.png')) %> 
+         <%end%>
+        </td>
+        <td>
         <td><%= link_to(image_tag('edit.png'), edit_guardian_path(guardian)) %></td>
         <td><%= link_to(image_tag('delete.png'), guardian, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
       </tr>
@@ -33,8 +36,4 @@
   </tbody>
 </table>
 
-<span class="paginate">
-<%= will_paginate @guardians, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
-</span>
-
-</div>
+<!-- </div> -->

@@ -46,8 +46,6 @@ class Student < ActiveRecord::Base
   scope :by_school,   -> { joins(:school).order('schools.name') }
   scope :by_district,   -> { joins(:school).order('schools.district') }
   scope :by_county,   -> { joins(:school).order('schools.county') }
-  #by_district (district)?
-  #by_county (county)?
   scope :missing_birthcert,  -> { where(has_birth_certificate: 'false')}
   scope :by_grade, ->(grade) { where("grade = ?", grade) }
   scope :by_gender, ->(gender) { where("gender = ?", gender) }
@@ -55,6 +53,35 @@ class Student < ActiveRecord::Base
   scope :female, -> { where("gender = ?", "F") }
   scope :has_allergies, -> { where('allergies IS NOT NULL')}
   scope :has_medications, -> { where('medications IS NOT NULL')}
+
+  # scope :sorted_by, lambda { |key|
+  #   direction = (key =~ /desc$/) ? 'desc' : 'asc'
+
+  #   case key.to_s
+  #   when /^id_/
+  #     order("projects.id #{direction}")
+  #   else
+  #     raise(ArgumentError, "Invalid sort option")
+  #   end
+  # }
+
+  # scope :search_query, lambda { |query|
+  #   where("id LIKE ?", "%#{query}%")
+  # }
+
+  # scope :with_client_id, lambda { |client_ids|
+  #   where(client_id: [*client_ids])
+  # }
+
+  # scope :with_status_id, lambda { |project_status_ids|
+  #   where(project_status_id: [*project_status_ids])
+  # }
+
+  # def self.options_for_sorted_by
+  #   [
+  #     ['ID (a-z)', 'id_desc']
+  #   ]
+  # end
 
   scope :search_query, lambda { |query|
   # Searches the students table on the 'first_name' and 'last_name' columns.
@@ -98,13 +125,6 @@ class Student < ActiveRecord::Base
     order("LOWER(students.last_name) #{ direction }, LOWER(students.first_name) #{ direction }")
   end
 }
-  # scope :with_country_id, lambda { |country_ids|
-  #   # # Filters students with any of the given country_ids
-  #   # ...
-  # }
-  # scope :with_created_at_gte, lambda { |ref_date|
-  #   # ...
-  # }
 
   # Methods
   # -----------------------------

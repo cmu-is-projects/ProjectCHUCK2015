@@ -1,9 +1,7 @@
-<div class="container well">
-  <center>
+<center>
     <h1>Students</h1>
     <%= link_to(image_tag('add_student.png'), new_student_path) %>
   </center>
-
 <%#
   Filterrific adds the `form_for_filterrific` view helper:
   * adds dom id 'filterrific_filter'
@@ -35,53 +33,7 @@
   <%= render_filterrific_spinner %>
 <% end %>
 
-<%#= render(
+<%= render(
   partial: 'students/list',
   locals: { students: @students }
 ) %>
-
-<br>
-
-  <table class="table">
-   <thead>
-    <tr>
-      <th>Name</th>
-      <!-- <th>Household</th>  -->
-      <!-- <th>Birth Date</th> -->
-      <th>Cell phone</th>
-      <!-- <th>Email</th>  -->
-      <th>Grade</th>
-      <!-- <th>Gender</th> -->
-      <th>Allergies</th>
-      <th>Medications</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead> 
-
-  <tbody>
-   <% @students.each do |student| %>
-
-   <br>
-   
-   <tr>
-    <% if student.gender == "M"%>
-    <td class="boy"><%= link_to student.proper_name, student %></td>
-    <%else%>
-    <td class="girl"><%= link_to student.proper_name, student %></td>
-    <%end%> 
-    <!-- <td><%= student.household_id %></td>  -->
-    <!-- <td><%= student.dob %></td> -->
-    <td><%= student.cell_phone %></td>
-    <!-- <td><%= student.email %></td> -->
-    <td><%= student.grade %></td> 
-    <!-- <td><%= student.gender %></td>  -->
-    <td><%= student.allergies %></td>
-    <td><%= student.medications %></td> 
-    <td><%= link_to(image_tag('edit.png'), edit_student_path(student)) %></td>
-    <td><%= link_to(image_tag('delete.png'), student, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
-  </tr>
-  <% end %>
-</tbody>
-</table>
-</div>

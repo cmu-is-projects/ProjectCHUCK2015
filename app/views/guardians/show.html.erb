@@ -1,8 +1,27 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <!-- <strong>Relation:</strong>
-  <%= @guardian.relation %> -->
+  <h2><strong><%= @guardian.proper_name %></strong></h2>
+
+  <strong>Household:</strong>
+   <%= link_to @guardian.last_name, @guardian.household %>
+</p>
+
+<h3>Contact Information</h3>
+<p>
+
+  	<strong>Cell Phone:</strong>
+  		<%= @guardian.cell_phone %> <br>
+
+  	<strong>Receives text messages:</strong>
+  		<% if @guardian.receives_text_msgs==true %>
+    		<%=link_to image_tag("check16.png")%>
+    	<% else %>
+    		<%=link_to image_tag("missing16.png")%>
+    	<% end %>
+    <br>
+  	<strong>Email:</strong>
+  		<%= @guardian.email %>
 </p>
 
 <%= link_to 'Edit', edit_guardian_path(@guardian) %> |
