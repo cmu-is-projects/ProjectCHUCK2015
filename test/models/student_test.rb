@@ -77,20 +77,20 @@ class StudentTest < ActiveSupport::TestCase
   should_not allow_value(nil).for(:grade)
   
   
-#context "With a proper context, " do
-#  
+# context "With a proper context, " do
+ 
 #  setup do
 #    create_context
 #  end
-#  
+ 
 #  teardown do
 #    remove_context
 #  end 
-#  
-#  should "show that all factory objects are properly created" do
-#    assert_equal "Smith, Joe", @joe.name
-#    assert_equal "Jones, Sue", @sue.name
-#  end
+
+ # should "show that all factory objects are properly created" do
+ #   assert_equal "Smith, Joe", @joe.name
+ #   assert_equal "Jones, Sue", @sue.name
+ # end
 #  
 ##scopes
 #
@@ -141,6 +141,6 @@ class StudentTest < ActiveSupport::TestCase
 #  assert_equal "Jones, Sue", @sue.name
 #end
   
-#end
+end
   
 end

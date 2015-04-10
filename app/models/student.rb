@@ -116,10 +116,11 @@ class Student < ActiveRecord::Base
     last_name + ", " + first_name
   end
 
-  # def age
-  #   return nil if dob.blank?
-  #   (Time.now.to_s(:number).to_i - dob.to_time.to_s(:number).to_i)/10e9.to_i
-  # end
+  def age
+    thisyear = Time.now.year
+    now = Date.new(thisyear, 6, 1)
+    now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
+  end
 
    def self.options_for_sorted_by
     [

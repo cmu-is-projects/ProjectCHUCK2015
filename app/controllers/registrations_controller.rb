@@ -3,6 +3,9 @@ class RegistrationsController < ApplicationController
   before_action :check_login, :except => [:show]
   authorize_resource
 
+  #Callbacks
+  # before_validation :assign_bracket, on: :create
+
   # GET /registrations
   # GET /registrations.json
   def index
@@ -74,4 +77,11 @@ class RegistrationsController < ApplicationController
     def registration_params
       params.require(:registration).permit(:student_id, :bracket_id, :has_report_card, :has_proof_of_insurance, :insurance_provider, :insurance_policy_no, :family_physician, :physician_phone, :has_physical, :physical_date, :jersey_size, :report_card, :active, :parent_consent_agree, :parent_promise_agree, :parent_release_agree, :parent_signature, :parent_sign_date, :child_promise_sign, :child_promise_date)
     end
+
+    # def assign_bracket
+    #     brackets = 
+
+
+
+
 end

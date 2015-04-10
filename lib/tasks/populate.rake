@@ -168,7 +168,7 @@ namespace :db do
     # Step 8: Create some registrations
     kdreg = Registration.new
     kdreg.student_id = kevindurant.id
-    kdreg.bracket_id = boys1.id
+    # kdreg.bracket_id = boys1.id
     kdreg.has_report_card = true
     kdreg.has_proof_of_insurance = true
     kdreg.insurance_provider = "Aetna"

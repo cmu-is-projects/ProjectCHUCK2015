@@ -2,6 +2,7 @@ class Registration < ActiveRecord::Base
   
   #Callbacks
   before_save :reformat_physician_phone
+  before_validation :assign_bracket, on: :create
 
   #Relationship Validations
   belongs_to :bracket
@@ -45,6 +46,14 @@ private
   #     errors.add(:student_id, "is not an active student in the system")
   #   end
   # end
+
+  def assign_bracket
+    Bracket.all.each do |bracket|
+      if self.student.age >= bracket.min_age && self.student.age <= bracket.max_age
+        self.student.bracket_id = bracket.id
+      end
+    end
+  end
 
   def reformat_physician_phone
     physician_phone = self.physician_phone.to_s  # change to string in case input as all numbers 
