@@ -1,7 +1,7 @@
 class BracketsController < ApplicationController
   before_action :set_bracket, only: [:show, :edit, :update, :destroy]
-  # before_action :check_login
-  # authorize_resource
+  before_action :check_login
+  authorize_resource
 
   # GET /brackets
   # GET /brackets.json
@@ -62,6 +62,27 @@ class BracketsController < ApplicationController
       format.html { redirect_to brackets_url }
       format.json { head :no_content }
     end
+  end
+  
+  def filter
+    	if params[:filter] == 'male'
+    		puts 'male'
+    		@brackets = Bracket.male
+    		puts @brackets
+    	elsif params[:filter] == 'female'
+    		puts 'female'
+    		@brackets = Bracket.female
+    	elsif params[:filter] == 'full'
+    		puts 'full'
+    		@brackets = Bracket.full
+    	elsif params[:filter] == 'not_full'
+    		puts 'not_full'
+    		@brackets = Bracket.not_full
+      end
+      #age groups
+  	respond_to do |format|
+  		format.json {render json: @brackets.map {|r| r.to_json}}
+  	end
   end
 
   private
