@@ -3,6 +3,7 @@ class Registration < ActiveRecord::Base
   #Callbacks
   before_save :reformat_physician_phone
   before_validation :assign_bracket, on: :create
+  before_validation :check_report_card, on: [ :create, :update ]
 
   #Relationship Validations
   belongs_to :bracket
@@ -47,10 +48,19 @@ private
   #   end
   # end
 
+  def check_report_card
+    if self.report_card.nil?
+      self.has_report_card = false
+    else
+      self.has_report_card = true
+    end
+  end
+
+
   def assign_bracket
     Bracket.all.each do |bracket|
-      if self.student.age >= bracket.min_age && self.student.age <= bracket.max_age
-        self.student.bracket_id = bracket.id
+      if self.student.age >= bracket.min_age && self.student.age <= bracket.max_age && self.student.gender == bracket.gender
+        self.bracket_id = bracket.id
       end
     end
   end

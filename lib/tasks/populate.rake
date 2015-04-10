@@ -173,11 +173,21 @@ namespace :db do
     boys4.max_students = 100
     boys4.save!
 
+    girls1 = Bracket.new
+    girls1.gender = "F"
+    girls1.tournament_id = fifteen.id
+    girls1.min_age = 7
+    girls1.max_age = 18
+    girls1.max_students = 100
+    girls1.save!
+
+
+
     # Step 8: Create some registrations
     kdreg = Registration.new
     kdreg.student_id = kevindurant.id
     # kdreg.bracket_id = boys1.id
-    kdreg.has_report_card = true
+    # kdreg.has_report_card = true
     kdreg.has_proof_of_insurance = true
     kdreg.insurance_provider = "Aetna"
     kdreg.insurance_policy_no = "50550523482094"

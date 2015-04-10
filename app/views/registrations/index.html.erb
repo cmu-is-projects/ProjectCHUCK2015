@@ -23,7 +23,7 @@
       <tr>
         <td><%= link_to(image_tag('expand24.png'), registration) %></td>
         <td><%= registration.student.proper_name %></td>
-        <td><%= registration.bracket.min_age.to_s + " - " + registration.bracket.max_age.to_s %></td>
+        <td><%= registration.bracket.gender + ": " + registration.bracket.min_age.to_s + " - " + registration.bracket.max_age.to_s %></td>
         <td><%= registration.jersey_size %></td>
         <td>
          <% if registration.has_report_card == true %>
