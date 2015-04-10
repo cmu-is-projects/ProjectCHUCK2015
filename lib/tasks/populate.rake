@@ -3,13 +3,15 @@ namespace :db do
   # creating a rake task within db namespace called 'populate'
   # executing 'rake db:populate' will cause this script to run
   task :populate => :environment do
-    # Drop the old db and recreate from scratch
-    # Rake::Task['db:drop'].invoke
-    # Rake::Task['db:create'].invoke
-    # Invoke rake db:migrate
-    # Rake::Task['db:migrate'].invoke
-    # Rake::Task['db:test:prepare'].invoke
 
+
+#comment this stuff out to get populate to work locally:
+    #Rake::Task['db:drop'].invoke
+    #Rake::Task['db:create'].invoke
+    # Invoke rake db:migrate
+    #Rake::Task['db:migrate'].invoke
+    #Rake::Task['db:test:prepare'].invoke
+    
     # Need gem to make this work when adding students later: faker
     # Docs at: http://faker.rubyforge.org/rdoc/
     require 'faker'
@@ -173,11 +175,21 @@ namespace :db do
     boys4.max_students = 100
     boys4.save!
 
+    girls1 = Bracket.new
+    girls1.gender = "F"
+    girls1.tournament_id = fifteen.id
+    girls1.min_age = 7
+    girls1.max_age = 18
+    girls1.max_students = 100
+    girls1.save!
+
+
+
     # Step 8: Create some registrations
     kdreg = Registration.new
     kdreg.student_id = kevindurant.id
-    kdreg.bracket_id = boys1.id
-    kdreg.has_report_card = true
+    # kdreg.bracket_id = boys1.id
+    # kdreg.has_report_card = true
     kdreg.has_proof_of_insurance = true
     kdreg.insurance_provider = "Aetna"
     kdreg.insurance_policy_no = "50550523482094"

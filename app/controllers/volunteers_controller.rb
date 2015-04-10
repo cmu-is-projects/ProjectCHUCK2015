@@ -62,6 +62,20 @@ class VolunteersController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def filter
+    	if params[:filter] == 'name'
+    		puts 'name'
+    		@volunteers = Volunteer.alphabetical
+    		puts @volunteers
+    	elsif params[:filter] == 'by_role'
+    		puts 'by_role'
+    		@volunteers = Volunteer.by_role
+      end
+  	respond_to do |format|
+  		format.json {render json: @volunteers.map {|r| r.to_json}}
+  	end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

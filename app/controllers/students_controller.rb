@@ -10,11 +10,11 @@ class StudentsController < ApplicationController
       Student,
       params[:filterrific],
       select_options: {
-        sorted_by: Student.options_for_sorted_by
-        },
-        persistence_id: 'shared_key',
-        default_filter_params: {},
-        available_filters: [],
+        sorted_by: Student.options_for_sorted_by,
+      }
+        #persistence_id: 'shared_key',
+        #default_filter_params: {},
+        #available_filters: [],
         ) or return
 
     @students = @filterrific.find.page(params[:page])
