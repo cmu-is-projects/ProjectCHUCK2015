@@ -1,12 +1,14 @@
 class Student < ActiveRecord::Base
 
   filterrific(
-    default_filter_params: { sorted_by: 'last_name' },
+    default_filter_params: { sorted_by: 'name_asc' },
     available_filters: [
       :sorted_by,
       :search_query,
-      :with_country_id,
-      :with_created_at_gte
+      :male,
+      :female,
+      :has_allergies,
+      :has_medications
     ]
   )
 
@@ -48,7 +50,13 @@ class Student < ActiveRecord::Base
   scope :by_county,   -> { joins(:school).order('schools.county') }
   scope :missing_birthcert,  -> { where(has_birth_certificate: 'false')}
   scope :by_grade, ->(grade) { where("grade = ?", grade) }
+  scope :with_grade, lambda { |grades|
+    where(gender: [*grade])
+  }
   scope :by_gender, ->(gender) { where("gender = ?", gender) }
+  scope :with_gender, lambda { |genders|
+    where(gender: [*genders])
+  }
   scope :male, -> { where("gender = ?","M") }
   scope :female, -> { where("gender = ?", "F") }
   scope :has_allergies, -> { where('allergies IS NOT NULL')}
@@ -110,19 +118,37 @@ class Student < ActiveRecord::Base
     *terms.map { |e| [e] * num_or_conds }.flatten
   )
   }
+  
   scope :sorted_by, lambda { |sort_option|
   # extract the sort direction from the param value.
   direction = (sort_option =~ /desc$/) ? 'desc' : 'asc'
   case sort_option.to_s
-  when /^created_at_/
+  when /^grade_/
     # Simple sort on the created_at column.
     # Make sure to include the table name to avoid ambiguous column names.
     # Joining on other tables is quite common in Filterrific, and almost
     # every ActiveRecord table has a 'created_at' column.
-    order("students.created_at #{ direction }")
+    order("students.grade #{ direction }")
   when /^name_/
     # Simple sort on the name colums
     order("LOWER(students.last_name) #{ direction }, LOWER(students.first_name) #{ direction }")
+  when /^school_/
+    # Simple sort on the name colums
+    order("students.school_id #{ direction }")
+  when /^female_/
+    # Simple sort on the name colums
+    where("students.gender = ?", 'F')
+  when /^male_/
+    # Simple sort on the name colums
+    where("students.gender = ?", 'M')
+  when /^has_allergies_/
+    # Simple sort on the name colums
+    where("students.allergies != ?", '')
+  when /^has_medications_/
+    # Simple sort on the name colums
+    where("students.medications != ?", '')
+  else
+      raise(ArgumentError, "Invalid sort option: #{ sort_option.inspect }")
   end
 }
 
@@ -143,13 +169,13 @@ class Student < ActiveRecord::Base
 
    def self.options_for_sorted_by
     [
-      ['Name (a-z)', 'last_name'],
-      ['Male students', 'male'],
-      ['Female students', 'female'],
-      ['By School', 'by_school'],
-      ['By Grade', 'by_grade'],
-      ['Has Allergies', 'has_allergies'],
-      ['Has Medications', 'has_medications']   
+      ['Name (A-Z)', 'name_asc'],
+      ['Gender - Female', 'female_asc'],
+      ['Gender - Male', 'male_asc'],
+      ['School', 'school_asc'],
+      ['Grade', 'grade_asc'],
+      ['Has Allergies', 'has_allergies_asc'],
+      ['Has Medications', 'has_medications_asc']   
     ]
   end
 
