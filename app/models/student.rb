@@ -4,11 +4,7 @@ class Student < ActiveRecord::Base
     default_filter_params: { sorted_by: 'name_asc' },
     available_filters: [
       :sorted_by,
-      :search_query,
-      :male,
-      :female,
-      :has_allergies,
-      :has_medications
+      :search_query
     ]
   )
 
@@ -62,34 +58,6 @@ class Student < ActiveRecord::Base
   scope :has_allergies, -> { where('allergies IS NOT NULL')}
   scope :has_medications, -> { where('medications IS NOT NULL')}
 
-  # scope :sorted_by, lambda { |key|
-  #   direction = (key =~ /desc$/) ? 'desc' : 'asc'
-
-  #   case key.to_s
-  #   when /^id_/
-  #     order("projects.id #{direction}")
-  #   else
-  #     raise(ArgumentError, "Invalid sort option")
-  #   end
-  # }
-
-  # scope :search_query, lambda { |query|
-  #   where("id LIKE ?", "%#{query}%")
-  # }
-
-  # scope :with_client_id, lambda { |client_ids|
-  #   where(client_id: [*client_ids])
-  # }
-
-  # scope :with_status_id, lambda { |project_status_ids|
-  #   where(project_status_id: [*project_status_ids])
-  # }
-
-  # def self.options_for_sorted_by
-  #   [
-  #     ['ID (a-z)', 'id_desc']
-  #   ]
-  # end
 
   scope :search_query, lambda { |query|
   # Searches the students table on the 'first_name' and 'last_name' columns.
