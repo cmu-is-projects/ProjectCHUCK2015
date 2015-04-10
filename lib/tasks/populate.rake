@@ -91,54 +91,54 @@ namespace :db do
     cea.save!
 
     # Step 5: Create some guardians
-    daddydurant = Guardian.new
-    daddydurant.household_id = durants.id
-    daddydurant.email = "daddy.durant@gmail.com"
-    daddydurant.first_name = "Daddy"
-    daddydurant.last_name = "Durant"
-    daddydurant.cell_phone = "4121111111"
-    daddydurant.receives_text_msgs = true
-    daddydurant.active = true
-    daddydurant.save!
+    # daddydurant = Guardian.new
+    # daddydurant.household_id = durants.id
+    # daddydurant.email = "daddy.durant@gmail.com"
+    # daddydurant.first_name = "Daddy"
+    # daddydurant.last_name = "Durant"
+    # daddydurant.cell_phone = "4121111111"
+    # daddydurant.receives_text_msgs = true
+    # daddydurant.active = true
+    # daddydurant.save!
 
     # Step 6: Create some students
-    kevindurant = Student.new
-    kevindurant.household_id = 1
-    kevindurant.school_id = perry.id
-    kevindurant.first_name = "Kevin"
-    kevindurant.last_name = "Durant"
-    kevindurant.dob = 10.years.ago.to_date
-    kevindurant.cell_phone = "4122222222"
-    kevindurant.email = "kevin.durant@gmail.com"
-    kevindurant.grade = 5
-    kevindurant.gender = "M"
-    kevindurant.emergency_contact_name = "Mommy Durant"
-    kevindurant.emergency_contact_phone = "4122184098"
-    kevindurant.has_birth_certificate = true
-    kevindurant.allergies = "Bees"
-    kevindurant.security_question = "What is your nba team"
-    kevindurant.security_response = "OKC"
-    kevindurant.active = true
-    kevindurant.save!
+    # kevindurant = Student.new
+    # kevindurant.household_id = 1
+    # kevindurant.school_id = perry.id
+    # kevindurant.first_name = "Kevin"
+    # kevindurant.last_name = "Durant"
+    # kevindurant.dob = 10.years.ago.to_date
+    # kevindurant.cell_phone = "4122222222"
+    # kevindurant.email = "kevin.durant@gmail.com"
+    # kevindurant.grade = 5
+    # kevindurant.gender = "M"
+    # kevindurant.emergency_contact_name = "Mommy Durant"
+    # kevindurant.emergency_contact_phone = "4122184098"
+    # kevindurant.has_birth_certificate = true
+    # kevindurant.allergies = "Bees"
+    # kevindurant.security_question = "What is your nba team"
+    # kevindurant.security_response = "OKC"
+    # kevindurant.active = true
+    # kevindurant.save!
 
-    lebron = Student.new
-    lebron.household_id = 2
-    lebron.school_id = perry.id
-    lebron.first_name = "Lebron"
-    lebron.last_name = "James"
-    lebron.dob = 8.years.ago.to_date
-    lebron.cell_phone = "4122323232"
-    lebron.email = "Lebron.james@gmail.com"
-    lebron.grade = 3
-    lebron.gender = "M"
-    lebron.emergency_contact_name = "Mommy James"
-    lebron.emergency_contact_phone = "4122184777"
-    lebron.has_birth_certificate = true
-    lebron.allergies = "Bees"
-    lebron.security_question = "What is your nba team"
-    lebron.security_response = "cavs"
-    lebron.active = true
-    lebron.save!
+    # lebron = Student.new
+    # lebron.household_id = 2
+    # lebron.school_id = perry.id
+    # lebron.first_name = "Lebron"
+    # lebron.last_name = "James"
+    # lebron.dob = 8.years.ago.to_date
+    # lebron.cell_phone = "4122323232"
+    # lebron.email = "Lebron.james@gmail.com"
+    # lebron.grade = 3
+    # lebron.gender = "M"
+    # lebron.emergency_contact_name = "Mommy James"
+    # lebron.emergency_contact_phone = "4122184777"
+    # lebron.has_birth_certificate = true
+    # lebron.allergies = "Bees"
+    # lebron.security_question = "What is your nba team"
+    # lebron.security_response = "cavs"
+    # lebron.active = true
+    # lebron.save!
 
     # Step 7: Create some brackets
     boys1 = Bracket.new
@@ -174,20 +174,20 @@ namespace :db do
     boys4.save!
 
     # Step 8: Create some registrations
-    kdreg = Registration.new
-    kdreg.student_id = kevindurant.id
-    kdreg.bracket_id = boys1.id
-    kdreg.has_report_card = true
-    kdreg.has_proof_of_insurance = true
-    kdreg.insurance_provider = "Aetna"
-    kdreg.insurance_policy_no = "50550523482094"
-    kdreg.family_physician = "Dr. O'Neil"
-    kdreg.physician_phone = "1231230983"
-    kdreg.has_physical = true
-    kdreg.physical_date = 4.months.ago.to_date
-    kdreg.jersey_size = "M"
-    kdreg.active
-    kdreg.save!
+    # kdreg = Registration.new
+    # kdreg.student_id = kevindurant.id
+    # kdreg.bracket_id = boys1.id
+    # kdreg.has_report_card = true
+    # kdreg.has_proof_of_insurance = true
+    # kdreg.insurance_provider = "Aetna"
+    # kdreg.insurance_policy_no = "50550523482094"
+    # kdreg.family_physician = "Dr. O'Neil"
+    # kdreg.physician_phone = "1231230983"
+    # kdreg.has_physical = true
+    # kdreg.physical_date = 4.months.ago.to_date
+    # kdreg.jersey_size = "M"
+    # kdreg.active
+    # kdreg.save!
 
     # Step 9: Create some teams
     okc = Team.new
@@ -203,12 +203,12 @@ namespace :db do
     nets.save!
 
     # Step 10: Create some roster spots
-    kdrs = RosterSpot.new
-    kdrs.team_id = okc.id
-    kdrs.student_id = kevindurant.id
-    kdrs.start_date = fifteen.start_date
-    kdrs.position = "Forward"
-    kdrs.save!
+    # kdrs = RosterSpot.new
+    # kdrs.team_id = okc.id
+    # kdrs.student_id = kevindurant.id
+    # kdrs.start_date = fifteen.start_date
+    # kdrs.position = "Forward"
+    # kdrs.save!
 
     # Step 11: Create some volunteers
     scottbrooks = Volunteer.new
@@ -265,5 +265,79 @@ namespace :db do
     netsgame1.team_id = nets.id
     netsgame1.score = "101"
     netsgame1.save!
+    
+    #trying faker
+    #create 70 households with 1-4 students in each
+    70.times do |i|
+        h = Household.new
+        h.street = Faker::Address.street_address
+        h.city = Faker::Address.city 
+        h.state = Faker::Address.state_abbr
+        h.zip = %w[15120 15213 15212 15090 15237 15207 15217 15227 15203 15210].sample
+        h.home_phone = rand(10 ** 10).to_s.rjust(10,'0')
+        h.county = ['Allegheny', 'Armstrong', 'Beaver', 'Butler', 'City of Pittsburgh', 'Fayette', 'Greene', 'Indiana', 'Lawrence'].sample
+        h.save!
+
+        #create 1-4 students for each household
+        #and registrations for each student
+        num_kids = [1,2,3,4].sample
+        num_kids.times do |j|
+            s = Student.new
+            s.household_id = h.id
+            s.first_name = Faker::Name.first_name
+            s.last_name = Faker::Name.last_name
+            s.dob = Faker::Date.between(18.years.ago, 7.years.ago)
+            s.cell_phone = rand(10 ** 10).to_s.rjust(10,'0')
+            s.email = "#{s.first_name}.#{s.last_name}@example.com".downcase
+            s.grade = (0..12).to_a.sample
+            s.gender= ["M", "F"].sample
+            s.emergency_contact_name = Faker::Name.name
+            s.emergency_contact_phone = rand(10 ** 10).to_s.rjust(10,'0')
+            s.has_birth_certificate = [true,false].sample
+            s.allergies = ["Peanuts", "Tree Nuts", "Fish", "Eggs", "Kiwi"].sample
+            s.security_question = Faker::Lorem.sentence
+            s.security_response = Faker::Lorem.sentence
+            s.active = true
+            s.school_id = 1
+            s.save!
+
+            #create registration for each student
+            r = Registration.new
+            r.student_id = s.id
+            r.has_report_card = [true,false].sample
+            r.has_proof_of_insurance = [true,false].sample
+            r.insurance_provider = ["UPMC", "Highmark", "HealthAmerica"].sample
+            r.insurance_policy_no = rand(10 ** 10).to_s.rjust(10,'0')
+            r.family_physician = Faker::Name.name
+            r.physician_phone = rand(10 ** 10).to_s.rjust(10,'0')
+            r.has_physical = [true,false].sample
+            r.jersey_size = ["S","M","L","XL", "2XL", "3XL"].sample
+            r.active = true
+            r.physical_date = Faker::Date.backward(360)
+            r.save!
+
+        end
+
+        #create 1 or 2 guardians for each household
+        num_gs = [1,2].sample
+        num_gs.times do |k|
+            g = Guardian.new
+            g.household_id = h.id
+            g.email = "#{g.first_name}.#{g.last_name}@example.com".downcase
+            g.first_name = Faker::Name.first_name
+            g.last_name = Faker::Name.last_name
+            g.cell_phone = rand(10 ** 10).to_s.rjust(10,'0')
+            g.active = true
+
+        end
+                
+
+
+
+
+
+    end
+
+
     end
 end
