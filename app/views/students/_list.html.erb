@@ -2,30 +2,14 @@
 
   <div class="container well">
 
-<%#
-  Filterrific adds the `form_for_filterrific` view helper:
-  * adds dom id 'filterrific_filter'
-  * applies javascript behaviors:
-      * AJAX form submission on change
-      * AJAX spinner while AJAX request is being processed
-  * sets form_for options like :url, :method and input name prefix
-%>
-<%#= render(
-  partial: 'students/list',
-  locals: { students: @students }
-) %>
-
 
   <table class="table">
    <thead>
     <tr>
       <th>Name</th>
-      <!-- <th>Household</th>  -->
-      <!-- <th>Birth Date</th> -->
       <th>Cell phone</th>
-      <!-- <th>Email</th>  -->
       <th>Grade</th>
-      <!-- <th>Gender</th> -->
+	  <th>School</th>
       <th>Allergies</th>
       <th>Medications</th>
       <th></th>
@@ -44,12 +28,9 @@
     <%else%>
     <td class="girl"><%= link_to student.proper_name, student %></td>
     <%end%> 
-    <!-- <td><%= student.household_id %></td>  -->
-    <!-- <td><%= student.dob %></td> -->
     <td><%= student.cell_phone %></td>
-    <!-- <td><%= student.email %></td> -->
     <td><%= student.grade %></td> 
-    <!-- <td><%= student.gender %></td>  -->
+	<td><%= student.school.name %></td> 
     <td><%= student.allergies %></td>
     <td><%= student.medications %></td> 
     <td><%= link_to(image_tag('edit.png'), edit_student_path(student)) %></td>
@@ -64,4 +45,4 @@
 
 </div>
 
-<%#= will_paginate students %>
+<%= will_paginate students %>

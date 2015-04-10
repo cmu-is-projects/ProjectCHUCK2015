@@ -62,6 +62,17 @@ class SchoolsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def filter
+    	if params[:filter] == 'name'
+    		puts 'name'
+    		@schools = School.alphabetical
+    		puts @schools
+      end
+  	respond_to do |format|
+  		format.json {render json: @schools.map {|r| r.to_json}}
+  	end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
