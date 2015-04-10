@@ -141,6 +141,6 @@ class StudentTest < ActiveSupport::TestCase
 #  assert_equal "Jones, Sue", @sue.name
 #end
   
-end
+
   
 end
