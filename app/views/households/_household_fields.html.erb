@@ -34,7 +34,7 @@
 		<div class="col-xs-6 col-sm-6">
 			<div class="field">
 				<%= f.label :state %><br>
-				<%= f.select :state, Household::STATES_LIST, :prompt => "Select state..."%>
+				<%= f.select :state, Household::STATES_LIST, :selected =>  Household::STATES_LIST[38]%>
 			</div>
 		</div>
 	</div>
