@@ -1,6 +1,5 @@
 *, thead, tbody{
   font-family: 'Open Sans', sans-serif;
-  /*font-size: 1.3em;*/
  }
 
  #update{
@@ -42,9 +41,9 @@ margin-bottom: 15px;*/
     margin-top: 28px;
   }
 
-  .field{
+  /*.field{
     font-size:1.2em;
-  }
+  }*/
 
   select{
     text-align: center;
@@ -101,9 +100,9 @@ a:hover.ui-link{
 #details_name{
   font-size: 2.0em;
 }
-input{
+/*input{
   width:100%;
-}
+}*/
 
 body {
     margin: 0px;

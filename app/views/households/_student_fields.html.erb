@@ -1,12 +1,14 @@
+<!DOCTYPE HTML>
 <div class="container formcon">
   <%= f.link_to_remove("X Remove student") %> <br><br>
   <div class="row">
 
     <div class="col-xs-6 col-sm-6">
-      <div class="field">
+      <%#= f.input :first_name, :class => 'input-lg' %>
+       <div class="field">
         <%= f.label :first_name %> <br>
-        <%= f.text_field :first_name %>
-      </div>
+        <%= f.text_field :first_name, :class => "input-lg" %>
+      </div> 
     </div>
     <div class="col-xs-6 col-sm-6">
       <div class="field">
@@ -110,7 +112,7 @@
       </div> -->
 
 
-      <%#= f.input :first_name, input_html: {class: "avg"} %>
+      <%#= f.input :first_name, input_html: {class: "input-lg"} %>
       <%#= f.input :last_name, input_html: {class: "avg"} %>
       <%#= f.input :gender, input_html: {class: "avg"} %>
       <%#= f.input :dob, input_html: {class: "avg"} %>

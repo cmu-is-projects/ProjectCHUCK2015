@@ -1,3 +1,4 @@
+<!DOCTYPE html> 
 <%= form_for(@location) do |f| %>
   <% if @location.errors.any? %>
     <div id="error_explanation">
@@ -13,7 +14,7 @@
 
   <div class="field">
     <%= f.label :street %><br>
-    <%= f.text_field :street %>
+    <%= f.text_field :street, :class => "input-lg" %>
   </div>
   <div class="field">
     <%= f.label :city %><br>
@@ -32,6 +33,13 @@
     <%= f.check_box :active %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+    <div class="col-sm-6">
+      <%= link_to 'Cancel', locations_path, :class => 'btn btn-primary btn-lg outline' %>
+    </div>
+    <div class="col-sm-6">
+      <%= f.submit nil, :class => 'btn btn-primary btn-lg outline' %>
+    </div>
   </div>
+</div>
 <% end %>
