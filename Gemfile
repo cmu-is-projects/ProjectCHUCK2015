@@ -5,6 +5,8 @@ gem 'rails', '4.0.13'
 #gem 'sqlite3'
 gem 'pg'
 
+gem 'sprockets'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
 

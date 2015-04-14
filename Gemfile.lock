@@ -232,6 +232,7 @@ DEPENDENCIES
   shoulda-matchers
   simple_form (= 3.0.1)
   simplecov
+  sprockets
   therubyracer
   thin
   turn
