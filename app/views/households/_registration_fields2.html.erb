@@ -16,51 +16,34 @@
     </div>
   </div> -->
 
-<!--   <br> -->
-
-  <h4>Participant Insurance Information</h4>
+  <br>
 
   <div class ="row">
     <div class="col-xs-6 col-sm-6">
       <div class="field">
-        <%= f.label :insurance_provider, :label => "Name of Insurance Company" %> <br>
-        <%= f.input_field :insurance_provider %>
+        <%= f.label :insurance_provider %> <br>
+        <%= f.text_field :insurance_provider %>
       </div>
     </div>
     <div class="col-xs-6 col-sm-6">
     <div class="field">
-      <%= f.label :insurance_policy_no, :label => "Policy Number" %><br>
-      <%= f.input_field :insurance_policy_no %>
+      <%= f.label :insurance_policy_no %><br>
+      <%= f.text_field :insurance_policy_no %>
     </div>
    </div>
   </div>
-
-<br>
-
-  <div class ="row">
-    <div class="col-xs-6 col-sm-6">
-     <div class="field">
-       <%= f.label :proof_of_insurance, :label => "Proof of Insurance Upload" %>
-       <%= f.input_field :proof_of_insurance, :as => :file %>
-     </div>
-    </div> 
-  </div>
-
-<br>
-
-  <h4>Participant Medical Information</h4>
 
   <div class="row">
    <div class="col-xs-6 col-sm-6">
      <div class="field">
       <%= f.label :family_physician %><br>
-      <%= f.input_field :family_physician %>
+      <%= f.text_field :family_physician %>
      </div>
    </div>
    <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label :physician_phone %><br>
-      <%= f.input_field :physician_phone %>
+      <%= f.text_field :physician_phone %>
     </div>
   </div>
 </div>
@@ -68,23 +51,15 @@
 <br>
 
 <div class="row">
-  <div class="col-xs-6 col-sm-6">
-    <div class="field">
-      <%= f.label :physical, :label => "Physical Upload" %>
-      <%= f.input_field :physical, :as => :file %>
-    </div>
-  </div>
-  <div class="col-xs-4 col-sm-4">
+  <div class="col-xs-12 col-sm-12">
     <div class="field">
       <%= f.label :physical_date %><br>
-      <%= f.input_field :physical_date, as: :date, :order =>[:month, :day, :year], :start_year => 10.years.ago.year, :end_year => Time.now.year %>
+      <%= f.date_select :physical_date, :order =>[:month, :day, :year], :start_year => 1900, :end_year => 2015 %>
     </div>
   </div> 
 </div>
 
 <br>
-
-<h3>Project CHUCK Materials</h3>
 
 <div class="row">
   <div class="col-xs-6 col-sm-6">
@@ -102,12 +77,23 @@
 
 <br>
 
-<h3>Consent and Responsibilities Section</h3>
-
-<div class="row reduce">
-  <div class="col-xs-12 col-sm-12">
-  <p>In case of accident or illness, I hereby authorize a representative of Best of the Batch Foundation / Project C.H.U.C.K. to use his/her judgement in obtaining immediate medical care. (Parents will be notified in case of serious illness or injury as quickly as they can be reached.)</p>
+<div class="row">
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.input :physical, :as => :file, :label => "Physical Upload" %>
+    </div>
+  </div>
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.input :proof_of_insurance, :as => :file, :label => "Proof of Insurance Upload" %>
+    </div>
+  </div> 
 </div>
+
+<br>
+
+<div class="row">
+  <p>In case of accident or illness, I hereby authorize a representative of Best of the Batch Foundation / Project C.H.U.C.K. to use his/her judgement in obtaining immediate medical care. (Parents will be notified in case of serious illness or injury as quickly as they can be reached.)</p>
   <div class="col-xs-12 col-sm-12">
     <div class="field">
       <%= f.label :parent_consent_agree, :label => "Parent/Guardian - Click if you agree:" %> <br>
@@ -116,14 +102,8 @@
   </div> 
 </div>
 
-<br>
-
-<div class="row reduce">
-  <div class = "col-sm-12">
+<div class="row">
   <p>I agree to take responsibility as a player to read my assigned book, attend study hall and to review and follow all Project C.H.U.C.K. rules. (Sign if you agree)</p>
-</div>
-</div>
-<div class = "row">
   <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.input :child_signature, :label => "Child Signature:" %>
@@ -137,9 +117,7 @@
   </div> 
 </div>
 
-<br>
-
-<div class="row reduce">
+<div class="row">
   <p>To participate in Project C.H.U.C.K. in consideration of the services to be performed by its sponsors, officers, and volunteers, I do hereby assume all the risks and hazards incidental to the conduct of the activities, and I do further hereby release, absolve, indemnify, and hold harmless Project C.H.U.C.K., operated and sponsored by Best of the Batch, its sponsors, officers, and volunteers of and from all manner of action and actions, cause or causes of action, suits, debts and sums of money, claims of demands whatsoever, in law or equity, arising out of or pursuant to the conduct of the activities. I am fully aware of risks inherent to this activity and should not participate or allow my child to participate unless medically able. I assume all risks associated with this activity. I also agree that photographs, recordings or any other record may be used for the purpose of promoting programs operated or sponsored by Project C.H.U.C.K. In case of accident or illness, I authorize a representative of Project C.H.U.C.K. to obtain immediate care deemed necessary by licensed medical personnel. I have read and fully understand that these terms are contractual and are not a mere recital and sign it voluntarily, and hereby take responsibility for the above information and it is accurate to the best of my knowledge. I also understand that if not correct, my above-named child will be ineligible to play for the season.</p>
   <div class="col-xs-12 col-sm-12">
     <div class="field">
@@ -149,7 +127,6 @@
   </div> 
 </div>
 
-<br>
 
 <div class="row">
   <p>If you agree with the above, please sign:</p>
