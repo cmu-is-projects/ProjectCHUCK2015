@@ -318,9 +318,10 @@ namespace :db do
             s.cell_phone = rand(10 ** 10).to_s.rjust(10,'0')
             s.email = "#{s.first_name}.#{s.last_name}@example.com".downcase
             s.grade = (0..12).to_a.sample
-            s.gender= ["M", "F"].sample
+            s.gender= ["Male", "Female"].sample
             s.emergency_contact_name = Faker::Name.name
             s.emergency_contact_phone = rand(10 ** 10).to_s.rjust(10,'0')
+            s.emergency_contact_relation = ["Grandma", "Grandpa", "Neighbor", "Uncle", "Aunt"].sample
             s.has_birth_certificate = [true,false].sample
             s.allergies = ["Peanuts", "Tree Nuts", "Fish", "Eggs", "Kiwi"].sample
             s.security_question = Faker::Lorem.sentence
@@ -342,6 +343,8 @@ namespace :db do
             r.jersey_size = ["S","M","L","XL", "2XL", "3XL"].sample
             r.active = true
             r.physical_date = Faker::Date.backward(360)
+            r.child_signature = "Child Signature"
+            r.parent_signature = "Parent Signature"
             r.save!
 
         end

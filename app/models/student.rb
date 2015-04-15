@@ -16,22 +16,24 @@ class Student < ActiveRecord::Base
   has_many :brackets, through: :registrations
   has_many :teams, through: :roster_spots
 
+  mount_uploader :birth_certificate, AvatarUploader
+
   accepts_nested_attributes_for :registrations, reject_if: lambda { |registration| registration[:has_report_card].blank? }, allow_destroy: true
 
   # Validations
   # -----------------------------
   # make sure required fields are present
-  validates_presence_of :school_id, :first_name, :last_name, :gender, :emergency_contact_name, :emergency_contact_phone, :dob
+  validates_presence_of :school_id, :first_name, :last_name, :gender, :emergency_contact_name, :emergency_contact_phone, :emergency_contact_relation, :dob, :grade
   #validates_date :dob, :before => lambda { Date.current }, :message => "cannot be in the future", allow_blank: false, on: :create
   validates_date :dob, :before => lambda { Date.today }
   #validates_uniqueness_of :email, allow_blank: true
-  validates_format_of :email, :with => /\A[\w]([^@\s,;]+)@(([a-z0-9.-]+\.)+(com|edu|org|net|gov|mil|biz|info))\z/i, :message => "is not a valid format", :allow_blank => true
-  validates_format_of :cell_phone, with: /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/, message: "should be 10 digits (area code needed) and delimited with dashes only", :allow_blank => true
-  validates_format_of :emergency_contact_phone, with: /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/, message: "should be 10 digits (area code needed) and delimited with dashes only", :allow_blank => false
+  validates :email, format: { :with => /[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))/i, :message => "is not a valid format" }, :allow_blank => true
+  validates :cell_phone, format: { with: /\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}/, message: "should be 10 digits (area code needed)" }, :allow_blank => true
+  validates :emergency_contact_phone, format: { with: /\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}/, message: "should be 10 digits (area code needed)" }, :allow_blank => false
   validates_numericality_of :grade
-  GRADESWITHK_ARRAY = [["K", 0]] + (1..12).to_a
-  GRADES_ARRAY = (0..12).to_a
-  GENDER_ARRAY = ["M","F"]
+  GRADESWITHK_ARRAY = [["K", 0], [1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9], [10, 10], [11, 11], [12, 12], ["College", 13]]
+  GRADES_ARRAY = (0..13).to_a
+  GENDER_ARRAY = ["Male","Female"]
   validates :grade, inclusion: { in: GRADES_ARRAY, allow_blank: false } 
   validates :gender, inclusion: { in: GENDER_ARRAY, allow_blank: false } 
   # validate :household_is_active_in_system

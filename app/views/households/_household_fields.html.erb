@@ -10,14 +10,14 @@
 	<div class="row">
 		<div class="col-xs-6 col-sm-6">
 			<div class="field">
-				<%= f.label :street_address %> <br>
-				<%= f.text_field :street %>
+				<%= f.label :street, :label => "Street Address" %> <br>
+				<%= f.input_field :street %>
 			</div>
 		</div>
 		<div class="col-xs-6 col-sm-6">
 			<div class="field">
 				<%= f.label :city %><br>
-				<%= f.text_field :city %>
+				<%= f.input_field :city %>
 			</div>
 		</div>
 	</div>
@@ -28,13 +28,13 @@
 		<div class="col-xs-6 col-sm-6">
 			<div class="field">
 				<%= f.label :county %><br>
-				<%= f.select :county, Household::COUNTY_ARRAY, :prompt => "Select county..."%>
+				<%= f.input_field :county, collection: Household::COUNTY_ARRAY, :selected =>  Household::COUNTY_ARRAY[0] %>
 			</div>
 		</div>
 		<div class="col-xs-6 col-sm-6">
 			<div class="field">
 				<%= f.label :state %><br>
-				<%= f.select :state, Household::STATES_LIST, :selected =>  Household::STATES_LIST[38]%>
+				<%= f.input_field :state, collection: Household::STATES_LIST, :selected =>  Household::STATES_LIST[38]%>
 			</div>
 		</div>
 	</div>
@@ -45,13 +45,13 @@
 		<div class="col-xs-6 col-sm-6">
 			<div class="field">
 				<%= f.label :zip %><br>
-				<%= f.text_field :zip %>
+				<%= f.input_field :zip %>
 			</div>
 		</div>
 		<div class="col-xs-6 col-sm-6">
 			<div class="field">
 				<%= f.label :home_phone %> <br>
-				<%= f.text_field :home_phone %>
+				<%= f.input_field :home_phone %>
 			</div>
 		</div>
 	</div>

@@ -10,10 +10,13 @@ class Registration < ActiveRecord::Base
   belongs_to :student
 
   mount_uploader :report_card, AvatarUploader
+  mount_uploader :physical, AvatarUploader
+  mount_uploader :proof_of_insurance, AvatarUploader
 
   #Validations
   # validate :student_is_active_in_system
-  validates_format_of :physician_phone, with: /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/, message: "should be 10 digits (area code needed) and delimited with dashes only", :allow_blank => true
+  validates_presence_of :insurance_provider, :insurance_policy_no, :family_physician, :physical_date, :child_signature, :parent_signature
+  validates :physician_phone, format: { with: /\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}/, message: "should be 10 digits (area code needed)" }, :allow_blank => true
   JERSEYSIZES = ["S","M","L","XL", "2XL", "3XL"]
   validates :jersey_size, inclusion: { in: JERSEYSIZES, allow_blank: false }
   validates_date :physical_date, :on_or_after => lambda { 1.year.ago.to_date}

@@ -1,19 +1,20 @@
 <!DOCTYPE HTML>
 <div class="container formcon">
   <%= f.link_to_remove("X Remove student") %> <br><br>
+  
+  <h4>General Participant Information</h4>
   <div class="row">
-
     <div class="col-xs-6 col-sm-6">
       <%#= f.input :first_name, :class => 'input-lg' %>
        <div class="field">
         <%= f.label :first_name %> <br>
-        <%= f.text_field :first_name, :class => "input-lg" %>
+        <%= f.input_field :first_name %>
       </div> 
     </div>
     <div class="col-xs-6 col-sm-6">
       <div class="field">
         <%= f.label :last_name %> <br>
-        <%= f.text_field :last_name %>
+        <%= f.input_field :last_name %>
       </div>
     </div>
   </div>
@@ -24,46 +25,66 @@
     <div class="col-xs-6 col-sm-6">
       <div class="field">
         <%= f.label :gender %> <br>
-        <%= f.select :gender, Student::GENDER_ARRAY, :prompt => "Select gender..."%>
+        <%= f.input_field :gender, collection: Student::GENDER_ARRAY, :selected => Student::GENDER_ARRAY[0] %>
       </div>
     </div>
-    <div class="col-xs-6 col-sm-6">
+    <div class="col-xs-4 col-sm-4">
       <div class="field">
-        <%= f.label "Date of Birth" %> <br>
-        <%= f.date_select :dob, :order =>[:month, :day, :year], :start_year => 1900, :end_year => 2015 %>
+        <%= f.label :dob, :label => "Date of Birth" %> <br>
+        <%= f.input_field :dob, as: :date, :order =>[:month, :day, :year], :start_year => 20.years.ago.year, :end_year => 5.years.ago.year %>
       </div>
     </div>
   </div>
 
-  <div class="row">
+<br>
 
+<div class="row">
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :cell_phone, :label => "Participant's Cell Phone" %><br>
+      <%= f.input_field :cell_phone %>
+    </div>
+  </div>
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :email, :label => "Participant's Email" %><br>
+      <%= f.input_field :email %>
+    </div>
+  </div>
+</div>
+
+<br> 
+
+  <div class="row">
    <div class="col-xs-6 col-sm-6">
     <div class="field">
-      <%= f.label :school_id %><br>
-      <%= f.text_field :school_id %>
+      <%= f.label :school_id, :label => "School (ID FOR NOW)" %><br>
+      <%= f.input_field :school_id, collection: School.all, :selected => School.all[0] %>
     </div>
    </div>
    <div class="col-xs-6 col-sm-6">
      <div class="field">
-       <%= f.label :grade %> <br>
-       <%= f.select :grade, Student::GRADESWITHK_ARRAY, :prompt => "Select grade..."%>
+       <%= f.label :grade, :label => "Grade as of September, #{Time.now.year}" %> <br>
+       <%= f.input_field :grade, collection: Student::GRADESWITHK_ARRAY, :selected => Student::GRADESWITHK_ARRAY[0] %>
      </div>
    </div>
   </div>
 
+
+
 <br>
 
 <div class="row">
   <div class="col-xs-6 col-sm-6">
     <div class="field">
-      <%= f.label :cell_phone %><br>
-      <%= f.text_field :cell_phone %>
+      <%= f.label :emergency_contact_name, :label => "Name of Emergency Contact" %> <br>
+      <%= f.input_field :emergency_contact_name %>
     </div>
   </div>
   <div class="col-xs-6 col-sm-6">
     <div class="field">
-      <%= f.label :email %><br>
-      <%= f.text_field :email %>
+      <%= f.label :emergency_contact_phone, :label => "Phone Number of Emergency Contact" %> <br>
+      <%= f.input_field :emergency_contact_phone %>
     </div>
   </div>
 </div>
@@ -73,19 +94,23 @@
 <div class="row">
   <div class="col-xs-6 col-sm-6">
     <div class="field">
-      <%= f.label :emergency_contact_name %> <br>
-      <%= f.text_field :emergency_contact_name %>
+      <%= f.label :emergency_contact_relation, :label => "Emergency Contact's Relation to Participant" %> <br>
+      <%= f.input_field :emergency_contact_relation %>
     </div>
   </div>
   <div class="col-xs-6 col-sm-6">
     <div class="field">
-      <%= f.label :emergency_contact_phone %> <br>
-      <%= f.text_field :emergency_contact_phone %>
+      <%= f.label :birth_certificate, :label => "Birth Certificate Upload" %>
+      <%= f.input_field :birth_certificate, :as => :file %>
     </div>
   </div>
 </div>
 
 <br>
+
+<%= f.simple_fields_for :registrations do |registration_form| %>
+  <%= render :partial => "registration_fields", :locals => { :f => registration_form } %>
+<% end %> 
 
 <div class="row">
   <div class="col-xs-6 col-sm-6">
