@@ -1,8 +1,10 @@
 <!DOCTYPE HTML>
 <div class="container formcon">
   <%= f.link_to_remove("X Remove student") %> <br><br>
-  <div class="row">
+  
+  <h3>Background Information</h3>
 
+  <div class="row">
     <div class="col-xs-6 col-sm-6">
       <%#= f.input :first_name, :class => 'input-lg' %>
        <div class="field">
@@ -35,8 +37,9 @@
     </div>
   </div>
 
-  <div class="row">
+  <h3>School Information</h3>
 
+  <div class="row">
    <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label :school_id %><br>
@@ -52,6 +55,8 @@
   </div>
 
 <br>
+
+<h3>Contact Information</h3>
 
 <div class="row">
   <div class="col-xs-6 col-sm-6">
@@ -86,6 +91,8 @@
 </div>
 
 <br>
+
+<h3>Medical and Insurance Information</h3>
 
 <div class="row">
   <div class="col-xs-6 col-sm-6">

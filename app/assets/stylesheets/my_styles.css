@@ -44,6 +44,9 @@ margin-bottom: 15px;*/
   /*.field{
     font-size:1.2em;
   }*/
+  .reduce{
+    width: 75%;
+  }
 
   select{
     text-align: center;

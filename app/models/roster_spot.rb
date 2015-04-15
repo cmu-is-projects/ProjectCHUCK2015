@@ -10,7 +10,8 @@ class RosterSpot < ActiveRecord::Base
   validates_date :end_date, after: :start_date, allow_blank: true
 
   #Scopes
-  scope :by_position, -> { order('position') }
+  scope :by_position, -> { order('position') 
+  scope :active, -> { where('end_date IS NULL') }
 
 private
   def student_is_active_in_system
