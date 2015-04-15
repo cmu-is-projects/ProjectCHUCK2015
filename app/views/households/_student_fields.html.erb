@@ -70,8 +70,6 @@
    </div>
   </div>
 
-
-
 <br>
 
 <div class="row">
@@ -108,24 +106,171 @@
 
 <br>
 
-<%= f.simple_fields_for :registrations do |registration_form| %>
-  <%= render :partial => "registration_fields", :locals => { :f => registration_form } %>
-<% end %> 
+<div class="row">
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+        <%= f.label :jersey_size %> <br>
+        <%= f.input_field :jersey_size, collection: Student::JERSEYSIZES, :selected => Student::JERSEYSIZES[0] %>
+    </div>
+  </div>
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :jersey_size, :label => "Report Card Upload" %> <br>
+      <%= f.input_field :report_card, :as => :file %>
+    </div>
+  </div> 
+</div>
+
+<br>
+
+  <h4>Participant Insurance Information</h4>
+
+  <div class ="row">
+    <div class="col-xs-6 col-sm-6">
+      <div class="field">
+        <%= f.label :insurance_provider, :label => "Name of Insurance Company" %> <br>
+        <%= f.input_field :insurance_provider %>
+      </div>
+    </div>
+    <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :insurance_policy_no, :label => "Policy Number" %><br>
+      <%= f.input_field :insurance_policy_no %>
+    </div>
+   </div>
+  </div>
+
+<br>
+
+  <div class ="row">
+    <div class="col-xs-6 col-sm-6">
+     <div class="field">
+       <%= f.label :proof_of_insurance, :label => "Proof of Insurance Upload" %>
+       <%= f.input_field :proof_of_insurance, :as => :file %>
+     </div>
+    </div> 
+  </div>
+
+<br>
+
+  <h4>Participant Medical Information</h4>
+
+  <div class="row">
+   <div class="col-xs-6 col-sm-6">
+     <div class="field">
+      <%= f.label :family_physician %><br>
+      <%= f.input_field :family_physician %>
+     </div>
+   </div>
+   <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :physician_phone %><br>
+      <%= f.input_field :physician_phone %>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :physical, :label => "Physical Upload" %>
+      <%= f.input_field :physical, :as => :file %>
+    </div>
+  </div>
+  <div class="col-xs-4 col-sm-4">
+    <div class="field">
+      <%= f.label :physical_date %><br>
+      <%= f.input_field :physical_date, as: :date, :order =>[:month, :day, :year], :start_year => 10.years.ago.year, :end_year => Time.now.year %>
+    </div>
+  </div> 
+</div>
+
+<br>
 
 <div class="row">
   <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label :allergies %><br>
-      <%= f.text_area :allergies %>
+      <%= f.input_field :allergies, as: :text %>
     </div>
   </div> 
   <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label :medications %><br>
-      <%= f.text_area :medications %>
+      <%= f.input_field :medications, as: :text %>
     </div>
   </div>
 </div>
+
+<br>
+
+<div class="row">
+  <p>In case of accident or illness, I hereby authorize a representative of Best of the Batch Foundation / Project C.H.U.C.K. to use his/her judgement in obtaining immediate medical care. (Parents will be notified in case of serious illness or injury as quickly as they can be reached.)</p>
+  <div class="col-xs-12 col-sm-12">
+    <div class="field">
+      <%= f.label :parent_consent_agree, :label => "Parent/Guardian - Click if you agree:" %> <br>
+      <%= f.input_field :parent_consent_agree, as: :boolean, checked_value: true, unchecked_value: false %>
+    </div>
+  </div> 
+</div>
+
+<br>
+
+<h4>Promise</h4>
+
+<div class="row">
+  <p>I agree to take responsibility as a player to read my assigned book, attend study hall and to review and follow all Project C.H.U.C.K. rules. (Click if you agree)</p>
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :child_promise_agree, :label => "Student Participant - Click if you agree:" %> <br>
+      <%= f.input_field :child_promise_agree, as: :boolean, checked_value: true, unchecked_value: false %>
+    </div>
+  </div> 
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :parent_promise_agree, :label => "Parent/Guardian - Click if you agree:" %> <br>
+      <%= f.input_field :parent_promise_agree, as: :boolean, checked_value: true, unchecked_value: false%>
+    </div>
+  </div> 
+</div>
+
+<br>
+
+<h4>Statement of Parental Responsibilities and Release</h4>
+
+<div class="row">
+  <p>To participate in Project C.H.U.C.K. in consideration of the services to be performed by its sponsors, officers, and volunteers, I do hereby assume all the risks and hazards incidental to the conduct of the activities, and I do further hereby release, absolve, indemnify, and hold harmless Project C.H.U.C.K., operated and sponsored by Best of the Batch, its sponsors, officers, and volunteers of and from all manner of action and actions, cause or causes of action, suits, debts and sums of money, claims of demands whatsoever, in law or equity, arising out of or pursuant to the conduct of the activities. I am fully aware of risks inherent to this activity and should not participate or allow my child to participate unless medically able. I assume all risks associated with this activity. I also agree that photographs, recordings or any other record may be used for the purpose of promoting programs operated or sponsored by Project C.H.U.C.K. In case of accident or illness, I authorize a representative of Project C.H.U.C.K. to obtain immediate care deemed necessary by licensed medical personnel. I have read and fully understand that these terms are contractual and are not a mere recital and sign it voluntarily, and hereby take responsibility for the above information and it is accurate to the best of my knowledge. I also understand that if not correct, my above-named child will be ineligible to play for the season.</p>
+  <div class="col-xs-12 col-sm-12">
+    <div class="field">
+      <%= f.label :parent_release_agree, :label => "Parent/Guardian - Click if you agree:" %> <br>
+      <%= f.input_field :parent_release_agree, as: :boolean, checked_value: true, unchecked_value: false %>
+    </div>
+  </div> 
+</div>
+
+<br>
+
+<h4>Parent and Participant Signatures</h4>
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :parent_signature, :label => "Parent - If you agree with the above, please sign:" %> <br>
+      <%= f.input_field :parent_signature %>
+    </div>
+  </div> 
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :child_signature, :label => "Student Participant - If you agree with the above, please sign:" %> <br>
+      <%= f.input_field :child_signature %>
+    </div>
+  </div> 
+</div>
+
+<br>
+
 
 </div>
 

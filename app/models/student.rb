@@ -1,4 +1,4 @@
-class Student < ActiveRecord::Base
+  class Student < ActiveRecord::Base
 
   filterrific(
     default_filter_params: { sorted_by: 'name_asc' },
@@ -7,6 +7,17 @@ class Student < ActiveRecord::Base
       :search_query
     ]
   )
+
+  #callbacks
+  before_save :reformat_physician_phone
+  before_save :reformat_cell_phone
+  before_save :reformat_emergency_cell_phone
+  before_validation :check_report_card, on: [ :create, :update ]
+
+  #uploaders for carrierwave
+  mount_uploader :report_card, AvatarUploader
+  mount_uploader :physical, AvatarUploader
+  mount_uploader :proof_of_insurance, AvatarUploader
 
 	#Relationship Validations
 	belongs_to :household
@@ -27,7 +38,8 @@ class Student < ActiveRecord::Base
   #validates_date :dob, :before => lambda { Date.current }, :message => "cannot be in the future", allow_blank: false, on: :create
   validates_date :dob, :before => lambda { Date.today }
   #validates_uniqueness_of :email, allow_blank: true
-  validates :email, format: { :with => /[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))/i, :message => "is not a valid format" }, :allow_blank => true
+  validates_format_of :email, :with => /[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))/i
+  # validates :email, format: { :with => /[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))/i, :message => "is not a valid format" }, :allow_blank => true
   validates :cell_phone, format: { with: /\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}/, message: "should be 10 digits (area code needed)" }, :allow_blank => true
   validates :emergency_contact_phone, format: { with: /\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}/, message: "should be 10 digits (area code needed)" }, :allow_blank => false
   validates_numericality_of :grade
@@ -37,6 +49,11 @@ class Student < ActiveRecord::Base
   validates :grade, inclusion: { in: GRADES_ARRAY, allow_blank: false } 
   validates :gender, inclusion: { in: GENDER_ARRAY, allow_blank: false } 
   # validate :household_is_active_in_system
+  validates_presence_of :insurance_provider, :insurance_policy_no, :family_physician, :physical_date, :child_signature, :parent_signature
+  validates :physician_phone, format: { with: /\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}/, message: "should be 10 digits (area code needed)" }, :allow_blank => true
+  JERSEYSIZES = ["S","M","L","XL", "2XL", "3XL"]
+  validates :jersey_size, inclusion: { in: JERSEYSIZES, allow_blank: false }
+  validates_date :physical_date, :on_or_after => lambda { 1.year.ago.to_date}
 
 	# Scopes
   # -----------------------------
@@ -59,6 +76,14 @@ class Student < ActiveRecord::Base
   scope :female, -> { where("gender = ?", "F") }
   scope :has_allergies, -> { where('allergies IS NOT NULL')}
   scope :has_medications, -> { where('medications IS NOT NULL')}
+  scope :has_rc, -> { where(has_report_card: true) }
+  scope :no_rc, -> { where(has_report_card: false) }
+  scope :has_phys, -> { where(has_physical: true) }
+  scope :no_phys, -> { where(has_physical: false) }
+  scope :has_insurance, -> { where(has_proof_of_insurance: true) }
+  scope :no_insurance, -> { where(has_proof_of_insurance: false) }
+  scope :jerseysize, -> (size) { where("jersey_size LIKE ?", size) }
+  scope :has_missing_docs, -> { where("has_report_card = ? OR has_physical = ? OR has_proof_of_insurance = ?", false, false, false) }
 
 
   scope :search_query, lambda { |query|
@@ -163,6 +188,20 @@ class Student < ActiveRecord::Base
        emergency_contact_phone.gsub!(/[^0-9]/,"") # strip all non-digits
        self.emergency_contact_phone = emergency_contact_phone       # reset self.phone to new string
      end
+
+  def check_report_card
+    if self.report_card.nil?
+      self.has_report_card = false
+    else
+      self.has_report_card = true
+    end
+  end
+
+  def reformat_physician_phone
+    physician_phone = self.physician_phone.to_s  # change to string in case input as all numbers 
+    physician_phone.gsub!(/[^0-9]/,"") # strip all non-digits
+    self.physician_phone = physician_phone       # reset self.phone to new string
+  end
 
     #household_id is valid in system
     # def household_is_active_in_system

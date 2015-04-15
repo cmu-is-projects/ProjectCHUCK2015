@@ -328,23 +328,22 @@ namespace :db do
             s.security_response = Faker::Lorem.sentence
             s.active = true
             s.school_id = 1
+            s.has_report_card = [true,false].sample
+            s.has_proof_of_insurance = [true,false].sample
+            s.insurance_provider = ["UPMC", "Highmark", "HealthAmerica"].sample
+            s.insurance_policy_no = rand(10 ** 10).to_s.rjust(10,'0')
+            s.family_physician = Faker::Name.name
+            s.physician_phone = rand(10 ** 10).to_s.rjust(10,'0')
+            s.has_physical = [true,false].sample
+            s.jersey_size = ["S","M","L","XL", "2XL", "3XL"].sample
+            s.physical_date = Faker::Date.backward(360)
+            s.child_signature = "Child Signature"
+            s.parent_signature = "Parent Signature"
             s.save!
 
             #create registration for each student
             r = Registration.new
             r.student_id = s.id
-            r.has_report_card = [true,false].sample
-            r.has_proof_of_insurance = [true,false].sample
-            r.insurance_provider = ["UPMC", "Highmark", "HealthAmerica"].sample
-            r.insurance_policy_no = rand(10 ** 10).to_s.rjust(10,'0')
-            r.family_physician = Faker::Name.name
-            r.physician_phone = rand(10 ** 10).to_s.rjust(10,'0')
-            r.has_physical = [true,false].sample
-            r.jersey_size = ["S","M","L","XL", "2XL", "3XL"].sample
-            r.active = true
-            r.physical_date = Faker::Date.backward(360)
-            r.child_signature = "Child Signature"
-            r.parent_signature = "Parent Signature"
             r.save!
 
         end

@@ -1,37 +1,19 @@
 class Registration < ActiveRecord::Base
   
   #Callbacks
-  before_save :reformat_physician_phone
   before_validation :assign_bracket, on: :create
-  before_validation :check_report_card, on: [ :create, :update ]
+
 
   #Relationship Validations
   belongs_to :bracket
   belongs_to :student
 
-  mount_uploader :report_card, AvatarUploader
-  mount_uploader :physical, AvatarUploader
-  mount_uploader :proof_of_insurance, AvatarUploader
 
   #Validations
   # validate :student_is_active_in_system
-  validates_presence_of :insurance_provider, :insurance_policy_no, :family_physician, :physical_date, :child_signature, :parent_signature
-  validates :physician_phone, format: { with: /\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}/, message: "should be 10 digits (area code needed)" }, :allow_blank => true
-  JERSEYSIZES = ["S","M","L","XL", "2XL", "3XL"]
-  validates :jersey_size, inclusion: { in: JERSEYSIZES, allow_blank: false }
-  validates_date :physical_date, :on_or_after => lambda { 1.year.ago.to_date}
+  
 
   #Scopes
-  scope :active, -> { where(active: true) }
-  scope :inactive, -> { where(active: false) }
-  scope :has_rc, -> { where(has_report_card: true) }
-  scope :no_rc, -> { where(has_report_card: false) }
-  scope :has_phys, -> { where(has_physical: true) }
-  scope :no_phys, -> { where(has_physical: false) }
-  scope :has_insurance, -> { where(has_proof_of_insurance: true) }
-  scope :no_insurance, -> { where(has_proof_of_insurance: false) }
-  scope :jerseysize, -> (size) { where("jersey_size LIKE ?", size) }
-  scope :has_missing_docs, -> { where("has_report_card = ? OR has_physical = ? OR has_proof_of_insurance = ?", false, false, false) }
 
 
   #custom functions 
@@ -51,27 +33,12 @@ private
   #   end
   # end
 
-  def check_report_card
-    if self.report_card.nil?
-      self.has_report_card = false
-    else
-      self.has_report_card = true
-    end
-  end
-
-
   def assign_bracket
     Bracket.all.each do |bracket|
       if self.student.age >= bracket.min_age && self.student.age <= bracket.max_age && self.student.gender == bracket.gender
         self.bracket_id = bracket.id
       end
     end
-  end
-
-  def reformat_physician_phone
-    physician_phone = self.physician_phone.to_s  # change to string in case input as all numbers 
-    physician_phone.gsub!(/[^0-9]/,"") # strip all non-digits
-    self.physician_phone = physician_phone       # reset self.phone to new string
   end
   
 end
