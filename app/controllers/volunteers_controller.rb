@@ -1,6 +1,6 @@
 class VolunteersController < ApplicationController
   before_action :set_volunteer, only: [:show, :edit, :update, :destroy]
-  before_action :check_login, :except => [:new, :show]
+  before_action :check_login, :except => [:new, :create, :show]
   authorize_resource
 
   # GET /volunteers
