@@ -19,7 +19,5 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require jquery_nested_form
-//= require twitter/bootstrap
-//= require my_code
-//= require livevalidation_prototype		
+//= require twitter/bootstrap	
 //= require_tree .
