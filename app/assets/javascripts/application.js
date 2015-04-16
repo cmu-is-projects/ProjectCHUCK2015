@@ -20,4 +20,6 @@
 //= require jquery_ujs
 //= require jquery_nested_form
 //= require twitter/bootstrap
+//= require my_code
+//= require livevalidation_prototype		
 //= require_tree .
