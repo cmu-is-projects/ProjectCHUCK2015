@@ -11,12 +11,9 @@ class Ability
         can :create, Household
         can :read, Household
         can :create, Volunteer
-<<<<<<< HEAD
         can :read, Volunteer
-=======
-
         can :show, Household
->>>>>>> 27a14067858de175b86f074098719c67f1c61ca7
+        can :show, Volunteer
       end   
     #
     # The first argument to `can` is the action you are giving the user
