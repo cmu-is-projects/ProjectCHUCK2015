@@ -78,5 +78,5 @@ ProjectChuck2015::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
   
-  #Rails.application.config.assets.precompile += ['my_code.js', 'livevalidation_prototype.js']
+  Rails.application.config.assets.precompile += ['my_code.js', 'livevalidation_prototype.js']
 end
