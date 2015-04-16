@@ -168,10 +168,6 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
-    sprockets_better_errors (0.0.5)
-      actionpack (< 4.1)
-      activesupport (< 4.1)
-      sprockets-rails (>= 1.0.0)
     therubyracer (0.12.1)
       libv8 (~> 3.16.14.0)
       ref
@@ -236,7 +232,6 @@ DEPENDENCIES
   shoulda-matchers
   simple_form (= 3.0.1)
   simplecov
-  sprockets_better_errors
   therubyracer
   thin
   turn
