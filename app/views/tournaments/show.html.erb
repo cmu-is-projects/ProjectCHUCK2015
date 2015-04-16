@@ -20,5 +20,10 @@
   <%= @tournament.end_date %>
 </p>
 
+<p>
+  <strong>Active:</strong>
+  <%= @tournament.active %>
+</p>
+
 <%= link_to 'Edit', edit_tournament_path(@tournament) %> |
 <%= link_to 'Back', tournaments_path %>

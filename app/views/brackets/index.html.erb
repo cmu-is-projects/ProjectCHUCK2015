@@ -13,6 +13,7 @@
               <th>Bracket</th>
               <th>Gender</th>
               <th>Tournament</th>
+              <th>Active</th>
               <th></th>
               <th></th>
             </tr>
@@ -24,6 +25,7 @@
               <td><%= link_to "#{bracket.min_age} - #{bracket.max_age}", bracket %></td>
               <td><%= bracket.gender %></td>
               <td><%= bracket.tournament.name %></td>
+              <td><%= bracket.active %></td>
               <td><%= link_to(image_tag('edit.png'), edit_bracket_path(bracket)) %></td>
               <td><%= link_to(image_tag('delete.png'), bracket, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
             </tr>
@@ -44,6 +46,7 @@
               <th>Bracket</th>
               <th>Gender</th>
               <th>Tournament</th>
+              <th>Active</th>
               <th></th>
               <th></th>
             </tr>
@@ -55,6 +58,7 @@
               <td><%= link_to "#{bracket.min_age} - #{bracket.max_age}", bracket %></td>
               <td><%= bracket.gender %></td>
               <td><%= bracket.tournament.name %></td>
+              <td><%= bracket.active %></td>
               <td><%= link_to(image_tag('edit.png'), edit_bracket_path(bracket)) %></td>
               <td><%= link_to(image_tag('delete.png'), bracket, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
             </tr>

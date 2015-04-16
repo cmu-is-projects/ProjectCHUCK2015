@@ -13,6 +13,7 @@
   before_save :reformat_cell_phone
   before_save :reformat_emergency_cell_phone
   before_validation :check_report_card, on: [ :create, :update ]
+  after_create :create_reg
 
   #uploaders for carrierwave
   mount_uploader :report_card, AvatarUploader
@@ -54,6 +55,8 @@
   JERSEYSIZES = ["S","M","L","XL", "2XL", "3XL"]
   validates :jersey_size, inclusion: { in: JERSEYSIZES, allow_blank: false }
   validates_date :physical_date, :on_or_after => lambda { 1.year.ago.to_date}
+  validate :ageIsAllowed
+  validate :activeBracketsInSystem
 
 	# Scopes
   # -----------------------------
@@ -202,6 +205,42 @@
     physician_phone.gsub!(/[^0-9]/,"") # strip all non-digits
     self.physician_phone = physician_phone       # reset self.phone to new string
   end
+
+  def create_reg
+    flag = false
+    #if there are no registrations, then make one
+    if self.registrations.to_a.length == 0
+      reg = Registration.new
+      reg.student = self
+      reg.save!
+    else
+      #if student has registrations, check if any of the brackets for the registrations are active. if not, then make a new reg
+      self.registrations.each do |reg|
+        if reg.bracket.active == true
+          flag = true
+        end
+      end
+      if flag == false
+        reg = Registration.new
+        reg.student = self
+        reg.save!
+      end
+    end
+  end
+
+  def ageIsAllowed
+    if age < 7 || age > 18
+      errors.add(:student, "student must be between the ages of 7 and 18")
+    end
+  end
+
+  def activeBracketsInSystem
+    if Bracket.all.active.to_a.length == 0
+      errors.add(:student, "There are no active brackets in the system")
+    end
+  end
+
+
 
     #household_id is valid in system
     # def household_is_active_in_system
