@@ -11,6 +11,7 @@ namespace :db do
     # Invoke rake db:migrate
     #Rake::Task['db:migrate'].invoke
     #Rake::Task['db:test:prepare'].invoke
+    Rake::Task['db:reset'].invoke
     
     # Need gem to make this work when adding students later: faker
     # Docs at: http://faker.rubyforge.org/rdoc/
@@ -144,7 +145,7 @@ namespace :db do
 
     # Step 7: Create some brackets
     boys1 = Bracket.new
-    boys1.gender = "M"
+    boys1.gender = "Male"
     boys1.tournament_id = fifteen.id
     boys1.min_age = 7
     boys1.max_age = 9
@@ -152,7 +153,7 @@ namespace :db do
     boys1.save!
 
     boys2 = Bracket.new
-    boys2.gender = "M"
+    boys2.gender = "Male"
     boys2.tournament_id = fifteen.id
     boys2.min_age = 10
     boys2.max_age = 12
@@ -160,7 +161,7 @@ namespace :db do
     boys2.save!
 
     boys3 = Bracket.new
-    boys3.gender = "M"
+    boys3.gender = "Male"
     boys3.tournament_id = fifteen.id
     boys3.min_age = 13
     boys3.max_age = 15
@@ -168,7 +169,7 @@ namespace :db do
     boys3.save!
 
     boys4 = Bracket.new
-    boys4.gender = "M"
+    boys4.gender = "Male"
     boys4.tournament_id = fifteen.id
     boys4.min_age = 16
     boys4.max_age = 18
@@ -176,7 +177,7 @@ namespace :db do
     boys4.save!
 
     girls1 = Bracket.new
-    girls1.gender = "F"
+    girls1.gender = "Female"
     girls1.tournament_id = fifteen.id
     girls1.min_age = 7
     girls1.max_age = 18
@@ -342,9 +343,9 @@ namespace :db do
             s.save!
 
             #create registration for each student
-            r = Registration.new
-            r.student_id = s.id
-            r.save!
+            # r = Registration.new
+            # r.student_id = s.id
+            # r.save!
 
         end
 

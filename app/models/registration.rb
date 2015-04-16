@@ -1,7 +1,8 @@
 class Registration < ActiveRecord::Base
   
   #Callbacks
-  before_validation :assign_bracket, on: :create
+  before_validation :assign_bracket
+  before_validation :checkActive, on: :create
 
 
   #Relationship Validations
@@ -11,6 +12,7 @@ class Registration < ActiveRecord::Base
 
   #Validations
   # validate :student_is_active_in_system
+  # validates_presence_of :bracket_id, :student_id
   
 
   #Scopes
@@ -34,11 +36,17 @@ private
   # end
 
   def assign_bracket
-    Bracket.all.each do |bracket|
-      if self.student.age >= bracket.min_age && self.student.age <= bracket.max_age && self.student.gender == bracket.gender
-        self.bracket_id = bracket.id
+      until self.bracket_id != nil do
+        Bracket.all.active.each do |bracket|
+          if (self.student.age >= bracket.min_age) && (self.student.age <= bracket.max_age) && (self.student.gender == bracket.gender)
+            self.bracket_id = bracket.id
+          end
+        end
       end
-    end
+  end
+
+  def checkActive
+    self.active = true
   end
   
 end

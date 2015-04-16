@@ -1,5 +1,9 @@
 class Bracket < ActiveRecord::Base
 
+  #Callbacks
+  before_validation :checkActive, on: :create
+  before_save :bracketActive
+
   #Relationships 
   has_many :teams
   belongs_to :tournament
@@ -8,16 +12,15 @@ class Bracket < ActiveRecord::Base
 
   #Validations
   validates_presence_of :gender
-
   validates_numericality_of :max_students, :min_age, :max_age
-
   validate :minlessmax
   validate :valid_tournament_id
 
   # Scopes
   # by gender 
-  scope :male, -> { where("gender = ?","M") }
-  scope :female, -> { where("gender = ?", "F") }
+  scope :male, -> { where("gender = ?","Male") }
+  scope :female, -> { where("gender = ?", "Female") }
+  scope :active, -> { where("active = ?", true)}
 
   #by age group
   #this needs some clarification 
@@ -36,6 +39,24 @@ class Bracket < ActiveRecord::Base
 
   private 
   #Custom validations
+
+  def checkActive
+    if self.tournament.active == true
+      self.active = true
+    else
+      self.active = false
+    end
+  end
+
+  def bracketActive
+    if (self.active == false)
+      regs = Registration.where('bracket_id = ?', self.id)
+      regs.each do |reg|
+        reg.active = false
+        reg.save!
+      end
+    end
+  end
 
   def minlessmax
   	return self.min_age < self.max_age 
