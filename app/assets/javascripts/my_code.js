@@ -16,4 +16,10 @@ window.onload = function(){
         var delta = ($(this).is('.next') ? 1 : -1);
         $('#accordion').accordion('option', 'active', ( $('#accordion').accordion('option','active') + delta  ));
     });
+    
 };
+
+
+$(document).ready(function() {
+  $('.sigPad').signaturePad({drawOnly:true});
+});
