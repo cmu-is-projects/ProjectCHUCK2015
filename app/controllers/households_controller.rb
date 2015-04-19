@@ -1,6 +1,6 @@
 class HouseholdsController < ApplicationController
   before_action :set_household, only: [:show, :edit, :update, :destroy]
-  before_action :check_login, :except => [:new, :show]
+  before_action :check_login, :except => [:create, :new, :show]
   authorize_resource
 
   # GET /households
@@ -17,9 +17,11 @@ class HouseholdsController < ApplicationController
   # GET /households/new
   def new
     @household = Household.new
-    students = @household.students.build
+    # students = @household.students.build
+    @household.students.build
     @household.guardians.build
-    registrations = students.registrations.build
+    # students.registrations.build
+    # registrations = students.registrations.build
   end
 
   # GET /households/1/edit
@@ -78,6 +80,6 @@ class HouseholdsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def household_params
-      params.require(:household).permit(:street, :city, :state, :zip, :home_phone, :county, :active, students_attributes: [:id, :first_name, :last_name, :dob, :cell_phone, :email, :grade, :gender, :emergency_contact_name, :emergency_contact_phone, :has_birth_certificate, :allergies, :medications, :security_question, :security_response, :active, :school_id, :_destroy, :birth_certificate, :emergency_contact_relation, :has_report_card, :has_proof_of_insurance, :insurance_provider, :insurance_policy_no, :family_physician, :physician_phone, :has_physical, :physical_date, :jersey_size, :report_card, :parent_consent_agree, :parent_promise_agree, :parent_release_agree, :parent_signature, :parent_sign_date, :proof_of_insurance, :physical, :child_promise_agree, :child_signature, :child_sign_date], guardians_attributes: [:id, :relation, :email, :first_name, :last_name, :cell_phone, :receives_text_msgs, :active, :_destroy])
+      params.require(:household).permit(:street, :city, :state, :zip, :home_phone, :county, :active, students_attributes: [:id, :first_name, :last_name, :dob, :cell_phone, :email, :grade, :gender, :emergency_contact_name, :emergency_contact_phone, :has_birth_certificate, :allergies, :medications, :security_question, :security_response, :active, :school_id, :_destroy, :birth_certificate, :emergency_contact_relation, :has_report_card, :has_proof_of_insurance, :insurance_provider, :insurance_policy_no, :family_physician, :physician_phone, :has_physical, :physical_date, :jersey_size, :report_card, :parent_consent_agree, :parent_promise_agree, :parent_release_agree, :parent_signature, :parent_sign_date, :proof_of_insurance, :physical, :child_promise_agree, :child_signature, :child_sign_date, :bracket_ids => []], guardians_attributes: [:id, :relation, :email, :first_name, :last_name, :cell_phone, :receives_text_msgs, :active, :_destroy])
     end
 end

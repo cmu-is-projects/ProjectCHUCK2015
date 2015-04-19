@@ -9,6 +9,7 @@
         <th>Name</th>
         <th>Start date</th>
         <th>End date</th>
+        <th>Active</th>
         <th></th>
         <th></th>
       </tr>
@@ -20,6 +21,7 @@
         <td><%= link_to tournament.name, tournament %></td>
         <td><%= tournament.start_date %></td>
         <td><%= tournament.end_date %></td>
+        <td><%= tournament.active %></td>
         <td><%= link_to(image_tag('edit.png'), edit_tournament_path(tournament)) %></td>
         <td><%= link_to(image_tag('delete.png'), tournament, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
       </tr>
