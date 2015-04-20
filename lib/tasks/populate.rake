@@ -328,7 +328,6 @@ namespace :db do
             s.security_question = Faker::Lorem.sentence
             s.security_response = Faker::Lorem.sentence
             s.active = true
-            s.school_id = 1
             s.has_report_card = [true,false].sample
             s.has_proof_of_insurance = [true,false].sample
             s.insurance_provider = ["UPMC", "Highmark", "HealthAmerica"].sample

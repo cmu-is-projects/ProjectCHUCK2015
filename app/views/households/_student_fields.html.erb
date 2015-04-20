@@ -60,8 +60,8 @@
   <div class="row">
    <div class="col-xs-6 col-sm-6">
     <div class="field">
-      <%= f.label :school_id, :label => "School (ID FOR NOW)" %><br>
-      <%= f.input_field :school_id, collection: School.all, :selected => School.all[0] %>
+      <%= f.label :school, :label => "Name of School" %><br>
+      <%= f.input_field :school %>
     </div>
   </div>
   <div class="col-xs-6 col-sm-6">
@@ -70,6 +70,15 @@
      <%= f.input_field :grade, collection: Student::GRADESWITHK_ARRAY, :selected => Student::GRADESWITHK_ARRAY[0] %>
    </div>
  </div>
+</div>
+
+ <div class="row">
+   <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :district, :label => "District" %><br>
+      <%= f.input_field :district, collection: School::DISTRICT_ARRAY, :selected => School::DISTRICT_ARRAY[0] %>
+    </div>
+  </div>
 </div>
 
 <br>
