@@ -15,7 +15,7 @@ class TeamGame < ActiveRecord::Base
   def valid_team_and_game_id
     all_teams = Team.all.to_a.map{|u| u.id}
     all_games = Game.all.to_a.map{|u| u.id}
-    return all_teams.include?(self.team.id) && all_games.include?(self.game.id)
+    return all_teams.include?(self.team_id) && all_games.include?(self.game_id)
   end
 
 
