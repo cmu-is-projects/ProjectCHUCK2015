@@ -147,3 +147,6 @@ hr{
 .widthfit{
   width: 90%;
 }
+input[type="submit"].btn {
+  width: 100%;
+}
