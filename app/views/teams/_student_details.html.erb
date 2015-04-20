@@ -1,0 +1,47 @@
+  <div class="container">
+  <center><h2>Team Roster</h2>
+<%#= link_to 'Add Student', new_volunteer_path %></center>
+<br>
+
+  <table class="table">
+   <thead>
+    <tr>
+      <th>Name</th>
+      <th>Cell phone</th>
+      <th>Grade</th>
+      <th>School</th>
+      <th>Allergies</th>
+      <th>Medications</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead> 
+
+  <tbody>
+   <% @students.each do |student| %>
+
+   <br>
+   
+   <tr>
+    <% if student.gender == "M"%>
+    <td class="boy"><%= link_to student.proper_name, student %></td>
+    <%else%>
+    <td class="girl"><%= link_to student.proper_name, student %></td>
+    <%end%> 
+    <td><%= student.cell_phone %></td>
+    <td><%= student.grade %></td> 
+   <td><%= student.school.name %></td> 
+    <td><%= student.allergies %></td>
+    <td><%= student.medications %></td> 
+    <td><%= student.jersey_size %></td>
+    <td><%= link_to(image_tag('edit.png'), edit_student_path(student)) %></td>
+    <td><%= link_to(image_tag('delete.png'), student, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
+  </tr>
+  <% end %>
+</tbody>
+</table>
+</div>
+
+
+
+</div>

@@ -1,8 +1,5 @@
-<div id="filterrific_results">
-
+ <div id="filterrific_results"> 
   <div class="container well">
-
-
   <table class="table">
    <thead>
     <tr>
@@ -23,18 +20,16 @@
 
   <tbody>
    <% @students.each do |student| %>
-
-   <br>
    
    <tr>
-    <% if student.gender == "M"%>
+    <% if student.gender == "Male"%>
     <td class="boy"><%= link_to student.proper_name, student %></td>
     <%else%>
     <td class="girl"><%= link_to student.proper_name, student %></td>
     <%end%> 
     <td><%= student.cell_phone %></td>
     <td><%= student.grade %></td> 
-	<td><%= student.school.name %></td> 
+	 <td><%= student.school.name %></td> 
     <td><%= student.allergies %></td>
     <td><%= student.medications %></td> 
             <td><%= student.jersey_size %></td>
@@ -65,10 +60,10 @@
   <% end %>
 </tbody>
 </table>
-</div>
+<!-- </div>
 
 
 
-</div>
+</div> -->
 
 <%= will_paginate students %>

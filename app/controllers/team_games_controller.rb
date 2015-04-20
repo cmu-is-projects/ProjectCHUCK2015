@@ -17,6 +17,7 @@ class TeamGamesController < ApplicationController
   # GET /team_games/new
   def new
     @team_game = TeamGame.new
+    @team_game.game_id = params[:game_id] unless params[:game_id].nil?
   end
 
   # GET /team_games/1/edit

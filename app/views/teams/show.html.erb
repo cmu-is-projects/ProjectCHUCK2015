@@ -1,19 +1,40 @@
-<center><p id="notice"><%= notice %></p>
+<center>
+  <p id="notice"><%#= notice %></p>
+  <div class="row">
+    <div class="col-sm-12">
 
-  <p>
-    <strong>Name:</strong>
-    <%= @team.name %>
-  </p>
+      <h2>
+        <!-- <strong>Name:</strong> -->
+        <b><%= @team.name %></b>
+      </h2>
 
-  <p>
-    <strong>Bracket:</strong>
-    <%= @team.bracket.min_age.to_s + "-" + @team.bracket.max_age.to_s %>
-  </p>
+      <h3>
+        <!-- <strong>Bracket:</strong> -->
+        <%= @team.bracket.gender + " " + @team.bracket.min_age.to_s + "-" + @team.bracket.max_age.to_s %> age bracket
+      </h3>
 
-  <p>
-    <strong>Spots Filled:</strong>
-    <%= @team.roster_spots.count.to_s + " out of " + @team.max_students.to_s %>
-  </p> 
+      <h3>
+        <!-- <strong>Spots Filled:</strong> -->
+        <%= @team.roster_spots.count.to_s + " out of " + @team.max_students.to_s %> spots filled
+      </h3> 
+
+    </div>
+  </div>
+
+  <%= link_to 'Edit', edit_team_path(@team) %> |
+  <%= link_to 'Back', teams_path %>
+</center>
+
+<div class="row">
+  <div class="col-sm-6">
+    <%= render :partial => 'volunteer_fields' %>
+  </div>
+</div>
+<div class ="row">
+  <div class="col-sm-6">
+    <%= render :partial =>  'student_details' %>
+  </div>
+</div>
 
   <!-- <p>
     <strong>Num students:</strong>
@@ -35,6 +56,4 @@
     <%= @team.num_losses %>
   </p> -->
 
-  <%= link_to 'Edit', edit_team_path(@team) %> |
-  <%= link_to 'Back', teams_path %>
-</center>
+  

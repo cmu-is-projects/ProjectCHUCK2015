@@ -1,7 +1,8 @@
 <center>
     <h1>Students</h1>
-    <%= link_to(image_tag('add_student.png'), new_student_path) %>
-  </center>
+    <%= link_to "Add a student", new_student_path %>
+</center>
+
 <%#
   Filterrific adds the `form_for_filterrific` view helper:
   * adds dom id 'filterrific_filter'
@@ -10,6 +11,10 @@
       * AJAX spinner while AJAX request is being processed
   * sets form_for options like :url, :method and input name prefix
 %>
+<div class = "row">
+  <div class = "col-sm-3">
+  </div>
+  <div class = "col-sm-6">
 <%= form_for_filterrific @filterrific do |f| %>
   <div>
     Search
@@ -32,6 +37,10 @@
   <%# add an automated spinner to your form when the list is refreshed %>
   <%= render_filterrific_spinner %>
 <% end %>
+</div>
+<div class = "col-sm-3">
+  </div>
+</div>
 
 <%= render(
   partial: 'students/list',
