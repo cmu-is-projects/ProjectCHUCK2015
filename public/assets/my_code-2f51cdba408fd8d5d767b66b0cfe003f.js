@@ -1,0 +1,1 @@
+window.onload=function(){$("#accordion").accordion({heightStyle:"content"}),$("#accordion button").click(function(o){o.preventDefault();var n=$(this).is(".next")?1:-1;$("#accordion").accordion("option","active",$("#accordion").accordion("option","active")+n)})},$(document).ready(function(){$(".sigPad").signaturePad({drawOnly:!0})});
