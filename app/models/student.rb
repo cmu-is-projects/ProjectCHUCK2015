@@ -57,6 +57,8 @@
   validates_date :physical_date, :on_or_after => lambda { 1.year.ago.to_date}
   validate :ageIsAllowed
   validate :activeBracketsInSystem
+  validate :check_agreement
+
 
 	# Scopes
   # -----------------------------
@@ -230,7 +232,7 @@
 
   def ageIsAllowed
     if age < 7 || age > 18
-      errors.add(:student, "student must be between the ages of 7 and 18")
+      errors.add(:age, "must be between 7 and 18")
     end
   end
 
@@ -240,7 +242,20 @@
     end
   end
 
-
+  def check_agreement
+    if (!parent_consent_agree)
+      errors.add(:parent, "must agree to Medical Consent Agreement.")
+    end
+    if (!parent_release_agree)
+      errors.add(:parent, "must agree to the Statement of Parental Responsibilities and Release.")
+    end
+    if (!parent_promise_agree)
+      errors.add(:parent, "must agree to the Promise")
+    end
+    if (!child_promise_agree)
+      errors.add(:student, "Child must agree to the Promise.")
+    end
+  end
 
     #household_id is valid in system
     # def household_is_active_in_system
