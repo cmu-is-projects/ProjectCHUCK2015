@@ -20,61 +20,66 @@
     <!-- <div class="span7"> -->
     <h3>Household Details</h3>
     <div class="well">
-    <h4>General Household Information</h4>
-     <%= render :partial => "household_fields", :locals => { :f => household_form } %>
-    
-    <h4>Parent(s)/Guardian(s) in this Household</h4>
-    <%= household_form.simple_fields_for :guardians do |guardian_form| %>
+      <h3>General Household Information</h3>
+      <%= render :partial => "household_fields", :locals => { :f => household_form } %>
+
+      <hr>
+
+      <h3>Parent(s)/Guardian(s) in this Household</h3>
+      <%= household_form.simple_fields_for :guardians do |guardian_form| %>
       <%= render :partial => "guardian_fields", :locals => { :f => guardian_form } %>
-    <% end %> 
-    <p> <br /><br />
-      <%= household_form.link_to_add "+ Add Another Guardian", :guardians %>
-    </p><br /><br />
+      <% end %> 
+      <p> <br /><br />
+        <%= household_form.link_to_add "+ Add Another Parent/Guardian", :guardians %>
+      </p><br /><br />
 
-    <button class = "next"> Next </button>
+      <button class = "next"> Next </button>
 
 
-   </div>
+    </div>
+    <!-- </div>  -->
+
+    <!-- <div class="span7">  -->
+
+    <!-- </div> -->
+
+    <!-- <div class="span7">  -->
+    <h3>Participant</h3>
+    <div id="household_students" class="well">
+      <%= household_form.simple_fields_for :students do |student_form| %>
+      <%= render :partial => "student_fields", :locals => { :f => student_form } %>
+
+      <!-- <legend>Registration</legend> -->
+      <%#= student_form.simple_fields_for :registrations do |registration_form| %>
+      <%#= render :partial => "registration_fields", :locals => { :f => registration_form } %>
+      <%# end %> 
+
+      <% end %> 
+
+      <p>
+       <%= household_form.link_to_add("+ Add Another Participant", :students) %>
+     </p> <br /><br />
+
+
+     <button class = "previous"> Previous </button>
+   </div> 
    <!-- </div>  -->
 
-   <!-- <div class="span7">  -->
-
-  <!-- </div> -->
-
-  <!-- <div class="span7">  -->
-  <h3>Participant</h3>
-  <div id="household_students" class="well">
-    <%= household_form.simple_fields_for :students do |student_form| %>
-    <%= render :partial => "student_fields", :locals => { :f => student_form } %>
-
-    <!-- <legend>Registration</legend> -->
-    <%#= student_form.simple_fields_for :registrations do |registration_form| %>
-    <%#= render :partial => "registration_fields", :locals => { :f => registration_form } %>
-    <%# end %> 
-
-    <% end %> 
-
-   <p>
-     <%= household_form.link_to_add("+ Add Another Student", :students, :class => 'button tiny') %>
-   </p> <br /><br />
-
-
-   <button class = "previous"> Previous </button>
- </div> 
- <!-- </div>  -->
-
- <!-- </div> -->
-</div>
+   <!-- </div> -->
+ </div>
 </fieldset>
+
+<br>
 
 <div class="actions">
   <div class="row">
     <div class="col-sm-6">
-      <%= link_to 'Cancel', "/home", :class => 'btn btn-primary', data:{ confirm:"Are you sure you want to cancel this form?"} %>
-    </div>
-    <div class="col-sm-6">
       <%= household_form.submit nil, :class => 'btn btn-primary ' %>
     </div>
+    <div class="col-sm-6">
+      <%= link_to 'Cancel', "/home", :class => 'btn btn-primary', data:{ confirm:"Are you sure you want to cancel this form?"} %>
+    </div>
+
   </div>
 </div>
 

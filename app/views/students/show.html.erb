@@ -1,7 +1,6 @@
 <div class="row">
 
   <div class="col-xs-6 col-sm-6">
-    <p id="notice"><%= notice %></p>
 
     <div class="row">
 
@@ -16,6 +15,7 @@
     <div class="row">
       <div class="col-sm-12">
         <h1> <%= @student.proper_name %></h1>
+         <%= link_to(image_tag('edit.png'), edit_student_path(@student)) %>
       </div>
     </div>
 
@@ -142,7 +142,7 @@
     <br> 
     <div class="row">
       <div class="col-sm-12">
-        <%= link_to 'Edit', edit_student_path(@student) %> |
+        <%#= link_to 'Edit', edit_student_path(@student) %> 
         <%= link_to 'Back', students_path %>
       </div>
     </div>
