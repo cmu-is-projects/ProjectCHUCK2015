@@ -22,7 +22,8 @@
 
 	#Relationship Validations
 	belongs_to :household
-	belongs_to :school
+	# belongs_to :school
+  #for this iteration we are handlind school/district as fields in the student model
 	has_many :roster_spots
 	has_many :registrations, :dependent => :destroy
   has_many :brackets, through: :registrations
@@ -35,7 +36,7 @@
   # Validations
   # -----------------------------
   # make sure required fields are present
-  validates_presence_of :school_id, :first_name, :last_name, :gender, :emergency_contact_name, :emergency_contact_phone, :emergency_contact_relation, :dob, :grade
+  validates_presence_of :first_name, :last_name, :gender, :emergency_contact_name, :emergency_contact_phone, :emergency_contact_relation, :dob, :grade
   #validates_date :dob, :before => lambda { Date.current }, :message => "cannot be in the future", allow_blank: false, on: :create
   validates_date :dob, :on_or_before => lambda { 6.years.ago.to_date }, :on_or_after => lambda {18.years.ago.to_date}
   #validates_uniqueness_of :email, allow_blank: true
@@ -66,7 +67,7 @@
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
   scope :by_school,   -> { joins(:school).order('schools.name') }
-  scope :by_district,   -> { joins(:school).order('schools.district') }
+  # scope :by_district,   -> { joins(:school).order('schools.district') }
   scope :by_county,   -> { joins(:school).order('schools.county') }
   scope :missing_birthcert,  -> { where(has_birth_certificate: 'false')}
   scope :by_grade, ->(grade) { where("grade = ?", grade) }

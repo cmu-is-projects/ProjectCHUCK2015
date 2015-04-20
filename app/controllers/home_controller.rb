@@ -7,7 +7,7 @@ class HomeController < ApplicationController
   #     @registrations = Registration.active
   #     @students = Student.active.alphabetical.paginate(:page => params[:missing_docs_page]).per_page(10)
       @current_registered_students = Student.alphabetical.active
-      @school_districts = Student.by_district.size
+      # @school_districts = Student.by_district.size
       #@students_missing_docs = Student.alphabetical.missing_forms(@current_registered_students).paginate(:page => params[:missing_docs_page], :per_page => 10)
       # @students_missing_docs = Student.alphabetical.current.without_forms.active.paginate(:page => params[:missing_docs_page], :per_page => 10)     
       @male_students = @current_registered_students.male.size
