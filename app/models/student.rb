@@ -22,7 +22,7 @@
 
 	#Relationship Validations
 	belongs_to :household
-	belongs_to :school
+	# belongs_to :school #for this iteration we are handling school/district as fields in the student model
 	has_many :roster_spots
 	has_many :registrations, :dependent => :destroy
   has_many :brackets, through: :registrations
@@ -35,7 +35,7 @@
   # Validations
   # -----------------------------
   # make sure required fields are present
-  validates_presence_of :school_id, :first_name, :last_name, :gender, :emergency_contact_name, :emergency_contact_phone, :emergency_contact_relation, :dob, :grade
+  validates_presence_of :first_name, :last_name, :gender, :emergency_contact_name, :emergency_contact_phone, :emergency_contact_relation, :dob, :grade
   #validates_date :dob, :before => lambda { Date.current }, :message => "cannot be in the future", allow_blank: false, on: :create
   validates_date :dob, :on_or_before => lambda { 6.years.ago.to_date }, :on_or_after => lambda {18.years.ago.to_date}
   #validates_uniqueness_of :email, allow_blank: true
@@ -52,7 +52,7 @@
   # validate :household_is_active_in_system
   validates_presence_of :insurance_provider, :insurance_policy_no, :family_physician, :physical_date, :child_signature, :parent_signature
   validates :physician_phone, format: { with: /\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}/, message: "should be 10 digits (area code needed)" }, :allow_blank => true
-  JERSEYSIZES = ["Y-Large", "Y-XL", "A-Small", "A-Medium", "A-Large", "A-XL"]
+  JERSEYSIZES = ["Youth-Large", "Youth-XL", "Adult-Small", "Adult-Medium", "Adult-Large", "Adult-XL"]
   validates :jersey_size, inclusion: { in: JERSEYSIZES, allow_blank: false }
   validates_date :physical_date, :on_or_after => lambda { 1.year.ago.to_date}
   # validate :ageIsAllowed
@@ -65,9 +65,9 @@
   scope :alphabetical, -> { order('last_name, first_name') }
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
-  scope :by_school,   -> { joins(:school).order('schools.name') }
-  scope :by_district,   -> { joins(:school).order('schools.district') }
-  scope :by_county,   -> { joins(:school).order('schools.county') }
+  # scope :by_school,   -> { joins(:school).order('schools.name') }
+  scope :by_district,   -> { order('district') }
+  scope :by_county,   -> { joins(:household).order('households.county') } #need to change this
   scope :missing_birthcert,  -> { where(has_birth_certificate: 'false')}
   scope :by_grade, ->(grade) { where("grade = ?", grade) }
   scope :with_grade, lambda { |grades|

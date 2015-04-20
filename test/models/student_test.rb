@@ -7,7 +7,7 @@ class StudentTest < ActiveSupport::TestCase
 
   #relationships
   should belong_to(:household)
-  should belong_to(:school)
+  # should belong_to(:school)
   should have_many(:roster_spots)
   should have_many(:registrations)
   should have_many(:brackets).through(:registrations)
@@ -19,7 +19,7 @@ class StudentTest < ActiveSupport::TestCase
   should validate_presence_of(:gender)
   should validate_presence_of(:emergency_contact_name)
   # should validate_presence_of(:household_id)
-  should validate_presence_of(:school_id)
+  # should validate_presence_of(:school_id)
   should validate_presence_of(:emergency_contact_phone)
   
   should allow_value("name@me.com").for(:email)

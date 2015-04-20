@@ -5,7 +5,7 @@ class SchoolTest < ActiveSupport::TestCase
   #   assert true
   # end
   
-  should have_many(:students)
+  # should have_many(:students)
 
   # test validations
   # should validate_presence_of(:name)
