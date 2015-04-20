@@ -52,7 +52,7 @@
   # validate :household_is_active_in_system
   validates_presence_of :insurance_provider, :insurance_policy_no, :family_physician, :physical_date, :child_signature, :parent_signature
   validates :physician_phone, format: { with: /\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}/, message: "should be 10 digits (area code needed)" }, :allow_blank => true
-  JERSEYSIZES = ["Y-Large", "Y-XL", "A-Small", "A-Medium", "A-Large", "A-XL"]
+  JERSEYSIZES = ["Youth-Large", "Youth-XL", "Adult-Small", "Adult-Medium", "Adult-Large", "Adult-XL"]
   validates :jersey_size, inclusion: { in: JERSEYSIZES, allow_blank: false }
   validates_date :physical_date, :on_or_after => lambda { 1.year.ago.to_date}
   # validate :ageIsAllowed
