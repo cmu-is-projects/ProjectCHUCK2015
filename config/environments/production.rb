@@ -78,5 +78,5 @@ ProjectChuck2015::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
   
-  config.assets.precompile += ['my_code.js', 'livevalidation_prototype.js', 'jquery-ui.js', 'bootstrap.css', 'my_styles.css', 'jquery-ui.css', 'jquery.signaturepad.css', 'bootstrap.js.coffee', 'easyResponsiveTabs.js','flashcanvas.js','jquery.signaturepad.js', 'json2.min.js']
+  config.assets.precompile += ['jquery-ui.js', 'my_code.js', 'livevalidation_prototype.js', 'bootstrap.js.coffee', 'easyResponsiveTabs.js', 'flashcanvas.js', 'jquery.signaturepad.js', 'json2.min.js', 'bootstrap.css', 'my_styles.css', 'jquery-ui.css', 'jquery.signaturepad.css']
 end
