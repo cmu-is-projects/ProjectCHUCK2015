@@ -256,7 +256,7 @@
       errors.add(:parent, "must agree to the Promise")
     end
     if (!child_promise_agree)
-      errors.add(:student, "Child must agree to the Promise.")
+      errors.add(:must, "agree to the Promise.")
     end
   end
 
