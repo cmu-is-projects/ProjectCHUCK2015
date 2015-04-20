@@ -58,9 +58,12 @@ class StudentTest < ActiveSupport::TestCase
   should_not allow_value("412/268/0000").for(:emergency_contact_phone)
   should_not allow_value("412-2683-259").for(:emergency_contact_phone)
   should_not allow_value(nil).for(:emergency_contact_phone)
-  
-  should allow_value(2.days.ago.to_date).for(:dob)
-  should allow_value(15.years.ago.to_date).for(:dob)
+
+  should allow_value(15.years.ago.to_date).for(:dob) 
+  should allow_value(18.years.ago.to_date).for(:dob) 
+  should allow_value(6.years.ago.to_date).for(:dob) 
+  should_not allow_value(2.days.ago.to_date).for(:dob)
+  should_not allow_value(19.years.ago.to_date).for(:dob)
   should_not allow_value("bad").for(:dob)
   should_not allow_value(2).for(:dob)
   should_not allow_value(3.14159).for(:dob)

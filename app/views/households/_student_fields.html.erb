@@ -4,10 +4,11 @@
   <%= f.link_to_remove("X Remove student") %> <br><br>
   
   <h4>General Participant Information</h4>
+
   <div class="row">
     <div class="col-xs-6 col-sm-6">
       <%#= f.input :first_name, :class => 'input-lg' %>
-       <div class="field">
+      <div class="field">
         <%= f.label :first_name %> <br>
         <%= f.input_field :first_name %>
       </div> 
@@ -37,24 +38,24 @@
     </div>
   </div>
 
-<br>
+  <br>
 
-<div class="row">
-  <div class="col-xs-6 col-sm-6">
-    <div class="field">
-      <%= f.label :cell_phone, :label => "Participant's Cell Phone" %><br>
-      <%= f.input_field :cell_phone %>
+  <div class="row">
+    <div class="col-xs-6 col-sm-6">
+      <div class="field">
+        <%= f.label :cell_phone, :label => "Participant's Cell Phone" %><br>
+        <%= f.input_field :cell_phone %>
+      </div>
+    </div>
+    <div class="col-xs-6 col-sm-6">
+      <div class="field">
+        <%= f.label :email, :label => "Participant's Email" %><br>
+        <%= f.input_field :email %>
+      </div>
     </div>
   </div>
-  <div class="col-xs-6 col-sm-6">
-    <div class="field">
-      <%= f.label :email, :label => "Participant's Email" %><br>
-      <%= f.input_field :email %>
-    </div>
-  </div>
-</div>
 
-<br> 
+  <br> 
 
   <div class="row">
    <div class="col-xs-6 col-sm-6">
@@ -62,16 +63,18 @@
       <%= f.label :school_id, :label => "School (ID FOR NOW)" %><br>
       <%= f.input_field :school_id, collection: School.all, :selected => School.all[0] %>
     </div>
-   </div>
-   <div class="col-xs-6 col-sm-6">
-     <div class="field">
-       <%= f.label :grade, :label => "Grade as of September, #{Time.now.year}" %> <br>
-       <%= f.input_field :grade, collection: Student::GRADESWITHK_ARRAY, :selected => Student::GRADESWITHK_ARRAY[0] %>
-     </div>
-   </div>
   </div>
+  <div class="col-xs-6 col-sm-6">
+   <div class="field">
+     <%= f.label :grade, :label => "Grade as of September, #{Time.now.year}" %> <br>
+     <%= f.input_field :grade, collection: Student::GRADESWITHK_ARRAY, :selected => Student::GRADESWITHK_ARRAY[0] %>
+   </div>
+ </div>
+</div>
 
 <br>
+
+<h3>Contact Information</h3>
 
 <div class="row">
   <div class="col-xs-6 col-sm-6">
@@ -110,8 +113,8 @@
 <div class="row">
   <div class="col-xs-6 col-sm-6">
     <div class="field">
-        <%= f.label :jersey_size %> <br>
-        <%= f.input_field :jersey_size, collection: Student::JERSEYSIZES, :selected => Student::JERSEYSIZES[0] %>
+      <%= f.label :jersey_size %> <br>
+      <%= f.input_field :jersey_size, collection: Student::JERSEYSIZES, :selected => Student::JERSEYSIZES[0] %>
     </div>
   </div>
   <div class="col-xs-6 col-sm-6">
@@ -124,51 +127,51 @@
 
 <br>
 
-  <h4>Participant Insurance Information</h4>
+<h4>Participant Insurance Information</h4>
 
-  <div class ="row">
-    <div class="col-xs-6 col-sm-6">
-      <div class="field">
-        <%= f.label :insurance_provider, :label => "Name of Insurance Company" %> <br>
-        <%= f.input_field :insurance_provider %>
-      </div>
+<div class ="row">
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :insurance_provider, :label => "Name of Insurance Company" %> <br>
+      <%= f.input_field :insurance_provider %>
     </div>
-    <div class="col-xs-6 col-sm-6">
+  </div>
+  <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label :insurance_policy_no, :label => "Policy Number" %><br>
       <%= f.input_field :insurance_policy_no %>
     </div>
-   </div>
   </div>
+</div>
 
 <br>
 
-  <div class ="row">
-    <div class="col-xs-6 col-sm-6">
-     <div class="field">
-       <%= f.label :proof_of_insurance, :label => "Proof of Insurance Upload" %>
-       <%= f.input_field :proof_of_insurance, :as => :file %>
-     </div>
-    </div> 
-  </div>
+<div class ="row">
+  <div class="col-xs-6 col-sm-6">
+   <div class="field">
+     <%= f.label :proof_of_insurance, :label => "Proof of Insurance Upload" %>
+     <%= f.input_field :proof_of_insurance, :as => :file %>
+   </div>
+ </div> 
+</div>
 
 <br>
 
-  <h4>Participant Medical Information</h4>
+<h4>Participant Medical Information</h4>
 
-  <div class="row">
-   <div class="col-xs-6 col-sm-6">
-     <div class="field">
-      <%= f.label :family_physician %><br>
-      <%= f.input_field :family_physician %>
-     </div>
-   </div>
-   <div class="col-xs-6 col-sm-6">
-    <div class="field">
-      <%= f.label :physician_phone %><br>
-      <%= f.input_field :physician_phone %>
-    </div>
+<div class="row">
+ <div class="col-xs-6 col-sm-6">
+   <div class="field">
+    <%= f.label :family_physician %><br>
+    <%= f.input_field :family_physician %>
   </div>
+</div>
+<div class="col-xs-6 col-sm-6">
+  <div class="field">
+    <%= f.label :physician_phone %><br>
+    <%= f.input_field :physician_phone %>
+  </div>
+</div>
 </div>
 
 <br>
@@ -189,6 +192,8 @@
 </div>
 
 <br>
+
+<h3>Medical and Insurance Information</h3>
 
 <div class="row">
   <div class="col-xs-6 col-sm-6">
@@ -268,6 +273,37 @@
       <%= f.input_field :child_signature %>
     </div>
   </div> 
+</div>
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6">
+   <div class="sigPad">
+    <p class="drawItDesc">Parent: Sign Below</p>
+    <ul class="sigNav">
+      <li class="drawIt"></li>
+      <li class="clearButton"><a href="#clear">Clear</a></li>
+    </ul>
+    <div class="sig sigWrapper">
+      <div class="typed"></div>
+      <canvas class="pad" width="398" height="100"></canvas>
+      <input type="hidden" name="output" class="output">
+    </div>
+  </div>
+</div>
+<div class="col-xs-6 col-sm-6">
+  <div class="sigPad">
+    <p class="drawItDesc">Student: Sign Below</p>
+    <ul class="sigNav">
+      <li class="drawIt"></li>
+      <li class="clearButton"><a href="#clear">Clear</a></li>
+    </ul>
+    <div class="sig sigWrapper">
+      <div class="typed"></div>
+      <canvas class="pad" width="398" height="100"></canvas>
+      <input type="hidden" name="output" class="output">
+    </div>
+  </div>
+</div>
 </div>
 
 <br>

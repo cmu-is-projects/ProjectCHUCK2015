@@ -20,4 +20,6 @@
 //= require jquery_ujs
 //= require jquery_nested_form
 //= require twitter/bootstrap	
+//= require jquery.signaturepad.js
+//= require json2.min.js
 //= require_tree .

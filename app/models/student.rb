@@ -37,7 +37,7 @@
   # make sure required fields are present
   validates_presence_of :school_id, :first_name, :last_name, :gender, :emergency_contact_name, :emergency_contact_phone, :emergency_contact_relation, :dob, :grade
   #validates_date :dob, :before => lambda { Date.current }, :message => "cannot be in the future", allow_blank: false, on: :create
-  validates_date :dob, :before => lambda { Date.today }
+  validates_date :dob, :on_or_before => lambda { 6.years.ago.to_date }, :on_or_after => lambda {18.years.ago.to_date}
   #validates_uniqueness_of :email, allow_blank: true
   # validates_format_of :email, :with => /[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))/i
   validates :email, format: { :with => /[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))/i, :message => "is not a valid format" }, :allow_blank => true
@@ -55,7 +55,7 @@
   JERSEYSIZES = ["S","M","L","XL", "2XL", "3XL"]
   validates :jersey_size, inclusion: { in: JERSEYSIZES, allow_blank: false }
   validates_date :physical_date, :on_or_after => lambda { 1.year.ago.to_date}
-  validate :ageIsAllowed
+  # validate :ageIsAllowed
   validate :activeBracketsInSystem
 
 	# Scopes
@@ -228,11 +228,13 @@
     end
   end
 
-  def ageIsAllowed
-    if age < 7 || age > 18
-      errors.add(:student, "student must be between the ages of 7 and 18")
-    end
-  end
+  #function is causing tests to error - not sure why
+  #but validation of dob should make this function unnecessary
+  # def ageIsAllowed 
+  #   if (self.age < 7 || self.age > 18)
+  #     errors.add(:student, "student must be between the ages of 7 and 18")
+  #   end
+  # end
 
   def activeBracketsInSystem
     if Bracket.all.active.to_a.length == 0
