@@ -22,8 +22,7 @@
 
 	#Relationship Validations
 	belongs_to :household
-	# belongs_to :school
-  #for this iteration we are handlind school/district as fields in the student model
+	# belongs_to :school #for this iteration we are handling school/district as fields in the student model
 	has_many :roster_spots
 	has_many :registrations, :dependent => :destroy
   has_many :brackets, through: :registrations
@@ -66,9 +65,9 @@
   scope :alphabetical, -> { order('last_name, first_name') }
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
-  scope :by_school,   -> { joins(:school).order('schools.name') }
-  # scope :by_district,   -> { joins(:school).order('schools.district') }
-  scope :by_county,   -> { joins(:school).order('schools.county') }
+  # scope :by_school,   -> { joins(:school).order('schools.name') }
+  scope :by_district,   -> { order('district') }
+  scope :by_county,   -> { joins(:household).order('households.county') } #need to change this
   scope :missing_birthcert,  -> { where(has_birth_certificate: 'false')}
   scope :by_grade, ->(grade) { where("grade = ?", grade) }
   scope :with_grade, lambda { |grades|

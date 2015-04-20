@@ -5,7 +5,7 @@ class School < ActiveRecord::Base
   
   #validations
   validates_presence_of :name
-  DISTRICT_ARRAY = ["Other","Allegheny Valley School District","Avonworth School District",
+  DISTRICT_ARRAY = ["Allegheny Valley School District","Avonworth School District",
                           "Baldwin-Whitehall School District","Bethel Park School District",
                           "Brentwood Borough School District","Carlynton School District",
                           "Chartiers Valley School District","Clairton City School District",
@@ -25,7 +25,7 @@ class School < ActiveRecord::Base
                           "Sto-Rox School District","Upper St. Clair School District",
                           "West Allegheny School District","West Jefferson Hills School District",
                           "West Mifflin Area School District","Wilkinsburg School District",
-                          "Woodland Hills School District"]
+                          "Woodland Hills School District", "Other (Not Listed)"]
   county_array = ["Allegheny","Other"]
   # validates :district, inclusion: { in: district_array, allow_blank: false }
   validates :county, inclusion: { in: county_array, allow_blank: false }
