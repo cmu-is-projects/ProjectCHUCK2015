@@ -340,6 +340,11 @@ namespace :db do
             s.physical_date = Faker::Date.backward(360)
             s.child_signature = "Child Signature"
             s.parent_signature = "Parent Signature"
+            s.parent_consent_agree = true;
+            s.parent_release_agree = true;
+            s.parent_promise_agree = true;
+            s.child_promise_agree = true;
+
             s.save!
 
             #create registration for each student
