@@ -75,8 +75,8 @@
   scope :with_gender, lambda { |genders|
     where(gender: [*genders])
   }
-  scope :male, -> { where("gender = ?","M") }
-  scope :female, -> { where("gender = ?", "F") }
+  scope :male, -> { where("gender = ?","Male") }
+  scope :female, -> { where("gender = ?", "Female") }
   scope :has_allergies, -> { where('allergies IS NOT NULL')}
   scope :has_medications, -> { where('medications IS NOT NULL')}
   scope :has_rc, -> { where(has_report_card: true) }
