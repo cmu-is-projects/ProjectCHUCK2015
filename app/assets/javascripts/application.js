@@ -11,15 +11,15 @@
 // about supported directives.
 //
 //= require jquery	
+//= require bootstrap-sprockets
+//= require jquery_ujs
+//= require jquery-ui
 //= require highcharts/highcharts                                                           
 //= require highcharts/highcharts-more                                                         
 //= require highcharts/highstock
-//= require jquery_ujs
-//= require jquery-ui
 //= require filterrific/filterrific-jquery
-//= require bootstrap-sprockets
-//= require jquery_nested_form
 //= require twitter/bootstrap	
+//= require jquery_nested_form
 //= require jquery.signaturepad.js
 //= require json2.min.js
 //= require_tree .
