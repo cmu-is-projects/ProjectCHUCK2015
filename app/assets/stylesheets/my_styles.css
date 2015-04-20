@@ -141,3 +141,12 @@ margin-bottom: 15px;*/
 li{
   font-size: 1.3em;
 }
+hr{
+  width: 90%;
+}
+.widthfit{
+  width: 90%;
+}
+input[type="submit"].btn {
+  width: 100%;
+}

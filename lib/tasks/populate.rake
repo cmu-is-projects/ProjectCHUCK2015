@@ -328,7 +328,6 @@ namespace :db do
             s.security_question = Faker::Lorem.sentence
             s.security_response = Faker::Lorem.sentence
             s.active = true
-            s.school_id = 1
             s.has_report_card = [true,false].sample
             s.has_proof_of_insurance = [true,false].sample
             s.insurance_provider = ["UPMC", "Highmark", "HealthAmerica"].sample
@@ -336,7 +335,7 @@ namespace :db do
             s.family_physician = Faker::Name.name
             s.physician_phone = rand(10 ** 10).to_s.rjust(10,'0')
             s.has_physical = [true,false].sample
-            s.jersey_size = ["S","M","L","XL", "2XL", "3XL"].sample
+            s.jersey_size = ["Youth-Large", "Youth-XL", "Adult-Small", "Adult-Medium", "Adult-Large", "Adult-XL"].sample
             s.physical_date = Faker::Date.backward(360)
             s.child_signature = "Child Signature"
             s.parent_signature = "Parent Signature"

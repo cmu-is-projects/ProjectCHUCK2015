@@ -7,6 +7,7 @@
       <th>Cell phone</th>
       <th>Grade</th>
 	  <th>School</th>
+    <th>District</th>
       <th>Allergies</th>
       <th>Medications</th>
       <th>Jersey size</th>
@@ -29,7 +30,9 @@
     <%end%> 
     <td><%= student.cell_phone %></td>
     <td><%= student.grade %></td> 
-	 <td><%= student.school.name %></td> 
+	 <td><%= student.school %></td>
+   <td><%= student.district %></td> 
+ 
     <td><%= student.allergies %></td>
     <td><%= student.medications %></td> 
             <td><%= student.jersey_size %></td>
