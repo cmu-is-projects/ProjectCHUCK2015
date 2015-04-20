@@ -7,11 +7,13 @@
    <thead>
     <tr>
       <th>Name</th>
-      <th>Cell phone</th>
-      <th>Grade</th>
-      <th>School</th>
+      <th>Age</th>
+      <th>Team</th>
+      <th>Parent cell phone</th>
+      <th>Student/participant cell phone</th>
       <th>Allergies</th>
       <th>Medications</th>
+      <th>Cleared?</th>
       <th></th>
       <th></th>
     </tr>
@@ -19,17 +21,11 @@
 
   <tbody>
    <% @students.each do |student| %>
-
-   <br>
    
    <tr>
-    <% if student.gender == "M"%>
-    <td class="boy"><%= link_to student.proper_name, student %></td>
-    <%else%>
-    <td class="girl"><%= link_to student.proper_name, student %></td>
-    <%end%> 
-    <td><%= student.cell_phone %></td>
-    <td><%= student.grade %></td> 
+    <td><%= link_to student.name, student %></td>
+    <td><%= student.age %></td>
+    <td><%= student.team.name %></td> 
    <td><%= student.school.name %></td> 
     <td><%= student.allergies %></td>
     <td><%= student.medications %></td> 
@@ -41,7 +37,5 @@
 </tbody>
 </table>
 </div>
-
-
 
 </div>

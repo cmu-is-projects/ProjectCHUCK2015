@@ -1,9 +1,11 @@
 <!DOCTYPE HTML>
 
 <div class="container formcon">
-  <%= f.link_to_remove("X Remove student") %> <br><br>
+  <%= f.link_to_remove("X Remove student") %> <br>
   
-  <h4>General Participant Information</h4>
+  <h3>General Participant Information</h3>
+
+  <br>
 
   <div class="row">
     <div class="col-xs-6 col-sm-6">
@@ -75,13 +77,15 @@
  <div class="row">
    <div class="col-xs-6 col-sm-6">
     <div class="field">
-      <%= f.label :district, :label => "District" %><br>
+      <%= f.label :district, :label => "School District" %><br>
       <%= f.input_field :district, collection: School::DISTRICT_ARRAY, :selected => School::DISTRICT_ARRAY[0] %>
     </div>
   </div>
 </div>
 
 <br>
+
+<hr>
 
 <h3>Contact Information</h3>
 
@@ -134,9 +138,9 @@
   </div> 
 </div>
 
-<br>
+<br><hr>
 
-<h4>Participant Insurance Information</h4>
+<h3>Participant Insurance Information</h3>
 
 <div class ="row">
   <div class="col-xs-6 col-sm-6">
@@ -164,9 +168,9 @@
  </div> 
 </div>
 
-<br>
+<br> <hr>
 
-<h4>Participant Medical Information</h4>
+<h3>Participant Medical Information</h3>
 
 <div class="row">
  <div class="col-xs-6 col-sm-6">
@@ -200,7 +204,7 @@
   </div> 
 </div>
 
-<br>
+<br><hr>
 
 <h3>Medical and Insurance Information</h3>
 
@@ -222,7 +226,9 @@
 <br>
 
 <div class="row">
-  <p>In case of accident or illness, I hereby authorize a representative of Best of the Batch Foundation / Project C.H.U.C.K. to use his/her judgement in obtaining immediate medical care. (Parents will be notified in case of serious illness or injury as quickly as they can be reached.)</p>
+  <div class="col-xs-12 col-sm-12">
+  <p class="widthfit">Facts concerning the child's medical history including allergies, medications, and any physical impairment to which a physician should be alerted are listed below. I represent that the list below is current and accurate and includes all allergies. In case of an accident or illness, I hereby authorize a representative of Next Level Athletics, a program of Best of the Batch Foundation, to use his/her judgment in obtaining immediate medical care. I give my consent for the administration of emergency medical treatment by an emergency medical team, licensed physician or hospital chosen by Best of the Batch Foundation. </p>
+</div>
   <div class="col-xs-12 col-sm-12">
     <div class="field">
       <%= f.label :parent_consent_agree, :label => "Parent/Guardian - Click if you agree:" %> <br>
@@ -231,12 +237,14 @@
   </div> 
 </div>
 
-<br>
+<br><hr>
 
-<h4>Promise</h4>
+<h3>Promise</h3>
 
 <div class="row">
-  <p>I agree to take responsibility as a player to read my assigned book, attend study hall and to review and follow all Project C.H.U.C.K. rules. (Click if you agree)</p>
+  <div class="col-xs-12 col-sm-12">
+  <p class="widthfit">I agree to take responsibility as a student-athlete to read my assigned book, attend study hall, and to review and follow all Best of the Batch Foundation and Next Level Athletics rules. (Click if you agree)</p>
+</div>
   <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label :child_promise_agree, :label => "Student Participant - Click if you agree:" %> <br>
@@ -251,12 +259,16 @@
   </div> 
 </div>
 
+<br><hr>
+
+<h3>Statement of Parental Responsibilities and Release</h3>
+
 <br>
 
-<h4>Statement of Parental Responsibilities and Release</h4>
-
 <div class="row">
-  <p>To participate in Project C.H.U.C.K. in consideration of the services to be performed by its sponsors, officers, and volunteers, I do hereby assume all the risks and hazards incidental to the conduct of the activities, and I do further hereby release, absolve, indemnify, and hold harmless Project C.H.U.C.K., operated and sponsored by Best of the Batch, its sponsors, officers, and volunteers of and from all manner of action and actions, cause or causes of action, suits, debts and sums of money, claims of demands whatsoever, in law or equity, arising out of or pursuant to the conduct of the activities. I am fully aware of risks inherent to this activity and should not participate or allow my child to participate unless medically able. I assume all risks associated with this activity. I also agree that photographs, recordings or any other record may be used for the purpose of promoting programs operated or sponsored by Project C.H.U.C.K. In case of accident or illness, I authorize a representative of Project C.H.U.C.K. to obtain immediate care deemed necessary by licensed medical personnel. I have read and fully understand that these terms are contractual and are not a mere recital and sign it voluntarily, and hereby take responsibility for the above information and it is accurate to the best of my knowledge. I also understand that if not correct, my above-named child will be ineligible to play for the season.</p>
+  <div class="col-xs-12 col-sm-12">
+  <p class="widthfit">To participate in Project C.H.U.C.K. in consideration of the services to be performed by its sponsors, officers, and volunteers, I do hereby assume all the risks and hazards incidental to the conduct of the activities, and I do further hereby release, absolve, indemnify, and hold harmless Project C.H.U.C.K., operated and sponsored by Best of the Batch, its sponsors, officers, and volunteers of and from all manner of action and actions, cause or causes of action, suits, debts and sums of money, claims of demands whatsoever, in law or equity, arising out of or pursuant to the conduct of the activities. I am fully aware of risks inherent to this activity and should not participate or allow my child to participate unless medically able. I assume all risks associated with this activity. I also agree that photographs, recordings or any other record may be used for the purpose of promoting programs operated or sponsored by Project C.H.U.C.K. In case of accident or illness, I authorize a representative of Project C.H.U.C.K. to obtain immediate care deemed necessary by licensed medical personnel. I have read and fully understand that these terms are contractual and are not a mere recital and sign it voluntarily, and hereby take responsibility for the above information and it is accurate to the best of my knowledge. I also understand that if not correct, my above-named child will be ineligible to play for the season.</p>
+</div>
   <div class="col-xs-12 col-sm-12">
     <div class="field">
       <%= f.label :parent_release_agree, :label => "Parent/Guardian - Click if you agree:" %> <br>
@@ -265,9 +277,11 @@
   </div> 
 </div>
 
-<br>
+<br><hr>
 
-<h4>Parent and Participant Signatures</h4>
+<h3>Parent and Participant Signatures</h3>
+
+<br>
 
 <div class="row">
   <div class="col-xs-6 col-sm-6">

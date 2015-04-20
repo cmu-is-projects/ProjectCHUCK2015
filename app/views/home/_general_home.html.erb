@@ -1,47 +1,37 @@
 
 <div class="row">
-		<div class="col-xs-12 col-sm-12">
-			<center>
+	<div class="col-xs-12 col-sm-12">
+		<center>
 			<%= link_to image_tag('boblogo.png'), home_path %><br>
 			<h1>Project C.H.U.C.K. 2015</h1>
 		</center>
-		</div>
 	</div>
-	<hr>
-	<br> <br>
+</div>
+<hr>
+<br> <br>
 <div class = "row">
 	<div class= "col-xs-6 col-sm-6">
-		<!-- <h1>Welcome to Project C.H.U.C.K. 2015 Registration!</h1><br> -->
 		<center>
 			<%= image_tag "basketball-64.png" %> <br><br>
 			<p id="homebutton">STUDENTS</p>
-			<%= link_to 'New', new_household_path, :class => 'btn btn-primary btn-lg outline' %> <br><br>
-			<!-- <button type="button" class="btn btn-primary btn-lg outline" onclick="window.location = '/households/new'"> New -->
-			<%#= image_tag "icon_coach.png" %> 
-			<!-- <%#= link_to 'New registration', new_household_path, :class => 'button' %> </button><br> <br> -->
-			<!-- <button type="button" class="btn btn-primary btn-lg outline"> Renew -->
-			<%#= image_tag "icon_coach.png" %> 
-			<%= link_to 'Renew', new_household_path, :class => 'btn btn-primary btn-lg outline' %>
-		<!-- </button> -->
+			<%= link_to 'Register', new_household_path, :class => 'btn btn-primary btn-lg outline' %> <br><br>
 		</center>
 	</div>
 	<div class= "col-xs-6 col-sm-6">
-    	<center>
-    		<%= image_tag "icon_coach.png" %> <br><br> 
+		<center>
+			<%= image_tag "icon_coach.png" %> <br><br> 
 			<p id="homebutton">VOLUNTEERS</p>
-    		 <!-- <button type="button" class="btn btn-primary btn-lg outline">  -->
-    		<%= link_to 'Register', new_volunteer_path, :class => 'btn btn-primary btn-lg outline' %>
-    	<!-- </button> -->
-    </center>
+			<%= link_to 'Register', new_volunteer_path, :class => 'btn btn-primary btn-lg outline' %>
+		</center>
 	</div>
 </div>
 
 <br><br>
 
 <center>
-  <% if logged_in? %>
+	<% if logged_in? %>
 	<%= link_to 'Administrators', 'home' %>
-<% else %>
-<%= link_to 'Administrators: Login here', new_session_path %>
-<% end %>
-<center>
+	<% else %>
+	<%= link_to 'Administrators: Login here', new_session_path %>
+	<% end %>
+	<center>
