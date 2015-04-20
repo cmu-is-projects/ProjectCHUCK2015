@@ -14,12 +14,14 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require jquery-ui
+//= require twitter/bootstrap
 //= require highcharts/highcharts                                                           
 //= require highcharts/highcharts-more                                                         
 //= require highcharts/highstock
-//= require filterrific/filterrific-jquery
-//= require twitter/bootstrap	
+//= require filterrific/filterrific-jquery	
 //= require jquery_nested_form
-//= require jquery.signaturepad.js
 //= require json2.min.js
+//= require jquery.signaturepad.js
+//= require my_code.js
+//= require livevalidation_prototype.js
 //= require_tree .
