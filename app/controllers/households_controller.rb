@@ -38,9 +38,8 @@ class HouseholdsController < ApplicationController
         format.html { redirect_to @household, notice: 'Household was successfully created.' }
         format.json { render action: 'show', status: :created, location: @household }
       else
-        students = @household.students.build if @household.students.blank?
+        @household.students.build if @household.students.blank?
         @household.guardians.build if @household.guardians.blank?
-        registrations = students.registrations.build if @household.students.blank?
 
         format.html { render action: 'new' }
         format.json { render json: @household.errors, status: :unprocessable_entity }
