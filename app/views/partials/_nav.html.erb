@@ -1,16 +1,26 @@
 <div class="container">
-<div class="masthead">
- <center> <%= link_to image_tag('boblogo.png'), home_path %>
-  <!-- <ul class="nav nav-pills pull-right"><br> -->
-    <h1 class="font">Project C.H.U.C.K. 2015</h1> </center>
+  <div class="row">
+  	<div class="col-sm-6">
+  		<%= link_to image_tag('boblogo.png'), home_path %>
+  	</div>
+  	<div class="col-sm-6">
+  		<h1 class="font">Project C.H.U.C.K. 2015</h1>
+  	</div>
+  </div>
+  <div class="row">
+  	<div class = "col-sm-12">
+        <ul>
+          <li><%= link_to 'Students', students_path %></li> 
+          <li><%= link_to 'Teams', teams_path %></li>
+          <li><%= link_to 'Brackets', brackets_path %></li>
+          <li><%= link_to 'Volunteers', volunteers_path %></li>
+          <li><%= link_to 'Tournaments', tournaments_path %></li>
+		  <% if logged_in? %>
+		  	<li><%= link_to "Logout", logout_path %></li>
+		  <% end %>
+        </ul>
+    </div>
+</div>
+</div>
 
-    
-    <!-- <li><%#= link_to 'Students', students_path %></li>
-    <li><%#= link_to 'Teams', teams_path %></li>
-    <li><%#= link_to 'Brackets', brackets_path %></li>
-    <li><%#= link_to 'Tournaments', tournaments_path %></li> -->
-  <!-- </ul> -->
-  
-</div>
 <hr>
-</div>

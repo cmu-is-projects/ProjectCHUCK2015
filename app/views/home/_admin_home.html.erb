@@ -3,16 +3,16 @@
 
     <div class="col-md-12">
       <div class="tabbable">
-        <ul class="nav nav-pills nav-stacked col-md-2">
-          <li><%= link_to 'Students', students_path %></li> 
-          <li><%= link_to 'Teams', teams_path %></li>
-          <li><%= link_to 'Brackets', brackets_path %></li>
-          <li><%= link_to 'Volunteers', volunteers_path %></li>
-          <li><%= link_to 'Tournaments', tournaments_path %></li>
-		  <% if logged_in? %>
-		  	<li><%= link_to "Logout", logout_path %></li>
-		  <% end %>
-        </ul>
+        <!-- <ul class="nav nav-pills nav-stacked col-md-2">
+          <li><%#= link_to 'Students', students_path %></li> 
+          <li><%#= link_to 'Teams', teams_path %></li>
+          <li><%#= link_to 'Brackets', brackets_path %></li>
+          <li><%#= link_to 'Volunteers', volunteers_path %></li>
+          <li><%#= link_to 'Tournaments', tournaments_path %></li>
+		  <%# if logged_in? %>
+		  	<li><%#= link_to "Logout", logout_path %></li>
+		  <%# end %>
+        </ul> -->
         <div class="tab-content col-md-10">
           <div class="jumbotron">
         <h2>Welcome, <%= current_user.volunteer.first_name %>!</h2>
