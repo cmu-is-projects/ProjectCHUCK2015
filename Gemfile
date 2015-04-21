@@ -19,7 +19,7 @@ gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-# gem 'jquery-ui-rails'
+gem 'jquery-ui-rails'
 
 #for bootstrap and using Sass for CSS
 gem "twitter-bootstrap-rails"
@@ -79,7 +79,6 @@ end
 # Other gems used by the project
 gem 'chronic', '0.10.2'
 gem 'font-awesome-sass-rails', '3.0.2.2'
-gem 'jquery-ui-rails', '4.1.1'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
