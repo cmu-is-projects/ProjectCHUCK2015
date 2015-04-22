@@ -1815,6 +1815,10 @@ select[multiple].input-sm {
   line-height: 1.33;
   border-radius: 0;
 }
+input.input-lg {
+  height: 2em;
+  line-height: 2em;
+}
 select.input-lg {
   height: 48px;
   line-height: 48px;

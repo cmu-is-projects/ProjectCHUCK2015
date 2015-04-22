@@ -2,6 +2,7 @@
     <h1>Students</h1>
     <%= link_to "Add a student", new_student_path %>
 </center>
+<br>
 
 <%#
   Filterrific adds the `form_for_filterrific` view helper:
@@ -14,7 +15,7 @@
 <div class = "row">
   <div class = "col-sm-3">
   </div>
-  <div class = "col-sm-6">
+  <div class = "col-sm-6"><center>
 <%= form_for_filterrific @filterrific do |f| %>
   <div>
     Search
@@ -37,6 +38,7 @@
   <%# add an automated spinner to your form when the list is refreshed %>
   <%= render_filterrific_spinner %>
 <% end %>
+</center>
 </div>
 <div class = "col-sm-3">
   </div>
