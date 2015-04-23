@@ -34,13 +34,13 @@
   <div class="row">
     <div class="col-xs-6 col-sm-6">
       <div class="field">
-        <%= f.label :role %> <br>
-        <%= f.input_field :role, collection: Volunteer::ROLE_ARRAY, :selected => Volunteer::ROLE_ARRAY[0] %>
+        <%= f.label :role, :label => "What position are you registering for?" %> <br>
+        <%= f.input_field :role, collection: Volunteer::ROLE_ARRAY[1,2], :selected => Volunteer::ROLE_ARRAY[1] %>
       </div>
     </div>
 </div>
 
-<h3>Address</h3><br>
+<br><h3>Address</h3><br>
 
 <div class="row">
   <div class="col-xs-6 col-sm-6">
@@ -72,7 +72,7 @@
   </div>
 </div>
 
-<h3>Contact Information</h3><br>
+<br><h3>Contact Information</h3><br>
 
 <div class="row">
   <div class="col-xs-6 col-sm-6">
@@ -104,13 +104,13 @@
   </div>
 </div>
 
-<h3>Your History with Project CHUCK</h3><br>
+<br><h3>Your History with Project CHUCK</h3><br>
 
 <div class="row">
   <div class="col-xs-6 col-sm-6">
     <div class="field">
-      <%= f.label "How many years have you been with 'Project CHUCK'?" %> <br>
-      <%= f.number_field :years_with_proj_chuck, :class => "input-lg" %>
+      <%= f.label :years_with_proj_chuck, :label => "Please indicate number of years you have been with Project CHUCK. If none, please enter 0." %><br>
+      <%= f.input_field :years_with_proj_chuck, collection: Student::PROJECTCHUCK_YEARS, :selected => Student::PROJECTCHUCK_YEARS[0] %>
     </div>
   </div>
   <div class="col-xs-6 col-sm-6">
@@ -147,13 +147,14 @@
   <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label "Do you have school clearances (Act 151 and Act 34)?" %><br>
+      <!-- <p>For more information click <a href="volunteer_faq.pdf" target="_blank">here</a></p> -->
       <%= f.check_box :has_school_clearance %>
       <!--If answered yes, please attach a copy of the clearance via carrier_wave gem-->
     </div>
   </div>
 </div>
 
-<h3>Availability and Feedback</h3><br>
+<br><h3>Availability and Feedback</h3><br>
 
 <div class="row">
   <div class="col-sm-12">
@@ -180,7 +181,7 @@
   </div>
 </div>
 
-<h3>Volunteer Guidelines and Responsibilities</h3><br>
+<br><h3>Volunteer Guidelines and Responsibilities</h3><br>
 
 <!--"volunteer_sign"-->
 
@@ -206,12 +207,12 @@
 <div class="row">
   <div class="col-sm-6">
     <div class="actions">
-      <%= f.submit nil, :class => 'btn btn-primary btn-lg outline' %>
+      <%= f.submit "Submit Registration", :class => 'btn btn-primary btn-lg outline' %>
     </div>
   </div>
     <div class="col-sm-6">
       <div class="actions">
-        <%= link_to 'Back', volunteers_path, :class => 'btn btn-primary btn-lg outline' %>
+        <%= link_to 'Cancel Registration', volunteers_path, :class => 'btn btn-primary btn-lg outline', data:{ confirm:"Are you sure you want to cancel this form?"} %>
       </div>
     </div>
   </div>

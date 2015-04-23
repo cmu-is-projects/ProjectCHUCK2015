@@ -32,7 +32,7 @@
     <td><%= student.allergies %></td>
     <td><%= student.medications %></td> 
         <td>
-         <% if (student.has_report_card) && (student.has_proof_of_insurance) && student.has_physical %>
+         <% if (student.has_report_card) && (student.has_proof_of_insurance) && (student.has_physical) && (student.has_birth_certificate) %>
          <%= link_to(image_tag('check16.png')) %> 
          <%else%>
          <%= link_to(image_tag('missing16.png')) %> 

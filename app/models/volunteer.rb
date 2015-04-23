@@ -18,7 +18,7 @@ class Volunteer < ActiveRecord::Base
   validates :shirt_size, inclusion: { in: SHIRTSIZES, allow_blank: false }
 
   #team_id is valid (but not req?)
-  ROLE_ARRAY = ["administrator", "coach", "volunteer"]
+  ROLE_ARRAY = ["Administrator", "Coach", "Volunteer"]
   validates :role, inclusion: { in: ROLE_ARRAY, allow_blank: false }
   
   #scopes
