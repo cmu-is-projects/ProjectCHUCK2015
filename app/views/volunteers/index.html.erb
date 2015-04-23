@@ -20,7 +20,6 @@
     <% @volunteers.each do |volunteer| %>
       <tr>
         <td><%= link_to volunteer.proper_name, volunteer %></td>
-        <td><%= volunteer.team.name %></td>
         <td><%= volunteer.email %></td>
         <td><%= volunteer.cell_phone %></td>
         <td>
