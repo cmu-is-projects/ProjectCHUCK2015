@@ -150,3 +150,7 @@ hr{
 input[type="submit"].btn {
   width: 100%;
 }
+
+.ui-accordion .ui-accordion-content{ 
+  overflow:hidden !important; 
+}
