@@ -12,7 +12,7 @@
   before_save :reformat_physician_phone
   before_save :reformat_cell_phone
   before_save :reformat_emergency_cell_phone
-  before_validation :check_report_card, on: [ :create, :update ]
+  after_validation :check_all_files
   after_create :create_reg
 
   #uploaders for carrierwave
@@ -30,7 +30,7 @@
 
   mount_uploader :birth_certificate, AvatarUploader
 
-  accepts_nested_attributes_for :registrations, reject_if: lambda { |registration| registration[:has_report_card].blank? }, allow_destroy: true
+  accepts_nested_attributes_for :registrations, reject_if: lambda { |registration| registration[:student_id].blank? }, allow_destroy: true
 
   # Validations
   # -----------------------------
@@ -54,6 +54,7 @@
   validates :physician_phone, format: { with: /\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}/, message: "should be 10 digits (area code needed)" }, :allow_blank => true
   JERSEYSIZES = ["Youth-Large", "Youth-XL", "Adult-Small", "Adult-Medium", "Adult-Large", "Adult-XL"]
   GPA_ARRAY = ["4.0 or higher", "3.9 - 3.0", "2.9 - 2.5", "2.4 - 2.0", "1.9 or lower", "Not Applicable"]
+  PROJECTCHUCK_YEARS = (0..(Time.now.year - 2003)).to_a
   validates :jersey_size, inclusion: { in: JERSEYSIZES, allow_blank: false }
   validates_date :physical_date, :on_or_after => lambda { 1.year.ago.to_date}
   # validate :ageIsAllowed
@@ -195,11 +196,29 @@
        self.emergency_contact_phone = emergency_contact_phone       # reset self.phone to new string
      end
 
-  def check_report_card
-    if self.report_card.nil?
+  def check_all_files
+    if self.birth_certificate.blank?
+      self.has_birth_certificate = false
+    else
+      self.has_birth_certificate = true
+    end
+
+    if self.report_card.blank?
       self.has_report_card = false
     else
       self.has_report_card = true
+    end
+
+    if self.physical.blank?
+      self.has_physical = false
+    else
+      self.has_physical = true
+    end
+
+    if self.proof_of_insurance.blank?
+      self.has_proof_of_insurance = false
+    else
+      self.has_proof_of_insurance = true
     end
   end
 
