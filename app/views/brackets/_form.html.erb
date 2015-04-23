@@ -13,23 +13,23 @@
 
   <div class="field">
     <%= f.label :tournament_id %><br>
-    <%= f.collection_select :tournament_id, Tournament.all, :id, :name, prompt: "Select tournament..." %>
+    <%= f.collection_select :tournament_id, Tournament.all, :id, :name, prompt: "Select tournament...", :class => "input-lg" %>
   </div>
   <div class="field">
     <%= f.label :gender %><br>
-    <%= f.text_field :gender %>
+    <%= f.text_field :gender , :class => "input-lg"%>
   </div>
   <div class="field">
     <%= f.label :min_age %><br>
-    <%= f.number_field :min_age %>
+    <%= f.number_field :min_age, :class => "input-lg" %>
   </div>
   <div class="field">
     <%= f.label :max_age %><br>
-    <%= f.number_field :max_age %>
+    <%= f.number_field :max_age, :class => "input-lg" %>
   </div>
   <div class="field">
     <%= f.label :max_students %><br>
-    <%= f.number_field :max_students %>
+    <%= f.number_field :max_students, :class => "input-lg" %>
   </div>
   <div class="actions">
     <%= f.submit %>

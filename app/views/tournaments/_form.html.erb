@@ -13,21 +13,21 @@
   
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :class => "input-lg" %>
   </div>
 
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <%= f.text_field :description, :class => "input-lg" %>
   </div>
 
   <div class="field">
     <%= f.label :start_date %><br>
-    <%= f.date_select :start_date %>
+    <%= f.date_select :start_date, :class => "input-lg" %>
   </div>
   <div class="field">
     <%= f.label :end_date %><br>
-    <%= f.date_select :end_date %>
+    <%= f.date_select :end_date, :class => "input-lg" %>
   </div>
   <div class="actions">
     <%= f.submit %>
