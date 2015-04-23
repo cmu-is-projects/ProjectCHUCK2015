@@ -25,7 +25,7 @@ window.onload = function(){
 
     //HOUSEHOLD FIELDS
     var city = new LiveValidation('household_city');
-    city.add( Validate.Presence, { failureMessage: "Must fill out this field"});
+    city.add( Validate.Presence);
 
     var zip = new LiveValidation('household_zip');
 	zip.add(  Validate.Format, { pattern: /^\d{5}(?:[-\s]\d{4})?$/, failureMessage: "Invalid Format" }  );
@@ -34,13 +34,13 @@ window.onload = function(){
 	//will need to loop through all guardians and students
 
     var pfname = new LiveValidation('household_guardians_attributes_0_first_name');
-    pfname.add( Validate.Presence, { failureMessage: "Must fill out this field"});
+    pfname.add( Validate.Presence);
 
     var plname = new LiveValidation('household_guardians_attributes_0_last_name');
-    plname.add( Validate.Presence, { failureMessage: "Must fill out this field"});
+    plname.add( Validate.Presence);
 
     var best_num = new LiveValidation('household_guardians_attributes_0_cell_phone');
-    best_num.add( Validate.Presence, { failureMessage: "Must fill out this field"});
+    best_num.add( Validate.Presence);
     best_num.add( Validate.Format, { pattern: /^\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/, failureMessage: "Invalid format"});
 
 	var pemail = new LiveValidation('household_guardians_attributes_0_email');
@@ -48,10 +48,10 @@ window.onload = function(){
    
     //STUDENT FIELDS
     var sfname = new LiveValidation('household_students_attributes_0_first_name');
-    sfname.add( Validate.Presence, { failureMessage: "Must fill out this field"});
+    sfname.add( Validate.Presence);
 
     var slname = new LiveValidation('household_students_attributes_0_last_name');
-    slname.add( Validate.Presence, { failureMessage: "Must fill out this field"});
+    slname.add( Validate.Presence);
 
 
     var student_cell = new LiveValidation('household_students_attributes_0_cell_phone');
@@ -62,24 +62,24 @@ window.onload = function(){
 
     //emergency contact
     var ec_name = new LiveValidation('household_students_attributes_0_emergency_contact_name');
-    ec_name.add( Validate.Presence, { failureMessage: "Must fill out this field"});
+    ec_name.add( Validate.Presence);
 
     var ec_relation = new LiveValidation('household_students_attributes_0_emergency_contact_relation');
-    ec_relation.add( Validate.Presence, { failureMessage: "Must fill out this field"});
+    ec_relation.add( Validate.Presence);
 
     var ec_phone = new LiveValidation('household_students_attributes_0_emergency_contact_phone');
     ec_phone.add( Validate.Format, { pattern: /^\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/, failureMessage: "Invalid format"});
-    ec_phone.add( Validate.Presence, { failureMessage: "Must fill out this field"});
+    ec_phone.add( Validate.Presence);
 
     //medical/insurance
     var insurance = new LiveValidation('household_students_attributes_0_insurance_provider');
-    insurance.add( Validate.Presence, { failureMessage: "Must fill out this field"});
+    insurance.add( Validate.Presence);
 
     var policy_no = new LiveValidation('household_students_attributes_0_insurance_policy_no');
-    policy_no.add( Validate.Presence, { failureMessage: "Must fill out this field"});
+    policy_no.add( Validate.Presence);
 
     var physician = new LiveValidation('household_students_attributes_0_family_physician');
-    physician.add( Validate.Presence, { failureMessage: "Must fill out this field"});
+    physician.add( Validate.Presence);
 
     var physician_phone = new LiveValidation('household_students_attributes_0_physician_phone');
     physician_phone.add( Validate.Format, { pattern: /^\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/, failureMessage: "Invalid format"});
@@ -98,7 +98,7 @@ window.onload = function(){
 	release.add( Validate.Acceptance );
    	
    	var street = new LiveValidation('household_street');
-    street.add( Validate.Presence, { failureMessage: "Must fill out this field"} );
+    street.add( Validate.Presence );
     
 
 
