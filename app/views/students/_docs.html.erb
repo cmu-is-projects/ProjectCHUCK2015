@@ -1,0 +1,44 @@
+<center><h2>Documents</h2></center>  
+<table class="table">
+ <thead>
+  <tr>
+    <th>Birth certificate</th>
+    <th>Report Card</th>
+    <th>Proof of Insurance</th>
+    <th>Physical</th>
+  </tr>
+</thead> 
+
+<tbody>
+ <tr>
+  <td>
+   <% if @student.has_birth_certificate %>
+   <%=link_to (image_tag('check16.png'))%>
+   <% else %>
+   <%=link_to (image_tag("missing16.png"))%>
+   <% end %>
+ </td>
+  <td>
+   <% if @student.has_report_card %>
+   <%= link_to (image_tag('check16.png')) %> 
+   <%else%>
+   <%= link_to (image_tag('missing16.png')) %> 
+   <%end%>
+ </td>
+ <td>
+  <% if @student.has_proof_of_insurance %>
+  <%= link_to (image_tag('check16.png')) %> 
+  <%else%>
+  <%= link_to (image_tag('missing16.png')) %> 
+  <%end%>
+</td> 
+<td>
+  <% if @student.has_physical %>
+  <%= link_to (image_tag('check16.png')) %> 
+  <%else%>
+  <%= link_to (image_tag('missing16.png')) %> 
+  <%end%>
+</td>
+</tr>
+</tbody>
+</table>
