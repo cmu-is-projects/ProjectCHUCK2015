@@ -155,14 +155,6 @@ input[type="submit"].btn {
   width: 100%;
 }
 
-.ui-accordion .ui-accordion-content{ 
-  overflow:hidden !important; 
-
-.heightincrease{
-height: 2em;
-}
-
-
 /* Live Validation styles*/
 .LV_validation_message{
     font-weight:bold;
@@ -193,4 +185,14 @@ textarea.LV_invalid_field:hover,
 textarea.LV_invalid_field:active {
     border: 1px solid #CC0000;
 }
+
+
+
+.ui-accordion .ui-accordion-content{ 
+  overflow:hidden !important; 
+
+.heightincrease{
+height: 2em;
+}
+
 

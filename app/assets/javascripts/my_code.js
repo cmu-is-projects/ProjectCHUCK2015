@@ -98,7 +98,7 @@ window.onload = function(){
 	release.add( Validate.Acceptance );
    	
    	var street = new LiveValidation('household_street');
-    steet.add( Validate.Presence, { failureMessage: "Must fill out this field"} );
+    street.add( Validate.Presence, { failureMessage: "Must fill out this field"} );
     
 
 
