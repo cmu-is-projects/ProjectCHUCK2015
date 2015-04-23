@@ -14,12 +14,12 @@ class Volunteer < ActiveRecord::Base
   validates :zip, format: { with: /\A\d{5}\z/, message: "should be five digits long", allow_blank: true }
   validates :state, inclusion: { in: STATES_LIST.map{|a,b| b}, message: "is not valid state", allow_blank: true }
 
-  SHIRTSIZES = ["S","M","L","XL", "2XL", "3XL"]
+  SHIRTSIZES = ["S","M","L","XL", "2XL", "3XL", "4XL", "5XL"]
   validates :shirt_size, inclusion: { in: SHIRTSIZES, allow_blank: false }
 
   #team_id is valid (but not req?)
-  role_array = ["administrator", "coach", "volunteer"]
-  validates :role, inclusion: { in: role_array, allow_blank: false }
+  ROLE_ARRAY = ["Administrator", "Coach", "Volunteer"]
+  validates :role, inclusion: { in: ROLE_ARRAY, allow_blank: false }
   
   #scopes
   scope :alphabetical, -> { order('last_name, first_name') }
