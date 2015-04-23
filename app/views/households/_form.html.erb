@@ -18,7 +18,7 @@
     <!-- <div class="row"> -->
 
     <!-- <div class="span7"> -->
-    <h3>Household Details</h3>
+    <h3>Step 1: Household Details</h3>
     <div class="well">
       <h3>General Household Information</h3>
       <%= render :partial => "household_fields", :locals => { :f => household_form } %>
@@ -33,7 +33,7 @@
         <%= household_form.link_to_add "+ Add Another Parent/Guardian", :guardians %>
       </p><br /><br />
 
-      <button class = "next"> Next </button>
+      <button class = "next"> Proceed to Step 2 </button>
 
 
     </div>
@@ -44,7 +44,7 @@
     <!-- </div> -->
 
     <!-- <div class="span7">  -->
-    <h3>Participant</h3>
+    <h3>Step 2: Participant(s) Details</h3>
     <div id="household_students" class="well">
       <%= household_form.simple_fields_for :students do |student_form| %>
       <%= render :partial => "student_fields", :locals => { :f => student_form } %>
@@ -61,7 +61,7 @@
      </p> <br /><br />
 
 
-     <button class = "previous"> Previous </button>
+     <button class = "previous"> Return to Step 1 </button>
    </div> 
    <!-- </div>  -->
 
@@ -74,7 +74,7 @@
 <div class="actions">
   <div class="row">
     <div class="col-sm-6">
-      <%= household_form.submit "Submit Registration", :class => 'btn btn-primary' %>
+      <%= household_form.submit "Final Step: Submit Registration", :class => 'btn btn-primary' %>
     </div>
     <div class="col-sm-6">
       <%= link_to 'Cancel Registration', "/home", :class => 'btn btn-primary', data:{ confirm:"Are you sure you want to cancel this form?"} %>

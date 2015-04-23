@@ -12,6 +12,9 @@
 <% end %>
 
 <div class ="container well">
+
+  <h3>General Info</h3><br>
+
   <div class="row">
     <div class="col-xs-6 col-sm-6">
       <div class="field">
@@ -26,6 +29,15 @@
       <%= f.text_field :last_name %>
     </div>
   </div>
+</div>
+
+  <div class="row">
+    <div class="col-xs-6 col-sm-6">
+      <div class="field">
+        <%= f.label :role %> <br>
+        <%= f.input_field :role, collection: Volunteer::ROLE_ARRAY, :selected => Volunteer::ROLE_ARRAY[0] %>
+      </div>
+    </div>
 </div>
 
 <h3>Address</h3><br>
@@ -129,7 +141,7 @@
     <div class="field">
       <%= f.label "Shirt Size:" %><br>
       <!--Shirt Size: S, M, L, XL, 2XL, 3XL, 4XL, 5XL-->
-      <%= f.text_field :shirt_size %>
+      <%= f.input_field :shirt_size, collection: Volunteer::SHIRTSIZES, :selected => Volunteer::SHIRTSIZES[0] %>
     </div>
   </div>
   <div class="col-xs-6 col-sm-6">
