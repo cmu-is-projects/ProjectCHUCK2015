@@ -248,7 +248,7 @@ namespace :db do
 
     tasha = Volunteer.new
     tasha.team_id = 1
-    tasha.role = "coach"
+    tasha.role = "Administrator"
     tasha.email = "aswilson@andrew.cmu.edu"
     tasha.first_name = "Latasha"
     tasha.last_name = "Wilson-Batch"
