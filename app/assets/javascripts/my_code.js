@@ -29,3 +29,7 @@ window.onload = function(){
 $(document).ready(function() {
   $('.sigPad').signaturePad({drawOnly:true});
 });
+
+$(document).on('nested:fieldRemoved', function (event) {
+    $('[required]', event.field).removeAttr('required');
+  });
