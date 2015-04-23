@@ -213,7 +213,7 @@ namespace :db do
     # Step 11: Create some volunteers
     scottbrooks = Volunteer.new
     scottbrooks.team_id = 1
-    scottbrooks.role = "coach"
+    scottbrooks.role = "Coach"
     scottbrooks.email = "scottbrooks@gmail.com"
     scottbrooks.first_name = "Scott"
     scottbrooks.last_name = "Brooks"
@@ -225,7 +225,7 @@ namespace :db do
     
     alliewilson = Volunteer.new
     alliewilson.team_id = 1
-    alliewilson.role = "coach"
+    alliewilson.role = "Coach"
     alliewilson.email = "aswilson@andrew.cmu.edu"
     alliewilson.first_name = "Allie"
     alliewilson.last_name = "Wilson"
@@ -328,7 +328,7 @@ namespace :db do
             s.security_question = Faker::Lorem.sentence
             s.security_response = Faker::Lorem.sentence
             s.active = true
-            s.has_report_card = [true,false].sample
+            # s.has_report_card = [true,false].sample
             s.has_proof_of_insurance = [true,false].sample
             s.insurance_provider = ["UPMC", "Highmark", "HealthAmerica"].sample
             s.insurance_policy_no = rand(10 ** 10).to_s.rjust(10,'0')

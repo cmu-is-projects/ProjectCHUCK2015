@@ -74,6 +74,8 @@
  </div>
 </div>
 
+<br>
+
  <div class="row">
    <div class="col-xs-6 col-sm-6">
     <div class="field">
@@ -95,7 +97,7 @@
   <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label :pastparticipation, :label => "Please indicate number of years you have participated in Project CHUCK. If none, please enter 0." %><br>
-      <%= f.input_field :pastparticipation, :class => "input-lg" %>
+      <%= f.input_field :pastparticipation, collection: Student::PROJECTCHUCK_YEARS, :selected => Student::PROJECTCHUCK_YEARS[0], :class => "input-lg" %>
     </div>
   </div>
 </div>
@@ -149,8 +151,13 @@
   </div>
   <div class="col-xs-6 col-sm-6">
     <div class="field">
+<<<<<<< HEAD
       <%= f.label :jersey_size, :label => "Report Card Upload" %> <br>
       <%= f.input_field :report_card, :as => :file, :class => "input-lg" %>
+=======
+      <%= f.label :report_card, :label => "Report Card Upload" %> <br>
+      <%= f.input_field :report_card, :as => :file %>
+>>>>>>> 91ea73332fc09d4117f9ff8acf0a8005ce9b1cf4
     </div>
   </div> 
 </div>
