@@ -48,19 +48,6 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-sm-12">
-        <p>
-          <strong>Has birth certificate:</strong>
-          <% if @student.has_birth_certificate == true %>
-          <%=link_to image_tag("check16.png")%>
-          <% else %>
-          <%=link_to image_tag("missing16.png")%>
-          <% end %>
-        </p>
-      </div>
-    </div>
-
     <h3>School Information</h3>
 
     <div class="row">
@@ -159,6 +146,11 @@
   </div>
   
   <div class="col-xs-6 col-sm-6">
+    <div class="row">
+      <div class="col-sm-12">
+        <%= render :partial => 'docs' %>
+      </div>
+    </div>
     <div class="row">
       <div class="col-sm-12">
         <%= render :partial => 'reg_details' %>

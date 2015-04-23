@@ -81,6 +81,23 @@
       <%= f.input_field :district, collection: School::DISTRICT_ARRAY, :selected => School::DISTRICT_ARRAY[0] %>
     </div>
   </div>
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :gpa, :label => "GPA" %><br>
+      <%= f.input_field :gpa, collection: Student::GPA_ARRAY, :selected => Student::GPA_ARRAY[0] %>
+    </div>
+  </div>
+</div>
+
+<br> 
+
+ <div class="row">
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :pastparticipation, :label => "Please indicate number of years you have participated in Project CHUCK. If none, please enter 0." %><br>
+      <%= f.input_field :pastparticipation %>
+    </div>
+  </div>
 </div>
 
 <br>
