@@ -16,6 +16,12 @@ window.onload = function(){
         var delta = ($(this).is('.next') ? 1 : -1);
         $('#accordion').accordion('option', 'active', ( $('#accordion').accordion('option','active') + delta  ));
     });
+
+    // $( "#datepicker" ).datepicker({
+    //   changeMonth: true,
+    //   changeYear: true,
+    //   yearRange: "-90:+0"
+    // });
     
 };
 

@@ -1,4 +1,4 @@
-<%= form_for(@bracket) do |f| %>
+<%= simple_form_for(@bracket) do |f| %>
   <% if @bracket.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@bracket.errors.count, "error") %> prohibited this bracket from being saved:</h2>
@@ -17,21 +17,22 @@
   </div>
   <div class="field">
     <%= f.label :gender %><br>
-    <%= f.text_field :gender , :class => "input-lg"%>
+    <%= f.input_field :gender , :class => "input-lg"%>
   </div>
   <div class="field">
     <%= f.label :min_age %><br>
-    <%= f.number_field :min_age, :class => "input-lg" %>
+    <%= f.input_field :min_age, :class => "input-lg" %>
   </div>
   <div class="field">
     <%= f.label :max_age %><br>
-    <%= f.number_field :max_age, :class => "input-lg" %>
+    <%= f.input_field :max_age, :class => "input-lg" %>
   </div>
   <div class="field">
     <%= f.label :max_students %><br>
-    <%= f.number_field :max_students, :class => "input-lg" %>
+    <%= f.input_field :max_students, :class => "input-lg" %>
   </div>
   <div class="actions">
     <%= f.submit %>
+    <%= link_to 'Back', brackets_path %>
   </div>
 <% end %>

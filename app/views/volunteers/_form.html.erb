@@ -148,7 +148,7 @@
     <div class="field">
       <%= f.label "Do you have school clearances (Act 151 and Act 34)?" %><br>
       <!-- <p>For more information click <a href="volunteer_faq.pdf" target="_blank">here</a></p> -->
-      <%= f.check_box :has_school_clearance %>
+      <%= f.check_box :has_school_clearance, :class => "input-lg" %>
       <!--If answered yes, please attach a copy of the clearance via carrier_wave gem-->
     </div>
   </div>
@@ -197,7 +197,7 @@
   <div class="col-sm-12">
     <div class="field">
       <%= f.label "Date" %><br>
-      <%= f.text_field :volunteer_sign_date, :class => "input-lg" %>
+      <%= f.date_select :volunteer_sign_date, :class => "input-lg" %>
     </div>
   </div>
 </div>

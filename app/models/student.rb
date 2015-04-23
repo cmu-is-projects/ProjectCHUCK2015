@@ -139,10 +139,10 @@
     order("students.school_id #{ direction }")
   when /^female_/
     # Simple sort on the name colums
-    where("students.gender = ?", 'F')
+    where("students.gender = ?", 'Female')
   when /^male_/
     # Simple sort on the name colums
-    where("students.gender = ?", 'M')
+    where("students.gender = ?", 'Male')
   when /^has_allergies_/
     # Simple sort on the name colums
     where("students.allergies != ?", '')

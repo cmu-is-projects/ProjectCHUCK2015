@@ -10,15 +10,13 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require highcharts/highcharts                                                           
-//= require highcharts/highcharts-more                                                         
-//= require highcharts/highstock
 //= require jquery
 //= require jquery-ui
 //= require filterrific/filterrific-jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require jquery_nested_form
+//= require highcharts/highcharts                                                          
 //= require twitter/bootstrap
 //= require jquery.signaturepad.js
 //= require json2.min.js
