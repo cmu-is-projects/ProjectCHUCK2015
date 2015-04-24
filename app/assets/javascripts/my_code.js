@@ -98,6 +98,8 @@ window.onload = function(){
    	
    	var street = new LiveValidation('household_street');
     street.add( Validate.Presence );
+
+    $("#myid_1").redraw();
     
 };
 

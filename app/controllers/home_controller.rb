@@ -28,8 +28,8 @@ class HomeController < ApplicationController
                      :type=> 'pie',
                      :name=> 'Gender',
                      :data=> [
-                        ['Male', @male_students ],
-                        ['Female', @female_students ]
+                        ['Male',   @male_students ],
+                        ['Female',     @female_students ]
                      ]
             }
             f.series(series)
@@ -42,57 +42,11 @@ class HomeController < ApplicationController
                 :enabled=>true,
                 :color=>"black",
                 :style=>{
-                  :font=>"13px Open Sans"
+                  :font=>"13px Trebuchet MS, Verdana, sans-serif"
                 }
               }
             })
       end 
-
-      # @school_district_chart = LazyHighCharts::HighChart.new('pie') do |f|
-      #       f.chart({:defaultSeriesType=>"pie" , :margin=> [50, 200, 60, 170]} )
-      #       series = {
-      #                :type=> 'pie',
-      #                :name=> 'School District',
-      #                :data=> @school_districts
-      #       }
-      #       f.series(series)
-      #       f.options[:title][:text] = "Registered Student School District Distribution"
-      #       f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'}) 
-      #       f.plot_options(:pie=>{
-      #         :allowPointSelect=>true, 
-      #         :cursor=>"pointer" , 
-      #         :dataLabels=>{
-      #           :enabled=>true,
-      #           :color=>"black",
-      #           :style=>{
-      #             :font=>"13px Trebuchet MS, Verdana, sans-serif"
-      #           }
-      #         }
-      #       })
-      # end
-
-      # @home_counties_chart = LazyHighCharts::HighChart.new('pie') do |f|
-      #       f.chart({:defaultSeriesType=>"pie" , :margin=> [50, 200, 60, 170]} )
-      #       series = {
-      #                :type=> 'pie',
-      #                :name=> 'Home Counties',
-      #                :data=> @home_counties
-      #       }
-      #       f.series(series)
-      #       f.options[:title][:text] = "Registered Student Home County Distribution"
-      #       f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'}) 
-      #       f.plot_options(:pie=>{
-      #         :allowPointSelect=>true, 
-      #         :cursor=>"pointer" , 
-      #         :dataLabels=>{
-      #           :enabled=>true,
-      #           :color=>"black",
-      #           :style=>{
-      #             :font=>"13px Trebuchet MS, Verdana, sans-serif"
-      #           }
-      #         }
-      #       })
-      # end 
     end   
   end
 end

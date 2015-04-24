@@ -37,7 +37,6 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'simple_form', '3.0.1'
 gem 'nested_form'
-# gem 'foundation-rails', '5.1.1.0'
 
 gem 'cancancan'
 
