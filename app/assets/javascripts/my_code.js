@@ -19,7 +19,6 @@ window.onload = function(){
         });
 
 
-
     //Livevalidations
     // var home_phone = new LiveValidation('household_home_phone');
 
@@ -101,16 +100,9 @@ window.onload = function(){
    	
    	var street = new LiveValidation('household_street');
     street.add( Validate.Presence );
+
+    $("#myid_1").redraw();
     
-
-
-
-
-
-
-
-
-
 };
 };
 
