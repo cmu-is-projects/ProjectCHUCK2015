@@ -21,11 +21,13 @@ gem 'therubyracer', :platforms => :ruby
 gem 'jquery-rails'
 # gem 'jquery-ui-rails'
 
+gem 'lazy_high_charts'
+
 #for bootstrap and using Sass for CSS
 gem "twitter-bootstrap-rails"
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'google-webfonts-rails'
-gem 'lazy_high_charts'
+
 gem 'filterrific'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
