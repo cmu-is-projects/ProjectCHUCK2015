@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
   def index
-    if  !current_user.nil?
+    if  !current_user.nil? 
       @tournament = Tournament.first
       # @guardians_receiving_texts = Guardian.active.alphabetical.receive_text_notifications.paginate(:page => params[:page]).per_page(10)
   #     @registrations = Registration.active
@@ -28,35 +28,12 @@ class HomeController < ApplicationController
                      :type=> 'pie',
                      :name=> 'Gender',
                      :data=> [
-                        ['Male', @male_students ],
-                        ['Female', @female_students ]
+                        ['Male',   @male_students ],
+                        ['Female',     @female_students ]
                      ]
             }
             f.series(series)
             f.options[:title][:text] = "Registered Student Gender Distribution"
-            f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'}) 
-            f.plot_options(:pie=>{
-              :allowPointSelect=>true, 
-              :cursor=>"pointer" , 
-              :dataLabels=>{
-                :enabled=>true,
-                :color=>"black",
-                :style=>{
-                  :font=>"13px Open Sans"
-                }
-              }
-            })
-      end 
-
-      @school_district_chart = LazyHighCharts::HighChart.new('pie') do |f|
-            f.chart({:defaultSeriesType=>"pie" , :margin=> [50, 200, 60, 170]} )
-            series = {
-                     :type=> 'pie',
-                     :name=> 'School District',
-                     :data=> @school_districts
-            }
-            f.series(series)
-            f.options[:title][:text] = "Registered Student School District Distribution"
             f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'}) 
             f.plot_options(:pie=>{
               :allowPointSelect=>true, 
