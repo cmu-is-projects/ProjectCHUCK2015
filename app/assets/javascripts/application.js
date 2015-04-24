@@ -19,7 +19,7 @@
 //= require highcharts/highcharts                                                           
 //= require highcharts/highcharts-more                                                         
 //= require highcharts/highstock
-//= require filterrific/filterrific-jquery	
+//= require filterrific/filterrific-jquery	                                               
 //= require jquery_nested_form
 //= require jquery.signaturepad.js
 //= require json2.min.js

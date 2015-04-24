@@ -342,6 +342,8 @@ namespace :db do
             s.cell_phone = rand(10 ** 10).to_s.rjust(10,'0')
             s.email = "#{s.first_name}.#{s.last_name}@example.com".downcase
             s.grade = (0..12).to_a.sample
+            s.district = ["Allegheny Valley School District","Avonworth School District",
+                          "Baldwin-Whitehall School District","Bethel Park School District"].sample
             s.gender= ["Male", "Female"].sample
             s.emergency_contact_name = Faker::Name.name
             s.emergency_contact_phone = rand(10 ** 10).to_s.rjust(10,'0')
