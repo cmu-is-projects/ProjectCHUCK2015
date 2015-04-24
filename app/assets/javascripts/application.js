@@ -10,11 +10,10 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require highcharts/highcharts                                                           
-//= require highcharts/highcharts-more                                                         
-//= require highcharts/highstock
+                                                      
 //= require jquery
 //= require jquery-ui
+//= require highcharts/highcharts     
 //= require filterrific/filterrific-jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
