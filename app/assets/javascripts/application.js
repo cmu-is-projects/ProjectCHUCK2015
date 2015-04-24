@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery-ui
+//= require highcharts/highcharts     
 //= require filterrific/filterrific-jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
