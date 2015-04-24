@@ -38,6 +38,12 @@
         <%= f.input_field :role, collection: Volunteer::ROLE_ARRAY[1,2], :selected => Volunteer::ROLE_ARRAY[1] %>
       </div>
     </div>
+    <div class="col-xs-6 col-sm-6">
+      <div class="field">
+        <%= f.label :dob, :label => "Birthday" %> <br>
+        <%= f.date_select :dob, { :discard_year => true} %>
+      </div>
+    </div>
 </div>
 
 <br><h3>Address</h3><br>
@@ -145,11 +151,17 @@
     </div>
   </div>
   <div class="col-xs-6 col-sm-6">
+    <h5>Indicate clearence(s) you have</h5>
     <div class="field">
-      <%= f.label "Do you have school clearances (Act 151 and Act 34)?" %><br>
       <!-- <p>For more information click <a href="volunteer_faq.pdf" target="_blank">here</a></p> -->
-      <%= f.check_box :has_school_clearance %>
+      <%= f.input :act33_clearance, as: :boolean, checked_value: true, unchecked_value: false, :label=>"Pennsylvania Child Abuse History Clearance (Act 33)"%>
       <!--If answered yes, please attach a copy of the clearance via carrier_wave gem-->
+    </div>
+    <div class="field">
+      <%= f.input :act34_clearance, as: :boolean, checked_value: true, unchecked_value: false, :label=>"Pennsylvania State Police Criminal Record Check (Act 34)"%>
+    </div>
+    <div class="field">
+      <%= f.input :act153_clearance, as: :boolean, checked_value: true, unchecked_value: false, :label=>"FBI Fingerprint based record check (Act 153)"%>
     </div>
   </div>
 </div>
@@ -168,7 +180,7 @@
   <div class="col-sm-12">
     <div class="field">
       <%= f.label "What are two important skills you want to focus on in this year’s camp?" %><br>
-      <%= f.text_area :two_skills %>
+      <%= f.text_area :two_skills, :class => "input-lg" %>
     </div>
   </div>
 </div>
@@ -176,7 +188,7 @@
   <div class="col-sm-12">
     <div class="field">
       <%= f.label "What suggestions would you have to improve this year’s camp if you volunteered last year?" %><br>
-      <%= f.text_area :suggestions %>
+      <%= f.text_area :suggestions, :class => "input-lg" %>
     </div>
   </div>
 </div>
@@ -189,7 +201,7 @@
   <div class="col-sm-12">
     <div class="field">
       <%= f.label "Signature" %><br>
-      <%= f.text_field :volunteer_sign %>
+      <%= f.text_field :volunteer_sign, :class => "input-lg" %>
     </div>
   </div>
 </div>
@@ -197,7 +209,7 @@
   <div class="col-sm-12">
     <div class="field">
       <%= f.label "Date" %><br>
-      <%= f.text_field :volunteer_sign_date %>
+      <%= f.text_field :volunteer_sign_date, :class => "input-lg" %>
     </div>
   </div>
 </div>

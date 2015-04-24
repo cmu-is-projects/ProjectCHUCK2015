@@ -245,6 +245,29 @@ namespace :db do
     admintest.password_confirmation = "charliesangels"
     admintest.volunteer_id = alliewilson.id
     admintest.save!
+
+    tasha = Volunteer.new
+    tasha.team_id = 1
+    tasha.role = "Administrator"
+    tasha.email = "aswilson@andrew.cmu.edu"
+    tasha.first_name = "Latasha"
+    tasha.last_name = "Wilson-Batch"
+    tasha.cell_phone = "4108889999"
+    tasha.shirt_size = "S"
+    tasha.receives_text_msgs = false
+    tasha.active = true
+    tasha.save!
+
+    # Step 12: Create some users
+    tasha_admin = User.new
+    tasha_admin.username = "lwilson"
+    tasha_admin.role = "admin"
+    tasha_admin.email = "lwilson@batchfoundation.org"
+    tasha_admin.active = true
+    tasha_admin.password = "charliesangels"
+    tasha_admin.password_confirmation = "charliesangels"
+    tasha_admin.volunteer_id = tasha.id
+    tasha_admin.save!
     
 
     # Step 13: Create some games

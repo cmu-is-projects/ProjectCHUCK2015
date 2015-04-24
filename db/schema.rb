@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150420214136) do
+ActiveRecord::Schema.define(version: 20150423153342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -207,13 +207,16 @@ ActiveRecord::Schema.define(version: 20150420214136) do
     t.string   "team_coached"
     t.string   "child_name"
     t.string   "shirt_size"
-    t.boolean  "has_school_clearance"
     t.string   "clearance_copy"
     t.text     "not_available"
     t.text     "two_skills"
     t.text     "suggestions"
     t.string   "volunteer_sign"
     t.date     "volunteer_sign_date"
+    t.boolean  "act33_clearance"
+    t.boolean  "act34_clearance"
+    t.boolean  "act153_clearance"
+    t.date     "dob"
   end
 
 end
