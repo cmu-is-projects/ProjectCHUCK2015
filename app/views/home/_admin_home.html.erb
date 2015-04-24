@@ -24,11 +24,11 @@
         <div class="col-sm-12 col-md-12 col-lg-7">
           <!-- <h3>Demographics</h3> -->
           <% if (@male_students.size + @female_students.size) > 2 %>
-              <div><%= high_chart("my_id1", @gender_chart) %></div> <br>
-              <div><%= high_chart("my_id2", @school_district_chart) %></div> <br>
+              <%= high_chart("my_id1", @gender_chart) %> 
           <% else %>
             <%= "None at this time." %>
           <% end %>
+        </div>
         <!-- </div> -->
     </div>
 
@@ -36,4 +36,4 @@
   <!-- /row -->
 </div>
 
-<hr>
+<!-- <hr> -->
