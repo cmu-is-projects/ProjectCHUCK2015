@@ -1,8 +1,8 @@
   <div class="field">
     <%= f.label :team_id %><br>
-    <%= f.input :team_id, collection: Team.all %>
+    <%= f.input_field :team_id, collection: Team.all, :class => "input-lg" %>
   </div>
   <div class="field">
     <%= f.label :score %><br>
-    <%= f.input :score %>
+    <%= f.input_field :score , :class => "input-lg" %>
   </div>

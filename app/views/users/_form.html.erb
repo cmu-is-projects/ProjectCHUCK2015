@@ -13,55 +13,55 @@
 
   <div class="field">
     <%= f.label :username %><br>
-    <%= f.text_field :username %>
+    <%= f.text_field :username, :class => "input-lg" %>
   </div>
   <div class="field">
     <%= f.label :role %><br>
-    <%= f.text_field :role %>
+    <%= f.text_field :role, :class => "input-lg" %>
   </div>
   <div class="field">
     <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, :class => "input-lg" %>
   </div>
   <div class="field">
     <%= f.label :active %><br>
-    <%= f.check_box :active %>
+    <%= f.check_box :active, :class => "input-lg" %>
   </div>
   <div class="field">
     <%= f.label :password_digest %><br>
-    <%= f.text_field :password_digest %>
+    <%= f.text_field :password_digest, :class => "input-lg" %>
   </div>
   <div class="field">
     <%= f.label :active_after %><br>
-    <%= f.date_select :active_after %>
+    <%= f.date_select :active_after, :class => "input-lg" %>
   </div>
   <div class="field">
     <%= f.label :password_reset_token %><br>
-    <%= f.text_field :password_reset_token %>
+    <%= f.text_field :password_reset_token, :class => "input-lg" %>
   </div>
   <div class="field">
     <%= f.label :password_reset_sent_at %><br>
-    <%= f.date_select :password_reset_sent_at %>
+    <%= f.date_select :password_reset_sent_at, :class => "input-lg" %>
   </div>
   <div class="field">
     <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
+    <%= f.text_field :first_name, :class => "input-lg" %>
   </div>
   <div class="field">
     <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
+    <%= f.text_field :last_name, :class => "input-lg" %>
   </div>
   <div class="field">
     <%= f.label :cell_phone %><br>
-    <%= f.text_field :cell_phone %>
+    <%= f.text_field :cell_phone, :class => "input-lg" %>
   </div>
   <div class="field">
     <%= f.label :receives_text_msgs %><br>
-    <%= f.check_box :receives_text_msgs %>
+    <%= f.check_box :receives_text_msgs, :class => "input-lg" %>
   </div>
   <div class="field">
     <%= f.label :volunteer_id %><br>
-    <%= f.collection_select :volunteer_id, Volunteer.all, :id, :name, prompt: "Select volunteer..." %>
+    <%= f.collection_select :volunteer_id, Volunteer.all, :id, :name, prompt: "Select volunteer...", :class => "input-lg" %>
   </div>
   <div class="actions">
     <%= f.submit %>
