@@ -1,4 +1,4 @@
-<%= form_for(@student) do |f| %>
+<%= simple_form_for(@student) do |f| %>
 <% if @student.errors.any? %>
 <div id="error_explanation">
   <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
@@ -10,30 +10,276 @@
   </ul>
 </div>
 <% end %>
-  <div class="container">
+
+<div class="container">
+
+  <center><h2>Add New Student</h2></center> <br>
+  
+  <h3>General Student Information</h3>
+
+  <br>
+
+  <div class="row">
+    <div class="col-xs-6 col-sm-6">
+      <%#= f.input :first_name, :class => 'input-lg' %>
+      <div class="field">
+        <%= f.label :first_name %> <br>
+        <%= f.input_field :first_name, :class => "input-lg" %>
+      </div> 
+    </div>
+    <div class="col-xs-6 col-sm-6">
+      <div class="field">
+        <%= f.label :last_name %> <br>
+        <%= f.input_field :last_name, :class => "input-lg" %>
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  <div class ="row">
+    <div class="col-xs-6 col-sm-6">
+      <div class="field">
+        <%= f.label :gender %> <br>
+        <%= f.input_field :gender, collection: Student::GENDER_ARRAY, :selected => Student::GENDER_ARRAY[0] %>
+      </div>
+    </div>
+    <div class="col-xs-4 col-sm-4">
+      <div class="field">
+        <%= f.label :dob, :label => "Date of Birth" %> <br>
+        <%= f.input_field :dob, as: :date, :order =>[:month, :day, :year], :start_year => 20.years.ago.year, :end_year => 5.years.ago.year %>
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="col-xs-6 col-sm-6">
+      <div class="field">
+        <%= f.label :cell_phone, :label => "Participant's Cell Phone" %><br>
+        <%= f.input_field :cell_phone, as: :string, :class => "input-lg" %>
+      </div>
+    </div>
+    <div class="col-xs-6 col-sm-6">
+      <div class="field">
+        <%= f.label :email, :label => "Participant's Email" %><br>
+        <%= f.input_field :email, as: :string, :class => "input-lg" %>
+      </div>
+    </div>
+  </div>
+
+  <br> 
+
+  <div class="row">
+   <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :school, :label => "Name of School" %><br>
+      <%= f.input_field :school, :class => "input-lg" %>
+    </div>
+  </div>
+  <div class="col-xs-6 col-sm-6">
+   <div class="field">
+     <%= f.label :grade, :label => "Grade as of September, #{Time.now.year}" %> <br>
+     <%= f.input_field :grade, collection: Student::GRADESWITHK_ARRAY, :selected => Student::GRADESWITHK_ARRAY[0] %>
+   </div>
+ </div>
+</div>
+
+<br>
+
+ <div class="row">
+   <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :district, :label => "School District" %><br>
+      <%= f.input_field :district, collection: School::DISTRICT_ARRAY, :selected => School::DISTRICT_ARRAY[0] %>
+    </div>
+  </div>
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :gpa, :label => "GPA" %><br>
+      <%= f.input_field :gpa, collection: Student::GPA_ARRAY, :selected => Student::GPA_ARRAY[0] %>
+    </div>
+  </div>
+</div>
+
+<br> 
+
+ <div class="row">
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :pastparticipation, :label => "Please indicate number of years you have participated in Project CHUCK. If none, please enter 0." %><br>
+      <%= f.input_field :pastparticipation, collection: Student::PROJECTCHUCK_YEARS, :selected => Student::PROJECTCHUCK_YEARS[0], :class => "input-lg" %>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<hr>
+
+<h3>Contact Information</h3><br>
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :emergency_contact_name, :label => "Name of Emergency Contact" %> <br>
+      <%= f.input_field :emergency_contact_name, :class => "input-lg" %>
+    </div>
+  </div>
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :emergency_contact_phone, :label => "Phone Number of Emergency Contact" %> <br>
+      <%= f.input_field :emergency_contact_phone, as: :string, :class => "input-lg"  %>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :emergency_contact_relation, :label => "Emergency Contact's Relation to Participant" %> <br>
+      <%= f.input_field :emergency_contact_relation, :class => "input-lg" %>
+    </div>
+  </div>
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :birth_certificate, :label => "Birth Certificate Upload" %>
+      <%= f.input_field :birth_certificate, :as => :file, :class => "input-lg" %>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :jersey_size %> <br>
+      <%= f.input_field :jersey_size, collection: Student::JERSEYSIZES, :selected => Student::JERSEYSIZES[0], :class => "input-lg" %>
+    </div>
+  </div>
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :report_card, :label => "Report Card Upload" %> <br>
+      <%= f.input_field :report_card, :as => :file, :class => "input-lg" %>
+    </div>
+  </div> 
+</div>
+
+<br><hr>
+
+<h3>Participant Insurance Information</h3><br>
+
+<div class ="row">
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :insurance_provider, :label => "Name of Insurance Company" %> <br>
+      <%= f.input_field :insurance_provider, :class => "input-lg" %>
+    </div>
+  </div>
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :insurance_policy_no, :label => "Policy Number" %><br>
+      <%= f.input_field :insurance_policy_no, :class => "input-lg" %>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class ="row">
+  <div class="col-xs-6 col-sm-6">
+   <div class="field">
+     <%= f.label :proof_of_insurance, :label => "Proof of Insurance Upload" %>
+     <%= f.input_field :proof_of_insurance, :as => :file, :class => "input-lg" %>
+   </div>
+ </div> 
+</div>
+
+<br> <hr>
+
+<h3>Participant Medical Information</h3><br>
+
+<div class="row">
+ <div class="col-xs-6 col-sm-6">
+   <div class="field">
+    <%= f.label :family_physician %><br>
+    <%= f.input_field :family_physician, :class => "input-lg" %>
+  </div>
+</div>
+<div class="col-xs-6 col-sm-6">
+  <div class="field">
+    <%= f.label :physician_phone %><br>
+    <%= f.input_field :physician_phone, as: :string, :class => "input-lg" %>
+  </div>
+</div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :physical, :label => "Physical Upload" %>
+      <%= f.input_field :physical, :as => :file, :class => "input-lg" %>
+    </div>
+  </div>
+  <div class="col-xs-4 col-sm-4">
+    <div class="field">
+      <%= f.label :physical_date %><br>
+      <%= f.input_field :physical_date, as: :date, :order =>[:month, :day, :year], :start_year => 10.years.ago.year, :end_year => Time.now.year %>
+    </div>
+  </div> 
+</div>
+
+<br><hr>
+
+<h3>Medical and Insurance Information</h3><br>
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :allergies %><br>
+      <%= f.input_field :allergies, as: :text, :class => "input-lg" %>
+    </div>
+  </div> 
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :medications %><br>
+      <%= f.input_field :medications, as: :text, :class => "input-lg" %>
+    </div>
+  </div>
+</div>
+
+<br>
+
+  <!-- <div class="container">
     <div class="row">
-      <!-- div class="col-sm-3">
+      <div class="col-sm-3">
         <div class="field">
           # f.label :household_id %><br>
           <%#= f.collection_select :household_id, Household.all, :id, :id, prompt: "Select..." %>
         </div>
-      </div> -->
+      </div> 
       <div class="col-xs-6 col-sm-4">
         <div class="field">
-          <%= f.label :first_name %>
-          <%= f.text_field :first_name, :class => "input-lg" %>
+          <%#= f.label :first_name %>
+          <%#= f.text_field :first_name, :class => "input-lg" %>
         </div>
       </div>
       <div class="col-xs-6 col-sm-4">
         <div class="field">
-          <%= f.label :last_name %>
-          <%= f.text_field :last_name, :class => "input-lg" %>
+          <%#= f.label :last_name %>
+          <%#= f.text_field :last_name, :class => "input-lg" %>
         </div>
       </div>
       <div class="col-xs-6 col-sm-4">
         <div class="field">
-          <%= f.label :gender %>
-          <%= f.select :gender, Student::GENDER_ARRAY, :prompt => "Select gender...", :class => "input-lg"%>
+          <%#= f.label :gender %>
+          <%#= f.select :gender, Student::GENDER_ARRAY, :prompt => "Select gender...", :class => "input-lg"%>
         </div>
       </div>
     </div>
@@ -43,14 +289,14 @@
     <div class="row">
       <div class="col-sm-8">
         <div class="field">
-          <%= f.label "Date of Birth" %>
-          <%= f.text_field :dob, :class => "input-lg" %>
+          <%#= f.label "Date of Birth" %>
+          <%#= f.text_field :dob, :class => "input-lg" %>
         </div>
       </div>
       <div class="col-sm-4">
         <div class="field">
-          <%= f.label :grade %>
-          <%= f.number_field :grade, :class => "input-lg" %>
+          <%#= f.label :grade %>
+          <%#= f.number_field :grade, :class => "input-lg" %>
         </div>
       </div>
     </div>
@@ -60,14 +306,14 @@
     <div class="row">
       <div class="col-sm-6">
         <div class="field">
-          <%= f.label :cell_phone %>
-          <%= f.text_field :cell_phone, :class => "input-lg" %>
+          <%#= f.label :cell_phone %>
+          <%#= f.text_field :cell_phone, :class => "input-lg" %>
         </div>
       </div>
       <div class="col-sm-6">
         <div class="field">
-          <%= f.label :email %>
-          <%= f.text_field :email, :class => "input-lg" %>
+          <%#= f.label :email %>
+          <%#= f.text_field :email, :class => "input-lg" %>
         </div>
       </div>
     </div>
@@ -81,14 +327,14 @@
     <div class="row">
       <div class="col-sm-6">
         <div class="field">
-          <%= f.label :emergency_contact_name %>
-          <%= f.text_field :emergency_contact_name, :class => "input-lg" %>
+          <%#= f.label :emergency_contact_name %>
+          <%#= f.text_field :emergency_contact_name, :class => "input-lg" %>
         </div>
       </div>
       <div class="col-sm-6">
         <div class="field">
-          <%= f.label :emergency_contact_phone %>
-          <%= f.text_field :emergency_contact_phone, :class => "input-lg" %>
+          <%#= f.label :emergency_contact_phone %>
+          <%#= f.text_field :emergency_contact_phone, :class => "input-lg" %>
         </div>
       </div>
     </div>
@@ -98,23 +344,23 @@
     <div class="row">
       <div class="col-sm-6">
         <div class="field">
-          <%= f.label :allergies %><br>
-          <%= f.text_area :allergies, :class => "input-lg" %>
+          <%#= f.label :allergies %><br>
+          <%#= f.text_area :allergies, :class => "input-lg" %>
         </div>
       </div> 
       <div class="col-sm-6">
         <div class="field">
-          <%= f.label :medications %><br>
-          <%= f.text_area :medications, :class => "input-lg" %>
+          <%#= f.label :medications %><br>
+          <%#= f.text_area :medications, :class => "input-lg" %>
         </div>
       </div>
       <div class="col-sm-6">
         <div class="field">
-          <%= f.label :school_id %><br>
-          <%= f.number_field :school_id, :class => "input-lg" %>
+          <%#= f.label :school_id %><br>
+          <%#= f.number_field :school_id, :class => "input-lg" %>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <%#= f.input :bracket_ids, collection: Bracket.all, as: :check_boxes  %>
 
