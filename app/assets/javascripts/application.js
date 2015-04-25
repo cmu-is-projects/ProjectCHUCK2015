@@ -26,4 +26,4 @@
 //= require json2.min.js
 //= require livevalidation_standalone.js
 //= require my_code.js
-//= require_tree .
+
