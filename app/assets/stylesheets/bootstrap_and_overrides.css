@@ -6,7 +6,6 @@
   =require twitter-bootstrap-static/fontawesome
   */
 
-@import "bootstrap-sprockets";
 @import "bootstrap";
 
  *{
