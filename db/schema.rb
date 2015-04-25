@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150423153342) do
+ActiveRecord::Schema.define(version: 20150425002521) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,11 +80,10 @@ ActiveRecord::Schema.define(version: 20150423153342) do
   create_table "roster_spots", force: true do |t|
     t.integer  "team_id"
     t.integer  "student_id"
-    t.date     "start_date"
-    t.date     "end_date"
-    t.string   "position"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "jersey_number"
+    t.boolean  "active"
   end
 
   create_table "schools", force: true do |t|
