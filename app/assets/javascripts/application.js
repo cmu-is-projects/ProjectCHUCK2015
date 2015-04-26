@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require jquery	
 //= require twitter/bootstrap
+//= require jquery.signaturepad.js
+//= require livevalidation_standalone.js
 //= require jquery_nested_form
 //= require bootstrap-sprockets
 //= require jquery-ui
@@ -21,12 +23,5 @@
 //= require highcharts/highcharts-more                                                         
 //= require highcharts/highstock
 //= require filterrific/filterrific-jquery	                                               
-//= require jquery.signaturepad.js
-//= require json2.min.js
-//= require livevalidation_standalone.js
 //= require my_code.js
 //= require_tree .
-	
-	$(function(){
-	    $('.sigPad').signaturePad({drawOnly:true});
-	})
