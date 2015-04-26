@@ -26,3 +26,7 @@
 //= require livevalidation_standalone.js
 //= require my_code.js
 //= require_tree .
+	
+	$(function(){
+	    $('.sigPad').signaturePad({drawOnly:true});
+	})
