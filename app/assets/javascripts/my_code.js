@@ -114,11 +114,9 @@ window.onload = function(){
 };
 };
 
-$(function(){
 
 $(document).ready(function() {
   $('.sigPad').signaturePad({drawOnly:true});
-});
 });
 
 $(document).on('nested:fieldRemoved', function (event) {
