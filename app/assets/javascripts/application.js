@@ -15,12 +15,12 @@
 //= require jquery	
 //= require twitter/bootstrap
 //= require bootstrap-sprockets
+//= require jquery_nested_form
 //= require jquery-ui
 //= require highcharts/highcharts                                                           
 //= require highcharts/highcharts-more                                                         
 //= require highcharts/highstock
 //= require filterrific/filterrific-jquery	                                               
-//= require jquery_nested_form
 //= require jquery.signaturepad.js
 //= require json2.min.js
 //= require livevalidation_standalone.js
