@@ -1,37 +1,68 @@
 <%= simple_form_for(@team) do |f| %>
-  <% if @team.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@team.errors.count, "error") %> prohibited this team from being saved:</h2>
+<% if @team.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@team.errors.count, "error") %> prohibited this team from being saved:</h2>
 
-      <ul>
-      <% @team.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label "Bracket" %><br>
-    <%= f.input_field :bracket_id, :class => "input-lg" %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.input_field :name, :class => "input-lg" %>
-  </div>
-  <div class="field">
-    <%= f.label "Max. Students" %><br>
-    <%= f.input_field :max_students, :class => "input-lg" %>
-  </div>
-  <div class="field">
-    <%= f.label "Number of wins" %><br>
-    <%= f.input_field :num_wins, :class => "input-lg" %>
-  </div>
-  <div class="field">
-    # <%= f.label "Number of losses" %><br>
-    <%= f.input_field :num_losses, :class => "input-lg" %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <ul>
+    <% @team.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
 <% end %>
+
+<div class="row">
+  <div class="col-sm-4">
+
+    <h2>Edit Team Information</h2>
+
+    <div class="field">
+      <%= f.label "Bracket" %><br>
+      <%= f.input_field :bracket_id, :class => "input-lg" %>
+    </div>
+    <div class="field">
+      <%= f.label "Team Name" %><br>
+      <%= f.input_field :name, :class => "input-lg" %>
+    </div>
+    <div class="field">
+      <%= f.label "Max students allowed" %><br>
+      <%= f.input_field :max_students, :class => "input-lg" %>
+    </div>
+    <div class="field">
+      <%= f.label "Number of wins" %><br>
+      <%= f.input_field :num_wins, :class => "input-lg" %>
+    </div>
+    <div class="field">
+      <%= f.label "Number of losses" %><br>
+      <%= f.input_field :num_losses, :class => "input-lg" %>
+    </div>
+
+  </div>
+
+  <div class="col-sm-4">
+    <h2>Add students</h2>
+    <div class="field fixedheight">
+      <% if controller.action_name=="edit"%>
+      <%= f.input :student_ids, label: "", collection: Student.active.alphabetical, as: :check_boxes %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <h2>Add coaches</h2>
+    <div class="field">
+      <% if controller.action_name=="edit"%>
+      <%= f.input :volunteer_ids, label: "", collection: Volunteer.active.alphabetical, as: :check_boxes %>
+      <% end %>
+    </div>
+  </div>
+
+</div>
+  <div class = "row">
+    <div class="actions">
+      <%= f.submit %>
+      <%= link_to 'Cancel', teams_path %>
+    </div>
+    <% end %>
+  </div>
+

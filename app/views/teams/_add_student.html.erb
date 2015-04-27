@@ -1,0 +1,6 @@
+<div class="field">
+  <% if controller.action_name=="edit"%>
+  <%= f.input :student_ids, label: "", collection: Student.active.alphabetical, as: :check_boxes %>
+  <% end %>
+</div>
+  
