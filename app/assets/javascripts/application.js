@@ -17,11 +17,11 @@
 //= require jquery.signaturepad.js
 //= require livevalidation_standalone.js
 //= require jquery_nested_form
-//= require bootstrap-sprockets
-//= require jquery-ui
 //= require highcharts/highcharts                                                           
 //= require highcharts/highcharts-more                                                         
 //= require highcharts/highstock
-//= require filterrific/filterrific-jquery	                                               
+//= require filterrific/filterrific-jquery	
+//= require bootstrap-sprockets
+//= require jquery-ui                                               
 //= require my_code.js
 //= require_tree .
