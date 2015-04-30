@@ -91,6 +91,7 @@
   scope :no_insurance, -> { where(has_proof_of_insurance: false) }
   scope :jerseysize, -> (size) { where("jersey_size LIKE ?", size) }
   scope :has_missing_docs, -> { where("has_report_card = ? OR has_physical = ? OR has_proof_of_insurance = ?", false, false, false) }
+  scope :unassigned,   -> { joins(:roster_spot).where('team_id IS NULL') }
 
 
   scope :search_query, lambda { |query|

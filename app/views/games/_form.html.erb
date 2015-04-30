@@ -18,15 +18,16 @@
   </div> -->
   <div class="field">
     <%= f.label :date %><br>
-    <%= f.date_select :date, :class => "input-lg" %>
+    <%= f.text_field :date, :class => "input-lg" %>
   </div>
   <div class="field">
     <%= f.label :location_id %><br>
     <%= f.input_field :location_id, collection: Location.all, :class => "input-lg" %>
   </div>
 
+<br>
   <%= f.simple_fields_for :team_games do |team_game_form| %>
-  <%= render :partial => "team_game_fields", :locals => { :f => team_game_form } %>
+  <%= render :partial => "team_game_fields", :locals => { :f => team_game_form } %><br>
   <% end %>
 
 

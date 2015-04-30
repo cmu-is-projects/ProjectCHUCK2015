@@ -1,4 +1,4 @@
-<%= form_for(@roster_spot) do |f| %>
+<%= simple_form_for(@roster_spot) do |f| %>
   <% if @roster_spot.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@roster_spot.errors.count, "error") %> prohibited this roster_spot from being saved:</h2>
@@ -20,16 +20,8 @@
     <%= f.number_field :student_id, :class => "input-lg" %>
   </div>
   <div class="field">
-    <%= f.label :start_date %><br>
-    <%= f.date_select :start_date, :class => "input-lg" %>
-  </div>
-  <div class="field">
-    <%= f.label :end_date %><br>
-    <%= f.date_select :end_date, :class => "input-lg" %>
-  </div>
-  <div class="field">
-    <%= f.label :position %><br>
-    <%= f.text_field :position, :class => "input-lg" %>
+    <%= f.label :jersey_number %><br>
+    <%= f.number_field :jersey_number %>
   </div>
   <div class="actions">
     <%= f.submit %>

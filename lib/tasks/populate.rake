@@ -260,12 +260,12 @@ namespace :db do
 
     # Step 12: Create some users
     tasha_admin = User.new
-    tasha_admin.username = "lwilson"
+    tasha_admin.username = "admin"
     tasha_admin.role = "admin"
     tasha_admin.email = "lwilson@batchfoundation.org"
     tasha_admin.active = true
-    tasha_admin.password = "charliesangels"
-    tasha_admin.password_confirmation = "charliesangels"
+    tasha_admin.password = "admin"
+    tasha_admin.password_confirmation = "admin"
     tasha_admin.volunteer_id = tasha.id
     tasha_admin.save!
     

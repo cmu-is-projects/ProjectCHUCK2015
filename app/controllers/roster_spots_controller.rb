@@ -71,6 +71,6 @@ class RosterSpotsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def roster_spot_params
-      params.require(:roster_spot).permit(:team_id, :student_id, :start_date, :end_date, :position)
+      params.require(:roster_spot).permit(:team_id, :student_id, :active, :jersey_number)
     end
 end

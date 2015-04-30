@@ -29,4 +29,5 @@ ProjectChuck2015::Application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  config.assets.precompile += ['my_code.js', 'livevalidation_prototype.js', 'jquery-ui.js', 'bootstrap.css', 'my_styles.css', 'jquery-ui.css']
 end

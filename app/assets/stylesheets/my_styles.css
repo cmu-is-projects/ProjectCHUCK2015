@@ -12,14 +12,7 @@
  #homebutton{
   font-family: 'Oswald', sans-serif;
   font-size: 1.3em;
- }
-
-.container .formcon{
- /* border: 2px solid #0D80C5;
-border-radius: 10px;
-margin-top: 15px;
-margin-bottom: 15px;*/
-}
+ } 
 
  .container .jumbotron{
  background-color: white;
@@ -146,7 +139,7 @@ li{
   font-size: 1.3em;
 }
 hr{
-  width: 90%;
+  width: 100%;
 }
 .widthfit{
   width: 90%;
@@ -186,13 +179,18 @@ textarea.LV_invalid_field:active {
     border: 1px solid #CC0000;
 }
 
-
-
 .ui-accordion .ui-accordion-content{ 
   overflow:hidden !important; 
+}
 
 .heightincrease{
 height: 2em;
 }
 
+.field .fixedheight{
+  display:block;
+  width:100%;
+    height:70px;
+    overflow: scroll;
+}
 

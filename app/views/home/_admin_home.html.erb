@@ -1,42 +1,21 @@
 <div class="container">
   <div class="row">
-
-    <div class="col-md-12">
-      
-        <!-- <ul class="nav nav-pills nav-stacked col-md-2">
-          <li><%#= link_to 'Students', students_path %></li> 
-          <li><%#= link_to 'Teams', teams_path %></li>
-          <li><%#= link_to 'Brackets', brackets_path %></li>
-          <li><%#= link_to 'Volunteers', volunteers_path %></li>
-          <li><%#= link_to 'Tournaments', tournaments_path %></li>
-		  <%# if logged_in? %>
-		  	<li><%#= link_to "Logout", logout_path %></li>
-		  <%# end %>
-        </ul> -->
-        <div class="tab-content col-md-10">
-          <div class="jumbotron">
+    <div class="col-sm-12">
+      <div class="jumbotron">
         <h2>Welcome, <%= current_user.volunteer.first_name %>!</h2>
-        <p class="lead">Here are the most recent Project C.H.U.C.K. updates!</p>
-        <br>
-        <center><p id="update">There are currently <b><%= Student.all.count %></b> students registered for Project CHUCK</p></center>
-        </div>
-
-        <div class="col-sm-12 col-md-12 col-lg-7">
-          <!-- <h3>Demographics</h3> -->
-          <% if (@male_students.size + @female_students.size) > 2 %>
-              <%= high_chart("my_id1", @gender_chart) %> <br>
-              <%= high_chart("my_id2", @school_district_chart) %> <br>
-          <% else %>
-            <%= "None at this time." %>
-          <% end %>
-        <!-- </div> -->
+        <p class="lead">Here are the most recent Project C.H.U.C.K. 2015 updates!</p><br>
+        <center><p id="update">There are currently <b><%= Student.all.count %></b> students registered. </p></center>
+      </div>
     </div>
-
+  </div><br>
+  <div class="row">
+    <div class="col-sm-7">
+      <h3>Distribution of Registered Students</h3>
+      <%= high_chart("my_id1", @gender_chart) %>
+    </div>
+    <div class="col-sm-5">
+      <h3>Students Not on a Team</h3>
+      <%= render :partial => 'unassigned' %>
+    </div>
   </div>
-  <!-- /row -->
-
 </div>
-
-<hr>
-
-
