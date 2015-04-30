@@ -6,7 +6,7 @@ class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.by_bracket.paginate(:page => params[:page]).per_page(10)
+    @teams = Team.alphabetical.paginate(:page => params[:page]).per_page(10)
   end
 
   # GET /teams/1

@@ -35,6 +35,8 @@ ProjectChuck2015::Application.routes.draw do
   get 'login' => 'sessions#new', :as => :login
   get 'logout' => 'sessions#destroy', :as => :logout
 
+  get 'survey' => 'households#survey', :as => :survey
+
   # semi-static routes
   get 'home', to: 'home#index', as: :home
   get 'home/about', to: 'home#about', as: :about

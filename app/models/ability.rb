@@ -14,6 +14,7 @@ class Ability
         can :read, Volunteer
         can :show, Household
         can :show, Volunteer
+        can :survey, Household
       end   
     #
     # The first argument to `can` is the action you are giving the user

@@ -6,12 +6,15 @@
 //       heightStyle: "content"
 //     });
 //   });
+
+
     if (window.location.pathname == '/households/new') {
 window.onload = function(){
 
         $( "#accordion" ).accordion({
           heightStyle: "content"
         });
+
         $('#accordion button').click(function(e) {
             e.preventDefault();
             var delta = ($(this).is('.next') ? 1 : -1);
@@ -109,8 +112,34 @@ window.onload = function(){
 
 $(document).ready(function() {
   $('.sigPad').signaturePad({drawOnly:true});
+
 });
 
 $(document).on('nested:fieldRemoved', function (event) {
     $('[required]', event.field).removeAttr('required');
   });
+
+
+
+// window.onload = function(){
+//     jQuery.validator.setDefaults({
+//       debug: true,
+//       success: "valid"
+//     });
+//     $( "#new_household" ).validate({
+//       rules: {
+//         email: {
+//           required: true,
+//           email: true
+//         }
+//       }
+//     });
+// });
+
+
+
+
+
+
+
+

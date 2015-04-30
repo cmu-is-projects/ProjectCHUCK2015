@@ -35,8 +35,7 @@ class HouseholdsController < ApplicationController
 
     respond_to do |format|
       if @household.save
-        format.html { redirect_to @household, notice: 'Household was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @household }
+        redirect_to survey_path, notice: "Congratulations! You have successfully registered for Project C.H.U.C.K"
       else
         @household.students.build if @household.students.blank?
         @household.guardians.build if @household.guardians.blank?
