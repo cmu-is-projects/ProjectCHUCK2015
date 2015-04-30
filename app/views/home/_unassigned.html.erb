@@ -1,0 +1,31 @@
+<div class="container">
+  <table class="table">
+   <thead>
+    <tr>
+      <th>Name</th>
+      <!-- <th>Age</th>
+      <th></th>
+      <th></th> -->
+    </tr>
+  </thead> 
+
+  <tbody>
+   <% @students.each do |student| %>
+   
+   <tr>
+    <% if student.gender == "Male"%>
+    <td class="boy"><%= link_to student.proper_name, student %></td>
+    <%else%>
+    <td class="girl"><%= link_to student.proper_name, student %></td>
+    <%end%> 
+    <!-- <td><%= student.age %></td> -->
+    <!-- <td><%#= link_to(image_tag('edit.png'), edit_student_path(student)) %></td> -->
+    <!-- <td><%#= link_to(image_tag('delete.png'), student, method: :delete, data: { confirm: 'Are you sure?' }) %></td> -->
+  </tr>
+  <% end %>
+</tbody>
+</table>
+
+<%= will_paginate @students %>
+
+</div>

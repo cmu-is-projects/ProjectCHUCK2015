@@ -1,5 +1,5 @@
 <!DOCTYPE html> 
-<%= form_for(@location) do |f| %>
+<%= simple_form_for(@location) do |f| %>
   <% if @location.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
@@ -14,19 +14,19 @@
 
   <div class="field">
     <%= f.label :street %><br>
-    <%= f.text_field :street, :class => "input-lg" %>
+    <%= f.input_field :street, :class => "input-lg" %>
   </div>
   <div class="field">
     <%= f.label :city %><br>
-    <%= f.text_field :city, :class => "input-lg" %>
+    <%= f.input_field :city, :class => "input-lg" %>
   </div>
   <div class="field">
     <%= f.label :zip %><br>
-    <%= f.text_field :zip, :class => "input-lg" %>
+    <%= f.input_field :zip, :class => "input-lg" %>
   </div>
   <div class="field">
     <%= f.label :state %><br>
-    <%= f.text_field :state, :class => "input-lg" %>
+    <%= f.input_field :state, :class => "input-lg" %>
   </div>
   <div class="field">
     <%= f.label :active %><br>
