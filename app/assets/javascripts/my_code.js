@@ -44,26 +44,28 @@ $(document).ready(function() {
 
 });
 
-  function drawValidations(conditions, curr, name, id){
+function drawValidations(conditions, curr, name, id){
     if(conditions){
-        var lv = new LiveValidation(id);
-        if(curr.required){
-            lv.add( Validate.Presence )
-        }
-        if(name.indexOf("email") > -1){
-            lv.add( Validate.Format, {pattern:/[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))/i});
-        }
-        if(name.indexOf("phone") > -1){
-            lv.add( Validate.Format, { pattern: /^\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/, failureMessage: "Invalid format"});
-        }
-        if(name.indexOf("zip") > -1){
-            lv.add(  Validate.Format, { pattern: /^\d{5}(?:[-\s]\d{4})?$/, failureMessage: "Invalid Format" }  );
-        }
         if(name.indexOf("agree") > -1){
-            lv.add( Validate.Acceptance );
+            var lv2 = new LiveValidation(id, {validMessage: "I agree."});
+            lv2.add( Validate.Acceptance, {failureMessage: "Must be accepted"});
+        }else{
+            var lv = new LiveValidation(id);
+            if(curr.required){
+                lv.add( Validate.Presence )
+            }
+            if(name.indexOf("email") > -1){
+                lv.add( Validate.Format, {pattern:/^[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))$/i});
+            }
+            if(name.indexOf("phone") > -1){
+                lv.add( Validate.Format, { pattern: /^\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/, failureMessage: "Invalid format"});
+            }
+            if(name.indexOf("zip") > -1){
+                lv.add(  Validate.Format, { pattern: /^\d{5}(?:[-\s]\d{4})?$/, failureMessage: "Invalid Format" }  );
+            }
         }
     }
-  }
+}
 
 $(document).on('nested:fieldAdded', function (event) {
     var inputs = $('input')
