@@ -181,6 +181,7 @@ textarea.LV_invalid_field:active {
 
 .ui-accordion .ui-accordion-content{ 
   overflow:hidden !important; 
+}
 
 .heightincrease{
 height: 2em;

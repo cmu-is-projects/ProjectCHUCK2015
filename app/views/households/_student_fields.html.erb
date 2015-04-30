@@ -3,7 +3,7 @@
 <div class="container">
   <%= f.link_to_remove("X Remove student") %> <br>
   
-  <h3>General Participant Information</h3>
+  <h3>Student Participant Information</h3>
 
   <br>
 
@@ -119,23 +119,6 @@
 <div class="row">
   <div class="col-xs-6 col-sm-6">
     <div class="field">
-      <%= f.label :emergency_contact_name, :label => "Name of Emergency Contact" %> <br>
-      <%= f.input_field :emergency_contact_name, :class => "input-lg" %>
-    </div>
-  </div>
-  <div class="col-xs-6 col-sm-6">
-    <div class="field">
-      <%= f.label :emergency_contact_phone, :label => "Phone Number of Emergency Contact" %> <br>
-      <%= f.input_field :emergency_contact_phone, as: :string, :class => "input-lg"  %>
-    </div>
-  </div>
-</div>
-
-<br>
-
-<div class="row">
-  <div class="col-xs-6 col-sm-6">
-    <div class="field">
       <%= f.label :emergency_contact_relation, :label => "Emergency Contact's Relation to Participant" %> <br>
       <%= f.input_field :emergency_contact_relation, :class => "input-lg" %>
     </div>
@@ -147,17 +130,27 @@
     </div>
   </div>
 </div>
+<hr>
 
-<br>
+<h3>Uploads</h3>
 
 <div class="row">
-  <div class="col-xs-12 col-sm-12">
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :birth_certificate, :label => "Birth Certificate Upload" %>
+      <%= f.input_field :birth_certificate, :as => :file %>
+    </div>
+  </div>
+  <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label :report_card, :label => "Report Card Upload" %> <br>
       <%= f.input_field :report_card, :as => :file, :class => "input-lg" %>
     </div>
   </div> 
 </div>
+
+<br>
+
 
 <br><hr>
 
@@ -225,6 +218,34 @@
   </div> 
 </div>
 
+
+
+<br><hr>
+
+<h3>Emergency Contact Information</h3>
+<div class="row">
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :emergency_contact_name, :label => "Name of Emergency Contact" %> <br>
+      <%= f.input_field :emergency_contact_name %>
+    </div>
+  </div>
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :emergency_contact_relation, :label => "Emergency Contact's Relation to Participant" %> <br>
+      <%= f.input_field :emergency_contact_relation %>
+    </div>
+  </div>
+
+</div>
+<div class="row">
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :emergency_contact_phone, :label => "Phone Number of Emergency Contact" %> <br>
+      <%= f.input_field :emergency_contact_phone, as: :string %>
+    </div>
+  </div>
+</div>
 <br><hr>
 
 <h3>Medical and Insurance Information</h3>
