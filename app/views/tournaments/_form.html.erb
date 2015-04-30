@@ -23,11 +23,11 @@
 
   <div class="field">
     <%= f.label :start_date %><br>
-    <%= f.input_field :start_date, :class => "input-lg" %>
+    <%= f.input_field :start_date, as: :date, :order =>[:month, :day, :year], :start_year => 14.years.ago.year, :end_year => Time.now.year, :class => "input-lg" %>
   </div>
   <div class="field">
     <%= f.label :end_date %><br>
-    <%= f.input_field :end_date, :class => "input-lg" %>
+    <%= f.input_field :end_date, as: :date, :order =>[:month, :day, :year], :start_year => 14.years.ago.year, :end_year => Time.now.year, :class => "input-lg" %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -1,15 +1,15 @@
 <%= simple_form_for(@guardian) do |f| %>
-  <% if @guardian.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@guardian.errors.count, "error") %> prohibited this guardian from being saved:</h2>
+<% if @guardian.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@guardian.errors.count, "error") %> prohibited this guardian from being saved:</h2>
 
-      <ul>
-      <% @guardian.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% @guardian.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
 <div class="container well">
   <div class="row">
@@ -52,17 +52,17 @@
     </div>
   </div>
 
-<div class="row">
+  <div class="row">
     <div class="col-xs-12 col-sm-6">
-  <div class="actions">
-    <%= f.submit "Submit", :class => 'btn btn-primary'%>
+      <div class="actions">
+        <%= f.submit "Submit", :class => 'btn btn-primary'%>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <div class="actions">
+        <%= link_to 'Back', guardians_path, :class => 'btn btn-primary' %>
+      </div>
+    </div>
   </div>
-</div>
- <div class="col-xs-12 col-sm-6">
-  <div class="actions">
-  <%= link_to 'Back', guardians_path, :class => 'btn btn-primary' %>
-</div>
-</div>
-</div>
-<% end %>
+  <% end %>
 </div>
