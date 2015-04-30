@@ -31,8 +31,14 @@ $(document).ready(function() {
         var curr = inputs[i]
         var name = curr.name
         var id = curr.id
-        var conditions = (id.indexOf("household") > -1 && curr.type != 'hidden' && curr.type != 'radio')
-        drawValidations(conditions, curr, name, id);
+        var household_conditions = (id.indexOf("household") > -1 && curr.type != 'hidden' && curr.type != 'radio')
+        var volunteer_conditions = (id.indexOf("volunteer") > -1 && curr.type != 'hidden' && curr.type != 'radio')
+
+        //draw household form validations
+        drawValidations(household_conditions, curr, name, id);
+
+        //draw volunteer form validations
+        drawValidations(volunteer_conditions, curr, name, id);
 
     }
 
