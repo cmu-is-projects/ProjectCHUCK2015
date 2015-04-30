@@ -60,6 +60,36 @@
   <br> 
 
   <div class="row">
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :pastparticipation, :label => "Please indicate number of years you have participated in Project CHUCK. If none, please enter 0." %><br>
+      <%= f.input_field :pastparticipation, collection: Student::PROJECTCHUCK_YEARS, :selected => Student::PROJECTCHUCK_YEARS[0], :class => "input-lg" %>
+    </div>
+  </div>
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :jersey_size %> <br>
+      <%= f.input_field :jersey_size, collection: Student::JERSEYSIZES, :selected => Student::JERSEYSIZES[0], :class => "input-lg" %>
+    </div>
+  </div>
+</div>
+
+  <br>
+
+  <div class="row">
+    <div class="col-xs-6 col-sm-6">
+      <div class="field">
+        <%= f.label :birth_certificate, :label => "Birth Certificate Upload" %>
+        <%= f.input_field :birth_certificate, :as => :file, :class => "input-lg" %>
+      </div>
+    </div>
+  </div>
+
+<br><hr>
+
+<h3>School Information</h3>
+
+  <div class="row">
    <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label :school, :label => "Name of School" %><br>
@@ -91,23 +121,6 @@
   </div>
 </div>
 
-<br> 
-
- <div class="row">
-  <div class="col-xs-6 col-sm-6">
-    <div class="field">
-      <%= f.label :pastparticipation, :label => "Please indicate number of years you have participated in Project CHUCK. If none, please enter 0." %><br>
-      <%= f.input_field :pastparticipation, collection: Student::PROJECTCHUCK_YEARS, :selected => Student::PROJECTCHUCK_YEARS[0] %>
-    </div>
-  </div>
-  <div class="col-xs-6 col-sm-6">
-    <div class="field">
-      <%= f.label :jersey_size %> <br>
-      <%= f.input_field :jersey_size, collection: Student::JERSEYSIZES, :selected => Student::JERSEYSIZES[0] %>
-    </div>
-  </div>
-</div>
-
 <br>
 
 <div class="row">
@@ -117,12 +130,6 @@
       <%= f.input_field :report_card, :as => :file, :class => "input-lg" %>
     </div>
   </div> 
-  <div class="col-xs-6 col-sm-6">
-    <div class="field">
-      <%= f.label :birth_certificate, :label => "Birth Certificate Upload" %>
-      <%= f.input_field :birth_certificate, :as => :file, :class => "input-lg" %>
-    </div>
-  </div>
 </div>
 
 <br><hr>
@@ -242,7 +249,7 @@
 
 <div class="row">
   <div class="col-xs-12 col-sm-12">
-  <p class="widthfit">Facts concerning the child's medical history including allergies, medications, and any physical impairment to which a physician should be alerted are listed below. I represent that the list below is current and accurate and includes all allergies. In case of an accident or illness, I hereby authorize a representative of Next Level Athletics, a program of Best of the Batch Foundation, to use his/her judgment in obtaining immediate medical care. I give my consent for the administration of emergency medical treatment by an emergency medical team, licensed physician or hospital chosen by Best of the Batch Foundation. </p>
+  <p class="widthfit">Facts concerning the child's medical history including allergies, medications, and any physical impairment to which a physician should be alerted are listed below. I represent that the list below is current and accurate and includes all allergies. In case of an accident or illness, I hereby authorize a representative of Project C.H.U.C.K., a program of Best of the Batch Foundation, to use his/her judgment in obtaining immediate medical care. I give my consent for the administration of emergency medical treatment by an emergency medical team, licensed physician or hospital chosen by Best of the Batch Foundation. </p>
 </div>
   <div class="col-xs-12 col-sm-12">
     <div class="field">
@@ -258,7 +265,7 @@
 
 <div class="row">
   <div class="col-xs-12 col-sm-12">
-  <p class="widthfit">I agree to take responsibility as a student-athlete to read my assigned book, attend study hall, and to review and follow all Best of the Batch Foundation and Next Level Athletics rules. (Click if you agree)</p>
+  <p class="widthfit">I agree to take responsibility as a student-athlete to read my assigned book, attend study hall, and to review and follow all Best of the Batch Foundation and Project C.H.U.C.K. rules. (Click if you agree)</p>
 </div>
   <div class="col-xs-6 col-sm-6">
     <div class="field">
@@ -282,7 +289,7 @@
 
 <div class="row">
   <div class="col-xs-12 col-sm-12">
-  <p class="widthfit">To participate in Project C.H.U.C.K. in consideration of the services to be performed by its sponsors, officers, and volunteers, I do hereby assume all the risks and hazards incidental to the conduct of the activities, and I do further hereby release, absolve, indemnify, and hold harmless Project C.H.U.C.K., operated and sponsored by Best of the Batch, its sponsors, officers, and volunteers of and from all manner of action and actions, cause or causes of action, suits, debts and sums of money, claims of demands whatsoever, in law or equity, arising out of or pursuant to the conduct of the activities. I am fully aware of risks inherent to this activity and should not participate or allow my child to participate unless medically able. I assume all risks associated with this activity. I also agree that photographs, recordings or any other record may be used for the purpose of promoting programs operated or sponsored by Project C.H.U.C.K. In case of accident or illness, I authorize a representative of Project C.H.U.C.K. to obtain immediate care deemed necessary by licensed medical personnel. I have read and fully understand that these terms are contractual and are not a mere recital and sign it voluntarily, and hereby take responsibility for the above information and it is accurate to the best of my knowledge. I also understand that if not correct, my above-named child will be ineligible to play for the season.</p>
+  <p class="widthfit">To participate in Project C.H.U.C.K. in consideration of the services to be performed by its sponsors, officers, and volunteers, I do hereby assume all the risks and hazards incidental to the conduct of the activities, and I do further hereby release, absolve, indemnify, and hold harmless Project C.H.U.C.K., operated and sponsored by Best of the Batch, its sponsors, officers, and volunteers of and from all manner of action and actions, cause or causes of action, suits, debts and sums of money, claims of demands whatsoever, in law or equity, arising out of or pursuant to the conduct of the activities. I am fully aware of risks inherent to this activity and should not participate or allow my child to participate unless medically able. I assume all risks associated with this activity. I also agree that photographs, recordings or any other record may be used for the purpose of promoting programs operated or sponsored by Best of the Batch. In case of accident or illness, I authorize a representative of Best of the Batch to obtain immediate care deemed necessary by licensed medical personnel. I have read and fully understand that these terms are contractual and are not a mere recital and sign it voluntarily, and hereby take responsibility for the above information and it is accurate to the best of my knowledge. I also understand that if not correct, my above-named child will be ineligible to play for the season.</p>
 </div>
   <div class="col-xs-12 col-sm-12">
     <div class="field">
@@ -316,7 +323,7 @@
 <div class="row">
   <div class="col-xs-6 col-sm-6">
    <div class="sigPad">
-    <p class="drawItDesc">Parent: Sign Below</p>
+    <p class="drawItDesc">* Parent: Sign Below</p>
     <ul class="sigNav">
       <li class="drawIt"></li>
       <li class="clearButton"><a href="#clear">Clear</a></li>
@@ -330,7 +337,7 @@
 </div>
 <div class="col-xs-6 col-sm-6">
   <div class="sigPad">
-    <p class="drawItDesc">Student: Sign Below</p>
+    <p class="drawItDesc">* Student: Sign Below</p>
     <ul class="sigNav">
       <li class="drawIt"></li>
       <li class="clearButton"><a href="#clear">Clear</a></li>

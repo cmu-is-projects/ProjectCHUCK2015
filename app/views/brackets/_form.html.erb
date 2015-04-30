@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :tournament_id %><br>
-    <%= f.collection_select :tournament_id, Tournament.all, :id, :name, prompt: "Select tournament...", :class => "input-lg" %>
+    <%= f.label "Tournament Category" %><br>
+    <%= f.input_field :tournament_id, collection: Tournament.all, prompt: "Select tournament..." , :class => "input-lg" %>
   </div>
   <div class="field">
     <%= f.label :gender %><br>
@@ -32,7 +32,7 @@
     <%= f.input_field :max_students, :class => "input-lg" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
-    <%= link_to 'Back', brackets_path %>
+    <%= f.submit "Submit", :class => 'btn btn-primary' %>
+    <%= link_to 'Back', brackets_path, :class => 'btn btn-primary' %>
   </div>
 <% end %>
