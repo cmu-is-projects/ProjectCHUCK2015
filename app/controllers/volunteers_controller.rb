@@ -30,8 +30,7 @@ class VolunteersController < ApplicationController
 
     respond_to do |format|
       if @volunteer.save
-        format.html { redirect_to @volunteer, notice: 'Volunteer was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @volunteer }
+        format.html { redirect_to home_path, notice: "Congratulations! You have successfully registered as a volunteer for Project C.H.U.C.K" }
       else
         format.html { render action: 'new' }
         format.json { render json: @volunteer.errors, status: :unprocessable_entity }

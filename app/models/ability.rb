@@ -9,11 +9,12 @@ class Ability
         can :manage, :all
       else
         can :create, Household
-        can :read, Household
+        # can :read, Household
         can :create, Volunteer
         can :read, Volunteer
-        can :show, Household
+        # can :show, Household
         can :show, Volunteer
+        can :survey, Household
       end   
     #
     # The first argument to `can` is the action you are giving the user

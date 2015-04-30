@@ -1,6 +1,6 @@
 class HouseholdsController < ApplicationController
   before_action :set_household, only: [:show, :edit, :update, :destroy]
-  before_action :check_login, :except => [:create, :new, :show]
+  before_action :check_login, :except => [:create, :new, :show, :survey]
   authorize_resource
 
   # GET /households
@@ -28,6 +28,9 @@ class HouseholdsController < ApplicationController
   def edit
   end
 
+  def survey
+  end
+
   # POST /households
   # POST /households.json
   def create
@@ -35,8 +38,7 @@ class HouseholdsController < ApplicationController
 
     respond_to do |format|
       if @household.save
-        format.html { redirect_to @household, notice: 'Household was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @household }
+        format.html { redirect_to survey_path, notice: "Congratulations! You have successfully registered for Project C.H.U.C.K" }
       else
         @household.students.build if @household.students.blank?
         @household.guardians.build if @household.guardians.blank?
