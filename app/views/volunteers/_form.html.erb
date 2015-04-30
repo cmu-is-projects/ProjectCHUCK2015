@@ -38,7 +38,7 @@
         <%= f.input_field :role, collection: Volunteer::ROLE_ARRAY[1,2], :selected => Volunteer::ROLE_ARRAY[1] %>
       </div>
     </div>
-    <div class="col-xs-6 col-sm-6">
+    <div class="col-xs-4 col-sm-4">
       <div class="field">
         <%= f.label :dob, :label => "Birthday" %> <br>
         <%= f.date_select :dob, { :discard_year => true} %>
@@ -52,7 +52,7 @@
   <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label :street %> <br>
-      <%= f.text_field :street, :class => "input-lg" %>
+      <%= f.input_field :street, :class => "input-lg" %>
     </div>
   </div>
   <div class="col-xs-6 col-sm-6">
@@ -67,7 +67,7 @@
   <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label :state %> <br>
-      <%= f.text_field :state, :class => "input-lg" %>
+      <%= f.input_field :state, collection: Household::STATES_LIST, :selected =>  Household::STATES_LIST[38]%>
     </div>
   </div>
   <div class="col-xs-6 col-sm-6">
@@ -209,7 +209,7 @@
   <div class="col-sm-12">
     <div class="field">
       <%= f.label "Date" %><br>
-      <%= f.date_select :volunteer_sign_date, :class => "input-lg" %>
+      <%= f.input_field :volunteer_sign_date, order: [:month, :day, :year]%>
     </div>
   </div>
 </div>
