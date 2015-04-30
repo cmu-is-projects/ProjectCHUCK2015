@@ -1,4 +1,4 @@
-<%= form_for(@school) do |f| %>
+<%= simple_form_for(@school) do |f| %>
   <% if @school.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@school.errors.count, "error") %> prohibited this school from being saved:</h2>
@@ -13,17 +13,18 @@
 
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name, :class => "input-lg" %>
+    <%= f.input_field :name, :class => "input-lg" %>
   </div>
   <div class="field">
     <%= f.label :district %><br>
-    <%= f.text_field :district, :class => "input-lg" %>
+    <%= f.input_field :district, :class => "input-lg" %>
   </div>
   <div class="field">
     <%= f.label :county %><br>
-    <%= f.text_field :county, :class => "input-lg" %>
+    <%= f.input_field :county, :class => "input-lg" %>
   </div>
   <div class="actions">
     <%= f.submit %>
+    <%= link_to 'Back', schools_path %>
   </div>
 <% end %>
