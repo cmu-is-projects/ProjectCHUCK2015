@@ -63,13 +63,13 @@
   <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label :pastparticipation, :label => "Please indicate number of years you have participated in Project CHUCK. If none, please enter 0." %><br>
-      <%= f.input_field :pastparticipation, collection: Student::PROJECTCHUCK_YEARS, :selected => Student::PROJECTCHUCK_YEARS[0], :class => "input-lg" %>
+      <%= f.input_field :pastparticipation, collection: Student::PROJECTCHUCK_YEARS, :selected => Student::PROJECTCHUCK_YEARS[0] %>
     </div>
   </div>
   <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label :jersey_size %> <br>
-      <%= f.input_field :jersey_size, collection: Student::JERSEYSIZES, :selected => Student::JERSEYSIZES[0], :class => "input-lg" %>
+      <%= f.input_field :jersey_size, collection: Student::JERSEYSIZES, :selected => Student::JERSEYSIZES[0] %>
     </div>
   </div>
 </div>

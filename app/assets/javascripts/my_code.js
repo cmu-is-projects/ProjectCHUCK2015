@@ -16,6 +16,7 @@ if ((window.location.pathname == '/households/new') || (window.location.pathname
 		});
     
     };
+
 };
 
 
@@ -48,9 +49,9 @@ function drawValidations(conditions, curr, name, id){
             lv2.add( Validate.Acceptance, {failureMessage: "Must be accepted"});
         }else{
             var lv = new LiveValidation(id);
-            if(curr.required){
-                lv.add( Validate.Presence )
-            }
+            // if(curr.required){
+            //     lv.add( Validate.Presence )
+            // }
             if(name.indexOf("email") > -1){
                 lv.add( Validate.Format, {pattern:/^[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))$/i});
             }
@@ -64,24 +65,21 @@ function drawValidations(conditions, curr, name, id){
     }
 }
 
-$(document).on('nested:fieldAdded', function (event) {
-    var inputs = $('input')
-    for(var i =0; i< inputs.length;i++){
-        var curr = inputs[i]
-        var name = curr.name
-        var id = curr.id
-        var conditions = (id.indexOf("household") > -1 && curr.type != 'hidden' && curr.type != 'radio' && id.indexOf("_0_") == -1)
-        drawValidations(conditions, curr, name, id);
-    }  
-});
+// $(document).on('nested:fieldAdded', function (event) {
+//     var inputs = $('input')
+//     for(var i =0; i< inputs.length;i++){
+//         var curr = inputs[i]
+//         var name = curr.name
+//         var id = curr.id
+//         var conditions = (id.indexOf("household") > -1 && curr.type != 'hidden' && curr.type != 'radio' && id.indexOf("_0_") == -1)
+//         drawValidations(conditions, curr, name, id);
+//     }  
+// });
+
 
 $(document).on('nested:fieldRemoved', function (event) {
     $('[required]', event.field).removeAttr('required');
   });
-
-
-
-
 
 
 
