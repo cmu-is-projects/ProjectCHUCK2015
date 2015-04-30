@@ -9,10 +9,11 @@
       <th>Name</th>
       <th>Age</th>
       <th>Team</th>
-      <th>Parent cell phone</th>
+      <th>School</th>
       <th>Student/participant cell phone</th>
       <th>Allergies</th>
       <th>Medications</th>
+      <th>Jersey Size</th>
       <th>Cleared?</th>
       <th></th>
       <th></th>
@@ -26,7 +27,7 @@
     <td><%= link_to student.name, student %></td>
     <td><%= student.age %></td>
     <td><%= student.team.name %></td> 
-   <td><%= student.school.name %></td> 
+    <td><%= student.school %></td> 
     <td><%= student.allergies %></td>
     <td><%= student.medications %></td> 
     <td><%= student.jersey_size %></td>
