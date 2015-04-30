@@ -3,7 +3,7 @@
 // });
 
 
-if (window.location.pathname == '/households/new') {
+if ((window.location.pathname == '/households/new') || (window.location.pathname == '/households') || (window.location.pathname == '/registerstudent')){
 	window.onload = function(){
 
 		$( "#accordion" ).accordion({

@@ -42,6 +42,9 @@ ProjectChuck2015::Application.routes.draw do
   get 'home/about', to: 'home#about', as: :about
   get 'home/contact', to: 'home#contact', as: :contact
 
+  get 'registerstudent', to: 'households#new', :as => :registerstudent
+  get 'registervolunteer', to: 'volunteers#new', :as => :registervolunteer
+
   # set the root url
   root to: 'home#index'
 
