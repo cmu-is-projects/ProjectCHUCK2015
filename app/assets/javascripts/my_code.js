@@ -21,7 +21,7 @@ if ((window.location.pathname == '/households/new') || (window.location.pathname
             var self = this;
             setTimeout(function() {
                 theOffset = $(self).offset();
-                $('body,html').animate({ scrollTop: theOffset.top - 140 });
+                $('body,html').animate({ scrollTop: theOffset.top - 145 });
             }, 110); // ensure the collapse animation is done
         });
 
