@@ -20,6 +20,8 @@ class Volunteer < ActiveRecord::Base
   #team_id is valid (but not req?)
   ROLE_ARRAY = ["Administrator", "Coach", "Volunteer"]
   validates :role, inclusion: { in: ROLE_ARRAY, allow_blank: false }
+
+  PROJECTCHUCK_YEARS = (0..(Time.now.year - 2003)).to_a
   
   #scopes
   scope :alphabetical, -> { order('last_name, first_name') }
