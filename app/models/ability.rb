@@ -11,6 +11,7 @@ class Ability
         can :create, Household
         # can :read, Household
         can :create, Volunteer
+        can :create, User #MUST REMOVE THIS 
         can :read, Volunteer
         # can :show, Household
         can :show, Volunteer
