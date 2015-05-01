@@ -3,10 +3,10 @@
 <p>
   <h2><strong><%= @volunteer.proper_name %></strong></h2>
 
-  <strong>Role:</strong>
+  <h3>Role:</h3>
   <%= @volunteer.role %>
 
-<% if @volunteer.role == "coach" %> 
+<% if @volunteer.role == "Coach" %> 
   <strong>Team:</strong>
   <% if @volunteer.team == nil %> 
     <p> Not Assigned" </p>
@@ -18,10 +18,16 @@
 
 <h3>Address</h3>
 
-<p>
-  <%= @volunteer.street %><br>
-  <%= @volunteer.city %>, <%= @volunteer.state %> , <%= @volunteer.zip %>
-</p>
+<% if (@volunteer.street==nil && @volunteer.city==nil && @volunteer.state==nil && @volunteer.zip==nil) %> 
+  <p>
+    <strong>Not Provided</strong>
+  </p>
+<% else %>
+  <p>
+    <%= @volunteer.street %><br>
+    <%= @volunteer.city %>, <%= @volunteer.state %>, <%= @volunteer.zip %>
+  </p>
+<% end %>
 
 <h3>Contact Information</h3>
 <p>
@@ -45,7 +51,7 @@
 
 <h3>Project CHUCK Experience</h3>
 <p>
-	<strong>Been with Project CHUCK for </strong> <%= @volunteer.years_with_proj_chuck%> years<br>
+	<strong>Been with Project CHUCK for </strong> <%= @volunteer.years_with_proj_chuck.to_s %> years<br>
 	<strong>Position:</strong>
 		<%= @volunteer.position %><br>
 	<strong>Team Coached:</strong>
