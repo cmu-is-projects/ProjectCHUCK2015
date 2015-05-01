@@ -3,8 +3,17 @@
 <p>
   <h2><strong><%= @volunteer.proper_name %></strong></h2>
 
+  <strong>Role:</strong>
+  <%= @volunteer.role %>
+
+<% if @volunteer.role == "coach" %> 
   <strong>Team:</strong>
-  <%= @volunteer.team.name %>
+  <% if @volunteer.team == nil %> 
+    <p> Not Assigned" </p>
+  <% else %>
+    <%= @volunteer.team.name %>
+  <% end %>
+<% end %>
 </p>
 
 <h3>Address</h3>
