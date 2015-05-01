@@ -44,22 +44,6 @@
     <%= f.date_select :password_reset_sent_at, :class => "input-lg" %>
   </div>
   <div class="field">
-    <%= f.label :first_name %><br>
-    <%= f.input_field :first_name, :class => "input-lg" %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.input_field :last_name, :class => "input-lg" %>
-  </div>
-  <div class="field">
-    <%= f.label :cell_phone %><br>
-    <%= f.input_field :cell_phone, :class => "input-lg" %>
-  </div>
-  <div class="field">
-    <%= f.label :receives_text_msgs %><br>
-    <%= f.check_box :receives_text_msgs, :class => "input-lg" %>
-  </div>
-  <div class="field">
     <%= f.label :volunteer_id %><br>
     <%= f.collection_select :volunteer_id, Volunteer.all, :id, :name, prompt: "Select volunteer...", :class => "input-lg" %>
   </div>
