@@ -2,7 +2,7 @@ class Bracket < ActiveRecord::Base
 
   #Callbacks
   before_validation :checkActive, on: :create
-  before_save :bracketActive
+  after_save :bracketActive
 
   #Relationships 
   has_many :teams

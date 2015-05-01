@@ -31,6 +31,18 @@
     <%= f.label :max_students %><br>
     <%= f.input_field :max_students, :class => "input-lg" %>
   </div>
+
+  <br>
+
+ <div class="row">
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :active, :label => "Active:" %> <br>
+      <%= f.input_field :active, as: :radio_buttons, :class => "input-lg" %>
+    </div>
+  </div> 
+ </div>
+
   <div class="actions">
     <%= f.submit "Submit", :class => 'btn btn-primary' %>
     <%= link_to 'Back', brackets_path, :class => 'btn btn-primary' %>
