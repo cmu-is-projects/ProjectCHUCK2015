@@ -116,7 +116,7 @@
   <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label :years_with_proj_chuck, :label => "Please indicate number of years you have been with Project CHUCK. If none, please enter 0." %><br>
-      <%= f.input_field :years_with_proj_chuck, :class => "input-lg" %>
+      <%= f.input_field :years_with_proj_chuck, collection: Volunteer::PROJECTCHUCK_YEARS %>
     </div>
   </div>
   <div class="col-xs-6 col-sm-6">
