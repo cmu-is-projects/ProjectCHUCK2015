@@ -14,6 +14,7 @@
   before_save :reformat_emergency_cell_phone
   after_validation :check_all_files
   after_create :create_reg
+  before_save :set_active, on: :create
 
   #uploaders for carrierwave
   mount_uploader :report_card, AvatarUploader
@@ -185,6 +186,9 @@
 
   private
      # We need to strip non-digits before saving to db
+     def set_active
+      self.active = true
+     end
      def reformat_cell_phone
        cell_phone = self.cell_phone.to_s  # change to string in case input as all numbers 
        cell_phone.gsub!(/[^0-9]/,"") # strip all non-digits
