@@ -39,7 +39,7 @@
     <div class="col-xs-6 col-sm-6">
       <div class="field">
         <%= f.label :gender %> <br>
-        <%= f.input_field :gender, collection: Student::GENDER_ARRAY, :selected => Student::GENDER_ARRAY[0] %>
+        <%= f.input_field :gender, collection: Student::GENDER_ARRAY %>
       </div>
     </div>
     <div class="col-xs-4 col-sm-4">
@@ -79,7 +79,7 @@
   <div class="col-xs-6 col-sm-6">
    <div class="field">
      <%= f.label :grade, :label => "Grade as of September, #{Time.now.year}" %> <br>
-     <%= f.input_field :grade, collection: Student::GRADESWITHK_ARRAY, :selected => Student::GRADESWITHK_ARRAY[0] %>
+     <%= f.input_field :grade, collection: Student::GRADESWITHK_ARRAY %>
    </div>
  </div>
 </div>
@@ -90,13 +90,13 @@
    <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label :district, :label => "School District" %><br>
-      <%= f.input_field :district, collection: School::DISTRICT_ARRAY, :selected => School::DISTRICT_ARRAY[0] %>
+      <%= f.input_field :district, collection: School::DISTRICT_ARRAY %>
     </div>
   </div>
   <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label :gpa, :label => "GPA" %><br>
-      <%= f.input_field :gpa, collection: Student::GPA_ARRAY, :selected => Student::GPA_ARRAY[0] %>
+      <%= f.input_field :gpa, collection: Student::GPA_ARRAY %>
     </div>
   </div>
 </div>
@@ -107,7 +107,7 @@
   <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label :pastparticipation, :label => "Please indicate number of years you have participated in Project CHUCK. If none, please enter 0." %><br>
-      <%= f.input_field :pastparticipation, collection: Student::PROJECTCHUCK_YEARS, :selected => Student::PROJECTCHUCK_YEARS[0], :class => "input-lg" %>
+      <%= f.input_field :pastparticipation, collection: Student::PROJECTCHUCK_YEARS, :class => "input-lg" %>
     </div>
   </div>
 </div>
@@ -118,7 +118,7 @@
   <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label :active, :label => "Active:" %> <br>
-      <%= f.input_field :active, as: :boolean, checked_value: true, unchecked_value: false, :class => "input-lg" %>
+      <%= f.input_field :active, as: :radio_buttons %>
     </div>
   </div> 
  </div>
@@ -167,7 +167,7 @@
   <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label :jersey_size %> <br>
-      <%= f.input_field :jersey_size, collection: Student::JERSEYSIZES, :selected => Student::JERSEYSIZES[0], :class => "input-lg" %>
+      <%= f.input_field :jersey_size, collection: Student::JERSEYSIZES, :class => "input-lg" %>
     </div>
   </div>
   <div class="col-xs-6 col-sm-6">
