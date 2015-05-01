@@ -54,8 +54,8 @@
 		<%= @volunteer.child_name %><br>
 	<strong>Shirt Size:</strong>
 		<%= @volunteer.shirt_size %><br>
-	<strong>Has school clearance:</strong>
-  		<% if @volunteer.has_school_clearance==true %>
+	<strong>Has all clearances:</strong>
+  		<% if (@volunteer.act33_clearance==true && @volunteer.act34_clearance==true && @volunteer.act153_clearance==true) %>
     		<%=link_to image_tag("check16.png")%>
     	<% else %>
     		<%=link_to image_tag("missing16.png")%>
