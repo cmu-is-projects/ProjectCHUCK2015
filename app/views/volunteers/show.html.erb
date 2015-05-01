@@ -6,12 +6,14 @@
   <strong>Role:</strong> <%= @volunteer.role %> <br>
 
 <% if @volunteer.role == "Coach" %> 
+  <p>
   <strong>Team:</strong>
   <% if @volunteer.team == nil %> 
-    <p> Not Assigned </p>
+    Not Assigned
   <% else %>
     <%= @volunteer.team.name %>
   <% end %>
+  <p>
 <% end %>
 </p>
 
