@@ -14,7 +14,7 @@
   before_save :reformat_emergency_cell_phone
   after_validation :check_all_files
   after_create :create_reg
-  after_create :set_active
+  before_save :set_active, on: :create
 
   #uploaders for carrierwave
   mount_uploader :report_card, AvatarUploader
