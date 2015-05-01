@@ -3,16 +3,32 @@
 <p>
   <h2><strong><%= @volunteer.proper_name %></strong></h2>
 
+  <strong>Role:</strong> <%= @volunteer.role %> <br>
+
+<% if @volunteer.role == "Coach" %> 
+  <p>
   <strong>Team:</strong>
-  <%= @volunteer.team.name %>
+  <% if @volunteer.team == nil %> 
+    Not Assigned
+  <% else %>
+    <%= @volunteer.team.name %>
+  <% end %>
+  <p>
+<% end %>
 </p>
 
 <h3>Address</h3>
 
-<p>
-  <%= @volunteer.street %><br>
-  <%= @volunteer.city %>, <%= @volunteer.state %> , <%= @volunteer.zip %>
-</p>
+<% if (@volunteer.street==nil && @volunteer.city==nil && @volunteer.state==nil && @volunteer.zip==nil) %> 
+  <p>
+    <strong>Not Provided</strong>
+  </p>
+<% else %>
+  <p>
+    <%= @volunteer.street %><br>
+    <%= @volunteer.city %>, <%= @volunteer.state %>, <%= @volunteer.zip %>
+  </p>
+<% end %>
 
 <h3>Contact Information</h3>
 <p>
@@ -36,7 +52,7 @@
 
 <h3>Project CHUCK Experience</h3>
 <p>
-	<strong>Been with Project CHUCK for </strong> <%= @volunteer.years_with_proj_chuck%> years<br>
+	<strong>Been with Project CHUCK for </strong> <%= @volunteer.years_with_proj_chuck %> years<br>
 	<strong>Position:</strong>
 		<%= @volunteer.position %><br>
 	<strong>Team Coached:</strong>
@@ -45,8 +61,8 @@
 		<%= @volunteer.child_name %><br>
 	<strong>Shirt Size:</strong>
 		<%= @volunteer.shirt_size %><br>
-	<strong>Has school clearance:</strong>
-  		<% if @volunteer.has_school_clearance==true %>
+	<strong>Has all clearances:</strong>
+  		<% if (@volunteer.act33_clearance==true && @volunteer.act34_clearance==true && @volunteer.act153_clearance==true) %>
     		<%=link_to image_tag("check16.png")%>
     	<% else %>
     		<%=link_to image_tag("missing16.png")%>
