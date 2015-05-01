@@ -28,8 +28,12 @@
     <%= f.check_box :active, :class => "input-lg" %>
   </div>
   <div class="field">
-    <%= f.label :password_digest %><br>
-    <%= f.input_field :password_digest, :class => "input-lg" %>
+    <%= f.label :password %><br>
+    <%= f.input_field :password, :class => "input-lg" %>
+  </div>
+    <div class="field">
+    <%= f.label :password_confirmation %><br>
+    <%= f.input_field :password_confirmation, :class => "input-lg" %>
   </div>
   <div class="field">
     <%= f.label :active_after %><br>
