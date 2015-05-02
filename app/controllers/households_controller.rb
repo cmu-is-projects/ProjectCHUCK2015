@@ -36,6 +36,16 @@ class HouseholdsController < ApplicationController
   def create
     @household = Household.new(household_params)
 
+    require 'open3'
+    instructions = JSON.parse(params[:output]).map { |h| "line #{h['mx'].to_i},#{h['my'].to_i} #{h['lx'].to_i},#{h['ly'].to_i}" } * ' '
+    tempfile = Tempfile.new(["parent_signature", '.png'])
+    Open3.popen3("convert -size 398x150 xc:transparent -stroke blue -draw @- #{tempfile.path}") do |input, output, error|
+        input.puts instructions
+    end
+    @household.students.each do |student|
+      student.parent_signature = tempfile
+    end
+
     respond_to do |format|
       if @household.save
         format.html { redirect_to survey_path, notice: "Congratulations! You have successfully registered for Project C.H.U.C.K" }

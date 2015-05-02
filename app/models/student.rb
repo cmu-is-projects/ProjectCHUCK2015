@@ -21,6 +21,7 @@
   mount_uploader :report_card, AvatarUploader
   mount_uploader :physical, AvatarUploader
   mount_uploader :proof_of_insurance, AvatarUploader
+  mount_uploader :parent_signature, AvatarUploader
 
 	#Relationship Validations
 	belongs_to :household

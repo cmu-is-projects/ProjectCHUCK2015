@@ -301,17 +301,17 @@
 
 <br><hr>
 
-<h3>Parent and Participant Signatures</h3>
+<h3>Participant Signature</h3>
 
 <br>
 
 <div class="row">
-  <div class="col-xs-6 col-sm-6">
+<!--   <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label :parent_signature, :label => "Parent - If you agree with the above, please sign:" %> <br>
       <%= f.input_field :parent_signature, :class => "input-lg" %>
     </div>
-  </div> 
+  </div>  -->
   <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label :child_signature, :label => "Student Participant - If you agree with the above, please sign:" %> <br>
@@ -320,7 +320,9 @@
   </div> 
 </div>
 
-<div class="row">
+<!-- unable to regenerate 2 signature pads when another student is added, so we're going to stick with just parent signature -->
+
+<!-- <div class="row">
   <div class="col-xs-6 col-sm-6">
    <div class="sigPad">
     <p class="drawItDesc">* Parent: Sign Below</p>
@@ -349,8 +351,10 @@
     </div>
   </div>
 </div>
-</div>
+</div> -->
 
+<br>
+<hr class = "style-eight"> 
 <br>
 
 </div>
