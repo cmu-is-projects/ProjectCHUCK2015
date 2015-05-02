@@ -90,6 +90,11 @@ class StudentsController < ApplicationController
     end
   end
 
+  #Activate/Deactive action, used for 'deactivate' button (instead of delete in student index)
+  def change_active 
+    @student.change_active
+  end 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_student
