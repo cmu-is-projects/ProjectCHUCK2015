@@ -1,4 +1,10 @@
-  html  {
+@media print{
+  body{
+    width: 90%;
+  }
+}
+
+html  {
         overflow-x: hidden;
     }
 *, thead, tbody{
@@ -61,6 +67,14 @@
   input.btn{
     /*display:block;*/
     width:100%;
+  }
+
+  input{
+    width: 90%;
+  }
+
+  textarea{
+    width: 90%;
   }
 
   .btn.outline {
