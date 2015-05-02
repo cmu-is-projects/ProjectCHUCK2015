@@ -36,6 +36,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
 
+  version :thumb do
+    process resize_to_fill: [100,100]
+  end
+
   # To make compatible with heroku
   def cache_dir
     "#{Rails.root}/tmp/uploads"

@@ -77,12 +77,18 @@
   <br>
 
   <div class="row">
-    <div class="col-xs-6 col-sm-6">
-      <div class="field">
-        <%= f.label :birth_certificate, :label => "Birth Certificate Upload" %>
-        <%= f.input_field :birth_certificate, :as => :file, :class => "input-lg" %>
-      </div>
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :birth_certificate, :label => "Birth Certificate" %> <br>
+      <% if f.object.birth_certificate? %>
+        File has already been selected. To reupload, click the button below:
+        <%= f.file_field :birth_certificate %>
+      <% else %>
+        <%= f.file_field :birth_certificate, :label => "foo" %>
+        <%= f.hidden_field :birth_certificate_cache %>
+      <% end %>
     </div>
+  </div> 
   </div>
 
 <br><hr>
@@ -126,8 +132,14 @@
 <div class="row">
   <div class="col-xs-6 col-sm-6">
     <div class="field">
-      <%= f.label :report_card, :label => "Report Card Upload" %> <br>
-      <%= f.input_field :report_card, :as => :file, :class => "input-lg" %>
+      <%= f.label :report_card, :label => "Report Card" %> <br>
+      <% if f.object.report_card? %>
+        File has already been selected. To reupload, click the button below:
+        <%= f.file_field :report_card %>
+      <% else %>
+        <%= f.file_field :report_card, :label => "foo" %>
+        <%= f.hidden_field :report_card_cache %>
+      <% end %>
     </div>
   </div> 
 </div>
@@ -155,11 +167,17 @@
 
 <div class ="row">
   <div class="col-xs-6 col-sm-6">
-   <div class="field">
-     <%= f.label :proof_of_insurance, :label => "Proof of Insurance Upload" %>
-     <%= f.input_field :proof_of_insurance, :as => :file, :class => "input-lg" %>
-   </div>
- </div> 
+    <div class="field">
+      <%= f.label :proof_of_insurance, :label => "Proof of Insurance" %> <br>
+      <% if f.object.proof_of_insurance? %>
+        File has already been selected. To reupload, click the button below:
+        <%= f.file_field :proof_of_insurance %>
+      <% else %>
+        <%= f.file_field :proof_of_insurance, :label => "foo" %>
+        <%= f.hidden_field :proof_of_insurance_cache %>
+      <% end %>
+    </div>
+  </div> 
 </div>
 
 <br> <hr>
@@ -186,10 +204,16 @@
 <div class="row">
   <div class="col-xs-6 col-sm-6">
     <div class="field">
-      <%= f.label :physical, :label => "Physical Upload" %>
-      <%= f.input_field :physical, :as => :file, :class => "input-lg" %>
+      <%= f.label :physical, :label => "Physical" %> <br>
+      <% if f.object.physical? %>
+        File has already been selected. To reupload, click the button below:
+        <%= f.file_field :physical %>
+      <% else %>
+        <%= f.file_field :physical, :label => "foo" %>
+        <%= f.hidden_field :physical_cache %>
+      <% end %>
     </div>
-  </div>
+  </div> 
   <div class="col-xs-4 col-sm-4">
     <div class="field">
       <%= f.label :physical_date %><br>
