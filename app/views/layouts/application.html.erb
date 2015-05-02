@@ -15,7 +15,9 @@
 </head>
 <body>
   <% if logged_in? %>
-    <%= render :partial => "partials/nav" %> 
+    <%= render :partial => "partials/admin_nav" %> 
+  <% else %>
+    <%= render :partial => "partials/nav" %>
   <% end %>  
   <div class="container">
     <div class="row">
