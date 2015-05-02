@@ -6,13 +6,40 @@
 if ((window.location.pathname == '/households/new') || (window.location.pathname == '/households') || (window.location.pathname == '/registerstudent')){
 	window.onload = function(){
 
-		$( "#accordion" ).accordion({
-			heightStyle: "content"
-		});
+		// $( "#accordion" ).accordion({
+		// 	heightStyle: "content"
+		// });
+
+        $("#accordion").accordion({
+            autoHeight: false,
+            collapsible: true,
+            heightStyle: "content",
+            active: 0,
+            animate: 100 // collapse will take 300ms
+        });
+        $('#accordion h3').bind('click',function(){
+            var self = this;
+            setTimeout(function() {
+                theOffset = $(self).offset();
+                $('body,html').animate({ scrollTop: theOffset.top - 145 });
+            }, 110); // ensure the collapse animation is done
+        });
+
+
+        // $( "#accordion" ).accordion({
+        // heightStyle: "content",
+        // collapsible: true,
+        // active: false,
+        // activate: function( event, ui ) {
+        //     if(!$.isEmptyObject(ui.newHeader.offset())) {
+        //         $('html:not(:animated), body:not(:animated)').animate({ scrollTop: ui.newHeader.offset().top }, 'slow');
+        //     }
+        // }
 		$('#accordion button').click(function(e) {
 			e.preventDefault();
 			var delta = ($(this).is('.next') ? 1 : -1);
 			$('#accordion').accordion('option', 'active', ( $('#accordion').accordion('option','active') + delta  ));
+            document.getElementById('accordiondiv').scrollIntoView();
 		});
     
     };

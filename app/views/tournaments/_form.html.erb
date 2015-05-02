@@ -27,9 +27,19 @@
   </div>
   <div class="field">
     <%= f.label :end_date %><br>
-    <%= f.input_field :end_date, as: :date, :order =>[:month, :day, :year], :start_year => 14.years.ago.year, :end_year => Time.now.year, :class => "input-lg" %>
+    <%= f.input_field :end_date, as: :date, :order =>[:month, :day, :year], :start_year => 14.years.ago.year, :end_year => Time.now.year, :include_blank => true, :default => nil, :class => "input-lg" %>
   </div>
+
+<br>
+
+  <div class = "row">
   <div class="actions">
-    <%= f.submit %>
+    <div class="col-sm-6">
+      <%= f.submit "Submit", :class => 'btn btn-primary', data:{ confirm:"Please confirm all information before submitting. If end date for tournament has been changed and it is in the past, all associated brackets and registrations will become inactive - there's no going back from this!"} %>
+    </div>
+    <div class="col-sm-6">
+      <%= link_to 'Cancel', tournaments_path, :class => 'btn btn-primary' %>
+    </div>
   </div>
+</div>
 <% end %>
