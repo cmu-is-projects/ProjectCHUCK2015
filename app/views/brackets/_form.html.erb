@@ -1,50 +1,67 @@
 <%= simple_form_for(@bracket) do |f| %>
-  <% if @bracket.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@bracket.errors.count, "error") %> prohibited this bracket from being saved:</h2>
+<% if @bracket.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@bracket.errors.count, "error") %> prohibited this bracket from being saved:</h2>
 
-      <ul>
-      <% @bracket.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+  <ul>
+    <% @bracket.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<div class = "container well">
+<div class="row">
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label "Tournament Year" %><br>
+      <%= f.input_field :tournament_id, collection: Tournament.all, prompt: "Select tournament..." , :class => "input-lg" %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label "Tournament Category" %><br>
-    <%= f.input_field :tournament_id, collection: Tournament.all, prompt: "Select tournament..." , :class => "input-lg" %>
   </div>
-  <div class="field">
-    <%= f.label :gender %><br>
-    <%= f.input_field :gender , :class => "input-lg"%>
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :gender %><br>
+      <%= f.input_field :gender , :class => "input-lg"%>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :min_age %><br>
-    <%= f.input_field :min_age, :class => "input-lg" %>
+</div>
+<div class="row">
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :min_age %><br>
+      <%= f.input_field :min_age, :class => "input-lg" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :max_age %><br>
-    <%= f.input_field :max_age, :class => "input-lg" %>
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :max_age %><br>
+      <%= f.input_field :max_age, :class => "input-lg" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :max_students %><br>
-    <%= f.input_field :max_students, :class => "input-lg" %>
+</div>
+<div class="row">
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :max_students %><br>
+      <%= f.input_field :max_students, :class => "input-lg" %>
+    </div>
   </div>
-
-  <br>
-
- <div class="row">
   <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label :active, :label => "Active:" %> <br>
       <%= f.input_field :active, as: :radio_buttons, :class => "input-lg" %>
     </div>
   </div> 
- </div>
+</div>
+</div>
 
-  <div class="actions">
-    <%= f.submit "Submit", :class => 'btn btn-primary' %>
+<div class="row">
+  <div class="col-xs-6 col-sm-6">
     <%= link_to 'Back', brackets_path, :class => 'btn btn-primary' %>
   </div>
+  <div class="col-xs-6 col-sm-6">
+    <%= f.submit "Submit", :class => 'btn btn-primary' %>
+  </div>
+</div>
 <% end %>
+
