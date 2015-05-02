@@ -215,3 +215,7 @@ height: 2em;
   margin-left: auto;
   margin-right: auto;
 }
+
+.cancelbtn{
+  border: 3px solid red;
+}
