@@ -1650,6 +1650,7 @@ label {
   display: inline-block;
   margin-bottom: 5px;
   font-weight: bold;
+  font-size: 1.75em;
 }
 input[type="search"] {
   -webkit-box-sizing: border-box;
@@ -5951,7 +5952,7 @@ label,
 .help-block,
 .checkbox,
 .radio {
-  font-size: 12px;
+  font-size: 1.15em;
   font-weight: normal;
 }
 .input-group-addon,
