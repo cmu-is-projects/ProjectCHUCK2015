@@ -162,6 +162,11 @@ input[type="submit"].btn {
   width: 100%;
 }
 
+.fixedheight{
+  height:20em;
+  overflow: scroll;
+}
+
 /* Live Validation styles*/
 .LV_validation_message{
     font-weight:bold;
