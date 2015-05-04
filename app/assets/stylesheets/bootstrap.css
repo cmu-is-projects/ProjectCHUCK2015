@@ -5969,7 +5969,9 @@ label,
   border-color: transparent;
 }
 .nav-tabs > li > a {
-  background-color: #e7e7e7;
+  /*background-color: #e7e7e7;*/
+  background-color: #fff;
+  border-color: AliceBlue;
   color: #222222;
 }
 .nav-tabs .caret {

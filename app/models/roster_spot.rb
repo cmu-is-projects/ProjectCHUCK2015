@@ -12,6 +12,7 @@ class RosterSpot < ActiveRecord::Base
   #Scopes
   scope :by_position, -> { order('position') }
   scope :active, -> { where('end_date IS NULL') }
+  scope :unassigned, -> { joins(:student).where('team_id IS NULL') }
 
   private
   def student_is_active_in_system

@@ -13,7 +13,8 @@ class HomeController < ApplicationController
       @male_students = @current_registered_students.male.size
       @female_students = @current_registered_students.female.size
 
-      # @unassigned_students = @current_registered_students.active.unassigned
+      @unassigned_rospots = RosterSpot.unassigned.paginate(:page => params[:page]).per_page(10)
+      #@unassigned_students = @unassigned_rospots
       # @school_districts = School.school_districts
       # @students = Student.all
       # @brackets = Student.by_bracket
