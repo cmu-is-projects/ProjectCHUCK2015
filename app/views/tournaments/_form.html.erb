@@ -1,45 +1,55 @@
 <%= simple_form_for(@tournament) do |f| %>
-  <% if @tournament.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@tournament.errors.count, "error") %> prohibited this tournament from being saved:</h2>
+<% if @tournament.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@tournament.errors.count, "error") %> prohibited this tournament from being saved:</h2>
 
-      <ul>
-      <% @tournament.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.input_field :name, :class => "input-lg" %>
-  </div>
+  <ul>
+    <% @tournament.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.input_field :description, :class => "input-lg" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :start_date %><br>
-    <%= f.input_field :start_date, as: :date, :order =>[:month, :day, :year], :start_year => 14.years.ago.year, :end_year => Time.now.year, :class => "input-lg" %>
-  </div>
-  <div class="field">
-    <%= f.label :end_date %><br>
-    <%= f.input_field :end_date, as: :date, :order =>[:month, :day, :year], :start_year => 14.years.ago.year, :end_year => Time.now.year, :include_blank => true, :default => nil, :class => "input-lg" %>
-  </div>
-
-<br>
-
-  <div class = "row">
-  <div class="actions">
+<div class="container well">
+  <div class="row">
     <div class="col-sm-6">
-      <%= f.submit "Submit", :class => 'btn btn-primary', data:{ confirm:"Please confirm all information before submitting. If end date for tournament has been changed and it is in the past, all associated brackets and registrations will become inactive - there's no going back from this!"} %>
+      <div class="field">
+        <%= f.label :name %><br>
+        <%= f.input_field :name, :class => "input-lg" %>
+      </div>
     </div>
     <div class="col-sm-6">
-      <%= link_to 'Cancel', tournaments_path, :class => 'btn btn-primary' %>
+      <div class="field">
+        <%= f.label :description %><br>
+        <%= f.input_field :description, :class => "input-lg" %>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="field">
+        <%= f.label :start_date %><br>
+        <%= f.input_field :start_date, as: :date, :order =>[:month, :day, :year], :start_year => 14.years.ago.year, :end_year => Time.now.year, :class => "input-lg" %>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="field">
+        <%= f.label :end_date %><br>
+        <%= f.input_field :end_date, as: :date, :order =>[:month, :day, :year], :start_year => 14.years.ago.year, :end_year => Time.now.year, :include_blank => true, :default => nil, :class => "input-lg" %>
+      </div>
     </div>
   </div>
 </div>
+
+<div class = "row">
+  <div class="col-sm-6">
+    <%= f.submit "Submit", :class => 'btn btn-primary', data:{ confirm:"Please confirm all information before submitting. If end date for tournament has been changed and it is in the past, all associated brackets and registrations will become inactive - there's no going back from this!"} %>
+  </div>
+  <div class="col-sm-6">
+    <%= link_to 'Cancel', tournaments_path, :class => 'btn btn-primary' %>
+  </div>
+</div>
+
 <% end %>

@@ -35,5 +35,5 @@
   <%= @household.active %>
 </p> -->
 
-<%= link_to 'Edit', edit_household_path(@household) %> |
-<%= link_to 'Back', households_path %>
+<%= link_to(image_tag('edit.png'), edit_household_path(@household)) %> Edit | 
+   <%= link_to(image_tag('back16.png'), households_path) %> Back

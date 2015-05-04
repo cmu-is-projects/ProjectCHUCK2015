@@ -25,6 +25,7 @@
     </div>
   </div>
 </div>
+<br>
 <div class="row">
   <div class="col-xs-6 col-sm-6">
     <div class="field">
@@ -39,6 +40,7 @@
     </div>
   </div>
 </div>
+<br>
 <div class="row">
   <div class="col-xs-6 col-sm-6">
     <div class="field">
@@ -49,15 +51,14 @@
   <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label :active, :label => "Active:" %> <br>
-      <%= f.input_field :active, as: :radio_buttons, :class => "input-lg" %>
+      <%= f.input_field :active, collection: [['Yes', true],['No',false]], as: :radio_buttons, :class => "input-lg" %>
     </div>
   </div> 
 </div>
 </div>
-
 <div class="row">
   <div class="col-xs-6 col-sm-6">
-     <%= f.submit "Submit", :class => 'btn btn-primary' %>
+     <%= f.submit "Create", :class => 'btn btn-primary' %>
   </div>
   <div class="col-xs-6 col-sm-6">
     <%= link_to 'Back', brackets_path, :class => 'btn btn-primary' %>

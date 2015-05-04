@@ -1,190 +1,191 @@
   <!-- <center><h2>Add New Student</h2></center> <br> -->
-<div class="row">
+  <div class="row">
 
-  <div class="col-xs-6 col-sm-6">
+    <div class="col-xs-6 col-sm-6">
 
-    <div class="row">
+      <div class="row">
 
-      <div class="col-sm-12">
-        <% if @student.gender=="Male" %>
-        <%=link_to image_tag("maleuser64.png")%>
-        <% else %>
-        <%=link_to image_tag("femaleuser64.png")%>
-        <% end %>
+        <div class="col-sm-12">
+          <% if @student.gender=="Male" %>
+          <%=link_to image_tag("maleuser64.png")%>
+          <% else %>
+          <%=link_to image_tag("femaleuser64.png")%>
+          <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <h1> <%= @student.proper_name %></h1>
+          <%= link_to(image_tag('edit.png'), edit_student_path(@student)) %> Edit | 
+          <%= link_to(image_tag('back16.png'), students_path) %> Back
+        </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <p>
+            <strong>Household:</strong>
+            <%= link_to @student.last_name, @student.household %>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <p>
+            <strong>Age:</strong>
+            <%= @student.age %>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <p>
+            <strong>Date of Birth:</strong>
+            <%= @student.dob %>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <p>
+            <% if !(@student.pastparticipation.nil?)  %>
+            <strong>Been with Project CHUCK for </strong> 
+            <%= @student.pastparticipation %> years
+            <% else %>
+            <p>First year with Project CHUCK</p>
+            <% end %>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <p>
+            <strong>Active:</strong>
+            <% if @student.active %>
+            <%= link_to (image_tag('check16.png')) %> 
+            <%else%>
+            <%= link_to (image_tag('missing16.png')) %> 
+            <%end%>
+          </p>
+        </div>
+      </div>
+
+      <h3>School Information</h3>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <p>
+            <strong>Grade:</strong>
+            <%= @student.grade %>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <p>
+            <strong>School:</strong>
+            <%= @student.school.nil? ? "N/A" : @student.school %>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <p>
+            <strong>District:</strong>
+            <%= @student.district %>
+          </p>
+        </div>
+      </div>
+
+      <h3>Contact Information</h3>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <p>
+            <strong>Cell phone:</strong>
+            <%= @student.cell_phone %>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <p>
+            <strong>Email:</strong>
+            <%= @student.email %>
+          </p>
+        </div>
+      </div>
+
+      <h3>Medical Information</h3>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <p>
+            <strong>Emergency contact name:</strong>
+            <%= @student.emergency_contact_name %>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <p>
+            <strong>Emergency contact phone:</strong>
+            <%= @student.emergency_contact_phone %>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <p>
+            <strong>Allergies:</strong>
+            <%= @student.allergies.nil? ? "N/A" : @student.allergies %>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <p>
+            <strong>Medications:</strong>
+            <%= @student.medications.nil? ? "N/A" : @student.medications %>
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-xs-6 col-sm-6">
+      <div class="row">
+        <div class="col-sm-12">
+          <%= render :partial => 'docs' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <%= render :partial => 'reg_details' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <%= render :partial =>  'household_details' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <%= render :partial => 'guardian_details' %>
+        </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-sm-12">
-        <h1> <%= @student.proper_name %></h1>
-         <%= link_to(image_tag('edit.png'), edit_student_path(@student)) %>
-      </div>
-    </div>
-
-    <br>
-
-    <div class="row">
-      <div class="col-sm-12">
-        <p>
-          <strong>Household:</strong>
-          <%= link_to @student.last_name, @student.household %>
-        </p>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-sm-12">
-        <p>
-          <strong>Age:</strong>
-          <%= @student.age %>
-        </p>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-sm-12">
-        <p>
-          <strong>Date of Birth:</strong>
-          <%= @student.dob %>
-        </p>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-sm-12">
-        <p>
-          <strong>Been with Project CHUCK for </strong> 
-          <%= @student.pastparticipation %> years<br>
-        </p>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-sm-12">
-        <p>
-          <strong>Active:</strong>
-          <%= @student.active %>
-        </p>
-      </div>
-    </div>
-
-    <h3>School Information</h3>
-
-    <div class="row">
-      <div class="col-sm-12">
-        <p>
-          <strong>Grade:</strong>
-          <%= @student.grade %>
-        </p>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-sm-12">
-        <p>
-          <strong>School:</strong>
-          <%= @student.school %>
-        </p>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-sm-12">
-        <p>
-          <strong>District:</strong>
-          <%= @student.district %>
-        </p>
-      </div>
-    </div>
-
-    <h3>Contact Information</h3>
-
-    <div class="row">
-      <div class="col-sm-12">
-        <p>
-          <strong>Cell phone:</strong>
-          <%= @student.cell_phone %>
-        </p>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-sm-12">
-        <p>
-          <strong>Email:</strong>
-          <%= @student.email %>
-        </p>
-      </div>
-    </div>
-
-    <h3>Medical Information</h3>
-
-    <div class="row">
-      <div class="col-sm-12">
-        <p>
-          <strong>Emergency contact name:</strong>
-          <%= @student.emergency_contact_name %>
-        </p>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-sm-12">
-        <p>
-          <strong>Emergency contact phone:</strong>
-          <%= @student.emergency_contact_phone %>
-        </p>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-sm-12">
-        <p>
-          <strong>Allergies:</strong>
-          <%= @student.allergies.nil? ? "N/A" : @student.allergies %>
-        </p>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-sm-12">
-        <p>
-          <strong>Medications:</strong>
-          <%= @student.medications.nil? ? "N/A" : @student.medications %>
-        </p>
-      </div>
-    </div>
-
-    <br> 
-    <div class="row">
-      <div class="col-sm-12">
-        <%#= link_to 'Edit', edit_student_path(@student) %> 
-        <%= link_to 'Back', students_path %>
-      </div>
-    </div>
-
   </div>
-  
-  <div class="col-xs-6 col-sm-6">
-    <div class="row">
-      <div class="col-sm-12">
-        <%= render :partial => 'docs' %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12">
-        <%= render :partial => 'reg_details' %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12">
-      <%= render :partial =>  'household_details' %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12">
-      <%= render :partial => 'guardian_details' %>
-      </div>
-    </div>
-  </div>
-</div>
 

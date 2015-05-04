@@ -37,17 +37,15 @@
   </div>
 
 </div>
-  </div>
+</div>
+</div>
 
-  <div class="row">
-    <div class="col-xs-6 col-sm-6">
-      <div class="actions">
-        <%= f.submit nil, :class => 'btn btn-primary' %>
-      </div>
-    </div>
-    <div class="col-xs-6 col-sm-6">
-      <div class="actions">
-        <%= link_to 'Back', games_path, :class => 'btn btn-primary' %>
-      </div>
-    </div>
-  <% end %>
+<div class="row">
+  <div class="col-xs-6 col-sm-6">
+    <%= f.submit "Create", :class => 'btn btn-primary' %>
+ </div>
+ <div class="col-xs-6 col-sm-6">
+  <%= link_to 'Back', games_path, :class => 'btn btn-primary' %>
+</div>
+</div>
+<% end %>

@@ -11,7 +11,7 @@
 </div>
 <% end %>
 
-<div class="container">
+<div class="container well">
   
   <h3>General Student Information</h3>
 
@@ -397,8 +397,13 @@
     <%#= f.label :active %><br>
     <%#= f.check_box :active %>
   </div> -->
-  <div class="actions">
-    <%= f.submit nil%>
   </div>
-</div>
+  <div class = "row">
+      <div class="col-sm-6">
+      <%= f.submit "Create", :class => 'btn btn-primary' %>
+    </div>
+    <div class="col-sm-6">
+      <%= link_to 'Cancel', teams_path, :class => 'btn btn-primary' %>
+    </div>
+  </div>
 <% end %>

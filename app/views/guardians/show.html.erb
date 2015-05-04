@@ -24,5 +24,5 @@
   		<%= @guardian.email %>
 </p>
 
-<%= link_to 'Edit', edit_guardian_path(@guardian) %> |
-<%= link_to 'Back', guardians_path %>
+<%= link_to(image_tag('edit.png'), edit_guardian_path(@guardian)) %> Edit | 
+<%= link_to(image_tag('back16.png'), guardians_path) %> Back

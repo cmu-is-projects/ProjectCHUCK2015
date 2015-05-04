@@ -10,5 +10,9 @@
   <%= @game.location.name %>
 </p>
 
-<%= link_to 'Edit', edit_game_path(@game) %> |
-<%= link_to 'Back', games_path %>
+<div class="row">
+  <div class="col-sm-12">
+   <%= link_to(image_tag('edit.png'), edit_game_path(@game)) %> Edit | 
+   <%= link_to(image_tag('back16.png'), games_path) %> Back
+ </div>
+</div>
