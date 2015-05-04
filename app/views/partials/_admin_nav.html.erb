@@ -1,119 +1,83 @@
-<!-- <div class="masthead">
-	<ul class="nav nav-pills pull-right"><br>
-		<li><%#= link_to 'Students', students_path %></li>
-		<li><%#= link_to 'Teams', teams_path %></li>
-		<li><%#= link_to 'Brackets', brackets_path %></li>
-		<li><%#= link_to 'Tournaments', tournaments_path %></li>
-	</ul>
-	<%#= link_to image_tag('boblogo.png'), home_path %>
-</div> -->
-
-<!-- <div class="container">
-    <div class="masthead">
-      <ul class="nav nav-pills pull-right"><br>
-        <li><%#= link_to 'Students', students_path %></li>
-		<li><%#= link_to 'Teams', teams_path %></li>
-		<li><%#= link_to 'Brackets', brackets_path %></li>
-		<li><%#= link_to 'Tournaments', tournaments_path %></li>
-      </ul>
-      <%#= link_to image_tag('boblogo.png'), home_path %>
-       <h3 class="muted">Project name</h3> 
-    </div> -->
-
-
-   <!--  <select>
-      <option value="last_name">Last Name</option>
-      <option value="first_name">First Name</option>
-      <option value="school">School</option>
-      <option value="household">Household</option>
-      <option value="missingdocs">Missing Documents</option> -->
-      <!-- <option value="audi">Audi</option> -->
-   <!--  </select>
-
-    <div class="row">
-      <div class="col-sm-3">
-
-        <div class="card hovercard">
-          <div class="cardheader">
-
-          </div>
-          <div class="avatar"> -->
-            <!-- <img alt="" src="http://lorempixel.com/100/100/people/9/"> -->
-          <!-- </div>
-          <div class="info">
-            <div class="title">
-              <a href="http://scripteden.com/">Pranita R.</a>
-            </div>
-            <div class="desc">Female</div>
-            <div class="desc">Bracket: 13-15</div>
-            <div class="desc">Allergic to Bees</div>
-          </div>
-        </div>
-
-      </div> -->
-
-   <!--  </div> -->
-
-      <!-- <div class="col-sm-3">
-
-        <div class="card hovercard">
-          <div class="cardheader">
-
-          </div>
-          <div class="avatar"> -->
-            <!-- <img alt="" src="http://lorempixel.com/100/100/people/9/"> 
-          </div>
-          <div class="info">
-            <div class="title">
-              <a href="http://scripteden.com/">Pranita R.</a>
-            </div>
-            <div class="desc">Female</div>
-            <div class="desc">Bracket: 13-15</div>
-            <div class="desc">Allergic to Bees</div>
-          </div>
-        </div>
-
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-sm-6">
+      <%= link_to image_tag('boblogo.png'), home_path %>
+    </div>
+    <div class="col-xs-6 col-sm-6">
+      <h1 class="headerfont">Project C.H.U.C.K. </h1>
+    </div>
+  </div>
+</div>
+<hr>
+ <div class="container">
+  <div class="row">
+    <div class = "col-sm-12">
+      <ul class="nav nav-pills nav-justified">
+        <li><%#= link_to 'Students', students_path %></li> 
+        <li><%#= link_to 'Teams', teams_path %></li>
+        <li><%#= link_to 'Brackets', brackets_path %></li>
+        <li><%#= link_to 'Volunteers', volunteers_path %></li>
+        <li><%#= link_to 'Tournaments', tournaments_path %></li>
+        <li><%#= link_to image_tag('logout16.png'), logout_path %></li>
+        <li><button></button></li> 
       </div>
+    </div>
+  </div>
+  <hr>
 
-      <div class="col-sm-3">
+  <div class="container">
+    <div class="row">
+      <div class = "col-sm-2"></div>
+      <div class = "col-sm-8">
 
-         <div class="card hovercard">
-          <div class="cardheader">
-
-          </div>
-          <div class="avatar">
-            <img alt="" src="http://lorempixel.com/100/100/people/9/"> 
-          </div>
-          <div class="info">
-            <div class="title">
-              <a href="http://scripteden.com/">Pranita R.</a>
-            </div>
-            <div class="desc">Female</div>
-            <div class="desc">Bracket: 13-15</div>
-            <div class="desc">Allergic to Bees</div>
-          </div>
+        <div class="scroller scroller-left"><i class="glyphicon glyphicon-chevron-left"></i></div>
+        <div class="scroller scroller-right"><i class="glyphicon glyphicon-chevron-right"></i></div>
+        <div class="wrapper">
+          <ul class="nav nav-pills list" id="myTab">
+            <li><%= link_to 'Students', students_path %></li> 
+            <li><%= link_to 'Teams', teams_path %></li> 
+            <li><%= link_to 'Brackets', brackets_path %></li> 
+            <li><%= link_to 'Volunteers', volunteers_path %></li> 
+            <li><%= link_to 'Tournaments', tournaments_path %></li>
+            <li><%= link_to 'Households', households_path %></li>
+            <li><%= link_to 'Guardians', guardians_path %></li> 
+            <li><%= link_to 'Games', games_path %></li>
+            <li><%= link_to 'Locations', locations_path %></li>
+            <li><%= link_to image_tag('logout16.png'), logout_path %></li>
+          </ul>
         </div>
+      </div>
+      <div class = "col-sm-2"></div>
+    </div>
+  </div>
 
-      </div> -->
+ <!--  <div class="container">
+    <div class="scroller scroller-left"><i class="glyphicon glyphicon-chevron-left"></i></div>
+    <div class="scroller scroller-right"><i class="glyphicon glyphicon-chevron-right"></i></div>
+    <div class="wrapper">
+      <ul class="nav nav-tabs list" id="myTab">
+        <li class="active"><a href="#home">Home</a></li>
+        <li><a href="#profile">Profile</a></li>
+        <li><a href="#messages">Messages</a></li>
+        <li><a href="#settings">Settings</a></li>
+        <li><a href="#">Tab4</a></li>
+        <li><a href="#">Tab5</a></li>
+        <li><a href="#">Tab6</a></li>
+        <li><a href="#">Tab7</a></li>
+        <li><a href="#">Tab8</a></li>
+        <li><a href="#">Tab9</a></li>
+        <li><a href="#">Tab10</a></li>
+        <li><a href="#">Tab11</a></li>
+        <li><a href="#">Tab12</a></li>
+        <li><a href="#">Tab13</a></li>
+        <li><a href="#">Tab14</a></li>
+        <li><a href="#">Tab15</a></li>
+        <li><a href="#">Tab16</a></li>
+        <li><a href="#">Tab17</a></li>
+      </ul>
+    </div>
+  </div>
+  <hr>
+ -->
 
-      <!-- <div class="col-sm-3">
-
-        <div class="card hovercard">
-          <div class="cardheader">
-
-          </div>
-          <div class="avatar"> -->
-            <!-- <img alt="" src="http://lorempixel.com/100/100/people/9/"> -->
-         <!--  </div>
-          <div class="info">
-            <div class="title">
-              <a href="http://scripteden.com/">Pranita R.</a>
-            </div>
-            <div class="desc">Bracket: 13-15</div>
-            <div class="desc">Allergic to Bees</div>
-          </div>
-        </div>
-
-      </div> -->
-
-  <!-- </div> -->
+ <hr>

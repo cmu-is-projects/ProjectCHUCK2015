@@ -6,6 +6,7 @@
 
   <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- <link href="../../../assets/images/apple_touch_icon.png" rel="apple-touch-icon"/> -->
 
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%#= javascript_include_tag "application"  %> 
@@ -15,7 +16,9 @@
 </head>
 <body>
   <% if logged_in? %>
-    <%= render :partial => "partials/nav" %> 
+    <%= render :partial => "partials/admin_nav" %> 
+  <% else %>
+    <%= render :partial => "partials/nav" %>
   <% end %>  
   <div class="container">
     <div class="row">

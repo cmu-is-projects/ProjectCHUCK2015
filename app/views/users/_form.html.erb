@@ -1,58 +1,97 @@
 <%= simple_form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<% if @user.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :username %><br>
-    <%= f.input_field :username, :class => "input-lg" %>
-  </div>
-  <div class="field">
-    <%= f.label :role %><br>
-    <%= f.input_field :role, :class => "input-lg" %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.input_field :email, :class => "input-lg" %>
-  </div>
-  <div class="field">
-    <%= f.label :active %><br>
-    <%= f.check_box :active, :class => "input-lg" %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.input_field :password, :class => "input-lg" %>
-  </div>
-    <div class="field">
-    <%= f.label :password_confirmation %><br>
-    <%= f.input_field :password_confirmation, :class => "input-lg" %>
-  </div>
-  <div class="field">
-    <%= f.label :active_after %><br>
-    <%= f.date_select :active_after, :class => "input-lg" %>
-  </div>
-  <div class="field">
-    <%= f.label :password_reset_token %><br>
-    <%= f.input_field :password_reset_token, :class => "input-lg" %>
-  </div>
-  <div class="field">
-    <%= f.label :password_reset_sent_at %><br>
-    <%= f.date_select :password_reset_sent_at, :class => "input-lg" %>
-  </div>
-  <div class="field">
-    <%= f.label :volunteer_id %><br>
-    <%= f.collection_select :volunteer_id, Volunteer.all, :id, :name, prompt: "Select volunteer...", :class => "input-lg" %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
 <% end %>
-   
+
+<div class="container well">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="field">
+        <%= f.label :username %><br>
+        <%= f.input_field :username, :class => "input-lg" %>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="field">
+        <%= f.label :role %><br>
+        <%= f.input_field :role, :class => "input-lg" %>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="field">
+        <%= f.label :email %><br>
+        <%= f.input_field :email, :class => "input-lg" %>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="field">
+        <%= f.label :active %><br>
+        <%= f.check_box :active, :class => "input-lg" %>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="field">
+        <%= f.label :password %><br>
+        <%= f.input_field :password, :class => "input-lg" %>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="field">
+        <%= f.label :password_confirmation %><br>
+        <%= f.input_field :password_confirmation, :class => "input-lg" %>
+      </div>
+    </div>
+  </div>
+ <!--  <div class="row">
+    <div class="col-sm-12">
+      <div class="field">
+        <%#= f.label :active_after %><br>
+        <%#= f.date_select :active_after, :class => "input-lg" %>
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <%#= f.label :password_reset_token %><br>
+    <%#= f.input_field :password_reset_token, :class => "input-lg" %>
+  </div>
+  <div class="field">
+    <%#= f.label :password_reset_sent_at %><br>
+    <%#= f.date_select :password_reset_sent_at, :class => "input-lg" %>
+  </div> -->
+  <br>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="field">
+        <%= f.label :volunteer_id %><br>
+        <%= f.collection_select :volunteer_id, Volunteer.all, :id, :name, prompt: "Select volunteer...", :class => "input-lg" %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class = "row">
+  <div class="actions">
+    <div class="col-sm-6">
+      <%= f.submit "Create", :class => 'btn btn-primary' %>
+    </div>
+    <div class="col-sm-6">
+      <%= link_to 'Back', users_path, :class => 'btn btn-primary' %>
+    </div>
+  </div>
+  <% end %>

@@ -26,7 +26,7 @@
       </div>
     </div>
   </div>
-
+  <br>
   <div class="row">
     <div class="col-xs-6 col-sm-6">
       <div class="field">
@@ -42,27 +42,27 @@
       </div>
     </div>
   </div>
-
+  <br>
   <div class="row">
     <div class="col-xs-12 col-sm-6">
       <div class="field">
-        <%= f.label :receives_text_msgs, :label => "Do You Receive Text Messages?" %><br>
-        <%= f.input_field :receives_text_msgs, as: :radio_buttons, :class => "input-lg" %>
+        <%= f.label :receives_text_msgs, :label => "Do You Receive Text Messages?" %> <br>
+        <%= f.input_field :receives_text_msgs, collection: [['Yes', true],['No',false]], as: :radio_buttons, :class => "input-lg" %>
       </div>
     </div>
   </div>
-
-  <div class="row">
-    <div class="col-xs-12 col-sm-6">
-      <div class="actions">
-        <%= f.submit "Submit", :class => 'btn btn-primary'%>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-6">
-      <div class="actions">
-        <%= link_to 'Back', guardians_path, :class => 'btn btn-primary' %>
-      </div>
-    </div>
-  </div>
-  <% end %>
 </div>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-6">
+    <div class="actions">
+      <%= f.submit "Create", :class => 'btn btn-primary'%>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-6">
+    <div class="actions">
+      <%= link_to 'Back', guardians_path, :class => 'btn btn-primary' %>
+    </div>
+  </div>
+</div>
+<% end %>

@@ -27,36 +27,39 @@
     </div>
   </div>
 </div>
+<br>
+<div class="row">
+ <div class="col-sm-6">
+  <div class="field">
+   <%= f.label :zip %><br>
+   <%= f.input_field :zip, :class => "input-lg" %>
+ </div>
+</div>
+<div class="col-sm-6">
+  <div class="field">
+    <%= f.label :state %><br>
+    <%= f.input_field :state, :class => "input-lg" %>
+  </div>
+</div>
+</div>
+<br>
+<div class="row">
+ <div class="col-sm-12">
+  <div class="field">
+    <%= f.label :active %><br>
+    <%= f.input_field :active, collection: [['Yes', true],['No',false]], as: :radio_buttons, :class => "input-lg" %>
+  </div>
+</div>
+</div>
+
+</div>
 
 <div class="row">
-   <div class="col-sm-6">
-    <div class="field">
-       <%= f.label :zip %><br>
-  <%= f.input_field :zip, :class => "input-lg" %>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="field">
-      <%= f.label :state %><br>
-  <%= f.input_field :state, :class => "input-lg" %>
-    </div>
-  </div>
+  <div class="col-xs-6 col-sm-6">
+   <%= f.submit "Create", :class => 'btn btn-primary' %>
+ </div>
+ <div class="col-xs-6 col-sm-6">
+  <%= link_to 'Back', locations_path, :class => 'btn btn-primary' %>
 </div>
-
-
-<div class="field">
-  <%= f.label :active %><br>
-  <%= f.input_field :active, collection: [['Yes', true],['No',false]], as: :radio_buttons, :class => "input-lg" %>
-</div>
-<div class="actions">
-  <div class="row">
-    <div class="col-sm-6">
-      <%= link_to 'Cancel', locations_path, :class => 'btn btn-primary btn-lg outline' %>
-    </div>
-    <div class="col-sm-6">
-      <%= f.submit nil, :class => 'btn btn-primary btn-lg outline' %>
-    </div>
-  </div>
 </div>
 <% end %>
-</div>
