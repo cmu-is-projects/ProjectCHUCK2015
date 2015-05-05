@@ -229,7 +229,7 @@ height: 2em;
 }
 
 .wrapper {
-    position:relative;
+position:relative;
     margin:0 auto;
     overflow:hidden;
   padding:5px;

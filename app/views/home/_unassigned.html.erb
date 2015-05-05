@@ -14,9 +14,9 @@
    
    <tr>
     <% if roster_spot.student.gender == "Male"%>
-    <td class="boy"><%= link_to roster_spot.student.proper_name, roster_spot %></td>
+    <td class="boy"><%= link_to roster_spot.student.proper_name, roster_spot.student %></td>
     <%else%>
-    <td class="girl"><%= link_to roster_spot.student.proper_name, roster_spot %></td>
+    <td class="girl"><%= link_to roster_spot.student.proper_name, roster_spot.student %></td>
     <%end%> 
     <!-- <td><%= student.age %></td> -->
     <!-- <td><%#= link_to(image_tag('edit.png'), edit_student_path(student)) %></td> -->
