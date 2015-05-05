@@ -16,72 +16,10 @@
 //= require jquery.signaturepad.js
 //= require livevalidation_standalone.js
 //= require jquery_nested_form
+//= require bootstrap-sprockets
 //= require jquery-ui   
 //= require highcharts/highcharts                                             
-//= require filterrific/filterrific-jquery
-//= require bootstrap-sprockets	                                               
+//= require filterrific/filterrific-jquery	                                               
 //= require my_code.js
 //= require_tree .
 
-var hidWidth;
-var scrollBarWidths = 30;
-
-var widthOfList = function(){
-  var itemsWidth = 0;
-  $('.list li').each(function(){
-    var itemWidth = $(this).outerWidth();
-    itemsWidth+=itemWidth;
-  });
-  return itemsWidth;
-};
-
-var widthOfHidden = function(){
-  return (($('.wrapper').outerWidth())-widthOfList()-getLeftPosi())-scrollBarWidths;
-};
-
-var getLeftPosi = function(){
-  return $('.list').position().left;
-};
-
-var reAdjust = function(){
-  if (($('.wrapper').outerWidth()) < widthOfList()) {
-    $('.scroller-right').show();
-  }
-  else {
-    $('.scroller-right').hide();
-  }
-  
-  if (getLeftPosi()<0) {
-    $('.scroller-left').show();
-  }
-  else {
-    $('.item').animate({left:"-="+getLeftPosi()+"px"},'slow');
-  	$('.scroller-left').hide();
-  }
-}
-
-reAdjust();
-
-$(window).on('resize',function(e){  
-  	reAdjust();
-});
-
-$('.scroller-right').click(function() {
-  
-  $('.scroller-left').fadeIn('slow');
-  $('.scroller-right').fadeOut('slow');
-  
-  $('.list').animate({left:"+="+widthOfHidden()+"px"},'slow',function(){
-
-  });
-});
-
-$('.scroller-left').click(function() {
-  
-	$('.scroller-right').fadeIn('slow');
-	$('.scroller-left').fadeOut('slow');
-  
-  	$('.list').animate({left:"-="+getLeftPosi()+"px"},'slow',function(){
-  	
-  	});
-});    
