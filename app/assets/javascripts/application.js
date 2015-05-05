@@ -16,10 +16,10 @@
 //= require jquery.signaturepad.js
 //= require livevalidation_standalone.js
 //= require jquery_nested_form
-//= require bootstrap-sprockets
 //= require jquery-ui   
 //= require highcharts/highcharts                                             
-//= require filterrific/filterrific-jquery	                                               
+//= require filterrific/filterrific-jquery
+//= require bootstrap-sprockets	                                               
 //= require my_code.js
 //= require_tree .
 
