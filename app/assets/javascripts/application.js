@@ -16,7 +16,7 @@
 //= require jquery.signaturepad.js
 //= require livevalidation_standalone.js
 //= require jquery_nested_form
-
+//= require bootstrap-sprockets
 //= require jquery-ui   
 //= require highcharts/highcharts                                             
 //= require filterrific/filterrific-jquery	                                               
