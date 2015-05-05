@@ -74,26 +74,6 @@ $(document).ready(function() {
 //     $('.sigPad').signaturePad({drawOnly:true});
 // }
 
-function drawValidations(conditions, curr, name, id){
-    if(conditions){
-        if(name.indexOf("agree") > -1){
-            var lv2 = new LiveValidation(id, {validMessage: "I agree."});
-            lv2.add( Validate.Acceptance, {failureMessage: "Must be accepted"});
-        }else{
-            var lv = new LiveValidation(id);
-            // if(curr.required){
-            //     lv.add( Validate.Presence )
-            // }
-            if(name.indexOf("email") > -1){
-                lv.add( Validate.Format, {pattern:/^[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))$/i});
-            }
-            if(name.indexOf("phone") > -1){
-                lv.add( Validate.Format, { pattern: /^\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/, failureMessage: "Invalid format"});
-            }
-            if(name.indexOf("zip") > -1){
-                lv.add(  Validate.Format, { pattern: /^\d{5}(?:[-\s]\d{4})?$/, failureMessage: "Invalid Format" }  );
-            }
-
     $.validator.addMethod("zip", function(value, element) {
         return this.optional(element) || /\d{5}(?:[-\s]\d{4})?/.test(value);
     }, "Please specify valid zip code");

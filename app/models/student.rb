@@ -38,7 +38,7 @@
   # Validations
   # -----------------------------
   # make sure required fields are present
-  validates_presence_of :first_name, :last_name, :gender, :emergency_contact_name, :emergency_contact_phone, :emergency_contact_relation, :dob, :grade, :message => "can't be empty"
+  validates_presence_of :first_name, :last_name, :gender, :emergency_contact_name, :emergency_contact_phone, :emergency_contact_relation, :dob, :grade, :message => "can't be blank"
   #validates_date :dob, :before => lambda { Date.current }, :message => "cannot be in the future", allow_blank: false, on: :create
   validates_date :dob, :on_or_before => lambda { 6.years.ago.to_date }, :on_or_after => lambda {18.years.ago.to_date}, :message => "must be betweeen ages of 7 and 18"
   #validates_uniqueness_of :email, allow_blank: true
