@@ -49,6 +49,7 @@ if ((window.location.pathname == '/households/new') || (window.location.pathname
 
 $(document).ready(function() {
 
+
   $('.sigPad').signaturePad({drawOnly:true, lineTop:120});
 
   //collect inputs and make conditions for drawValidations()
@@ -60,15 +61,14 @@ $(document).ready(function() {
         var household_conditions = (id.indexOf("household") > -1 && curr.type != 'hidden' && curr.type != 'radio')
         var volunteer_conditions = (id.indexOf("volunteer") > -1 && curr.type != 'hidden' && curr.type != 'radio')
 
-        //draw household form validations
-        drawValidations(household_conditions, curr, name, id);
-
-        //draw volunteer form validations
-        drawValidations(volunteer_conditions, curr, name, id);
-
     }
-
 });
+
+
+
+
+
+$(document).ready(function() {
 
 // $(document).on('nested:fieldAdded', function (event) {
 //     $('.sigPad').signaturePad({drawOnly:true});
@@ -93,20 +93,38 @@ function drawValidations(conditions, curr, name, id){
             if(name.indexOf("zip") > -1){
                 lv.add(  Validate.Format, { pattern: /^\d{5}(?:[-\s]\d{4})?$/, failureMessage: "Invalid Format" }  );
             }
-        }
-    }
-}
 
-// $(document).on('nested:fieldAdded', function (event) {
-//     var inputs = $('input')
-//     for(var i =0; i< inputs.length;i++){
-//         var curr = inputs[i]
-//         var name = curr.name
-//         var id = curr.id
-//         var conditions = (id.indexOf("household") > -1 && curr.type != 'hidden' && curr.type != 'radio' && id.indexOf("_0_") == -1)
-//         drawValidations(conditions, curr, name, id);
-//     }  
-// });
+    $.validator.addMethod("zip", function(value, element) {
+        return this.optional(element) || /\d{5}(?:[-\s]\d{4})?/.test(value);
+    }, "Please specify valid zip code");
+
+
+    $("#new_household").validate();
+    $.validator.addClassRules({
+        phone: {
+            phoneUS: true 
+        },
+        email: {
+            email: true
+        },
+        required: {
+            required: true
+        }
+    });
+
+    $("#new_volunteer").validate();
+    $.validator.addClassRules({
+        phone: {
+            phoneUS: true 
+        },
+        email: {
+            email: true
+        },
+        required: {
+            required: true
+        }
+    });
+});
 
 
 $(document).on('nested:fieldRemoved', function (event) {
