@@ -50,25 +50,36 @@
     <div id="household_students" class="well" class="ui-accordion-content">
       <%= household_form.simple_fields_for :students do |student_form| %>
       <%= render :partial => "student_fields", :locals => { :f => student_form } %>
-
-      <!-- <legend>Registration</legend> -->
-      <%#= student_form.simple_fields_for :registrations do |registration_form| %>
-      <%#= render :partial => "registration_fields", :locals => { :f => registration_form } %>
-      <%# end %> 
-
       <% end %> 
 
       <p>
        <%= household_form.link_to_add("+ Add Another Participant", :students) %>
      </p> <br /><br />
 
-
      <button class = "previous"> Return to Step 1 (if needed)</button>
    </div> 
+
    <!-- </div>  -->
 
    <!-- </div> -->
  </div>
+
+<div class="row">
+<div class="col-xs-6 col-sm-6">
+  <div class="sigPad">
+    <p class="drawItDesc">* Parent: Sign in the box below</p>
+    <ul class="sigNav">
+      <li class="drawIt"></li>
+      <li class="clearButton"><a href="#clear">Clear</a></li>
+    </ul>
+    <div class="sig sigWrapper">
+      <canvas class="pad" width="398" height="150"></canvas>
+      <input type="hidden" name="output" class="output">
+    </div>
+  </div>
+</div>
+</div>
+
 </fieldset>
 
 <br>
