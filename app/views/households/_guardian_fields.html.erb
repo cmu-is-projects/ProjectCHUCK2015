@@ -4,13 +4,13 @@
     <div class="col-xs-12 col-sm-6">
       <div class="field">
         <%= f.label :first_name %> <br>
-        <%= f.input_field :first_name, :class => "input-lg" %>
+        <%= f.text_field :first_name, :class => "input-lg required" %>
       </div>
     </div>
     <div class="col-xs-12 col-sm-6">
       <div class="field">
         <%= f.label :last_name %> <br>
-        <%= f.input_field :last_name, :class => "input-lg"%>
+        <%= f.text_field :last_name, :class => "input-lg required"%>
       </div>
     </div>
   </div>
@@ -21,14 +21,14 @@
     <div class="col-xs-12 col-sm-6">
       <div class="field">
         <%= f.label :cell_phone, :label => "Best Contact Number" %><br>
-        <%= f.input_field :cell_phone, as: :string, :class => "input-lg" %>
+        <%= f.text_field :cell_phone, as: :string, :class => "input-lg phone required" %>
       </div>
     </div>
 
     <div class="col-xs-12 col-sm-6">
       <div class="field">
         <%= f.label :email %><br>
-        <%= f.input_field :email, as: :string, :class => "input-lg" %>
+        <%= f.input_field :email, as: :string, :class => "input-lg email" %>
       </div>
     </div>
   </div>

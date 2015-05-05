@@ -12,13 +12,13 @@
       <%#= f.input :first_name, :class => 'input-lg' %>
       <div class="field">
         <%= f.label :first_name %> <br>
-        <%= f.input_field :first_name, :class => "input-lg" %>
+        <%= f.text_field :first_name, :class => "input-lg required" %>
       </div> 
     </div>
     <div class="col-xs-6 col-sm-6">
       <div class="field">
         <%= f.label :last_name %> <br>
-        <%= f.input_field :last_name, :class => "input-lg" %>
+        <%= f.text_field :last_name, :class => "input-lg required" %>
       </div>
     </div>
   </div>
@@ -46,13 +46,13 @@
     <div class="col-xs-6 col-sm-6">
       <div class="field">
         <%= f.label :cell_phone, :label => "Participant's Cell Phone" %><br>
-        <%= f.input_field :cell_phone, as: :string, :class => "input-lg" %>
+        <%= f.text_field :cell_phone, as: :string, :class => "input-lg" %>
       </div>
     </div>
     <div class="col-xs-6 col-sm-6">
       <div class="field">
         <%= f.label :email, :label => "Participant's Email" %><br>
-        <%= f.input_field :email, as: :string, :class => "input-lg" %>
+        <%= f.text_field :email, as: :string, :class => "input-lg email" %>
       </div>
     </div>
   </div>
@@ -93,7 +93,7 @@
    <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label :school, :label => "Name of School" %><br>
-      <%= f.input_field :school, :class => "input-lg" %>
+      <%= f.text_field :school, :class => "input-lg" %>
     </div>
   </div>
   <div class="col-xs-6 col-sm-6">
@@ -140,13 +140,13 @@
   <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label :insurance_provider, :label => "Name of Insurance Company" %> <br>
-      <%= f.input_field :insurance_provider, :class => "input-lg" %>
+      <%= f.text_field :insurance_provider, :class => "input-lg required" %>
     </div>
   </div>
   <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label :insurance_policy_no, :label => "Policy Number" %><br>
-      <%= f.input_field :insurance_policy_no, :class => "input-lg" %>
+      <%= f.text_field :insurance_policy_no, :class => "input-lg required" %>
     </div>
   </div>
 </div>
@@ -170,13 +170,13 @@
  <div class="col-xs-6 col-sm-6">
    <div class="field">
     <%= f.label :family_physician %><br>
-    <%= f.input_field :family_physician, :class => "input-lg" %>
+    <%= f.text_field :family_physician, :class => "input-lg required" %>
   </div>
 </div>
 <div class="col-xs-6 col-sm-6">
   <div class="field">
     <%= f.label :physician_phone %><br>
-    <%= f.input_field :physician_phone, as: :string, :class => "input-lg" %>
+    <%= f.input_field :physician_phone, as: :string, :class => "input-lg phone" %>
   </div>
 </div>
 </div>
@@ -207,13 +207,13 @@
   <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label :emergency_contact_name, :label => "Name of Emergency Contact" %> <br>
-      <%= f.input_field :emergency_contact_name, :class => "input-lg" %>
+      <%= f.text_field :emergency_contact_name, :class => "input-lg required" %>
     </div>
   </div>
   <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label :emergency_contact_relation, :label => "Emergency Contact's Relation to Participant" %> <br>
-      <%= f.input_field :emergency_contact_relation, :class => "input-lg" %>
+      <%= f.text_field :emergency_contact_relation, :class => "input-lg required" %>
     </div>
   </div>
 
@@ -222,7 +222,7 @@
   <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label :emergency_contact_phone, :label => "Phone Number of Emergency Contact" %> <br>
-      <%= f.input_field :emergency_contact_phone, as: :string, :class => "input-lg" %>
+      <%= f.text_field :emergency_contact_phone, as: :string, :class => "input-lg required phone" %>
     </div>
   </div>
 </div>
@@ -254,7 +254,7 @@
   <div class="col-xs-12 col-sm-12">
     <div class="field">
       <%= f.label :parent_consent_agree, :label => "Parent/Guardian - Click if you agree:" %> <br>
-      <%= f.input_field :parent_consent_agree, as: :boolean, checked_value: true, unchecked_value: false, :class => "input-lg" %>
+      <%= f.check_box :parent_consent_agree %>
     </div>
   </div> 
 </div>
@@ -270,13 +270,13 @@
   <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label :child_promise_agree, :label => "Student Participant - Click if you agree:" %> <br>
-      <%= f.input_field :child_promise_agree, as: :boolean, checked_value: true, unchecked_value: false, :class => "input-lg" %>
+      <%= f.check_box :child_promise_agree %>
     </div>
   </div> 
   <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label :parent_promise_agree, :label => "Parent/Guardian - Click if you agree:" %> <br>
-      <%= f.input_field :parent_promise_agree, as: :boolean, checked_value: true, unchecked_value: false, :class => "input-lg"%>
+      <%= f.check_box :parent_promise_agree %>
     </div>
   </div> 
 </div>
@@ -294,7 +294,7 @@
   <div class="col-xs-12 col-sm-12">
     <div class="field">
       <%= f.label :parent_release_agree, :label => "Parent/Guardian - Click if you agree:" %> <br>
-      <%= f.input_field :parent_release_agree, as: :boolean, checked_value: true, unchecked_value: false, :class => "input-lg" %>
+      <%= f.check_box :parent_release_agree %>
     </div>
   </div> 
 </div>
@@ -309,13 +309,13 @@
   <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label :parent_signature, :label => "Parent - If you agree with the above, please sign:" %> <br>
-      <%= f.input_field :parent_signature, :class => "input-lg" %>
+      <%= f.text_field :parent_signature, :class => "input-lg" %>
     </div>
   </div> 
   <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label :child_signature, :label => "Student Participant - If you agree with the above, please sign:" %> <br>
-      <%= f.input_field :child_signature, :class => "input-lg" %>
+      <%= f.text_field :child_signature, :class => "input-lg" %>
     </div>
   </div> 
 </div>

@@ -19,6 +19,8 @@
 //= require bootstrap-sprockets
 //= require jquery-ui   
 //= require highcharts/highcharts                                             
-//= require filterrific/filterrific-jquery	                                               
+//= require filterrific/filterrific-jquery
+//= require jquery.validate.js
+//= require additional-methods.js	                                               
 //= require my_code.js
 //= require_tree .
