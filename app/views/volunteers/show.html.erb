@@ -17,6 +17,8 @@
 <% end %>
 </p>
 
+<strong>Volunteer Signature:</strong> <%= link_to "Click here", @volunteer.volunteer_sign.url, :target => '_blank' %> <br>
+
 <h3>Address</h3>
 
 <% if (@volunteer.street==nil && @volunteer.city==nil && @volunteer.state==nil && @volunteer.zip==nil) %> 

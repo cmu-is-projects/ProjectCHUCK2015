@@ -53,7 +53,7 @@
   validates :grade, inclusion: { in: GRADES_ARRAY, allow_blank: false } 
   validates :gender, inclusion: { in: GENDER_ARRAY, allow_blank: false } 
   # validate :household_is_active_in_system
-  validates_presence_of :insurance_provider, :insurance_policy_no, :family_physician, :physical_date, :child_signature, :parent_signature
+  validates_presence_of :insurance_provider, :insurance_policy_no, :family_physician, :physical_date, :child_signature#, :parent_signature
   validates :physician_phone, format: { with: /\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}/, message: "should be 10 digits (area code needed)" }, :allow_blank => true
   JERSEYSIZES = ["Youth-Large", "Youth-XL", "Adult-Small", "Adult-Medium", "Adult-Large", "Adult-XL"]
   GPA_ARRAY = ["4.0 or higher", "3.9 - 3.0", "2.9 - 2.5", "2.4 - 2.0", "1.9 or lower", "Not Applicable"]

@@ -197,7 +197,7 @@
 
 <!--"volunteer_sign"-->
 
-<div class="row">
+<!-- <div class="row">
   <div class="col-sm-12">
     <div class="field">
       <%= f.label "Signature" %><br>
@@ -212,9 +212,27 @@
       <%= f.date_select :volunteer_sign_date, :class => "input-lg" %>
     </div>
   </div>
-</div>
+</div> -->
 
 </div>
+
+<div class="row">
+<div class="col-xs-6 col-sm-6">
+  <div class="sigPad">
+    <p class="drawItDesc">* Volunteer: Sign in the box below</p>
+    <ul class="sigNav">
+      <li class="drawIt"></li>
+      <li class="clearButton"><a href="#clear">Clear</a></li>
+    </ul>
+    <div class="sig sigWrapper">
+      <canvas class="pad" width="398" height="150"></canvas>
+      <input type="hidden" name="output" class="output">
+    </div>
+  </div>
+</div>
+</div>
+
+<br><br>
 
 <div class="row">
   <div class="col-sm-6">

@@ -28,6 +28,14 @@ class VolunteersController < ApplicationController
   def create
     @volunteer = Volunteer.new(volunteer_params)
 
+    require 'open3'
+    instructions = JSON.parse(params[:output]).map { |h| "line #{h['mx'].to_i},#{h['my'].to_i} #{h['lx'].to_i},#{h['ly'].to_i}" } * ' '
+    tempfile = Tempfile.new(["volunteer_sign", '.png'])
+    Open3.popen3("convert -size 398x150 xc:transparent -stroke blue -draw @- #{tempfile.path}") do |input, output, error|
+        input.puts instructions
+    end
+    @volunteer.volunteer_sign = tempfile
+
     respond_to do |format|
       if @volunteer.save
         format.html { redirect_to home_path, notice: "Congratulations! You have successfully registered as a volunteer for Project C.H.U.C.K" }
