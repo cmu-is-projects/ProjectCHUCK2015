@@ -48,7 +48,8 @@ if ((window.location.pathname == '/households/new') || (window.location.pathname
 
 
 $(document).ready(function() {
-  $('.sigPad').signaturePad({drawOnly:true});
+
+  $('.sigPad').signaturePad({drawOnly:true, lineTop:120});
 
   //collect inputs and make conditions for drawValidations()
     var inputs = $('input')
@@ -68,6 +69,10 @@ $(document).ready(function() {
     }
 
 });
+
+// $(document).on('nested:fieldAdded', function (event) {
+//     $('.sigPad').signaturePad({drawOnly:true});
+// }
 
 function drawValidations(conditions, curr, name, id){
     if(conditions){

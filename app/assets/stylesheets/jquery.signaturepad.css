@@ -127,7 +127,7 @@
   bottom: 0.2em;
   display: none;
   position: absolute;
-  right: 0;
+  left: 0;
 
   font-size: 0.75em;
   line-height: 1.375;
@@ -135,7 +135,7 @@
 
 .sigWrapper {
   clear: both;
-  height: 100px;
+  height: 155px;
 
   border: 1px solid #ccc;
 }

@@ -36,6 +36,16 @@ class HouseholdsController < ApplicationController
   def create
     @household = Household.new(household_params)
 
+    require 'open3'
+    instructions = JSON.parse(params[:output]).map { |h| "line #{h['mx'].to_i},#{h['my'].to_i} #{h['lx'].to_i},#{h['ly'].to_i}" } * ' '
+    tempfile = Tempfile.new(["parent_signature", '.png'])
+    Open3.popen3("convert -size 398x150 xc:transparent -stroke blue -draw @- #{tempfile.path}") do |input, output, error|
+        input.puts instructions
+    end
+    @household.students.each do |student|
+      student.parent_signature = tempfile
+    end
+
     respond_to do |format|
       if @household.save
         format.html { redirect_to survey_path, notice: "Congratulations! You have successfully registered for Project C.H.U.C.K" }
@@ -81,6 +91,6 @@ class HouseholdsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def household_params
-      params.require(:household).permit(:street, :city, :state, :zip, :home_phone, :county, :active, students_attributes: [:id, :first_name, :last_name, :dob, :cell_phone, :email, :grade, :gender, :emergency_contact_name, :emergency_contact_phone, :has_birth_certificate, :allergies, :medications, :security_question, :security_response, :active, :school_id, :_destroy, :birth_certificate, :emergency_contact_relation, :has_report_card, :has_proof_of_insurance, :insurance_provider, :insurance_policy_no, :family_physician, :physician_phone, :has_physical, :physical_date, :jersey_size, :report_card, :parent_consent_agree, :parent_promise_agree, :parent_release_agree, :parent_signature, :parent_sign_date, :proof_of_insurance, :physical, :child_promise_agree, :child_signature, :child_sign_date, :school, :gpa, :pastparticipation, :district, :bracket_ids => []], guardians_attributes: [:id, :relation, :email, :first_name, :last_name, :cell_phone, :receives_text_msgs, :active, :_destroy])
+      params.require(:household).permit(:street, :city, :state, :zip, :home_phone, :county, :active, students_attributes: [:id, :first_name, :last_name, :dob, :cell_phone, :email, :grade, :gender, :emergency_contact_name, :emergency_contact_phone, :has_birth_certificate, :allergies, :medications, :security_question, :security_response, :active, :school_id, :_destroy, :birth_certificate, :birth_certificate_cache, :emergency_contact_relation, :has_report_card, :has_proof_of_insurance, :insurance_provider, :insurance_policy_no, :family_physician, :physician_phone, :has_physical, :physical_date, :jersey_size, :report_card, :report_card_cache, :parent_consent_agree, :parent_promise_agree, :parent_release_agree, :parent_signature, :parent_sign_date, :proof_of_insurance, :proof_of_insurance_cache, :physical, :physical_cache, :child_promise_agree, :child_signature, :child_sign_date, :school, :gpa, :pastparticipation, :district, :bracket_ids => []], guardians_attributes: [:id, :relation, :email, :first_name, :last_name, :cell_phone, :receives_text_msgs, :active, :_destroy])
     end
 end
