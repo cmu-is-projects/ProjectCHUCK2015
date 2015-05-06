@@ -228,17 +228,14 @@
 
 <br><hr>
 
-<h3>Volunteer Guidelines and Responsibilities</h3>
-
-<br>
 
 <!--"volunteer_sign"-->
 
 <!-- <div class="row">
   <div class="col-sm-12">
     <div class="field">
-      <%= f.label "Signature" %><br>
-      <%= f.input_field :volunteer_sign, :class => "input-lg" %>
+      <%#= f.label "Signature" %><br>
+      <%#= f.input_field :volunteer_sign, :class => "input-lg" %>
     </div>
   </div>
 </div>
@@ -248,28 +245,39 @@
 <div class="row">
   <div class="col-sm-12">
     <div class="field">
-      <%= f.label "Date" %><br>
-      <%= f.date_select :volunteer_sign_date, :class => "input-lg" %>
+      <%#= f.label "Date" %><br>
+      <%#= f.date_select :volunteer_sign_date, :class => "input-lg" %>
     </div>
   </div>
 </div> -->
 
 </div>
 
+<center><h3>Statement of Responsibilities and Release</h3></center>
+
+<br>
+
 <div class="row">
-<div class="col-xs-6 col-sm-6">
-  <div class="sigPad">
-    <p class="drawItDesc">* Volunteer: Sign in the box below</p>
-    <ul class="sigNav">
-      <li class="drawIt"></li>
-      <li class="clearButton"><a href="#clear">Clear</a></li>
-    </ul>
-    <div class="sig sigWrapper">
-      <canvas class="pad" width="398" height="150"></canvas>
-      <input type="hidden" name="output" class="output">
-    </div>
+  <div class="col-xs-6 col-sm-6">
+    <center><div class="sigPad">
+      <!-- <p class="drawItDesc">* Volunteer: Sign in the box below</p> -->
+      <ul class="sigNav">
+        <li class="drawIt"></li>
+        <li class="clearButton"><a href="#clear">Clear</a></li>
+      </ul>
+      <div class="sig sigWrapper">
+        <canvas class="pad" width="398" height="150"></canvas>
+        <input type="hidden" name="output" class="output">
+      </div>
+    </div></center>
   </div>
-</div>
+  <div class="col-xs-6 col-sm-6">
+    <p>Thank you for volunteering your time for Project CHUCK. <br><br>
+
+     To participate in Project CHUCK and as a Best of the Batch volunteer in consideration of the services to be performed by its sponsors, officers, and staff, I do hereby assume all the risks and hazards incidental to the conduct of the activities, and I do further hereby release, absolve, indemnify, and hold harmless Project CHUCK, operated and sponsored by the Best of the Batch, its sponsors, officers, staff, and volunteers of and from alll manner of action and actions, cause or causes of action, suits, debts, and sums of money, claims of demands, whatsoever, in law or equity, arising out of or pursuant to the conduct of the activities. I am fully aware of the risks inherent to this activity and should not participate or allow my child to participate unless medically able. I assumed all risks associated with this activity. I also agree that photographs, recordings, or any other record may be used for the purpose of promoting programs operated or sponsored by Best of the Batch. In case of accident or illness, I authorize a representative of Project CHUCK to obtain immediate care deemed necessary by licensed medical personnel. I hereby take responsibility for the above information and it is accurate to the best of my knowledge. <br><br>
+     By signing means you have read and understand the rules and regulations given by Best of the Batch Foundation for Project CHUCK. Any violations of these rules will result in immediate dismissal from the program. I have read and fully understand that these terms are contractual and not a mere recital and sign it voluntarily and hereby take responsibility for the above information and release Best of the Batch Foundation of any injuries and obligations.
+      </p>
+  </div>
 </div>
 
 <br><br>
@@ -277,12 +285,12 @@
 <div class="row">
   <div class="col-sm-6">
     <div class="actions">
-      <%= f.submit "Submit Registration", :class => 'btn btn-primary', data:{ confirm:"By submitting, you affirm that all information entered is accurate to the best of your knowledge."} %>
+      <%= f.submit "Submit Registration", :class => 'btn btn-primary successbtn', data:{ confirm:"By submitting, you affirm that all information entered is accurate to the best of your knowledge."} %>
     </div>
   </div>
   <div class="col-sm-6">
     <div class="actions">
-      <%= link_to 'Cancel Registration', volunteers_path, :class => 'btn btn-primary', data:{ confirm:"Are you sure you want to cancel this form?"} %>
+      <%= link_to 'Cancel Registration', volunteers_path, :class => 'btn btn-primary cancelbtn', data:{ confirm:"Are you sure you want to cancel this form?"} %>
     </div>
   </div>
 </div>

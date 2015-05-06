@@ -14,8 +14,8 @@ class HomeController < ApplicationController
       @female_students = @current_registered_students.female.size
 
       @unassigned_rospots = RosterSpot.unassigned.paginate(:page => params[:page]).per_page(10)
-      #@unassigned_students = @unassigned_rospots
-      # @school_districts = School.school_districts
+      @unassigned_students = @students
+      @school_districts = Student.school_districts
       # @students = Student.all
       # @brackets = Student.by_bracket
       # @unassigned_students = Student.active.alphabetical.unassigned.paginate(:page => params[:unassigned_student_page], :per_page => 10)

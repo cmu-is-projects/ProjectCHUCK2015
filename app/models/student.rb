@@ -184,6 +184,21 @@
     ]
   end
 
+   def self.school_districts
+    current_registered_students = Student.active
+    school_districts = Hash.new
+    for stu in current_registered_students
+      stu_school_district = School::DISTRICT_ARRAY[0]
+      if school_districts[stu_school_district].nil?
+        school_districts[stu_school_district] = 1
+      else
+        school_districts[stu_school_district] += 1
+      end
+    end
+    school_districts.to_a
+  end
+
+
   private
      # We need to strip non-digits before saving to db
       def studentActive

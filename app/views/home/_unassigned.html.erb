@@ -10,13 +10,13 @@
   </thead> 
 
   <tbody>
-   <% @unassigned_rospots.each do |roster_spot| %>
+   <% @unassigned_students.each do |student| %>
    
    <tr>
-    <% if roster_spot.student.gender == "Male"%>
-    <td class="boy"><%= link_to roster_spot.student.proper_name, roster_spot.student %></td>
+    <% if student.gender == "Male"%>
+    <td class="boy"><%= link_to student.proper_name, student %></td>
     <%else%>
-    <td class="girl"><%= link_to roster_spot.student.proper_name, roster_spot.student %></td>
+    <td class="girl"><%= link_to student.proper_name, student %></td>
     <%end%> 
     <!-- <td><%= student.age %></td> -->
     <!-- <td><%#= link_to(image_tag('edit.png'), edit_student_path(student)) %></td> -->
@@ -26,6 +26,6 @@
 </tbody>
 </table>
 
-<%= will_paginate @unassigned_rospots %>
+<%= will_paginate @unassigned_students %>
 
 </div>

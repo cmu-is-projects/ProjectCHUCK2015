@@ -12,7 +12,7 @@
 <% end %>
 
 <div id="accordiondiv">
-<center><h2>Participant Registration Form</h2></center> <br><br>
+  <center><h2>Participant Registration Form</h2></center> <br><br>
 </div>
 
 <fieldset>
@@ -22,17 +22,17 @@
     <!-- <div class="span7"> -->
     <h3>Step 1: Household Details</h3>
     <div class="well">
-      <h3>General Household Information</h3>
+      <h3>General Household Information</h3> <br>
       <%= render :partial => "household_fields", :locals => { :f => household_form } %>
 
       <hr>
 
-      <h3>Parent(s)/Guardian(s) in this Household</h3>
+      <h3>Parent(s)/Guardian(s) in this Household</h3> <br>
       <%= household_form.simple_fields_for :guardians do |guardian_form| %>
       <%= render :partial => "guardian_fields", :locals => { :f => guardian_form } %>
       <% end %> 
       <p> <br /><br />
-        <%= household_form.link_to_add "+ Add Another Parent/Guardian", :guardians %>
+        <%= household_form.link_to_add "+ Add Another Parent/Guardian", :guardians, :class => "btn addlink" %>
       </p><br /><br />
 
       <button class = "next"> Proceed to Step 2 </button>
@@ -53,7 +53,7 @@
       <% end %> 
 
       <p>
-       <%= household_form.link_to_add("+ Add Another Participant", :students) %>
+       <%= household_form.link_to_add("+ Add Another Participant", :students, :class => "btn addlink") %>
      </p> <br /><br />
 
      <button class = "previous"> Return to Step 1 (if needed)</button>
@@ -64,20 +64,24 @@
    <!-- </div> -->
  </div>
 
-<div class="row">
-<div class="col-xs-6 col-sm-6">
-  <div class="sigPad">
-    <p class="drawItDesc">* Parent: Sign in the box below</p>
-    <ul class="sigNav">
-      <li class="drawIt"></li>
-      <li class="clearButton"><a href="#clear">Clear</a></li>
-    </ul>
-    <div class="sig sigWrapper">
-      <canvas class="pad" width="398" height="150"></canvas>
-      <input type="hidden" name="output" class="output">
-    </div>
+ <div class="row">
+  <div class="col-xs-12 col-sm-6">
+    <center><div class="sigPad">
+      <!-- <p class="drawItDesc">* Parent: Sign in the box below</p> -->
+      <ul class="sigNav">
+        <li class="drawIt"></li>
+        <li class="clearButton"><a href="#clear">Clear</a></li>
+      </ul>
+      <div class="sig sigWrapper">
+        <canvas class="pad" width="398" height="150"></canvas>
+        <input type="hidden" name="output" class="output">
+      </div>
+    </div></center>
   </div>
-</div>
+  <div class="col-xs-12 col-sm-6">
+    <h2>For Parents:</h2>
+    <p> Please sign in the box to the left agreeing that all the information entered is accurate to the best of your knowledge and that you have agreed to all terms and conditions necessary for your child to participate in Project CHUCK.</p>
+  </div>
 </div>
 
 </fieldset>
@@ -87,10 +91,10 @@
 <div class="actions">
   <div class="row">
     <div class="col-sm-6">
-      <%= household_form.submit "Final Step: Submit Registration", :class => 'btn btn-primary', data:{ confirm:"By submitting, you affirm that all information entered is accurate to the best of your knowledge. Upon submission, you will be redirected to a survey to complete."} %>
+      <%= household_form.submit "Final Step: Submit Registration", :class => 'btn btn-primary successbtn', data:{ confirm:"By submitting, you affirm that all information entered is accurate to the best of your knowledge. Upon submission, you will be redirected to a survey to complete."} %>
     </div>
     <div class="col-sm-6">
-      <%= link_to 'Cancel Registration', "/home", :class => 'btn btn-primary', data:{ confirm:"Are you sure you want to cancel this form?"} %>
+      <%= link_to 'Cancel Registration', "/home", :class => 'btn btn-primary cancelbtn', data:{ confirm:"Are you sure you want to cancel this form?"} %>
     </div>
   </div>
 </div>

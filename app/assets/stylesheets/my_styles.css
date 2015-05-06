@@ -221,12 +221,32 @@ height: 2em;
   margin-right: auto;
 }
 
-.cancelbtn{
-  color: #ffffff;
-  background-color: #008cba;
-  border-color: red;
-  /*border: 3px solid red;*/
+.btn.btn-primary.successbtn:hover{
+  background-color: MediumSeaGreen;
 }
+
+.btn.btn-primary.cancelbtn:hover{
+  background-color: IndianRed;
+}
+
+.btn.removelink{
+  color: #ffffff;
+  background-color: IndianRed;
+  border-color: #d08002;
+  width: 95%;
+  border-radius: 10px;
+}
+
+.btn.addlink{
+  color: #000;
+  border-color: Black;
+  width: 25%;
+  border-radius: 10px;
+}
+
+/*.small{
+  font-size: 5.0em;
+}*/
 
 .wrapper {
 position:relative;

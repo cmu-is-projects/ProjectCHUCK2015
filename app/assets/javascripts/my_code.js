@@ -46,6 +46,10 @@ if ((window.location.pathname == '/households/new') || (window.location.pathname
 
 };
 
+$(document).ready(function() {
+    $('dropdown-toggle').dropdown()
+});
+
 
 $(document).ready(function() {
 
