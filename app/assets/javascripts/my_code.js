@@ -53,6 +53,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 
+
   $('.sigPad').signaturePad({drawOnly:true, lineTop:120});
 
   //collect inputs and make conditions for drawValidations()
@@ -64,53 +65,50 @@ $(document).ready(function() {
         var household_conditions = (id.indexOf("household") > -1 && curr.type != 'hidden' && curr.type != 'radio')
         var volunteer_conditions = (id.indexOf("volunteer") > -1 && curr.type != 'hidden' && curr.type != 'radio')
 
-        //draw household form validations
-        drawValidations(household_conditions, curr, name, id);
-
-        //draw volunteer form validations
-        drawValidations(volunteer_conditions, curr, name, id);
-
     }
-
 });
+
+
+
+
+
+$(document).ready(function() {
 
 // $(document).on('nested:fieldAdded', function (event) {
 //     $('.sigPad').signaturePad({drawOnly:true});
 // }
 
-function drawValidations(conditions, curr, name, id){
-    if(conditions){
-        if(name.indexOf("agree") > -1){
-            var lv2 = new LiveValidation(id, {validMessage: "I agree."});
-            lv2.add( Validate.Acceptance, {failureMessage: "Must be accepted"});
-        }else{
-            var lv = new LiveValidation(id);
-            // if(curr.required){
-            //     lv.add( Validate.Presence )
-            // }
-            if(name.indexOf("email") > -1){
-                lv.add( Validate.Format, {pattern:/^[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))$/i});
-            }
-            if(name.indexOf("phone") > -1){
-                lv.add( Validate.Format, { pattern: /^\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/, failureMessage: "Invalid format"});
-            }
-            if(name.indexOf("zip") > -1){
-                lv.add(  Validate.Format, { pattern: /^\d{5}(?:[-\s]\d{4})?$/, failureMessage: "Invalid Format" }  );
-            }
-        }
-    }
-}
+    $.validator.addMethod("zip", function(value, element) {
+        return this.optional(element) || /\d{5}(?:[-\s]\d{4})?/.test(value);
+    }, "Please specify valid zip code");
 
-// $(document).on('nested:fieldAdded', function (event) {
-//     var inputs = $('input')
-//     for(var i =0; i< inputs.length;i++){
-//         var curr = inputs[i]
-//         var name = curr.name
-//         var id = curr.id
-//         var conditions = (id.indexOf("household") > -1 && curr.type != 'hidden' && curr.type != 'radio' && id.indexOf("_0_") == -1)
-//         drawValidations(conditions, curr, name, id);
-//     }  
-// });
+
+    $("#new_household").validate();
+    $.validator.addClassRules({
+        phone: {
+            phoneUS: true 
+        },
+        email: {
+            email: true
+        },
+        required: {
+            required: true
+        }
+    });
+
+    $("#new_volunteer").validate();
+    $.validator.addClassRules({
+        phone: {
+            phoneUS: true 
+        },
+        email: {
+            email: true
+        },
+        required: {
+            required: true
+        }
+    });
+});
 
 
 $(document).on('nested:fieldRemoved', function (event) {

@@ -310,3 +310,9 @@ hr.style-eight:after {
     padding: 0 0.25em;
     background: white;
 }
+
+.error{
+  position: relative;
+  padding-left: .5em;
+  color: #CC0000;
+}

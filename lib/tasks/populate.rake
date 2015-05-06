@@ -219,6 +219,12 @@ namespace :db do
     scottbrooks.last_name = "Brooks"
     scottbrooks.cell_phone = "2139198232"
     scottbrooks.shirt_size = "L"
+    scottbrooks.dob = Date.new(1970,6,14)
+    scottbrooks.street = "4 Forbes Ave"
+    scottbrooks.city = "Pittsburgh"
+    scottbrooks.state = "PA"
+    scottbrooks.zip = "15289"
+    scottbrooks.day_phone = "2139198343"
     scottbrooks.receives_text_msgs = true
     scottbrooks.active = true
     scottbrooks.save!
@@ -231,6 +237,12 @@ namespace :db do
     alliewilson.last_name = "Wilson"
     alliewilson.cell_phone = "4107500575"
     alliewilson.shirt_size = "S"
+    alliewilson.dob = Date.new(1970,6,14)
+    alliewilson.street = "4 Forbes Ave"
+    alliewilson.city = "Pittsburgh"
+    alliewilson.state = "PA"
+    alliewilson.zip = "15289"
+    alliewilson.day_phone = "2139198858"
     alliewilson.receives_text_msgs = false
     alliewilson.active = true
     alliewilson.save!
@@ -254,6 +266,12 @@ namespace :db do
     tasha.last_name = "Wilson-Batch"
     tasha.cell_phone = "4108889999"
     tasha.shirt_size = "S"
+    tasha.dob = Date.new(1970,6,14)
+    tasha.street = "4 Forbes Ave"
+    tasha.city = "Pittsburgh"
+    tasha.state = "PA"
+    tasha.zip = "15289"
+    tasha.day_phone = "2139193454"
     tasha.receives_text_msgs = false
     tasha.active = true
     tasha.save!
