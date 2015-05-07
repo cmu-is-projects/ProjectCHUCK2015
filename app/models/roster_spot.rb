@@ -12,7 +12,8 @@ class RosterSpot < ActiveRecord::Base
   #Scopes
   scope :by_position, -> { order('position') }
   scope :active, -> { where('end_date IS NULL') }
-  scope :unassigned, -> { joins(:student).where('student.roster_spot.team_id IS NULL') }
+  scope :by_student,   -> { joins(:student).order('students.last_name, students.first_name') }
+  #scope :unassigned, -> { joins(:student).where('student.roster_spot.team_id IS NULL') }
 
   private
   def student_is_active_in_system
