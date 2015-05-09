@@ -238,7 +238,8 @@ height: 2em;
 }
 
 .btn.addlink{
-  color: #000;
+  color: #fff;
+  background-color: #0070D7;
   border-color: Black;
   width: 40%;
   border-radius: 10px;

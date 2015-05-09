@@ -7,7 +7,7 @@
     <% @household.errors.full_messages.each do |msg| %>
     <li><%= msg %></li>
     <% end %><br>
-   <h3>Please re-upload all documents</h3>
+    <h3>Please re-upload all documents</h3>
   </ul>
 </div>
 <% end %>
@@ -58,40 +58,30 @@
      </p> <br /><br />
 
      <button class = "previous"> Return to Step 1 (if needed)</button>
-   </div> 
 
-   <!-- </div>  -->
-
-   <!-- </div> -->
-
-
- <div class="row">
-  <div class="col-xs-12 col-sm-6">
-    <h2>For Parents:</h2>
-    <p> Please sign in the box to the right agreeing that all the information entered is accurate to the best of your knowledge and that you have agreed to all terms and conditions necessary for your child to participate in Project CHUCK.</p>
-  </div>
-  <div class="col-xs-12 col-sm-6">
-    <div class="sigPad">
-      <!-- <p class="drawItDesc">* Parent: Sign in the box below</p> -->
-      <ul class="sigNav">
-        <li class="drawIt"></li>
-        <li class="clearButton"><a href="#clear">Clear</a></li>
-      </ul>
-      <div class="sig sigWrapper">
-        <canvas class="pad" width="398" height="150"></canvas>
-        <input type="hidden" name="output" class="output">
+      <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <h2>For Parents:</h2>
+      <p> Please sign in the box to the right agreeing that all the information entered is accurate to the best of your knowledge and that you have agreed to all terms and conditions necessary for your child to participate in Project CHUCK.</p>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <div class="sigPad">
+        <!-- <p class="drawItDesc">* Parent: Sign in the box below</p> -->
+        <ul class="sigNav">
+          <li class="drawIt"></li>
+          <li class="clearButton"><a href="#clear">Clear</a></li>
+        </ul>
+        <div class="sig sigWrapper">
+          <canvas class="pad" width="398" height="150"></canvas>
+          <input type="hidden" name="output" class="output">
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-</fieldset>
+  <br>
 
- </div>
-
-<br>
-
-<div class="actions">
+  <div class="actions">
   <div class="row">
     <div class="col-sm-6">
       <%= link_to 'Cancel Registration', "/home", :class => 'btn btn-primary cancelbtn', data:{ confirm:"Are you sure you want to cancel this form?"} %>
@@ -101,6 +91,42 @@
     </div>
   </div>
 </div>
+
+
+   </div> 
+
+   <!-- </div>  -->
+
+   <!-- </div> -->
+
+<!-- 
+   <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <h2>For Parents:</h2>
+      <p> Please sign in the box to the right agreeing that all the information entered is accurate to the best of your knowledge and that you have agreed to all terms and conditions necessary for your child to participate in Project CHUCK.</p>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <div class="sigPad">
+        <p class="drawItDesc">* Parent: Sign in the box below</p> 
+        <ul class="sigNav">
+          <li class="drawIt"></li>
+          <li class="clearButton"><a href="#clear">Clear</a></li>
+        </ul>
+        <div class="sig sigWrapper">
+          <canvas class="pad" width="398" height="150"></canvas>
+          <input type="hidden" name="output" class="output">
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+</fieldset>
+
+</div>
+
+<br>
+
+
 
 <% end %>
 
