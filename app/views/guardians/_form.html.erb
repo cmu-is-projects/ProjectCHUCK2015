@@ -52,17 +52,17 @@
     </div>
   </div>
 </div>
-
-<div class="row">
-  <div class="col-xs-12 col-sm-6">
-    <div class="actions">
-      <%= f.submit "Create", :class => 'btn btn-primary'%>
+<div class = "row">
+      <div class="col-sm-6">
+      <% if controller.action_name=="edit"%>
+      <%= f.submit "Update", :class => 'btn btn-primary' %>
+      <% else %>
+      <%= f.submit "Create", :class => 'btn btn-primary' %>
+      <% end %>
+    </div>
+    <div class="col-sm-6">
+       <% if controller.action_name=="edit" || controller.action_name=="new"%>
+      <%= link_to 'Cancel', teams_path, :class => 'btn btn-primary' %>
     </div>
   </div>
-  <div class="col-xs-12 col-sm-6">
-    <div class="actions">
-      <%= link_to 'Back', guardians_path, :class => 'btn btn-primary' %>
-    </div>
-  </div>
-</div>
 <% end %>
