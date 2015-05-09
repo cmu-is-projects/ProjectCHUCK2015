@@ -6,7 +6,8 @@
   <ul>
     <% @household.errors.full_messages.each do |msg| %>
     <li><%= msg %></li>
-    <% end %>
+    <% end %><br>
+   <h3>Please re-upload all documents</h3>
   </ul>
 </div>
 <% end %>
@@ -65,12 +66,12 @@
 
 
  <div class="row">
-  <div class="col-xs-12 col-sm-5">
+  <div class="col-xs-12 col-sm-6">
     <h2>For Parents:</h2>
     <p> Please sign in the box to the right agreeing that all the information entered is accurate to the best of your knowledge and that you have agreed to all terms and conditions necessary for your child to participate in Project CHUCK.</p>
   </div>
-  <div class="col-xs-12 col-sm-7">
-    <center><div class="sigPad">
+  <div class="col-xs-12 col-sm-6">
+    <div class="sigPad">
       <!-- <p class="drawItDesc">* Parent: Sign in the box below</p> -->
       <ul class="sigNav">
         <li class="drawIt"></li>
@@ -80,7 +81,7 @@
         <canvas class="pad" width="398" height="150"></canvas>
         <input type="hidden" name="output" class="output">
       </div>
-    </div></center>
+    </div>
   </div>
 </div>
 
@@ -93,10 +94,10 @@
 <div class="actions">
   <div class="row">
     <div class="col-sm-6">
-      <%= household_form.submit "Final Step: Submit Registration", :class => 'btn btn-primary successbtn', data:{ confirm:"By submitting, you affirm that all information entered is accurate to the best of your knowledge. Upon submission, you will be redirected to a survey to complete."} %>
+      <%= link_to 'Cancel Registration', "/home", :class => 'btn btn-primary cancelbtn', data:{ confirm:"Are you sure you want to cancel this form?"} %>
     </div>
     <div class="col-sm-6">
-      <%= link_to 'Cancel Registration', "/home", :class => 'btn btn-primary cancelbtn', data:{ confirm:"Are you sure you want to cancel this form?"} %>
+      <%= household_form.submit "Final Step: Submit Registration", :class => 'btn btn-primary successbtn', data:{ confirm:"By submitting, you affirm that all information entered is accurate to the best of your knowledge. Upon submission, you will be redirected to a survey to complete."} %>
     </div>
   </div>
 </div>
