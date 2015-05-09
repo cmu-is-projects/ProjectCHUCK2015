@@ -230,14 +230,14 @@
 <div class="row">
   <div class="col-xs-6 col-sm-6">
     <div class="field">
-      <%= f.label :emergency_contact_name, :label => "Name of Emergency Contact" %> <br>
+      <%= f.label :emergency_contact_name, :label => "Full Name" %> <br>
       <%= f.text_field :emergency_contact_name, :class => "input-lg required" %>
     </div>
   </div>
   <div class="col-xs-6 col-sm-6">
     <div class="field">
-      <%= f.label :emergency_contact_relation, :label => "Emergency Contact's Relation to Participant" %> <br>
-      <%= f.text_field :emergency_contact_relation, :class => "input-lg required" %>
+      <%= f.label :emergency_contact_relation, :label => "Relation to Participant" %> <br>
+      <%= f.text_field :emergency_contact_relation, :class => "input-lg required", :placeholder => "Grandmother" %>
     </div>
   </div>
 
@@ -247,8 +247,8 @@
 <div class="row">
   <div class="col-xs-6 col-sm-6">
     <div class="field">
-      <%= f.label :emergency_contact_phone, :label => "Phone Number of Emergency Contact" %> <br>
-      <%= f.text_field :emergency_contact_phone, as: :string, :class => "input-lg required phone" %>
+      <%= f.label :emergency_contact_phone, :label => "Phone Number" %> <br>
+      <%= f.text_field :emergency_contact_phone, as: :string, :class => "input-lg required phone", :placeholder => "111-111-1111" %>
     </div>
   </div>
 </div>
