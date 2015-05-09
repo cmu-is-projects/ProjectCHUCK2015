@@ -20,6 +20,11 @@
     <% @volunteers.each do |volunteer| %>
       <tr>
         <td><%= link_to volunteer.proper_name, volunteer %></td>
+        <% if @volunteer.team == nil %> 
+    <td><p>"Not Assigned"</p></td>
+  <% else %>
+    <td><%= @volunteer.team.name %>
+  <% end %>
         <td><%= volunteer.email %></td>
         <td><%= volunteer.cell_phone %></td>
         <td>
