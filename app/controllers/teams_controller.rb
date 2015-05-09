@@ -13,7 +13,8 @@ class TeamsController < ApplicationController
   # GET /teams/1.json
   def show
     @volunteers = @team.volunteers
-    @students = @team.roster_spots.map { |i| i.student_id }
+    #@students = @team.roster_spots.map { |i| i.student_id }
+    @students = @team.roster_spots.by_student.to_a
   end
 
   # GET /teams/new

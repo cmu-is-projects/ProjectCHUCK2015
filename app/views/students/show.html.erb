@@ -81,9 +81,9 @@
         <p>
           <strong>Report Card:</strong>
           <% if @student.has_report_card == false %>
-            No Report Card Submitted
+          No Report Card Submitted
           <% else %>
-            <%= link_to "Click here", @student.report_card.url, :target => '_blank' %>
+          <%= link_to "Click here", @student.report_card.url, :target => '_blank' %>
           <% end %>
         </p>
       </div>
@@ -94,9 +94,9 @@
         <p>
           <strong>Birth Certificate:</strong>
           <% if @student.has_birth_certificate == false %>
-            No Birth Certificate Submitted
+          No Birth Certificate Submitted
           <% else %>
-            <%= link_to "Click here", @student.birth_certificate.url, :target => '_blank' %>
+          <%= link_to "Click here", @student.birth_certificate.url, :target => '_blank' %>
           <% end %>
         </p>
       </div>
@@ -107,9 +107,9 @@
         <p>
           <strong>Proof of Insurance:</strong>
           <% if @student.has_proof_of_insurance == false %>
-            No Proof of Insurance Submitted
+          No Proof of Insurance Submitted
           <% else %>
-            <%= link_to "Click here", @student.proof_of_insurance.url, :target => '_blank' %>
+          <%= link_to "Click here", @student.proof_of_insurance.url, :target => '_blank' %>
           <% end %>
         </p>
       </div>
@@ -120,9 +120,9 @@
         <p>
           <strong>Physical:</strong>
           <% if @student.has_physical == false %>
-            No Physical Submitted
+          No Physical Submitted
           <% else %>
-            <%= link_to "Click here", @student.physical.url, :target => '_blank' %>
+          <%= link_to "Click here", @student.physical.url, :target => '_blank' %>
           <% end %>
         </p>
       </div>
@@ -132,7 +132,7 @@
       <div class="col-sm-12">
         <p>
           <strong>Parent Signature:</strong>
-            <%= link_to "Click here", @student.parent_signature.url, :target => '_blank' %>
+          <%= link_to "Click here", @student.parent_signature.url, :target => '_blank' %>
         </p>
       </div>
     </div>
@@ -166,54 +166,54 @@
       </div>
     </div>
 
-      <h3>Contact Information</h3>
+    <h3>Contact Information</h3>
 
-      <div class="row">
-        <div class="col-sm-12">
-          <p>
-            <strong>Cell phone:</strong>
-            <%= @student.cell_phone %>
-          </p>
-        </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <p>
+          <strong>Cell phone:</strong>
+          <%= @student.cell_phone %>
+        </p>
       </div>
+    </div>
 
-      <div class="row">
-        <div class="col-sm-12">
-          <p>
-            <strong>Email:</strong>
-            <%= @student.email %>
-          </p>
-        </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <p>
+          <strong>Email:</strong>
+          <%= @student.email %>
+        </p>
       </div>
+    </div>
 
-      <h3>Medical Information</h3>
+    <h3>Medical Information</h3>
 
-      <div class="row">
-        <div class="col-sm-12">
-          <p>
-            <strong>Emergency contact name:</strong>
-            <%= @student.emergency_contact_name %>
-          </p>
-        </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <p>
+          <strong>Emergency contact name:</strong>
+          <%= @student.emergency_contact_name %>
+        </p>
       </div>
+    </div>
 
-      <div class="row">
-        <div class="col-sm-12">
-          <p>
-            <strong>Emergency contact phone:</strong>
-            <%= @student.emergency_contact_phone %>
-          </p>
-        </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <p>
+          <strong>Emergency contact phone:</strong>
+          <%= @student.emergency_contact_phone %>
+        </p>
       </div>
+    </div>
 
-      <div class="row">
-        <div class="col-sm-12">
-          <p>
-            <strong>Allergies:</strong>
-            <%= @student.allergies.nil? ? "N/A" : @student.allergies %>
-          </p>
-        </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <p>
+          <strong>Allergies:</strong>
+          <%= @student.allergies.nil? ? "N/A" : @student.allergies %>
+        </p>
       </div>
+    </div>
 
       <div class="row">
         <div class="col-sm-12">
@@ -225,27 +225,27 @@
       </div>
     </div>
 
-    <div class="col-xs-6 col-sm-6">
-      <div class="row">
-        <div class="col-sm-12">
-          <%= render :partial => 'docs' %>
+      <div class="col-xs-6 col-sm-6">
+        <div class="row">
+          <div class="col-sm-12">
+            <%= render :partial => 'docs' %>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-12">
-          <%= render :partial => 'reg_details' %>
+        <div class="row">
+          <div class="col-sm-12">
+            <%= render :partial => 'reg_details' %>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-12">
-          <%= render :partial =>  'household_details' %>
+        <div class="row">
+          <div class="col-sm-12">
+            <%= render :partial =>  'household_details' %>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-12">
-          <%= render :partial => 'guardian_details' %>
+        <div class="row">
+          <div class="col-sm-12">
+            <%= render :partial => 'guardian_details' %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
