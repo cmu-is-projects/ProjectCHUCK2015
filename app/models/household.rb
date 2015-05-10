@@ -4,6 +4,9 @@ class Household < ActiveRecord::Base
 	has_many :guardians, :dependent => :destroy
 	has_many :students, :dependent => :destroy
 
+  #callbacks
+  before_save :reformat_home_phone
+
   accepts_nested_attributes_for :students, reject_if: lambda { |student| student[:first_name].blank? }, allow_destroy: true
   accepts_nested_attributes_for :guardians, reject_if: lambda { |guardian| guardian[:first_name].blank? }, allow_destroy: true
 
