@@ -35,7 +35,7 @@
     <div class="col-xs-4 col-sm-4">
       <div class="field">
         <%= f.label :dob, :label => "Date of Birth" %> <br>
-        <%= f.input_field :dob, as: :date, :order =>[:month, :day, :year], :start_year => 20.years.ago.year, :end_year => 5.years.ago.year %>
+        <%= f.date_select :dob, as: :date, :order =>[:month, :day, :year], :start_year => 20.years.ago.year, :end_year => 5.years.ago.year %>
       </div>
     </div>
   </div>
@@ -217,7 +217,7 @@
   <div class="col-xs-4 col-sm-4">
     <div class="field">
       <%= f.label :physical_date %><br>
-      <%= f.input_field :physical_date, as: :date, :order =>[:month, :day, :year], :start_year => 10.years.ago.year, :end_year => Time.now.year %>
+      <%= f.date_select :physical_date, as: :date, :order =>[:month, :day, :year], :start_year => 10.years.ago.year, :end_year => Time.now.year %>
     </div>
   </div> 
 </div>
