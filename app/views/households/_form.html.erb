@@ -59,45 +59,45 @@
 
      <button class = "previous"> Return to Step 1 (if needed)</button>
 
-      <div class="row">
-    <div class="col-xs-6 col-sm-6 col-md-6">
-      <h2>For Parents:</h2>
-      <p> Please sign in the box to the right agreeing that all the information entered is accurate to the best of your knowledge and that you have agreed to all terms and conditions necessary for your child to participate in Project CHUCK.</p>
-    </div>
-    <div class="col-xs-6 col-sm-6 col-md-6">
-      <div class="sigPad">
-        <!-- <p class="drawItDesc">* Parent: Sign in the box below</p> -->
-        <ul class="sigNav">
-          <li class="drawIt"></li>
-          <li class="clearButton"><a href="#clear">Clear</a></li>
-        </ul>
-        <div class="sig sigWrapper">
-          <canvas class="pad" width="398" height="150"></canvas>
-          <input type="hidden" name="output" class="output">
+     <div class="row">
+      <div class="col-xs-6 col-sm-6 col-md-6">
+        <h2>For Parents:</h2>
+        <p> Please sign in the box to the right agreeing that all the information entered is accurate to the best of your knowledge and that you have agreed to all terms and conditions necessary for your child to participate in Project CHUCK.</p>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6">
+        <div class="sigPad">
+          <!-- <p class="drawItDesc">* Parent: Sign in the box below</p> -->
+          <ul class="sigNav">
+            <li class="drawIt"></li>
+            <li class="clearButton"><a href="#clear">Clear</a></li>
+          </ul>
+          <div class="sig sigWrapper">
+            <canvas class="pad" width="398" height="150"></canvas>
+            <input type="hidden" name="output" class="output">
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <br>
+    <br>
 
-  <div class="actions">
-  <div class="row">
-    <div class="col-sm-6">
-      <%= link_to 'Cancel Registration', "/home", :class => 'btn btn-primary cancelbtn', data:{ confirm:"Are you sure you want to cancel this form?"} %>
+    <div class="actions">
+      <div class="row">
+        <div class="col-sm-6">
+          <%= link_to 'Cancel Registration', "/home", :class => 'btn btn-primary cancelbtn', data:{ confirm:"Are you sure you want to cancel this form?"} %>
+        </div>
+        <div class="col-sm-6">
+          <%= household_form.submit "Final Step: Submit Registration", :class => 'btn btn-primary successbtn', data:{ confirm:"By submitting, you affirm that all information entered is accurate to the best of your knowledge. Upon submission, you will be redirected to a survey to complete."} %>
+        </div>
+      </div>
     </div>
-    <div class="col-sm-6">
-      <%= household_form.submit "Final Step: Submit Registration", :class => 'btn btn-primary successbtn', data:{ confirm:"By submitting, you affirm that all information entered is accurate to the best of your knowledge. Upon submission, you will be redirected to a survey to complete."} %>
-    </div>
-  </div>
-</div>
 
 
-   </div> 
+  </div> 
 
-   <!-- </div>  -->
+  <!-- </div>  -->
 
-   <!-- </div> -->
+  <!-- </div> -->
 
 <!-- 
    <div class="row">

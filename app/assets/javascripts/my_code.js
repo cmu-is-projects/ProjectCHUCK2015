@@ -54,7 +54,10 @@ $(document).ready(function() {
 $(document).ready(function() {
 
 
-  $('.sigPad').signaturePad({drawOnly:true, lineTop:120});
+  $('.sigPad').signaturePad({
+    drawOnly: true, lineTop: 120
+  });
+      
 
   //collect inputs and make conditions for drawValidations()
     var inputs = $('input')
