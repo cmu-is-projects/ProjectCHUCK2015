@@ -12,7 +12,9 @@ class HomeController < ApplicationController
       # @students_missing_docs = Student.alphabetical.current.without_forms.active.paginate(:page => params[:missing_docs_page], :per_page => 10)     
       @male_students = @current_registered_students.male.size
       @female_students = @current_registered_students.female.size
-
+      @school_districts = Student.school_districts
+      @jersey_sizes = Student.jersey_sizes
+      @counties = Household.counties
      # @unassigned_rospots = RosterSpot.unassigned.paginate(:page => params[:page]).per_page(10)
      # @unassigned_students = @students
      # @school_districts = Student.school_districts
@@ -60,7 +62,53 @@ class HomeController < ApplicationController
                      :data=> @school_districts
             }
             f.series(series)
-            f.options[:title][:text] = "Registered Student School District Distribution"
+            # f.options[:title][:text] = "Registered Student School District Distribution"
+            f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'}) 
+            f.plot_options(:pie=>{
+              :allowPointSelect=>true, 
+              :cursor=>"pointer" , 
+              :dataLabels=>{
+                :enabled=>true,
+                :color=>"black",
+                :style=>{
+                  :font=>"13px Trebuchet MS, Verdana, sans-serif"
+                }
+              }
+            })
+      end
+
+      @jersey_sizes_chart = LazyHighCharts::HighChart.new('pie') do |f|
+            f.chart({:defaultSeriesType=>"pie" , :margin=> [50, 200, 60, 170]} )
+            series = {
+                     :type=> 'pie',
+                     :name=> 'Jersey Sizes',
+                     :data=> @jersey_sizes
+            }
+            f.series(series)
+            # f.options[:title][:text] = "Registered Student School District Distribution"
+            f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'}) 
+            f.plot_options(:pie=>{
+              :allowPointSelect=>true, 
+              :cursor=>"pointer" , 
+              :dataLabels=>{
+                :enabled=>true,
+                :color=>"black",
+                :style=>{
+                  :font=>"13px Trebuchet MS, Verdana, sans-serif"
+                }
+              }
+            })
+      end
+
+      @counties_chart = LazyHighCharts::HighChart.new('pie') do |f|
+            f.chart({:defaultSeriesType=>"pie" , :margin=> [50, 200, 60, 170]} )
+            series = {
+                     :type=> 'pie',
+                     :name=> 'Household Counties',
+                     :data=> @counties
+            }
+            f.series(series)
+            # f.options[:title][:text] = "Registered Student School District Distribution"
             f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'}) 
             f.plot_options(:pie=>{
               :allowPointSelect=>true, 

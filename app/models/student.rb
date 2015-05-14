@@ -94,7 +94,7 @@
   scope :no_insurance, -> { where(has_proof_of_insurance: false) }
   scope :jerseysize, -> (size) { where("jersey_size LIKE ?", size) }
   scope :has_missing_docs, -> { where("has_report_card = ? OR has_physical = ? OR has_proof_of_insurance = ?", false, false, false) }
-
+  scope :current, joins(:registrations).where('? <= registrations.created_at and registrations.created_at <= ? and registrations.active = ?', Date.new(Date.today.year,1,1), Date.new(Date.today.year,12,31), true)
   scope :search_query, lambda { |query|
   # Searches the students table on the 'first_name' and 'last_name' columns.
   # Matches using LIKE, automatically appends '%' to each term.
@@ -184,11 +184,11 @@
     ]
   end
 
-   def self.school_districts
-    current_registered_students = Student.active
+  def self.school_districts
+    current_registered_students = Student.current.active
     school_districts = Hash.new
     for stu in current_registered_students
-      stu_school_district = School::DISTRICT_ARRAY[0]
+      stu_school_district = stu.district
       if school_districts[stu_school_district].nil?
         school_districts[stu_school_district] = 1
       else
@@ -196,6 +196,20 @@
       end
     end
     school_districts.to_a
+  end
+
+  def self.jersey_sizes
+    current_registered_students = Student.current.active
+    jersey_sizes = Hash.new
+    for stu in current_registered_students
+      stu_jersey_size = stu.jersey_size
+      if jersey_sizes[stu_jersey_size].nil?
+        jersey_sizes[stu_jersey_size] = 1
+      else
+        jersey_sizes[stu_jersey_size] += 1
+      end
+    end
+    jersey_sizes.to_a
   end
 
 

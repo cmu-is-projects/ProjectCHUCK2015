@@ -4,18 +4,40 @@
       <div class="jumbotron">
         <h2>Welcome, <%= current_user.volunteer.first_name %>!</h2>
         <p class="lead">Here are the most recent Project C.H.U.C.K. updates!</p><br>
-        <center><p id="update">There are currently <b><%= Student.active.count %></b> students registered. </p></center>
+        <center><p id="update">There are currently <b><%= Student.active.count %></b> students registered & <b><%= Volunteer.active.count %></b> volunteers registered.</p></center>
       </div>
     </div>
   </div><br>
   <div class="row">
-    <div class="col-sm-8"> 
-      <h3>Distribution of Registered Students</h3>
-      <%= high_chart("my_id1", @gender_chart) %>
-    </div> 
-    <div class="col-sm-4">
+    <div class="col-sm-6"> 
       <h3>Students Not on a Team</h3>
+      <%= render :partial => 'unassigned' %>
+    </div> 
+    <div class="col-sm-6">
+      <h3>PUT VOLUNTEERS PARTIAL HERE</h3>
       <%= render :partial => 'unassigned' %>
     </div>
   </div>
 </div>
+  <div class="row">
+    <div class="col-sm-6"> 
+      <h3>Distribution of Registered Students</h3>
+      <%= high_chart("my_id1", @gender_chart) %>
+    </div> 
+    <div class="col-sm-6"> 
+      <h3>Distribution of Jersey Sizes</h3>
+      <%= high_chart("my_id3", @jersey_sizes_chart) %> 
+    </div> 
+</div>
+  <div class="row">
+    <div class="col-sm-6"> 
+      <h3>Distribution of School Districts</h3>
+      <%= high_chart("my_id2", @school_district_chart) %> 
+    </div>
+    <div class="col-sm-6"> 
+      <h3>Distribution of Household Counties</h3>
+      <%= high_chart("my_id4", @counties_chart) %> 
+    </div> 
+</div>
+
+

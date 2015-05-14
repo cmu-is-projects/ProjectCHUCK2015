@@ -35,6 +35,20 @@ class Household < ActiveRecord::Base
 
 #get city - might be useful later but NOT NOW
 
+
+  def self.counties
+    active_households = Household.all
+    counties = Hash.new
+    for hh in active_households
+      if counties[hh.county].nil?
+        counties[hh.county] = 1
+      else
+        counties[hh.county] += 1
+      end
+    end
+    counties.to_a
+  end
+
   private
      # We need to strip non-digits before saving to db
      def reformat_home_phone
