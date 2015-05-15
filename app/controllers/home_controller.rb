@@ -29,7 +29,7 @@ class HomeController < ApplicationController
       # Documentation can be found at https://github.com/michelson/lazy_high_charts
       
       @gender_chart = LazyHighCharts::HighChart.new('pie') do |f|
-            f.chart({:defaultSeriesType=>"pie" , :margin=> [50, 200, 60, 170]} )
+            f.chart({:defaultSeriesType=>"pie" , :margin=> [50, 100, 60, 100]} )
             series = {
                      :type=> 'pie',
                      :name=> 'Gender',
@@ -39,7 +39,7 @@ class HomeController < ApplicationController
                      ]
             }
             f.series(series)
-            f.options[:title][:text] = "By Gender"
+            # f.options[:title][:text] = "By Gender"
             f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'}) 
             f.plot_options(:pie=>{
               :allowPointSelect=>true, 
@@ -55,7 +55,7 @@ class HomeController < ApplicationController
       end
 
       @school_district_chart = LazyHighCharts::HighChart.new('pie') do |f|
-            f.chart({:defaultSeriesType=>"pie" , :margin=> [50, 200, 60, 170]} )
+            f.chart({:defaultSeriesType=>"pie" , :margin=> [50, 100, 60, 100]} )
             series = {
                      :type=> 'pie',
                      :name=> 'School District',
@@ -71,14 +71,14 @@ class HomeController < ApplicationController
                 :enabled=>true,
                 :color=>"black",
                 :style=>{
-                  :font=>"13px Trebuchet MS, Verdana, sans-serif"
+                  :font=>"13px Open Sans"
                 }
               }
             })
       end
 
       @jersey_sizes_chart = LazyHighCharts::HighChart.new('pie') do |f|
-            f.chart({:defaultSeriesType=>"pie" , :margin=> [50, 200, 60, 170]} )
+            f.chart({:defaultSeriesType=>"pie" , :margin=> [50, 100, 60, 100]} )
             series = {
                      :type=> 'pie',
                      :name=> 'Jersey Sizes',
@@ -94,14 +94,14 @@ class HomeController < ApplicationController
                 :enabled=>true,
                 :color=>"black",
                 :style=>{
-                  :font=>"13px Trebuchet MS, Verdana, sans-serif"
+                  :font=>"13px Open Sans"
                 }
               }
             })
       end
 
       @counties_chart = LazyHighCharts::HighChart.new('pie') do |f|
-            f.chart({:defaultSeriesType=>"pie" , :margin=> [50, 200, 60, 170]} )
+            f.chart({:defaultSeriesType=>"pie" , :margin=> [50, 100, 60, 100]} )
             series = {
                      :type=> 'pie',
                      :name=> 'Household Counties',
@@ -117,7 +117,7 @@ class HomeController < ApplicationController
                 :enabled=>true,
                 :color=>"black",
                 :style=>{
-                  :font=>"13px Trebuchet MS, Verdana, sans-serif"
+                  :font=>"13px Open Sans"
                 }
               }
             })

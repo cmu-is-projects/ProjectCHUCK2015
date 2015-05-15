@@ -279,8 +279,15 @@
 </div>
   <div class="col-xs-12 col-sm-12">
     <div class="field">
-      <%= f.label :parent_consent_agree, :label => "Parent/Guardian - Click if you agree:" %> <br>
       <%= f.check_box :parent_consent_agree %>
+      <%= f.label :parent_consent_agree, :label => "Parent/Guardian - Click to agree with the above" %> 
+      <!-- <div class="input-group">
+      <span class="input-group-addon">
+        <input type="checkbox" aria-label="...">
+      </span>
+      <label type="text" class="form-control" aria-label="Parent/Guardian - Click if you agree:"> 
+    </div> -->
+
     </div>
   </div> 
 </div>
@@ -292,17 +299,18 @@
 <div class="row">
   <div class="col-xs-12 col-sm-12">
   <p class="widthfit">I agree to take responsibility as a student-athlete to read my assigned book, attend study hall, and to review and follow all Best of the Batch Foundation and Project C.H.U.C.K. rules. (Click if you agree)</p>
+  <!-- <h3>Click to agree to the above statement</h3><br> -->
 </div>
   <div class="col-xs-6 col-sm-6">
     <div class="field">
-      <%= f.label :child_promise_agree, :label => "Student Participant - Click if you agree:" %> <br>
       <%= f.check_box :child_promise_agree %>
+      <%= f.label :child_promise_agree, :label => "Student Participant - Click to agree with the above" %> <br>
     </div>
   </div> 
   <div class="col-xs-6 col-sm-6">
     <div class="field">
-      <%= f.label :parent_promise_agree, :label => "Parent/Guardian - Click if you agree:" %> <br>
       <%= f.check_box :parent_promise_agree %>
+      <%= f.label :parent_promise_agree, :label => "Parent/Guardian - Click to agree with the above" %> <br>
     </div>
   </div> 
 </div>
@@ -319,8 +327,8 @@
 </div>
   <div class="col-xs-12 col-sm-12">
     <div class="field">
-      <%= f.label :parent_release_agree, :label => "Parent/Guardian - Click if you agree:" %> <br>
       <%= f.check_box :parent_release_agree %>
+      <%= f.label :parent_release_agree, :label => "Parent/Guardian - Click to agree with the above" %> 
     </div>
   </div> 
 </div>
@@ -338,7 +346,7 @@
       <%#= f.text_field :parent_signature, :class => "input-lg" %>
     </div>
   </div>  -->
-  <div class="col-xs-6 col-sm-6">
+  <div class="col-xs-12 col-sm-8">
     <div class="field">
       <%= f.label :child_signature, :label => "Student Participant - If you agree with the above, please type your name:" %> <br>
       <%= f.text_field :child_signature, :class => "input-lg" %>
