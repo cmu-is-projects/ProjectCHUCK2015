@@ -229,25 +229,44 @@ height: 2em;
   background-color: IndianRed;
 }
 
+.btn.btn-primary.step{
+  border-color: #FFB600;
+  border-width: 5px;
+}
+
 .btn.removelink{
   color: #ffffff;
   background-color: IndianRed;
   border-color: #d08002;
-  width: 40%;
+  width: 90%;
   border-radius: 10px;
 }
 
 .btn.addlink{
   color: #fff;
-  background-color: #0070D7;
-  border-color: Black;
+  background-color: #008cba;
+  border-color: #008cba;;
+  /*background-color: #0070D7;*/
+  /*border-color: Black;*/
   width: 40%;
   border-radius: 10px;
 }
 
-/*.small{
-  font-size: 5.0em;
-}*/
+.btn.addlink:hover{
+  color: #fff;
+}
+
+li.small{
+  font-size: 1.0em;
+}
+
+hr.reducebottom{
+  margin-bottom:10px;
+}
+
+hr.reducetop{
+  margin-top:10px;
+}
 
 .wrapper {
 position:relative;

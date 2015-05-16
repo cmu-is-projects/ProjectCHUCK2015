@@ -1,0 +1,26 @@
+<div class="container">
+  <table class="table">
+   <thead>
+    <tr>
+      <th>Name</th>
+      <!-- <th>Age</th>
+      <th></th>
+      <th></th> -->
+    </tr>
+  </thead> 
+
+  <tbody>
+   <% @volunteers.each do |volunteer| %>
+   
+   <tr>
+    <% if volunteer.team.nil? %>
+    <td><%= link_to volunteer.proper_name, volunteer %></td>
+    <%end%> 
+  </tr>
+  <% end %>
+</tbody>
+</table>
+
+<%= will_paginate @volunteers %>
+
+</div>
