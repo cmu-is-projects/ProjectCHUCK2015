@@ -16,8 +16,6 @@ class HomeController < ApplicationController
       @school_districts = Student.school_districts
       @jersey_sizes = Student.jersey_sizes
       @counties = Household.counties
-     # @unassigned_rospots = RosterSpot.unassigned.paginate(:page => params[:page]).per_page(10)
-     # @unassigned_students = @students
      # @school_districts = Student.school_districts
       # @students = Student.all
       # @brackets = Student.by_bracket
