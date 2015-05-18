@@ -92,7 +92,13 @@ class StudentsController < ApplicationController
 
   #Activate/Deactive action, used for 'deactivate' button (instead of delete in student index)
   def change_active 
-    @student.change_active
+    @student = Student.find(params[:id])
+    if(@student.active)
+      @student.update_attributes(active: false)
+    else
+      @student.update_attributes(active: true)
+    end
+    redirect_to action: 'index'
   end 
 
   private
