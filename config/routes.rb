@@ -26,7 +26,11 @@ ProjectChuck2015::Application.routes.draw do
 
   resources :users
 
-  resources :students
+  resources :students do
+      member do 
+        put :change_active
+      end
+  end
   
   resources :sessions
 

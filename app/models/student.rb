@@ -325,13 +325,6 @@
     end
   end
 
-  def change_active
-    if(self.active)
-      self.active = false
-    else
-      self.active = true
-    end
-  end
 
     #household_id is valid in system
     # def household_is_active_in_system
