@@ -40,15 +40,18 @@
          <%end%>
         </td>
         <td>
+        <% deact = "" %>
          <% if (student.active) %>
          <%= link_to(image_tag('check16.png')) %> 
+         <% deact = "Deactivate" %>
          <%else%>
          <%= link_to(image_tag('missing16.png')) %> 
+          <% deact = "Activate" %>
          <%end%>
         </td>
     <td><%= link_to(image_tag('edit.png'), edit_student_path(student)) %></td>
-    <td><%= link_to(image_tag('delete.png'), student, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
-    <td><%= link_to(image_tag('delete.png'), change_active_student_path(student), method: :put) %></td>
+    <td><%= link_to(deact, change_active_student_path(student), method: :put, data: { confirm: 'Are you sure you?' }) %></td>
+    <td><%= link_to(image_tag('delete.png'), student, method: :delete, data: { confirm: 'Are you sure you want to DELETE the student?' }) %></td>
   </tr>
   <% end %>
 </tbody>
