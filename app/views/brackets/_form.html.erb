@@ -11,58 +11,63 @@
 </div>
 <% end %>
 <div class = "container well">
+  <div class="row">
+    <div class="col-xs-6 col-sm-6">
+      <div class="field">
+        <%= f.label "Name" %><br>
+        <%= f.input_field :name, :class => "input-lg" %>
+      </div><br>
+      <div class="field">
+        <%= f.label "Tournament Year" %><br>
+        <%= f.input_field :tournament_id, collection: Tournament.all, prompt: "Select tournament..." , :class => "input-lg" %>
+      </div><br>
+      <div class="field">
+        <%= f.label :gender %><br>
+        <%= f.input_field :gender , :class => "input-lg"%>
+      </div><br>
+      <div class="field">
+        <%= f.label :min_age %><br>
+        <%= f.input_field :min_age, :class => "input-lg" %>
+      </div><br>
+      <div class="field">
+        <%= f.label :max_age %><br>
+        <%= f.input_field :max_age, :class => "input-lg" %>
+      </div><br>
+      <div class="field">
+        <%= f.label :max_students %><br>
+        <%= f.input_field :max_students, :class => "input-lg" %>
+      </div><br>
+      <div class="field">
+        <%= f.label :active, :label => "Active:" %> <br>
+        <%= f.input_field :active, collection: [['Yes', true],['No',false]], as: :radio_buttons, :class => "input-lg" %><br>
+      </div>
+    </div>
+   <div class="studentchoice col-sm-6">
+    <h2>Add teams</h2>
+    <div class="fixedheight">
+      <% if controller.action_name=="edit" || controller.action_name=="new"%>
+      <%= f.input :student_ids, label: "", collection: Team.alphabetical, as: :check_boxes %>
+      <% end %>
+    </div>
+  </div>
+
+    <!-- <div class="col-sm-4">
+      <h2>Add coaches</h2>
+      <div class="field">
+        <%# if controller.action_name=="edit" || controller.action_name=="new"%>
+        <%#= f.input :volunteer_ids, label: "", collection: Volunteer.active.alphabetical, as: :check_boxes %>
+        <%# end %>
+      </div>
+    </div> -->
+</div>
+
 <div class="row">
   <div class="col-xs-6 col-sm-6">
-    <div class="field">
-      <%= f.label "Tournament Year" %><br>
-      <%= f.input_field :tournament_id, collection: Tournament.all, prompt: "Select tournament..." , :class => "input-lg" %>
-    </div>
-  </div>
-  <div class="col-xs-6 col-sm-6">
-    <div class="field">
-      <%= f.label :gender %><br>
-      <%= f.input_field :gender , :class => "input-lg"%>
-    </div>
-  </div>
+   <%= f.submit "Create", :class => 'btn btn-primary' %>
+ </div>
+ <div class="col-xs-6 col-sm-6">
+  <%= link_to 'Back', brackets_path, :class => 'btn btn-primary' %>
 </div>
-<br>
-<div class="row">
-  <div class="col-xs-6 col-sm-6">
-    <div class="field">
-      <%= f.label :min_age %><br>
-      <%= f.input_field :min_age, :class => "input-lg" %>
-    </div>
-  </div>
-  <div class="col-xs-6 col-sm-6">
-    <div class="field">
-      <%= f.label :max_age %><br>
-      <%= f.input_field :max_age, :class => "input-lg" %>
-    </div>
-  </div>
-</div>
-<br>
-<div class="row">
-  <div class="col-xs-6 col-sm-6">
-    <div class="field">
-      <%= f.label :max_students %><br>
-      <%= f.input_field :max_students, :class => "input-lg" %>
-    </div>
-  </div>
-  <div class="col-xs-6 col-sm-6">
-    <div class="field">
-      <%= f.label :active, :label => "Active:" %> <br>
-      <%= f.input_field :active, collection: [['Yes', true],['No',false]], as: :radio_buttons, :class => "input-lg" %>
-    </div>
-  </div> 
-</div>
-</div>
-<div class="row">
-  <div class="col-xs-6 col-sm-6">
-     <%= f.submit "Create", :class => 'btn btn-primary' %>
-  </div>
-  <div class="col-xs-6 col-sm-6">
-    <%= link_to 'Back', brackets_path, :class => 'btn btn-primary' %>
-  </div>
 </div>
 <% end %>
 

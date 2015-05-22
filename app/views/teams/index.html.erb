@@ -19,7 +19,11 @@
   <tbody>
     <% @teams.each do |team| %>
       <tr>
-        <td><%= link_to team.name, team %></td>
+        <% if team.bracket.gender == "Male"%>
+    <td class="boy"><%= link_to team.name, team %></td>
+    <%else%>
+    <td class="girl"><%= link_to team.name, team %></td>
+    <%end%> 
         <td><%= "#{team.bracket.min_age} - #{team.bracket.max_age}" %></td>
         <td>
           <!-- <div class="progress">
