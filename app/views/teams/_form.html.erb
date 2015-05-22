@@ -18,7 +18,7 @@
 
       <div class="field">
         <%= f.label "Bracket" %><br>
-        <%= f.input_field :bracket_id, collection: Bracket.all, prompt: "Select bracket..." , :class => "input-lg" %>
+        <%= f.input_field :bracket_id, collection: Bracket.alphabetical, prompt: "Select bracket..." , :class => "input-lg" %>
       </div>
       <div class="field">
         <%= f.label "Team Name" %><br>
