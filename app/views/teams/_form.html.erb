@@ -43,7 +43,22 @@
       <h2>Add students</h2>
       <div class="fixedheight">
         <% if controller.action_name=="edit" || controller.action_name=="new"%>
-        <%= f.input :student_ids, label: "", collection: Student.active.alphabetical, as: :check_boxes %>
+        
+        <% s = Registration.by_bracket(@team.bracket_id).map { |i| i.student_id } %>
+        <% eligable_students  = [] %>
+
+        <% Student.active.each do |student| %>
+            <% if s.include?(student.id) %>
+              <% eligable_students << student%>
+            <% end %>
+          <%# rs.each do |spot| %>
+            <%# if spot.active %>
+
+            <%# end %> 
+          <%#end %> 
+        <%end %> 
+
+        <%= f.input :student_ids, label: "", collection: eligable_students, as: :check_boxes %>
         <% end %>
       </div>
     </div>

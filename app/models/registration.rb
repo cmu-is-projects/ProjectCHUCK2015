@@ -16,7 +16,7 @@ class Registration < ActiveRecord::Base
   
 
   #Scopes
-
+  scope :by_bracket, ->(bracket) { where("bracket_id = ?", bracket) } 
 
   #custom functions 
   def bracket_has_spots?
