@@ -23,6 +23,10 @@
     <%= f.label :jersey_number %><br>
     <%= f.input_field :jersey_number,  :class => "input-lg" %>
   </div>
+  <div class="field">
+    <%= f.label :active %><br>
+    <%= f.input_field :active,  as: :boolean, :class => "input-lg" %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

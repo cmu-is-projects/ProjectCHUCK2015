@@ -11,18 +11,13 @@
 </p>
 
 <p>
-  <strong>Position:</strong>
-  <%= @roster_spot.position %>
+  <strong>Jersey Number:</strong>
+  <%= @roster_spot.jersey_number %>
 </p>
 
 <p>
-  <strong>Start date:</strong>
-  <%= @roster_spot.start_date %>
-</p>
-
-<p>
-  <strong>End date:</strong>
-  <%= @roster_spot.end_date %>
+  <strong>Active:</strong>
+  <%= @roster_spot.active? %>
 </p>
 
 <%= link_to 'Edit', edit_roster_spot_path(@roster_spot) %> |

@@ -1,5 +1,8 @@
 class RosterSpot < ActiveRecord::Base
 
+  #Callback
+  before_validation :checkActive, on: :create
+
   #Relationship Validations
   belongs_to :student
   belongs_to :team
@@ -19,6 +22,10 @@ class RosterSpot < ActiveRecord::Base
     unless all_active_students.include?(self.student_id)
       errors.add(:student_id, "is not an active student in the system")
     end
+  end
+
+  def checkActive
+    self.active = true
   end
 end
 
