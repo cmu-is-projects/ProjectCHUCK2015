@@ -14,7 +14,7 @@ class TeamsController < ApplicationController
   def show
     @volunteers = @team.volunteers
     #@students = @team.roster_spots.map { |i| i.student_id }
-    @students = @team.roster_spots.by_student.to_a
+    @students = @team.students
   end
 
   # GET /teams/new
@@ -74,6 +74,6 @@ class TeamsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def team_params
-      params.require(:team).permit(:bracket_id, :name, :max_students, :num_wins, :num_losses)
+      params.require(:team).permit(:bracket_id, :name, :max_students, :num_wins, :num_losses, :student_ids => [], :volunteer_ids => [])
     end
 end

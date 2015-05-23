@@ -10,7 +10,8 @@
       <th>Name</th>
       <th>Bracket</th>
       <th>Enrollment</th>
-      <th>Record</th>
+      <th>Number of Coaches</th>
+      <th>Record (Wins by Losses)</th>
       <th></th>
       <th></th>
     </tr>
@@ -20,17 +21,18 @@
     <% @teams.each do |team| %>
       <tr>
         <% if team.bracket.gender == "Male"%>
-    <td class="boy"><%= link_to team.name, team %></td>
-    <%else%>
-    <td class="girl"><%= link_to team.name, team %></td>
-    <%end%> 
+        <td class="boy"><%= link_to team.name, team %></td>
+        <%else%>
+        <td class="girl"><%= link_to team.name, team %></td>
+        <%end%> 
         <td><%= "#{team.bracket.min_age} - #{team.bracket.max_age}" %></td>
         <td>
           <!-- <div class="progress">
             <div class="progress-bar" role="progressbar" aria-valuenow="#{team.roster_spots.count}" aria-valuemin="0" aria-valuemax="#{team.max_students}" style="width: #{team.roster_spots.count}%;"></div>
           </div> -->
           <%= "#{team.roster_spots.count} out of #{team.max_students}"  %></td>
-        <td><%= "#{team.num_wins} wins by #{team.num_losses} losses"  %></td>
+        <td><%= team.volunteers.to_a.count  %></td>
+        <td><%= "#{team.num_wins} - #{team.num_losses}"  %></td>
         <td><%= link_to(image_tag('edit.png'), edit_team_path(team)) %></td>
         <td><%= link_to(image_tag('delete.png'), team, method: :delete, data: { confirm: 'Are you sure?' })%></td>
       </tr>

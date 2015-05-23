@@ -13,6 +13,22 @@
 
 <div class ="container well">
 
+  <% if controller.action_name=="edit"%>
+  <h3>Team Assignment</h3><br>
+  <div class="row">
+    <div class="col-xs-6 col-sm-6">
+      <div class="field">
+        <%= f.label :team_id, label: "Team Coached" %> <br>
+        <%= f.input_field :team_id, collection: Team.all %>
+      </div>
+    </div>
+  </div>
+
+
+  <br>
+  <% end %>
+
+
   <h3>General Info</h3><br>
 
   <div class="row">
@@ -269,6 +285,9 @@
 
 </div>
 
+<% if controller.action_name=="new"%>
+
+
 <div class="well">
 
   <center><h3>Statement of Responsibilities and Release</h3></center>
@@ -306,6 +325,9 @@
 <br><br>
 </div>
 </div>
+
+<% end %>
+
 <div class="row">
   <div class="col-sm-6">
     <div class="actions">

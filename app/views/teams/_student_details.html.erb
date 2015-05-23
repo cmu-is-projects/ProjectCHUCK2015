@@ -8,9 +8,8 @@
     <tr>
       <th>Name</th>
       <th>Age</th>
-      <th>Team</th>
       <th>School</th>
-      <th>Student/participant cell phone</th>
+      <th>Student Cell Phone</th>
       <th>Allergies</th>
       <th>Medications</th>
       <th>Jersey Size</th>
@@ -24,15 +23,15 @@
    <% @students.each do |student| %>
    
    <tr>
-    <!-- <td><%= link_to student.name, student %></td> -->
+    <td><%= link_to student.proper_name, student %></td>
     <td><%= student.age %></td>
-    <td><%= student.team.name %></td> 
     <td><%= student.school %></td> 
+    <td><%= student.cell_phone %></td>
     <td><%= student.allergies %></td>
     <td><%= student.medications %></td> 
     <td><%= student.jersey_size %></td>
     <td>
-      <% if student.has_missing_docs==true %>
+      <% if (student.has_report_card) && (student.has_proof_of_insurance) && (student.has_physical) && (student.has_birth_certificate) %>
         <%=link_to image_tag("check16.png")%>
       <% else %>
         <%=link_to image_tag("missing16.png")%>
