@@ -53,7 +53,7 @@
             <% end %>
           <% rs = student.roster_spots %>
           <% rs.each do |spot| %>
-            <% if spot.active %>
+            <% if spot.active && spot.team_id != @team.id %>
               <% eligible_students.delete(student)%>
             <% end %> 
           <%end %> 
