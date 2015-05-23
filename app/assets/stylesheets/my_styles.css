@@ -1,7 +1,13 @@
 @media print{
-  body{
-    width: 90%;
+  ul, hr{
+    display:none;
   }
+  .noprint{
+    display:none;
+  }
+  a:link:after, a:visited:after {
+    content: "";
+}
 }
 
 html  {
