@@ -6,8 +6,6 @@ class RosterSpot < ActiveRecord::Base
 
   #Validations
   validate :student_is_active_in_system
-  validates_date :start_date
-  validates_date :end_date, after: :start_date, allow_blank: true
 
   #Scopes
   scope :by_position, -> { order('position') }

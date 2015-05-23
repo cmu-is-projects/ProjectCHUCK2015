@@ -43,6 +43,7 @@
       <h2>Add students</h2>
       <div class="fixedheight">
         <% if controller.action_name=="edit" || controller.action_name=="new"%>
+        <td><%= link_to raw("<span class='glyphicon glyphicon-plus'></span>") %>
         <%= f.input :student_ids, label: "", collection: Student.active.alphabetical, as: :check_boxes %>
         <% end %>
       </div>
