@@ -5,6 +5,7 @@
     <tr>
       <th>Name</th>
       <th>Age</th>
+      <th>Grade</th>
       <!-- <th>Team</th> -->
       <th>Student Cell phone</th>
       <th>Home phone</th>
@@ -27,6 +28,13 @@
     <td class="girl"><%= link_to student.proper_name, student %></td>
     <%end%> 
     <td><%= student.age %></td>
+    <td>
+      <% if student.grade == 0 %>
+        <%= "K" %>
+      <%else%>
+        <%= student.grade %>
+      <%end%>
+    </td>
     <!-- <td><%#= student.team.name unless student.team.name.nil?%></td> -->
     <td><%= student.cell_phone %></td>
     <td><%= student.household.home_phone %></td>

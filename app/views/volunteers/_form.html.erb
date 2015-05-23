@@ -183,13 +183,7 @@
 <br>
 
 <div class="row">
-  <div class="col-xs-6 col-sm-6">
-    <div class="field">
-      <%= f.label "What teams have you coached for?" %><br>
-      <%= f.text_field :team_coached, :class => "input-lg" %>
-    </div>
-  </div>
-  <div class="col-xs-6 col-sm-6"> 
+  <div class="col-xs-12 col-sm-12"> 
     <h5>Indicate clearance(s) you have &nbsp; &nbsp; &nbsp; <a href="/volunteer_clearances_help.pdf" target="_blank" >(Why do I need these?)</a></h5> 
     <div class="field">
       <!-- <p>For more information click <a href="volunteer_faq.pdf" target="_blank">here</a></p> -->
@@ -216,10 +210,10 @@
     <div class="field">
       <%= f.label "Shirt Size:" %><br>
       <!--Shirt Size: S, M, L, XL, 2XL, 3XL, 4XL, 5XL-->
-      <%= f.input_field :shirt_size, collection: Volunteer::SHIRTSIZES, :selected => Volunteer::SHIRTSIZES[0] %><br>
+      <%= f.input_field :shirt_size, collection: Volunteer::SHIRTSIZES, :selected => Volunteer::SHIRTSIZES[0] %>
     </div>
   </div>
-</div>
+</div><br>
 
 <div class="row">
   <div class="col-sm-12">
