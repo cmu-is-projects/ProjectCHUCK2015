@@ -13,19 +13,26 @@
 
   <tbody>
    <% @students.each do |student| %>
-   
-   <%#if student.roster_spot.team.nil? %>
-   <tr>
-    <% if student.gender == "Male"%>
-    <td class="boy"><%= link_to student.proper_name, student %></td>
-    <%else%>
-    <td class="girl"><%= link_to student.proper_name, student %></td>
-    <%end%> 
-    <!-- <td><%= student.age %></td> -->
-    <!-- <td><%#= link_to(image_tag('edit.png'), edit_student_path(student)) %></td> -->
-    <!-- <td><%#= link_to(image_tag('delete.png'), student, method: :delete, data: { confirm: 'Are you sure?' }) %></td> -->
-  </tr>
-  <%# end %>
+   <% flag = false %>
+   <% rs = student.roster_spots %>
+        <% rs.each do |spot| %>
+          <% if spot.active? %>
+            <% flag = true %>
+            <% break %>
+          <% end %> 
+        <%end %> 
+   <%if flag == false %>
+     <tr>
+      <% if student.gender == "Male"%>
+      <td class="boy"><%= link_to student.proper_name, student %></td>
+      <%else%>
+      <td class="girl"><%= link_to student.proper_name, student %></td>
+      <%end%> 
+      <!-- <td><%= student.age %></td> -->
+      <!-- <td><%#= link_to(image_tag('edit.png'), edit_student_path(student)) %></td> -->
+      <!-- <td><%#= link_to(image_tag('delete.png'), student, method: :delete, data: { confirm: 'Are you sure?' }) %></td> -->
+    </tr>
+  <% end %>
   <% end %>
 </tbody>
 </table>
