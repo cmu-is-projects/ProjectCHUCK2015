@@ -93,6 +93,6 @@ class BracketsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bracket_params
-      params.require(:bracket).permit(:tournament_id, :gender, :min_age, :max_age, :max_students, :active)
+      params.require(:bracket).permit(:tournament_id, :gender, :min_age, :max_age, :max_students, :active, :name)
     end
 end

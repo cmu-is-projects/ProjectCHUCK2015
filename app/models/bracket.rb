@@ -17,6 +17,7 @@ class Bracket < ActiveRecord::Base
   validate :valid_tournament_id
 
   # Scopes
+  scope :alphabetical, -> { order('gender, min_age') }
   # by gender 
   scope :male, -> { where("gender = ?","Male") }
   scope :female, -> { where("gender = ?", "Female") }
