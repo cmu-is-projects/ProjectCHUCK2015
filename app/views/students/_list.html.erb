@@ -38,8 +38,8 @@
     <!-- <td><%#= student.team.name unless student.team.name.nil?%></td> -->
     <td><%= student.cell_phone %></td>
     <td><%= student.household.home_phone %></td>
-    <td><%= student.allergies %></td>
-    <td><%= student.medications %></td> 
+    <td width="40"><%= student.allergies %></td>
+    <td width="40"><%= student.medications %></td> 
         <td>
          <% if (student.has_report_card) && (student.has_proof_of_insurance) && (student.has_physical) && (student.has_birth_certificate) %>
          <%= link_to(image_tag('check16.png')) %> 
