@@ -126,18 +126,15 @@
   # extract the sort direction from the param value.
   direction = (sort_option =~ /desc$/) ? 'desc' : 'asc'
   case sort_option.to_s
-  when /^grade_/
+  when /^name_/
+    # Simple sort on the name colums
+    order("LOWER(students.last_name) #{ direction }, LOWER(students.first_name) #{ direction }")
+  when /^grade/
     # Simple sort on the created_at column.
     # Make sure to include the table name to avoid ambiguous column names.
     # Joining on other tables is quite common in Filterrific, and almost
     # every ActiveRecord table has a 'created_at' column.
     order("students.grade #{ direction }")
-  when /^name_/
-    # Simple sort on the name colums
-    order("LOWER(students.last_name) #{ direction }, LOWER(students.first_name) #{ direction }")
-  when /^school_/
-    # Simple sort on the name colums
-    order("students.school_id #{ direction }")
   when /^female_/
     # Simple sort on the name colums
     where("students.gender = ?", 'Female')
@@ -174,10 +171,9 @@
    def self.options_for_sorted_by
     [
       ['Name (A-Z)', 'name_asc'],
+      ['Grades', 'grade_asc'],
       ['Gender - Female', 'female_asc'],
       ['Gender - Male', 'male_asc'],
-      ['School', 'school_asc'],
-      ['Grade', 'grade_asc'],
       ['Has Allergies', 'has_allergies_asc'],
       ['Has Medications', 'has_medications_asc']   
     ]

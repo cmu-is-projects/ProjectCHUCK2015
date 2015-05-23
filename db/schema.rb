@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 20150522234858) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "location_id"
-    t.time     "time"
   end
 
   create_table "guardians", force: true do |t|
