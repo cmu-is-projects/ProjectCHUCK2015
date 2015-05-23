@@ -1,5 +1,8 @@
 class Game < ActiveRecord::Base
 
+  # before_save :update_records, on: :update
+  before_save :check_score, on: [:update, :create]
+
   #Relationship Validations
   belongs_to :location
   has_many :team_games
@@ -22,6 +25,35 @@ private
   #   return date >= tstart
   # end
 
+  def check_score
+    self.team_games.to_a.each do |tg|
+      if tg.score.nil?
+        tg.score = 0
+        tg.save!
+      end
+    end
+  end
+
+  # def update_records
+  #   tgs = self.team_games.to_a
+  #   team1 = Team.all.where(id: tgs[0].team_id)[0]
+  #   team2 = Team.all.where(id: tgs[1].team_id)[0]
+  #   if ((tgs[0].score == 0) && (tgs[1].score == 1))
+  #       team2.num_wins += 1
+  #       team1.num_losses += 1
+  #   elsif ((tgs[1].score == 0) && (tgs[0].score == 1))
+  #       team2.num_losses += 1
+  #       team1.num_wins += 1
+  #   elsif !((tgs[0].score == 0) && (tgs[1].score == 0))
+  #     if (tgs[0].score > tgs[1].score)
+  #         team2.num_losses += 1
+  #         team1.num_wins += 1
+  #     else
+  #         team2.num_wins += 1
+  #         team1.num_losses += 1
+  #     end
+  #   end
+  # end
 
   def location_is_active_in_system
     all_active_locations = Location.active.to_a.map{|u| u.id}
@@ -31,3 +63,4 @@ private
   end
   
 end
+

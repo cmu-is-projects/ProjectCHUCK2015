@@ -1,5 +1,7 @@
 class Team < ActiveRecord::Base
 
+    before_save :check_wins_losses, on: [:update, :create]
+
 	#relationships
 	has_many :roster_spots
     has_many :volunteers
@@ -15,6 +17,16 @@ class Team < ActiveRecord::Base
     validates_numericality_of :max_students
     validate :valid_bracket_id
     validate :has_available_spots?
+
+
+  def check_wins_losses
+    if self.num_wins.nil?
+        self.num_wins = 0
+    end
+    if self.num_losses.nil?
+        self.num_losses = 0
+    end
+  end
 
     #custom validation: bracket_id exists in the system
     def valid_bracket_id

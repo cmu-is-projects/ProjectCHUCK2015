@@ -5,7 +5,7 @@ class TeamGame < ActiveRecord::Base
   belongs_to :game
 
   #Validations
-  validates_numericality_of :score
+  validates_numericality_of :score, allow_blank: true
 
   #Custom validations
   validate :valid_team_and_game_id

@@ -9,6 +9,7 @@ class Volunteer < ActiveRecord::Base
 
   before_save :reformat_cell_phone
   before_save :reformat_day_phone
+  # before_save :set_active, on: :create
 
   #validations
 
@@ -45,6 +46,10 @@ class Volunteer < ActiveRecord::Base
   def name
     last_name + ", " + first_name
   end
+
+  # def check_active
+  #   self.active = true
+  # end
   
   private
      # We need to strip non-digits before saving to db
