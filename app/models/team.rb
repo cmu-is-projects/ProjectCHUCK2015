@@ -14,6 +14,7 @@ class Team < ActiveRecord::Base
     validates_numericality_of :num_wins, :num_losses, allow_blank: true
     validates_numericality_of :max_students
     validate :valid_bracket_id
+    validate :has_available_spots?
 
     #custom validation: bracket_id exists in the system
     def valid_bracket_id
@@ -30,7 +31,10 @@ class Team < ActiveRecord::Base
 
     #custom functions 
     def has_available_spots?
-    	self.roster_spots.length < self.max_students
+        if (self.roster_spots.length > self.max_students)
+          errors.add(:team, "has no spots left.")
+        end
+    	
     end
 
     #one more function to be added later
