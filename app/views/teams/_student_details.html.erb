@@ -37,7 +37,6 @@
         <%=link_to image_tag("missing16.png")%>
       <% end %></td>
     <td class="noprint"><%= link_to(image_tag('edit.png'), edit_student_path(student)) %></td>
-    <td class="noprint"><%= link_to(image_tag('delete.png'), student, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
   </tr>
   <% end %>
 </tbody>
