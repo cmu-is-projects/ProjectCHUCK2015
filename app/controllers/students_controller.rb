@@ -92,7 +92,27 @@ class StudentsController < ApplicationController
 
   #Activate/Deactive action, used for 'deactivate' button (instead of delete in student index)
   def change_active 
-    @student.change_active
+    @student = Student.find(params[:id])
+    #get current years registration for reactivation
+    #currently, when this action deactivates a student, it also
+    #deactivates the current registration as well 
+    current_registration = nil;
+    @registrations = @student.registrations
+    @registrations.each do |x|
+      curr_bracket = Bracket.where(id: x.bracket_id)[0]
+      curr_tourney = Tournament.where(id: curr_bracket.tournament_id)[0]
+      if curr_tourney.start_date.year == Time.now.year
+        current_registration = x;
+      end
+    end
+
+    if(@student.active)
+      @student.update_attributes(active: false)
+    else
+      @student.update_attributes(active: true)
+      current_registration.update_attributes(active: true)
+    end
+    redirect_to action: 'index'
   end 
 
   private
