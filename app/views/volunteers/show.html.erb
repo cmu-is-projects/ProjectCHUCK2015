@@ -3,17 +3,19 @@
 <p>
   <h2><strong><%= @volunteer.proper_name %></strong></h2>
 
+  <%= link_to(image_tag('edit.png'), edit_volunteer_path(@volunteer)) %> Edit | 
+  <%= link_to(image_tag('back16.png'), volunteers_path) %> Back <br><br>
+
   <strong>Role:</strong> <%= @volunteer.role %> <br>
 
 <% if @volunteer.role == "Coach" %> 
   <p>
   <strong>Team:</strong>
-  <% if @volunteer.team == nil %> 
-    Not Assigned
+  <% if @volunteer.team.nil? %> 
+  "Not Assigned"
   <% else %>
     <%= @volunteer.team.name %>
   <% end %>
-  <p>
 <% end %>
 </p>
 
@@ -80,6 +82,3 @@
 	<strong>What suggestions would you have to improve this year’s camp if you volunteered last year?</strong>
 		<%= @volunteer.suggestions %><br>
 </p><br>
-
-<%= link_to 'Edit', edit_volunteer_path(@volunteer) %> |
-<%= link_to 'Back', volunteers_path %>
