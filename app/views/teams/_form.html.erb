@@ -51,11 +51,12 @@
             <% if s.include?(student.id) %>
               <% eligable_students << student%>
             <% end %>
-          <%# rs.each do |spot| %>
-            <%# if spot.active %>
-
-            <%# end %> 
-          <%#end %> 
+          <% rs = student.roster_spots %>
+          <% rs.each do |spot| %>
+            <% if spot.active %>
+              <% eligable_students.delete(student)%>
+            <% end %> 
+          <%end %> 
         <%end %> 
 
         <%= f.input :student_ids, label: "", collection: eligable_students, as: :check_boxes %>
