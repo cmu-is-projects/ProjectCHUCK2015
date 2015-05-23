@@ -338,7 +338,7 @@ namespace :db do
 
     #trying faker
     #create 70 households with 1-4 students in each
-    70.times do |i|
+    5.times do |i|
         h = Household.new
         h.street = Faker::Address.street_address
         h.city = Faker::Address.city 
@@ -350,7 +350,7 @@ namespace :db do
 
         #create 1-4 students for each household
         #and registrations for each student
-        num_kids = [1,2,3,4].sample
+        num_kids = [1,2].sample
         num_kids.times do |j|
             s = Student.new
             s.household_id = h.id
