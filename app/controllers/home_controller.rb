@@ -5,10 +5,10 @@ class HomeController < ApplicationController
       @tournament = Tournament.first
       # @guardians_receiving_texts = Guardian.active.alphabetical.receive_text_notifications.paginate(:page => params[:page]).per_page(10)
   #     @registrations = Registration.active
-      @students = Student.active.alphabetical.paginate(:page => params[:page]).per_page(10)
+      @students = Student.active.alphabetical
       @current_registered_students = Student.alphabetical.active
       @school_districts = Student.by_district.size
-      @volunteers = Volunteer.active.alphabetical.paginate(:page => params[:page]).per_page(10)
+      @volunteers = Volunteer.active.alphabetical
       #@students_missing_docs = Student.alphabetical.missing_forms(@current_registered_students).paginate(:page => params[:missing_docs_page], :per_page => 10)
       # @students_missing_docs = Student.alphabetical.current.without_forms.active.paginate(:page => params[:missing_docs_page], :per_page => 10)     
       @male_students = @current_registered_students.male.size
