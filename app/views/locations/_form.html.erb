@@ -13,6 +13,20 @@
 <% end %>
 
 <div class="container well">
+  <div class="row">
+  <div class="col-sm-6">
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.input_field :name, :class => "input-lg" %>
+  </div>
+</div>
+<div class="col-sm-6">
+  <div class="field">
+    <%= f.label :active %><br>
+    <%= f.input_field :active, collection: [['Yes', true],['No',false]], as: :radio_buttons, :class => "input-lg" %>
+  </div>
+</div>
+</div><br>
  <div class="row">
    <div class="col-sm-6">
     <div class="field">
@@ -43,16 +57,6 @@
 </div>
 </div>
 <br>
-<div class="row">
- <div class="col-sm-12">
-  <div class="field">
-    <%= f.label :active %><br>
-    <%= f.input_field :active, collection: [['Yes', true],['No',false]], as: :radio_buttons, :class => "input-lg" %>
-  </div>
-</div>
-</div>
-
-</div>
 
 <div class="row">
   <div class="col-xs-6 col-sm-6">

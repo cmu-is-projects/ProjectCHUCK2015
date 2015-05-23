@@ -14,8 +14,6 @@ class Game < ActiveRecord::Base
   #Scopes
   scope :chronological, -> { order('date') }
 
-
-
 private
 
   #NEED TO DO JOINS FOR THIS CUZ IT AINT WORKING

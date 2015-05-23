@@ -9,7 +9,8 @@ class Location < ActiveRecord::Base
   validates_uniqueness_of :name
 
   #format validations
-  validates_format_of :zip, with: /\A\d{5}\z/, message: "should be five digits long"
+  # validates_format_of :zip, with: /\A\d{5}\z/, message: "should be five digits long"
+  validates :zip, presence: true
   us_state_abbrevs = ['AL', 'AK', 'AS', 'AZ', 'AR', 'CA', 'CO', 'CT', '
   	DE', 'DC', 'FM', 'FL', 'GA', 'GU', 'HI', 'ID', 'IL', 'IN', 'IA', 
   	'KS', 'KY', 'LA', 'ME', 'MH', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 

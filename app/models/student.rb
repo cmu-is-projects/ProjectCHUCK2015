@@ -64,7 +64,6 @@
   validate :activeBracketsInSystem
   validate :check_agreement
 
-
 	# Scopes
   # -----------------------------
   scope :alphabetical, -> { order('last_name, first_name') }
