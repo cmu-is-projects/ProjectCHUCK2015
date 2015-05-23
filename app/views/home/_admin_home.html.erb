@@ -4,7 +4,7 @@
       <div class="jumbotron">
         <h2>Welcome, <%= current_user.volunteer.first_name %>!</h2>
         <p class="lead">Here are the most recent Project C.H.U.C.K. updates!</p><br>
-        <center><p id="update">There are currently <b><%= Student.active.count %></b> students registered &amp; <b><%= Volunteer.active.count %></b> volunteers registered.</p></center>
+        <center><p id="update">There are currently <b><%= Student.active.count %></b> students registered &amp; <b><%= Volunteer.count %></b> volunteers registered.</p></center>
       </div>
     </div>
   </div><br>
