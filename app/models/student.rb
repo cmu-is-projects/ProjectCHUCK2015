@@ -67,6 +67,7 @@
 	# Scopes
   # -----------------------------
   scope :alphabetical, -> { order('last_name, first_name') }
+  scope :by_age, -> { order ('dob DESC') }
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
   # scope :by_school,   -> { joins(:school).order('schools.name') }
