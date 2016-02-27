@@ -31,25 +31,25 @@ class ActiveSupport::TestCase
     create_teams
     create_roster_spots
     create_team_games
-    create_volunteers
     create_users
+    create_volunteers
   end
   
   def remove_overarching_context
-    # remove_users
-    # remove_volunteers
-    # remove_team_games
-    # remove_roster_spots
-    # remove_teams
-    # remove_registrations
-    # remove_brackets
-    # remove_students
-    # remove_games
-    # remove_locations
-    # remove_guardians
-    # remove_households
-    # remove_schools
-    # remove_tournaments
+    remove_volunteers
+    remove_users
+    remove_team_games
+    remove_roster_spots
+    remove_teams
+    remove_registrations
+    remove_brackets
+    remove_students
+    remove_games
+    remove_locations
+    remove_guardians
+    remove_households
+    remove_schools
+    remove_tournaments
   end
 
 

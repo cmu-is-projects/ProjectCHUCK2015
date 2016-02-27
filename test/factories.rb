@@ -62,7 +62,6 @@ FactoryGirl.define do
   
   #users
   factory :user do
-    association :volunteer
     username "user123"
     role "volunteer"
     email "user123@user.com"
@@ -73,6 +72,7 @@ FactoryGirl.define do
 
   #volunteer
   factory :volunteer do
+    association :user
     association :team
     role "Volunteer"
     email "pranz@cmu.edu"

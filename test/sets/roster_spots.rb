@@ -9,7 +9,7 @@ module Contexts
     end
 
     def remove_roster_spots
-      @ben_bt1.destroy
+      @bjunker_bt1.destroy
       @jsmith_bt2.destroy
       @sally_gt1.destroy
       @jane_gt2.destroy

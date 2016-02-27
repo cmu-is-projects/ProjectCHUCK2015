@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150522234858) do
+ActiveRecord::Schema.define(version: 20160227210320) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -182,7 +182,6 @@ ActiveRecord::Schema.define(version: 20150522234858) do
     t.date     "password_reset_sent_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "volunteer_id"
   end
 
   create_table "volunteers", force: true do |t|
@@ -217,6 +216,7 @@ ActiveRecord::Schema.define(version: 20150522234858) do
     t.boolean  "act34_clearance"
     t.boolean  "act153_clearance"
     t.date     "dob"
+    t.integer  "user_id"
   end
 
 end

@@ -4,7 +4,7 @@ include Activeable
 	
   #Relationship Validations
 	belongs_to :team
-	has_one :user
+	belongs_to :user
   
   
   # mount_uploader :volunteer_sign, AvatarUploader
