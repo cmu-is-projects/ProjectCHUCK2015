@@ -120,4 +120,11 @@ FactoryGirl.define do
     jersey_number 1
     active true
   end
+
+  #team_games
+  factory :team_game do
+    association :game
+    assocation :team
+    score 0
+  end
 end
