@@ -1,7 +1,9 @@
+require 'activeable'
 class Guardian < ActiveRecord::Base
+include Activeable
 
-	#relationships
-	belongs_to :household
+  #relationships
+  belongs_to :household
   
   #validations
   validates_presence_of :first_name, :last_name, :cell_phone
@@ -10,8 +12,6 @@ class Guardian < ActiveRecord::Base
   # validate :household_is_active_in_system
 
   #scopes
-  scope :active, -> { where(active: true) }
-  scope :inactive, -> { where(active: false) }
   scope :alphabetical, -> { order('last_name, first_name') }
   scope :by_receives_text_msgs, -> { where(receives_text_msgs: true) }
   
@@ -32,7 +32,7 @@ class Guardian < ActiveRecord::Base
        self.cell_phone = cell_phone       # reset self.phone to new string
      end
     
-   #household_id is valid in system
+  # NOTE: household_id is valid in system
   # def household_is_active_in_system
   #   all_active_households = Household.active.to_a.map{|u| u.id}
   #   unless all_active_households.include?(self.household_id)

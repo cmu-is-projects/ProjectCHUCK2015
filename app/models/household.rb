@@ -1,8 +1,10 @@
+require "activeable"
 class Household < ActiveRecord::Base
+include Activeable
 
-	#Relationship Validations
-	has_many :guardians, :dependent => :destroy
-	has_many :students, :dependent => :destroy
+  #Relationship Validations
+  has_many :guardians, :dependent => :destroy
+  has_many :students, :dependent => :destroy
 
   #callbacks
   before_save :reformat_home_phone
@@ -25,10 +27,8 @@ class Household < ActiveRecord::Base
   validates :state, inclusion: { in: STATES_LIST.map{|a,b| b}, message: "is not valid state", allow_blank: true }
   
 
-  # Scopes
+  # Scopes (active and inactive defined in activeable)
   # -----------------------------
-  scope :active, -> { where(active: true) }
-  scope :inactive, -> { where(active: false) }
 
   # Methods
   # -----------------------------

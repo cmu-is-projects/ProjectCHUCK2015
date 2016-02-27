@@ -1,4 +1,7 @@
+#NOTE: definition of active is janky
+require "activeable"
 class RosterSpot < ActiveRecord::Base
+include Activeable
 
   #Callback
   before_validation :checkActive, on: :create
@@ -12,7 +15,8 @@ class RosterSpot < ActiveRecord::Base
 
   #Scopes
   scope :by_position, -> { order('position') }
-  scope :active, -> { where('end_date IS NULL') }
+  #NOTE: end_date is not there in the database schema
+  #scope :active, -> { where('end_date IS NULL') }
   scope :by_student,   -> { joins(:student).order('students.last_name, students.first_name') }
   #scope :unassigned, -> { joins(:student).where('student.roster_spot.team_id IS NULL') }
 

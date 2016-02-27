@@ -1,4 +1,6 @@
+require 'activeable'
 class Location < ActiveRecord::Base
+include Activeable
 
   #Relationships
   has_many :games
@@ -9,7 +11,7 @@ class Location < ActiveRecord::Base
   validates_uniqueness_of :name
 
   #format validations
-  # validates_format_of :zip, with: /\A\d{5}\z/, message: "should be five digits long"
+  # NOTE: validates_format_of :zip, with: /\A\d{5}\z/, message: "should be five digits long"
   validates :zip, presence: true
   us_state_abbrevs = ['AL', 'AK', 'AS', 'AZ', 'AR', 'CA', 'CO', 'CT', '
   	DE', 'DC', 'FM', 'FL', 'GA', 'GU', 'HI', 'ID', 'IL', 'IN', 'IA', 
@@ -21,11 +23,9 @@ class Location < ActiveRecord::Base
 
 
   #scopes
-  scope :active, -> { where(active: true) }
-  scope :inactive, -> { where(active: false) }
   scope :alphabetical, -> { order('name') }
   scope :by_city, -> { order('city') }
-  #scope :zip, -> {where( )} -- not terribly sure to write this correctly
+  # NOTE: scope :zip, -> {where( )} -- not terribly sure to write this correctly
 
   #functions
   def get_city

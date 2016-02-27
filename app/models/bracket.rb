@@ -1,7 +1,13 @@
+# NOTE: If we make a bracket inactive and then save it then the registrations related to
+# that bracket are made inactive. But if the bracket is made active from inactive then
+# the registrations are not affected. 
+
+require "activeable"
 class Bracket < ActiveRecord::Base
+include Activeable
 
   #Callbacks
-  before_validation :checkActive, on: :create
+  before_validation :checkTournamentActive, on: :create
   after_save :bracketActive
 
   #Relationships 
@@ -21,7 +27,6 @@ class Bracket < ActiveRecord::Base
   # by gender 
   scope :male, -> { where("gender = ?","Male") }
   scope :female, -> { where("gender = ?", "Female") }
-  scope :active, -> { where("active = ?", true)}
 
   #by age group
   #this needs some clarification 
@@ -41,7 +46,7 @@ class Bracket < ActiveRecord::Base
   private 
   #Custom validations
 
-  def checkActive
+  def checkTournamentActive
     if self.tournament.active == true
       self.active = true
     else
