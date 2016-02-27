@@ -27,7 +27,7 @@ module Contexts
   include Contexts::Students
   include Contexts::TeamGames
   include Contexts::Teams
-  include Contexts::tournaments
+  include Contexts::Tournaments
   include Contexts::Users
   include Contexts::Volunteers
 end
