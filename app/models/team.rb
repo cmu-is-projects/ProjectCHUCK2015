@@ -49,7 +49,7 @@ class Team < ActiveRecord::Base
     	
     end
 
-    #one more function to be added later
+    #NOTE: one more function to be added later
     #update record (num wins and losses) based 
     #on updated scores (completed team_game records)
 
