@@ -56,7 +56,8 @@ FactoryGirl.define do
     username "user123"
     role "volunteer"
     email "user123@user.com"
-    password_digest "secret"
+    password "secret"
+    password_confirmation "secret"
     active true
   end
 
