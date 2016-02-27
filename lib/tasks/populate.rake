@@ -145,7 +145,7 @@ namespace :db do
 
     # Step 7: Create some brackets
     boys1 = Bracket.new
-    boys1.gender = "Male"
+    boys1.gender = "male"
     boys1.tournament_id = fifteen.id
     boys1.min_age = 7
     boys1.max_age = 9
@@ -153,7 +153,7 @@ namespace :db do
     boys1.save!
 
     boys2 = Bracket.new
-    boys2.gender = "Male"
+    boys2.gender = "male"
     boys2.tournament_id = fifteen.id
     boys2.min_age = 10
     boys2.max_age = 12
@@ -161,7 +161,7 @@ namespace :db do
     boys2.save!
 
     boys3 = Bracket.new
-    boys3.gender = "Male"
+    boys3.gender = "male"
     boys3.tournament_id = fifteen.id
     boys3.min_age = 13
     boys3.max_age = 15
@@ -169,7 +169,7 @@ namespace :db do
     boys3.save!
 
     boys4 = Bracket.new
-    boys4.gender = "Male"
+    boys4.gender = "male"
     boys4.tournament_id = fifteen.id
     boys4.min_age = 16
     boys4.max_age = 18
@@ -177,7 +177,7 @@ namespace :db do
     boys4.save!
 
     girls1 = Bracket.new
-    girls1.gender = "Female"
+    girls1.gender = "female"
     girls1.tournament_id = fifteen.id
     girls1.min_age = 7
     girls1.max_age = 18
@@ -255,7 +255,7 @@ namespace :db do
     admintest.active = true
     admintest.password = "charliesangels"
     admintest.password_confirmation = "charliesangels"
-    admintest.volunteer_id = alliewilson.id
+    # admintest.volunteer_id = alliewilson.id
     admintest.save!
 
     tasha = Volunteer.new
@@ -284,7 +284,7 @@ namespace :db do
     tasha_admin.active = true
     tasha_admin.password = "admin"
     tasha_admin.password_confirmation = "admin"
-    tasha_admin.volunteer_id = tasha.id
+    # tasha_admin.volunteer_id = tasha.id
     tasha_admin.save!
     
 
@@ -362,7 +362,7 @@ namespace :db do
             s.grade = (0..12).to_a.sample
             s.district = ["Allegheny Valley School District","Avonworth School District",
                           "Baldwin-Whitehall School District","Bethel Park School District"].sample
-            s.gender= ["Male", "Female"].sample
+            s.gender= ["male", "female"].sample
             s.emergency_contact_name = Faker::Name.name
             s.emergency_contact_phone = rand(10 ** 10).to_s.rjust(10,'0')
             s.emergency_contact_relation = ["Grandma", "Grandpa", "Neighbor", "Uncle", "Aunt"].sample

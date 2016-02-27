@@ -38,6 +38,7 @@ private
   # end
 
   def assign_bracket
+    #THIS IS AT RISK OF AN INFITIE LOOP
       until self.bracket_id != nil do
         Bracket.all.active.each do |bracket|
           if (self.student.age >= bracket.min_age) && (self.student.age <= bracket.max_age) && (self.student.gender == bracket.gender)
