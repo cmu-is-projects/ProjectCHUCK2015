@@ -9,6 +9,7 @@ include Activeable
   #Validations
   validates_presence_of :name, :street, :city, :zip, :state
   validates_uniqueness_of :name
+  validates_format_of :zip, with: /\A\d{5}\z/, message: "should be five digits long"
 
   #format validations
   # NOTE: validates_format_of :zip, with: /\A\d{5}\z/, message: "should be five digits long"
