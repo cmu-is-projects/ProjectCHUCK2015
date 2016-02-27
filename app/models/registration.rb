@@ -1,5 +1,7 @@
+require "activeable"
 class Registration < ActiveRecord::Base
-  
+include Activeable
+
   #Callbacks
   before_validation :assign_bracket
   before_validation :checkActive, on: :create
@@ -10,7 +12,7 @@ class Registration < ActiveRecord::Base
   belongs_to :student
 
 
-  #Validations
+  # NOTE: Validations
   # validate :student_is_active_in_system
   # validates_presence_of :bracket_id, :student_id
   

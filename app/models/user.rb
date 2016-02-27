@@ -1,4 +1,6 @@
+require "activeable"
 class User < ActiveRecord::Base
+include Activeable
 
  # Use built-in rails support for password protection
   has_secure_password
@@ -16,8 +18,6 @@ class User < ActiveRecord::Base
   validates_length_of :password, minimum: 4, message: "must be at least 4 characters long", allow_blank: true
 
   #scopes
-  scope :active, -> { where(active: true) }
-  scope :inactive, -> { where(active: false) }
   scope :alphabetical, -> { order('username') }
   
 

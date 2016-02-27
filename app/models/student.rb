@@ -1,4 +1,6 @@
-  class Student < ActiveRecord::Base
+require "activeable"
+class Student < ActiveRecord::Base
+include Activeable
 
   filterrific(
     default_filter_params: { sorted_by: 'name_asc' },
@@ -68,8 +70,6 @@
   # -----------------------------
   scope :alphabetical, -> { order('last_name, first_name') }
   scope :by_age, -> { order ('dob DESC') }
-  scope :active, -> { where(active: true) }
-  scope :inactive, -> { where(active: false) }
   # scope :by_school,   -> { joins(:school).order('schools.name') }
   scope :by_district,   -> { order('district') }
   scope :by_county,   -> { joins(:household).order('households.county') } #need to change this

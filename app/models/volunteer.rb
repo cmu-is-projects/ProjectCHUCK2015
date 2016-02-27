@@ -1,4 +1,6 @@
+require "activeable"
 class Volunteer < ActiveRecord::Base
+include Activeable
 	
   #Relationship Validations
 	belongs_to :team
@@ -34,8 +36,6 @@ class Volunteer < ActiveRecord::Base
   
   #scopes
   scope :alphabetical, -> { order('last_name, first_name') }
-  scope :active, -> { where(active: true) }
-  scope :inactive, -> { where(active: false) }
   scope :by_role, ->(role) { where("role = ?", role) }
   scope :by_receives_text_msgs, -> { where(receives_text_msgs: true) }
   

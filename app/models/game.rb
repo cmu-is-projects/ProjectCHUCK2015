@@ -1,3 +1,5 @@
+#NOTE: seems to have a bunch of errors
+
 class Game < ActiveRecord::Base
 
   # before_save :update_records, on: :update

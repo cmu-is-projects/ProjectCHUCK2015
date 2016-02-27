@@ -1,4 +1,6 @@
+require "activeable"
 class Tournament < ActiveRecord::Base
+include Activeable
   
   #Relationship Validations
   has_many :brackets
