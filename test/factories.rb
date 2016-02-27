@@ -110,4 +110,14 @@ FactoryGirl.define do
     num_wins 0
     num_losses 0
   end
+
+  #roster_spots
+  factory :roster_spot do
+    association :team
+    association :student
+    start_date 1.years.ago.to_date
+    end_date 1.years.from_now.to_date
+    jersey_number 1
+    active true
+  end
 end
