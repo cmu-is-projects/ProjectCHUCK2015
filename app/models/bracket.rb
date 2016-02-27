@@ -51,6 +51,8 @@ include Activeable
       self.active = true
     else
       self.active = false
+      true
+      #^without this, it fails the before_validation check
     end
   end
 

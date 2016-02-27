@@ -12,8 +12,8 @@ FactoryGirl.define do
     association :school
     first_name "Joe"
     last_name "Smith"
-    dob 15.years.ago.to_date
-    cell_phone "412-000-000"
+    dob 8.years.ago.to_date
+    cell_phone "4120000000"
     email "joe_smith@comcast.net"
     grade 9
     gender "male"
@@ -24,7 +24,18 @@ FactoryGirl.define do
     medications "none"
     security_question "What is your dog's name?"
     security_response "Spot"
+    parent_consent_agree true
+    parent_promise_agree true
+    parent_release_agree true
+    child_promise_agree true
     active true
+    emergency_contact_relation "parent"
+    insurance_provider "UPMC"
+    insurance_policy_no 1
+    family_physician "Dr. Smith"
+    physical_date Date.today
+    child_signature "Me."
+    jersey_size "Youth-Medium"
   end
   
   #households
@@ -41,7 +52,6 @@ FactoryGirl.define do
   #guardian
   factory :guardian do
     association :household
-    relation "mother"
     email "name@cmu.edu"
     first_name "Jane"
     last_name "Doe"
@@ -64,13 +74,20 @@ FactoryGirl.define do
   #volunteer
   factory :volunteer do
     association :team
-    role "volunteer"
+    role "Volunteer"
     email "pranz@cmu.edu"
     first_name "Pranita"
     last_name "Ramakrishnan"
     cell_phone "571-478-3829"
     receives_text_msgs true
     active true
+    dob Date.today
+    street "5000 Forbes Ave"
+    city "Pittsburgh"
+    state "PA"
+    zip 15213
+    day_phone 1234567890
+    shirt_size "M"
   end
 
   #tournament
@@ -78,7 +95,7 @@ FactoryGirl.define do
     name "Project CHUCK Summer Tournament"
     description "Continuously Helping to Uplift City Kids"
     start_date 1.years.ago.to_date
-    end_date 1.years.from_now.to_date
+    end_date nil
   end
 
   #bracket
@@ -88,6 +105,7 @@ FactoryGirl.define do
     min_age 7
     max_age 10
     max_students 100
+    name "Boys 7-10"
   end
 
   #registration
@@ -104,8 +122,8 @@ FactoryGirl.define do
   end
 
   #teams
-  factory :teams do
-    assocation :bracket
+  factory :team do
+    association :bracket
     name "Steelers"
     max_students 10
     num_wins 0
@@ -116,8 +134,6 @@ FactoryGirl.define do
   factory :roster_spot do
     association :team
     association :student
-    start_date 1.years.ago.to_date
-    end_date 1.years.from_now.to_date
     jersey_number 1
     active true
   end
@@ -125,7 +141,24 @@ FactoryGirl.define do
   #team_games
   factory :team_game do
     association :game
-    assocation :team
+    association :team
     score 0
   end
+
+  #locations
+  factory :location do
+    street "123 Learning Ave"
+    city "Pittsburgh"
+    state "PA"
+    zip "15213"
+    active true
+    name "School!"
+  end
+
+  #games
+  factory :game do
+    association :location
+    date Date.today
+  end
+
 end

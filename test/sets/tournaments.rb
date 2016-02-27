@@ -8,7 +8,7 @@ module Contexts
 
     def remove_tournaments
       @current_tourn.destroy
-      @past_tourn.destory
+      @past_tourn.destroy
     end
 
   end

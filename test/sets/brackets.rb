@@ -3,9 +3,9 @@ module Contexts
 
     def create_brackets
       @current_male_bracket = FactoryGirl.create(:bracket, tournament: @current_tourn)
-      @current_female_bracket = FactoryGirl.create(:bracket, tournament: @current_tourn, gender: "female")
+      @current_female_bracket = FactoryGirl.create(:bracket, tournament: @current_tourn, gender: "female", name: "Girls 7-10")
       @past_male_bracket = FactoryGirl.create(:bracket, tournament: @past_tourn)
-      @past_female_bracket = FactoryGirl.create(:bracket, tournament: @past_tourn, gender: "female")
+      @past_female_bracket = FactoryGirl.create(:bracket, tournament: @past_tourn, gender: "female", name: "Girls 7-10")
     end
 
     def remove_brackets

@@ -7,16 +7,16 @@ module Contexts
       @coach_gt1 = FactoryGirl.create(:volunteer, team: @girl_1, role: "Coach", first_name: "Coach", last_name: "Gt1", email: "coach@gt1.com")
       @coach_gt2 = FactoryGirl.create(:volunteer, team: @girl_2, role: "Coach", first_name: "Coach", last_name: "Gt2", email: "coach@gt2.com")
       @volunteer = FactoryGirl.create(:volunteer, email: "volunteer@volunteer.com")
-      @admin = FactoryGirl.create(:volunteer, role: "Administrator", first_name: "Admin", last_name: "Admin", email: "admin@admin.com")
+      #@admin = FactoryGirl.create(:volunteer, role: "Administrator", first_name: "Admin", last_name: "Admin", email: "admin@admin.com")
     end
 
     def remove_volunteers
-  @coach_bt1.destroy
+      @coach_bt1.destroy
       @coach_bt2.destroy
       @coach_gt1.destroy
       @coach_gt2.destroy
       @volunteer.destroy
-      @admin.destroy
+      # @admin.destroy
     end
 
   end

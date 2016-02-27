@@ -7,11 +7,11 @@ include Activeable
 	has_one :user
   
   
-  mount_uploader :volunteer_sign, AvatarUploader
+  # mount_uploader :volunteer_sign, AvatarUploader
 
   before_save :reformat_cell_phone
   before_save :reformat_day_phone
-  # before_save :set_active, on: :create
+  before_save :set_active, on: :create
 
   #validations
 
@@ -32,7 +32,7 @@ include Activeable
   ROLE_ARRAY = ["Administrator", "Coach", "Volunteer"]
   validates :role, inclusion: { in: ROLE_ARRAY, allow_blank: false }
 
-  PROJECTCHUCK_YEARS = (0..(Time.now.year - 2001)).to_a
+  # PROJECTCHUCK_YEARS = (0..(Time.now.year - 2001)).to_a
   
   #scopes
   scope :alphabetical, -> { order('last_name, first_name') }
@@ -47,9 +47,9 @@ include Activeable
     last_name + ", " + first_name
   end
 
-  # def check_active
-  #   self.active = true
-  # end
+  def set_active
+    self.active = true
+  end
   
   private
      # We need to strip non-digits before saving to db
