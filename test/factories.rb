@@ -101,4 +101,13 @@ FactoryGirl.define do
     date Date.today
     association :location
   end
+
+  #teams
+  factory :teams do
+    assocation :bracket
+    name "Steelers"
+    max_students 10
+    num_wins 0
+    num_losses 0
+  end
 end
