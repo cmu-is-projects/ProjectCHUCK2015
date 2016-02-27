@@ -48,7 +48,7 @@ private
   end
 
   def checkActive
-    self.active == true
+    self.active = true
   end
   
 end

@@ -7,7 +7,7 @@ class Bracket < ActiveRecord::Base
 include Activeable
 
   #Callbacks
-  before_validation :checkActive, on: :create
+  before_validation :checkTournamentActive, on: :create
   after_save :bracketActive
 
   #Relationships 
@@ -46,11 +46,11 @@ include Activeable
   private 
   #Custom validations
 
-  def checkActive
+  def checkTournamentActive
     if self.tournament.active == true
-      make_active
+      self.active = true
     else
-      make_inactive
+      self.active = false
     end
   end
 

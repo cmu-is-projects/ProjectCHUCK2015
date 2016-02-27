@@ -222,7 +222,6 @@ include Activeable
       end
 
      def set_active
-      #NOTE: not saving
       self.active = true
      end
      
