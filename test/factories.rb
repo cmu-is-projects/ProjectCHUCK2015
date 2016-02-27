@@ -96,4 +96,9 @@ FactoryGirl.define do
     active true
   end
 
+  #games
+  factory :games do
+    date Date.today
+    association :location
+  end
 end
