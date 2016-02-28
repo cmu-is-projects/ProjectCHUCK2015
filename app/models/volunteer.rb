@@ -7,7 +7,7 @@ include Activeable
 	belongs_to :user
   
   
-  # mount_uploader :volunteer_sign, AvatarUploader
+  mount_uploader :volunteer_sign, AvatarUploader
 
   before_save :reformat_cell_phone
   before_save :reformat_day_phone
@@ -32,7 +32,7 @@ include Activeable
   ROLE_ARRAY = ["Administrator", "Coach", "Volunteer"]
   validates :role, inclusion: { in: ROLE_ARRAY, allow_blank: false }
 
-  # PROJECTCHUCK_YEARS = (0..(Time.now.year - 2001)).to_a
+  PROJECTCHUCK_YEARS = (0..(Time.now.year - 2001)).to_a
   
   #scopes
   scope :alphabetical, -> { order('last_name, first_name') }
