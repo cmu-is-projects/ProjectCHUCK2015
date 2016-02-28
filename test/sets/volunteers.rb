@@ -8,7 +8,7 @@ module Contexts
       @coach_gt2 = FactoryGirl.create(:volunteer, user: @coach_bt1_user, team: @girl_2, role: "Coach", first_name: "Coach", last_name: "Gt2", email: "coach@gt2.com")
       @volunteer = FactoryGirl.create(:volunteer, user: @volunteer_user, email: "volunteer@volunteer.com")
       # @admin = FactoryGirl.create(:volunteer, user: @admin_user, role: "Administrator", first_name: "Admin", last_name: "Admin", email: "admin@admin.com")
-      #^ Not sure why this one can't be created
+      #NOTE: ^ Not sure why this one can't be created
     end
 
     def remove_volunteers

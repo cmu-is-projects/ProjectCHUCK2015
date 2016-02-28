@@ -12,7 +12,6 @@ include Activeable
   validates_format_of :zip, with: /\A\d{5}\z/, message: "should be five digits long"
 
   #format validations
-  # NOTE: validates_format_of :zip, with: /\A\d{5}\z/, message: "should be five digits long"
   validates :zip, presence: true
   us_state_abbrevs = ['AL', 'AK', 'AS', 'AZ', 'AR', 'CA', 'CO', 'CT', '
   	DE', 'DC', 'FM', 'FL', 'GA', 'GU', 'HI', 'ID', 'IL', 'IN', 'IA', 
