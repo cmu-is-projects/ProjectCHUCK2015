@@ -6,7 +6,7 @@ include Activeable
   has_secure_password
   
   #Relationship Validations
-  belongs_to :volunteer
+  has_one :volunteer
 
 
   # validations

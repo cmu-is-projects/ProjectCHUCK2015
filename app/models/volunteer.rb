@@ -4,14 +4,14 @@ include Activeable
 	
   #Relationship Validations
 	belongs_to :team
-	has_one :user
+	belongs_to :user
   
   
   mount_uploader :volunteer_sign, AvatarUploader
 
   before_save :reformat_cell_phone
   before_save :reformat_day_phone
-  # before_save :set_active, on: :create
+  before_save :set_active, on: :create
 
   #validations
 
@@ -47,9 +47,9 @@ include Activeable
     last_name + ", " + first_name
   end
 
-  # def check_active
-  #   self.active = true
-  # end
+  def set_active
+    self.active = true
+  end
   
   private
      # We need to strip non-digits before saving to db

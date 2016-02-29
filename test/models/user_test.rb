@@ -5,7 +5,7 @@ class UserTest < ActiveSupport::TestCase
   #   assert true
   # end
   
-  should belong_to(:volunteer)
+  should have_one(:volunteer)
   
 #  #validations
 #  should validate_presence_of(:username)
