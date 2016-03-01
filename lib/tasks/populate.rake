@@ -229,6 +229,16 @@ namespace :db do
     scottbrooks.active = true
     scottbrooks.save!
     
+    admintest = User.new
+    admintest.username = "admintest"
+    admintest.role = "admin"
+    admintest.email = "aswilson@andrew.cmu.edu"
+    admintest.active = true
+    admintest.password = "charliesangels"
+    admintest.password_confirmation = "charliesangels"
+    # admintest.volunteer_id = alliewilson.id
+    admintest.save!
+
     alliewilson = Volunteer.new
     alliewilson.team_id = 1
     alliewilson.role = "Coach"
@@ -245,18 +255,21 @@ namespace :db do
     alliewilson.day_phone = "2139198858"
     alliewilson.receives_text_msgs = false
     alliewilson.active = true
+    alliewilson.user_id = admintest.id
     alliewilson.save!
 
     # Step 12: Create some users
-    admintest = User.new
-    admintest.username = "admintest"
-    admintest.role = "admin"
-    admintest.email = "aswilson@andrew.cmu.edu"
-    admintest.active = true
-    admintest.password = "charliesangels"
-    admintest.password_confirmation = "charliesangels"
-    # admintest.volunteer_id = alliewilson.id
-    admintest.save!
+    
+
+    tasha_admin = User.new
+    tasha_admin.username = "admin"
+    tasha_admin.role = "admin"
+    tasha_admin.email = "lwilson@batchfoundation.org"
+    tasha_admin.active = true
+    tasha_admin.password = "admin"
+    tasha_admin.password_confirmation = "admin"
+    # tasha_admin.volunteer_id = tasha.id
+    tasha_admin.save!
 
     tasha = Volunteer.new
     tasha.team_id = 1
@@ -274,18 +287,11 @@ namespace :db do
     tasha.day_phone = "2139193454"
     tasha.receives_text_msgs = false
     tasha.active = true
+    tasha.user_id = tasha_admin.id
     tasha.save!
 
     # Step 12: Create some users
-    tasha_admin = User.new
-    tasha_admin.username = "admin"
-    tasha_admin.role = "admin"
-    tasha_admin.email = "lwilson@batchfoundation.org"
-    tasha_admin.active = true
-    tasha_admin.password = "admin"
-    tasha_admin.password_confirmation = "admin"
-    # tasha_admin.volunteer_id = tasha.id
-    tasha_admin.save!
+    
     
 
     # Step 13: Create some games
