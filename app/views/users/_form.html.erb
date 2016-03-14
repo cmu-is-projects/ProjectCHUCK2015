@@ -79,8 +79,9 @@
   <div class="row">
     <div class="col-sm-12">
       <div class="field">
-        <%= f.label :volunteer_id %><br>
-        <%= f.collection_select :volunteer_id, Volunteer.all, :id, :name, prompt: "Select volunteer...", :class => "input-lg" %>
+        <!-- NOTE: user.volununteer_id no longer exists in the system -->
+        <%# f.label :volunteer_id %><br>
+        <%# f.collection_select :volunteer_id, Volunteer.all, :id, :name, prompt: "Select volunteer...", :class => "input-lg" %>
       </div>
     </div>
   </div>

@@ -210,44 +210,16 @@ namespace :db do
     # kdrs.position = "Forward"
     # kdrs.save!
 
-    # Step 11: Create some volunteers
-    scottbrooks = Volunteer.new
-    scottbrooks.team_id = 1
-    scottbrooks.role = "Coach"
-    scottbrooks.email = "scottbrooks@gmail.com"
-    scottbrooks.first_name = "Scott"
-    scottbrooks.last_name = "Brooks"
-    scottbrooks.cell_phone = "2139198232"
-    scottbrooks.shirt_size = "L"
-    scottbrooks.dob = Date.new(1970,6,14)
-    scottbrooks.street = "4 Forbes Ave"
-    scottbrooks.city = "Pittsburgh"
-    scottbrooks.state = "PA"
-    scottbrooks.zip = "15289"
-    scottbrooks.day_phone = "2139198343"
-    scottbrooks.receives_text_msgs = true
-    scottbrooks.active = true
-    scottbrooks.save!
+    # Step 11: Create some users
+    sbuser = User.new
+    sbuser.username = "scottbrooks"
+    sbuser.role = "volunteer"
+    sbuser.email = "scottbrooks@gmail.com"
+    sbuser.active = true
+    sbuser.password = "secret"
+    sbuser.password_confirmation = "secret"
+    sbuser.save!
     
-    alliewilson = Volunteer.new
-    alliewilson.team_id = 1
-    alliewilson.role = "Coach"
-    alliewilson.email = "aswilson@andrew.cmu.edu"
-    alliewilson.first_name = "Allie"
-    alliewilson.last_name = "Wilson"
-    alliewilson.cell_phone = "4107500575"
-    alliewilson.shirt_size = "S"
-    alliewilson.dob = Date.new(1970,6,14)
-    alliewilson.street = "4 Forbes Ave"
-    alliewilson.city = "Pittsburgh"
-    alliewilson.state = "PA"
-    alliewilson.zip = "15289"
-    alliewilson.day_phone = "2139198858"
-    alliewilson.receives_text_msgs = false
-    alliewilson.active = true
-    alliewilson.save!
-
-    # Step 12: Create some users
     admintest = User.new
     admintest.username = "admintest"
     admintest.role = "admin"
@@ -258,6 +230,19 @@ namespace :db do
     # admintest.volunteer_id = alliewilson.id
     admintest.save!
 
+    tasha_admin = User.new
+    tasha_admin.username = "admin"
+    tasha_admin.role = "admin"
+    tasha_admin.email = "lwilson@batchfoundation.org"
+    tasha_admin.active = true
+    tasha_admin.password = "admin"
+    tasha_admin.password_confirmation = "admin"
+    # tasha_admin.volunteer_id = tasha.id
+    tasha_admin.save!
+
+    
+
+    # Step 12: Create some volunteers
     tasha = Volunteer.new
     tasha.team_id = 1
     tasha.role = "Administrator"
@@ -274,18 +259,46 @@ namespace :db do
     tasha.day_phone = "2139193454"
     tasha.receives_text_msgs = false
     tasha.active = true
+    tasha.user_id = tasha_admin.id
     tasha.save!
 
-    # Step 12: Create some users
-    tasha_admin = User.new
-    tasha_admin.username = "admin"
-    tasha_admin.role = "admin"
-    tasha_admin.email = "lwilson@batchfoundation.org"
-    tasha_admin.active = true
-    tasha_admin.password = "admin"
-    tasha_admin.password_confirmation = "admin"
-    # tasha_admin.volunteer_id = tasha.id
-    tasha_admin.save!
+    alliewilson = Volunteer.new
+    alliewilson.team_id = 1
+    alliewilson.role = "Coach"
+    alliewilson.email = "aswilson@andrew.cmu.edu"
+    alliewilson.first_name = "Allie"
+    alliewilson.last_name = "Wilson"
+    alliewilson.cell_phone = "4107500575"
+    alliewilson.shirt_size = "S"
+    alliewilson.dob = Date.new(1970,6,14)
+    alliewilson.street = "4 Forbes Ave"
+    alliewilson.city = "Pittsburgh"
+    alliewilson.state = "PA"
+    alliewilson.zip = "15289"
+    alliewilson.day_phone = "2139198858"
+    alliewilson.receives_text_msgs = false
+    alliewilson.active = true
+    alliewilson.user_id = admintest.id
+    alliewilson.save!
+
+    scottbrooks = Volunteer.new
+    scottbrooks.team_id = 1
+    scottbrooks.role = "Coach"
+    scottbrooks.email = "scottbrooks@gmail.com"
+    scottbrooks.first_name = "Scott"
+    scottbrooks.last_name = "Brooks"
+    scottbrooks.cell_phone = "2139198232"
+    scottbrooks.shirt_size = "L"
+    scottbrooks.dob = Date.new(1970,6,14)
+    scottbrooks.street = "4 Forbes Ave"
+    scottbrooks.city = "Pittsburgh"
+    scottbrooks.state = "PA"
+    scottbrooks.zip = "15289"
+    scottbrooks.day_phone = "2139198343"
+    scottbrooks.receives_text_msgs = true
+    scottbrooks.active = true
+    scottbrooks.user_id = sbuser.id
+    scottbrooks.save!
     
 
     # Step 13: Create some games

@@ -69,7 +69,8 @@
       <h2>Add Coaches</h2>
       <div class="field">
         <% if controller.action_name=="edit" || controller.action_name=="new" || controller.action_name=="update"%>
-        <%= f.input :volunteer_ids, label: "", collection: Volunteer.alphabetical.by_role("Coach"), as: :check_boxes %>
+        <!-- NOTE: volunteer_id no longer exists in the system -->
+        <%# f.input :volunteer_ids, label: "", collection: Volunteer.alphabetical.by_role("Coach"), as: :check_boxes %>
         <% end %>
       </div>
     </div>
