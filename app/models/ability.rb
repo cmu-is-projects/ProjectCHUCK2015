@@ -15,7 +15,7 @@ class Ability
         # can :show, Household
         can :show, Volunteer
         can :survey, Household
-        # can :create, User #MUST REMOVE THIS 
+        can :create, User
       end   
     #
     # The first argument to `can` is the action you are giving the user
