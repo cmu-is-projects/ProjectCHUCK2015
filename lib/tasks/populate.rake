@@ -260,6 +260,10 @@ namespace :db do
     tasha.receives_text_msgs = false
     tasha.active = true
     tasha.user_id = tasha_admin.id
+    tasha.years_with_proj_chuck = 0
+    tasha.act33_clearance = true
+    tasha.act34_clearance = true
+    tasha.act153_clearance = true
     tasha.save!
 
     alliewilson = Volunteer.new
@@ -279,6 +283,10 @@ namespace :db do
     alliewilson.receives_text_msgs = false
     alliewilson.active = true
     alliewilson.user_id = admintest.id
+    alliewilson.years_with_proj_chuck = 0
+    alliewilson.act33_clearance = true
+    alliewilson.act34_clearance = true
+    alliewilson.act153_clearance = true
     alliewilson.save!
 
     scottbrooks = Volunteer.new
@@ -298,6 +306,10 @@ namespace :db do
     scottbrooks.receives_text_msgs = true
     scottbrooks.active = true
     scottbrooks.user_id = sbuser.id
+    scottbrooks.years_with_proj_chuck = 0
+    scottbrooks.act33_clearance = true
+    scottbrooks.act34_clearance = true
+    scottbrooks.act153_clearance = true
     scottbrooks.save!
     
 
@@ -373,6 +385,9 @@ namespace :db do
             s.cell_phone = rand(10 ** 10).to_s.rjust(10,'0')
             s.email = "#{s.first_name}.#{s.last_name}@example.com".downcase
             s.grade = (0..12).to_a.sample
+            s.gpa = [1.0,2.0,3.0,4.0].sample
+            s.pastparticipation = [0,0,0,1,2,3].sample
+            s.school = ["Obama", "Sci Tech", "Perry"].sample
             s.district = ["Allegheny Valley School District","Avonworth School District",
                           "Baldwin-Whitehall School District","Bethel Park School District"].sample
             s.gender= ["male", "female"].sample
