@@ -57,7 +57,8 @@ include Activeable
   # validate :household_is_active_in_system
   validates_presence_of :insurance_provider, :insurance_policy_no, :family_physician, :physical_date, :child_signature#, :parent_signature
   validates :physician_phone, format: { with: /\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}/, message: "should be 10 digits (area code needed)" }, :allow_blank => true
-  JERSEYSIZES = ["Youth-Medium", "Youth-Large", "Youth-XL", "Adult-Small", "Adult-Medium", "Adult-Large", "Adult-XL"]
+  JERSEYSIZES = ["Youth-Small", "Youth-Medium", "Youth-Large", "Youth-XL", "Adult-Small", "Adult-Medium", "Adult-Large", "Adult-XL",
+    "Adult-2XL"]
   GPA_ARRAY = ["4.0 or higher", "3.9 - 3.0", "2.9 - 2.5", "2.4 - 2.0", "1.9 or lower", "Not Applicable"]
   PROJECTCHUCK_YEARS = (0..(Time.now.year - 2003)).to_a
   validates :jersey_size, inclusion: { in: JERSEYSIZES, allow_blank: false }
