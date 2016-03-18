@@ -24,14 +24,15 @@
 
 <center><h2>Distribution of Registered Students</h2></center>
 
+<!-- gender age school district county -->
 <div class="row">
   <div class="col-sm-6"> 
     <center><h3>By Gender</h3></center>
     <%= high_chart("my_id1", @gender_chart) %>
   </div> 
   <div class="col-sm-6"> 
-    <center><h3>By Jersey Size</h3></center>
-    <%= high_chart("my_id3", @jersey_sizes_chart) %> 
+    <center><h3>By Age</h3></center>
+    <%= high_chart("my_id3", @ages_chart) %> 
   </div> 
 </div>
 

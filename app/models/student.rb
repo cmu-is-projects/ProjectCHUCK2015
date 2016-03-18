@@ -181,6 +181,20 @@ include Activeable
     ]
   end
 
+  def self.genders
+    current_registered_students = Student.current.active
+    genders = Hash.new
+    for stu in current_registered_students
+      gender = stu.gender
+      if genders[gender].nil?
+        genders[gender] = 1
+      else
+        genders[gender] += 1
+      end
+    end
+    genders.to_a
+  end
+
   def self.school_districts
     current_registered_students = Student.current.active
     school_districts = Hash.new
@@ -207,6 +221,20 @@ include Activeable
       end
     end
     jersey_sizes.to_a
+  end
+
+  def self.ages
+    current_registered_students = Student.current.active
+    ages = Hash.new
+    for stu in current_registered_students
+      age = stu.age.to_s
+      if ages[age].nil?
+        ages[age] = 1
+      else
+        ages[age] += 1
+      end
+    end
+    ages.to_a
   end
 
 

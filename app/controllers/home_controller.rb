@@ -16,6 +16,8 @@ class HomeController < ApplicationController
       @school_districts = Student.school_districts
       @jersey_sizes = Student.jersey_sizes
       @counties = Household.counties
+      @genders = Student.genders
+      @ages = Student.ages
      # @school_districts = Student.school_districts
       # @students = Student.all
       # @brackets = Student.by_bracket
@@ -32,10 +34,7 @@ class HomeController < ApplicationController
             series = {
                      :type=> 'pie',
                      :name=> 'Gender',
-                     :data=> [
-                        ['Male',   @male_students ],
-                        ['Female',     @female_students ]
-                     ]
+                     :data=> @genders
             }
             f.series(series)
             # f.options[:title][:text] = "By Gender"
@@ -105,6 +104,29 @@ class HomeController < ApplicationController
                      :type=> 'pie',
                      :name=> 'Household Counties',
                      :data=> @counties
+            }
+            f.series(series)
+            # f.options[:title][:text] = "Registered Student School District Distribution"
+            f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'}) 
+            f.plot_options(:pie=>{
+              :allowPointSelect=>true, 
+              :cursor=>"pointer" , 
+              :dataLabels=>{
+                :enabled=>true,
+                :color=>"black",
+                :style=>{
+                  :font=>"13px Open Sans"
+                }
+              }
+            })
+      end
+
+      @ages_chart = LazyHighCharts::HighChart.new('pie') do |f|
+            f.chart({:defaultSeriesType=>"pie" , :margin=> [50, 100, 60, 100]} )
+            series = {
+                     :type=> 'pie',
+                     :name=> 'Ages',
+                     :data=> @ages
             }
             f.series(series)
             # f.options[:title][:text] = "Registered Student School District Distribution"
