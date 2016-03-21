@@ -1,6 +1,9 @@
 <% if logged_in? %>
 	<% if current_user.role? :admin %>
 		<%= render :partial => 'admin_home' %>
+  <% else %>
+    <%= render :partial => 'parent_home' %>
+    <%= render :partial => 'logout' %>
 	<% end %>
 <% else %>
 	<%= render :partial => 'general_home' %>
