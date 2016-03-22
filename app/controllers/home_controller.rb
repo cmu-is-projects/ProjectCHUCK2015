@@ -1,7 +1,9 @@
 class HomeController < ApplicationController
 
   def index
-    if  !current_user.nil? 
+    if  !current_user.nil?
+      @notifications = Student.students_with_notifications
+      @notifications_length = @notifications.length
       @tournament = Tournament.first
       # @guardians_receiving_texts = Guardian.active.alphabetical.receive_text_notifications.paginate(:page => params[:page]).per_page(10)
   #     @registrations = Registration.active
@@ -168,6 +170,9 @@ class HomeController < ApplicationController
       #       })
       # end 
     end   
+  end
+
+  def notifications
   end
 end
 
