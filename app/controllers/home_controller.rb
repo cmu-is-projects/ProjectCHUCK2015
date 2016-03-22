@@ -15,7 +15,7 @@ class HomeController < ApplicationController
       @female_students = @current_registered_students.female.size
       @school_districts = Student.school_districts
       @jersey_sizes = Student.jersey_sizes
-      @counties = Household.counties
+      @counties = Student.counties
       @genders = Student.genders
       @ages = Student.ages
      # @school_districts = Student.school_districts

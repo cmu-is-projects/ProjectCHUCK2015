@@ -237,6 +237,19 @@ include Activeable
     ages.to_a
   end
 
+  def self.counties
+    cur_reg_students = Student.current.active
+    counties = Hash.new
+    for stu in cur_reg_students
+      if counties[stu.household.county].nil?
+        counties[stu.household.county] = 1
+      else
+        counties[stu.household.county] += 1
+      end
+    end
+    counties.to_a
+  end
+
 
   private
      # We need to strip non-digits before saving to db
