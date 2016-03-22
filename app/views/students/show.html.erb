@@ -45,7 +45,7 @@
       <div class="col-sm-12">
         <p>
           <strong>Date of Birth:</strong>
-          <%= @student.dob %>
+          <%= @student.dob.strftime("%m/%d/%Y") %>
         </p>
       </div>
     </div>
@@ -172,7 +172,7 @@
       <div class="col-sm-12">
         <p>
           <strong>Cell phone:</strong>
-          <%= @student.cell_phone %>
+          <%= number_to_phone @student.cell_phone %>
         </p>
       </div>
     </div>
@@ -201,7 +201,7 @@
       <div class="col-sm-12">
         <p>
           <strong>Emergency contact phone:</strong>
-          <%= @student.emergency_contact_phone %>
+          <%= number_to_phone @student.emergency_contact_phone %>
         </p>
       </div>
     </div>

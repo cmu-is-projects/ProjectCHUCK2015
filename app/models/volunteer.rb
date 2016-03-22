@@ -17,7 +17,7 @@ include Activeable
 
   STATES_LIST = [['Alabama', 'AL'],['Alaska', 'AK'],['Arizona', 'AZ'],['Arkansas', 'AR'],['California', 'CA'],['Colorado', 'CO'],['Connecticut', 'CT'],['Delaware', 'DE'],['District of Columbia ', 'DC'],['Florida', 'FL'],['Georgia', 'GA'],['Hawaii', 'HI'],['Idaho', 'ID'],['Illinois', 'IL'],['Indiana', 'IN'],['Iowa', 'IA'],['Kansas', 'KS'],['Kentucky', 'KY'],['Louisiana', 'LA'],['Maine', 'ME'],['Maryland', 'MD'],['Massachusetts', 'MA'],['Michigan', 'MI'],['Minnesota', 'MN'],['Mississippi', 'MS'],['Missouri', 'MO'],['Montana', 'MT'],['Nebraska', 'NE'],['Nevada', 'NV'],['New Hampshire', 'NH'],['New Jersey', 'NJ'],['New Mexico', 'NM'],['New York', 'NY'],['North Carolina','NC'],['North Dakota', 'ND'],['Ohio', 'OH'],['Oklahoma', 'OK'],['Oregon', 'OR'],['Pennsylvania', 'PA'],['Rhode Island', 'RI'],['South Carolina', 'SC'],['South Dakota', 'SD'],['Tennessee', 'TN'],['Texas', 'TX'],['Utah', 'UT'],['Vermont', 'VT'],['Virginia', 'VA'],['Washington', 'WA'],['West Virginia', 'WV'],['Wisconsin ', 'WI'],['Wyoming', 'WY']]
 
-  validates_presence_of :first_name, :last_name, :role, :dob, :street, :city, :state, :zip, :day_phone#, :volunteer_sign
+  validates_presence_of :first_name, :last_name, :role, :dob, :street, :city, :state, :zip, :day_phone, :years_with_proj_chuck, :cell_phone, :email, :shirt_size, :act33_clearance, :act34_clearance, :act153_clearance#, :volunteer_sign
 
   validates_format_of :email, :with => /\A[\w]([^@\s,;]+)@(([a-z0-9.-]+\.)+(com|edu|org|net|gov|mil|biz|info))\z/i, :message => "is not a valid format", :allow_blank => true
   validates_format_of :cell_phone, with: /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/, message: "should be 10 digits (area code needed) and delimited with dashes only", :allow_blank => true
@@ -29,7 +29,7 @@ include Activeable
   validates :shirt_size, inclusion: { in: SHIRTSIZES, allow_blank: false }
 
   #team_id is valid (but not req?)
-  ROLE_ARRAY = ["Administrator", "Coach", "Volunteer"]
+  ROLE_ARRAY = ["Administrator", "Coach", "Volunteer", "Assistant Coach", "Referee", "Score Table", "Other"]
   validates :role, inclusion: { in: ROLE_ARRAY, allow_blank: false }
 
   PROJECTCHUCK_YEARS = (0..(Time.now.year - 2001)).to_a

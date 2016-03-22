@@ -88,6 +88,9 @@ gem 'font-awesome-sass-rails', '3.0.2.2'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+#Use brakeman gem for security testing
+gem "brakeman", :require => false
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

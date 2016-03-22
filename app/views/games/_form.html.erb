@@ -16,13 +16,13 @@
     <div class="col-sm-6">
       <div class="field">
         <%= f.label :date %><br>
-        <%= f.input_field :date, :class => "input-lg" %>
+        <%= f.input_field :date %>
       </div>
     </div>
     <div class-"col-sm-6">
       <div class="field">
         <%= f.label :location_id %><br>
-        <%= f.input_field :location_id, collection: Location.all, :class => "input-lg" %>
+        <%= f.input_field :location_id, prompt: "Please Select...", collection: Location.all, :class => "input-lg" %>
       </div>
     </div>
   </div>
