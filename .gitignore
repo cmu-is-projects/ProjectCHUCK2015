@@ -25,3 +25,5 @@
 /public/assets/.DS_Store
 
 /vendor/assets/javascripts/.DS_Store
+
+output.txt
