@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-ProjectChuck2015::Application.config.secret_key_base = '926cc85169792a3c1ee785bdcf10448c575e3369a01d9a57517af96764ce0869c2d8340b3ddf03e62c2d0d99251de25f0deda64de8658063f28f5052bfe9dab8'
+ProjectChuck2015::Application.config.secret_key_base = '422492b19db4d330a5f76bdd265db2c570442cdd68330ea42c73155466673feb34669a8eddeff9e89d88a69647a55114983606af5c945193349bcf0bcad9516a'
