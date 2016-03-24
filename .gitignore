@@ -29,3 +29,5 @@
 output.txt
 
 /config/initializers/secret_token.rb
+
+brakeman_results.html

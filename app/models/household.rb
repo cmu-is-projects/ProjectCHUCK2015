@@ -20,8 +20,8 @@ include Activeable
 	# Validations
   # -----------------------------
   validates_presence_of :street, :city, :county, :state, :zip
-  validates :home_phone, format: { with: /\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}/, message: "should be 10 digits (area code needed)" }, :allow_blank => true
-  validates :zip, format: { with: /\d{5}(?:[-\s]\d{4})?/, message: "should be five digits long" }
+  validates :home_phone, format: { with: /\A\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}\z/, message: "should be 10 digits (area code needed)" }, :allow_blank => true
+  validates :zip, format: { with: /\A\d{5}(?:[-\s]\d{4})?\z/, message: "should be five digits long" }
   
   validates :county, inclusion: { in: COUNTY_ARRAY, allow_blank: false }  
   validates :state, inclusion: { in: STATES_LIST.map{|a,b| b}, message: "is not valid state", allow_blank: true }
