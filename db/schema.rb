@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160318001618) do
+ActiveRecord::Schema.define(version: 20160324030813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -144,6 +144,10 @@ ActiveRecord::Schema.define(version: 20160318001618) do
     t.string   "twitter"
     t.string   "facebook"
     t.string   "instagram"
+    t.boolean  "poi_checkoff"
+    t.boolean  "bc_checkoff"
+    t.boolean  "rc_checkoff"
+    t.boolean  "phy_checkoff"
   end
 
   create_table "team_games", force: true do |t|
