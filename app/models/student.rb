@@ -251,11 +251,36 @@ include Activeable
   end
 
   def self.students_with_notifications
-    cur_reg_students = Student.current.active
+    cur_reg_students = Student.current.active.alphabetical
     notif_stu = []
     for stu in Student.current.active
-      if (stu.birth_certificate.nil? or stu.report_card.nil? or stu.proof_of_insurance.nil? or stu.physical.nil? or not(stu.has_birth_certificate) or not(stu.has_report_card) or not(stu.has_proof_of_insurance) or not(stu.has_physical))
-        notif_stu.push(stu)
+      if not(stu.has_birth_certificate)
+        if stu.birth_certificate.nil?
+          notif_stu.push([stu,"no_pic_bc"])
+        else
+          notif_stu.push([stu,"yes_pic_bc"])
+        end
+      end
+      if not(stu.has_report_card)
+        if stu.report_card.nil?
+          notif_stu.push([stu,"no_pic_rc"])
+        else
+          notif_stu.push([stu,"yes_pic_rc"])
+        end
+      end
+      if not(stu.has_proof_of_insurance)
+        if stu.proof_of_insurance.nil?
+          notif_stu.push([stu,"no_pic_poi"])
+        else
+          notif_stu.push([stu,"yes_pic_poi"])
+        end
+      end
+      if not(stu.has_physical)
+        if stu.physical.nil?
+          notif_stu.push([stu,"no_pic_ph"])
+        else
+          notif_stu.push([stu,"yes_pic_ph"])
+        end
       end
     end
     notif_stu

@@ -173,6 +173,7 @@ class HomeController < ApplicationController
   end
 
   def notifications
+    @students = Student.students_with_notifications
   end
 end
 
