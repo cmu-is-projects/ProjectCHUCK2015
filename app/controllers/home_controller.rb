@@ -173,7 +173,18 @@ class HomeController < ApplicationController
   end
 
   def notifications
-    @students = Student.students_with_notifications
+    @filterrific = initialize_filterrific(
+      Student,
+      params[:filterrific],
+      select_options: {
+        sorted_by: Student.options_for_sorted_by,
+      }
+        #persistence_id: 'shared_key',
+        #default_filter_params: {},
+        #available_filters: [],
+        ) or return
+
+    @students = @filterrific.find.page(params[:page]).per_page(5)
 
     if logged_in? && not(current_user.role?(:admin))
       flash[:error] = "You must be logged in as an administrator to view this page."

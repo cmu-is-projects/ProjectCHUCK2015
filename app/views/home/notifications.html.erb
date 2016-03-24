@@ -1,28 +1,55 @@
- <center><h3>Notifications</h3></center>
+ <center><h3>Notifications</h3><br>
+  <%= form_for_filterrific @filterrific do |f| %>
+  <div>
+    Search
+    <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+    <%= f.text_field(
+      :search_query,
+      class: 'filterrific-periodically-observed'
+    ) %>
+  </div>
+  <div>
+    Sorted by
+    <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
+  </div>
+  <div>
+    <%= link_to(
+      'Reset filters',
+      reset_filterrific_url,
+    ) %>
+  </div>
+  <%# add an automated spinner to your form when the list is refreshed %>
+  <%= render_filterrific_spinner %>
+<% end %><br>
+</center>
  <div id="filterrific_results"> 
   <div class="container well">
   <table class="table">
    <thead>
     <tr>
-      <th>Task</th>
-      <th>Item</th>
       <th>Student</th>
+      <th>Birth Certificate</th>
+      <th>Report Card</th>
+      <th>Proof of Insurance</th>
+      <th>Physical</th>
     </tr>
   </thead> 
 
   <tbody>
-   <% @students.each do |studentStatus| %>
-    <% student = studentStatus[0] %>
-    <% item = studentStatus[1] %>
-    <% status = studentStatus[2] %>
+   <% @students.each do |student| %>
+    <% if student.poi_checkoff and student.bc_checkoff and student.rc_checkoff and student.physical_checkoff %>
+      <% next %>
+    <% end %>
    
     <tr>
-      <td><%= status=="no_pic" ? "Remind" : "Checkoff" %></td>
-      <td><%= item=="bc" ? "Birth Certificate" : item=="rc" ? "Report Card" : item=="poi" ? "Proof of Insurance" : "Physical" %></td>
       <td><%= student.proper_name %></td>
+      <td><%= student.bc_checkoff ? "Done!" : student.has_birth_certificate ? "Checkoff" : "Not Uploaded" %></td>
+      <td><%= student.rc_checkoff ? "Done!" : student.has_report_card ? "Checkoff" : "Not Uploaded" %></td>
+      <td><%= student.poi_checkoff ? "Done!" : student.has_proof_of_insurance ? "Checkoff" : "Not Uploaded" %></td>
+      <td><%= student.phy_checkoff ? "Done!" : student.has_physical ? "Checkoff" : "Not Uploaded" %></td>   
     </tr>
   <% end %>
 </tbody>
 </table>
 
-<%# will_paginate students %>
+<%= will_paginate @students, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
