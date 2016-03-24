@@ -174,6 +174,14 @@ class HomeController < ApplicationController
 
   def notifications
     @students = Student.students_with_notifications
+
+    if logged_in? && not(current_user.role?(:admin))
+      flash[:error] = "You must be logged in as an administrator to view this page."
+      redirect_to home_path
+    elsif !logged_in?
+      flash[:error] = "You must login to access this page."
+      redirect_to home_path
+    end
   end
 end
 

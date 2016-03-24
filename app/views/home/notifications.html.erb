@@ -12,12 +12,14 @@
 
   <tbody>
    <% @students.each do |studentStatus| %>
-    
+    <% student = studentStatus[0] %>
+    <% item = studentStatus[1] %>
+    <% status = studentStatus[2] %>
    
     <tr>
-      <td>Tasks Here</td>
-      <td>Items Here</td>
-      <td>Students Here</td>
+      <td><%= status=="no_pic" ? "Remind" : "Checkoff" %></td>
+      <td><%= item=="bc" ? "Birth Certificate" : item=="rc" ? "Report Card" : item=="poi" ? "Proof of Insurance" : "Physical" %></td>
+      <td><%= student.proper_name %></td>
     </tr>
   <% end %>
 </tbody>

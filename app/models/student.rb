@@ -255,31 +255,31 @@ include Activeable
     notif_stu = []
     for stu in Student.current.active
       if not(stu.has_birth_certificate)
-        if stu.birth_certificate.nil?
-          notif_stu.push([stu,"no_pic_bc"])
+        if stu.birth_certificate.url.nil?
+          notif_stu.push([stu,"bc","no_pic"])
         else
-          notif_stu.push([stu,"yes_pic_bc"])
+          notif_stu.push([stu,"bc","yes_pic"])
         end
       end
       if not(stu.has_report_card)
-        if stu.report_card.nil?
-          notif_stu.push([stu,"no_pic_rc"])
+        if stu.report_card.url.nil?
+          notif_stu.push([stu,"rc","no_pic"])
         else
-          notif_stu.push([stu,"yes_pic_rc"])
+          notif_stu.push([stu,"rc","yes_pic"])
         end
       end
       if not(stu.has_proof_of_insurance)
-        if stu.proof_of_insurance.nil?
-          notif_stu.push([stu,"no_pic_poi"])
+        if stu.proof_of_insurance.url.nil?
+          notif_stu.push([stu,"poi","no_pic"])
         else
-          notif_stu.push([stu,"yes_pic_poi"])
+          notif_stu.push([stu,"poi","yes_pic"])
         end
       end
       if not(stu.has_physical)
-        if stu.physical.nil?
-          notif_stu.push([stu,"no_pic_ph"])
+        if stu.physical.url.nil?
+          notif_stu.push([stu,"ph","no_pic"])
         else
-          notif_stu.push([stu,"yes_pic_ph"])
+          notif_stu.push([stu,"ph","yes_pic"])
         end
       end
     end
