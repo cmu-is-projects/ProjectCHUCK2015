@@ -143,10 +143,10 @@ include Activeable
     order("students.grade #{ direction }")
   when /^female_/
     # Simple sort on the name colums
-    where("students.gender = ?", 'Female')
+    where("students.gender = ?", 'female')
   when /^male_/
     # Simple sort on the name colums
-    where("students.gender = ?", 'Male')
+    where("students.gender = ?", 'male')
   when /^has_allergies_/
     # Simple sort on the name colums
     where("students.allergies != ?", '')
