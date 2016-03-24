@@ -1,0 +1,9 @@
+<center>
+    <h1>Birth Certificate</h1>
+    <h3><%= @student.proper_name %></h3>
+    <iframe src="<%= @student.birth_certificate_url %>" width="100%" height="400px"></iframe>
+    <div>
+        <button type="button" class="btn btn-primary">Checkoff</button>
+        <button type="button" class="btn btn-primary">Deny</button>
+    </div>
+</center>

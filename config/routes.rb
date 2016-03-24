@@ -29,6 +29,7 @@ ProjectChuck2015::Application.routes.draw do
   resources :students do
       member do 
         put :change_active
+        get :birth_certificate
       end
   end
   
