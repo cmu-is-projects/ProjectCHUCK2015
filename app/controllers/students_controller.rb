@@ -97,13 +97,13 @@ class StudentsController < ApplicationController
   def birth_certificate_checkoff
     @student.bc_checkoff = true
     @student.save!
-    redirect_to action: 'index'
+    redirect_to notifications_path
   end
 
   def birth_certificate_deny
     @student.has_birth_certificate = false
     @student.save!
-    redirect_to action: 'index'
+    redirect_to notifications_path
   end
 
   def report_card
@@ -112,13 +112,13 @@ class StudentsController < ApplicationController
   def report_card_checkoff
     @student.rc_checkoff = true
     @student.save!
-    redirect_to action: 'index'
+    redirect_to notifications_path
   end
 
   def report_card_deny
     @student.has_report_card = false
     @student.save!
-    redirect_to action: 'index'
+    redirect_to notifications_path
   end
 
   def proof_of_insurance
@@ -127,13 +127,13 @@ class StudentsController < ApplicationController
   def proof_of_insurance_checkoff
     @student.poi_checkoff = true
     @student.save!
-    redirect_to action: 'index'
+    redirect_to notifications_path
   end
 
   def proof_of_insurance_deny
     @student.has_proof_of_insurance = false
     @student.save!
-    redirect_to action: 'index'
+    redirect_to notifications_path
   end
 
   def physical
@@ -142,13 +142,13 @@ class StudentsController < ApplicationController
   def physical_checkoff
     @student.phy_checkoff = true
     @student.save!
-    redirect_to action: 'index'
+    redirect_to notifications_path
   end
 
   def physical_deny
     @student.has_physical = false
     @student.save!
-    redirect_to action: 'index'
+    redirect_to notifications_path
   end
 
   #Activate/Deactive action, used for 'deactivate' button (instead of delete in student index)
