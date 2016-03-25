@@ -3,14 +3,14 @@ class Household < ActiveRecord::Base
 include Activeable
 
   #Relationship Validations
-  has_many :guardians, :dependent => :destroy
+  belongs_to :guardian#, :dependent => :destroy
   has_many :students, :dependent => :destroy
 
   #callbacks
   before_save :reformat_home_phone
 
   accepts_nested_attributes_for :students, reject_if: lambda { |student| student[:first_name].blank? }, allow_destroy: true
-  accepts_nested_attributes_for :guardians, reject_if: lambda { |guardian| guardian[:first_name].blank? }, allow_destroy: true
+  # accepts_nested_attributes_for :guardians, reject_if: lambda { |guardian| guardian[:first_name].blank? }, allow_destroy: true
 
 	#arrays to check for inclusion in
 	COUNTY_ARRAY = ['Allegheny', 'Armstrong', 'Beaver', 'Butler', 'City of Pittsburgh', 'Fayette', 'Greene', 'Indiana', 'Lawrence', 'Washington', 'Westmoreland','Other']

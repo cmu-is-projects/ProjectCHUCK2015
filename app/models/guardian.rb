@@ -3,7 +3,8 @@ class Guardian < ActiveRecord::Base
 include Activeable
 
   #relationships
-  belongs_to :household
+  has_many :households
+  belongs_to :user
   
   #validations
   validates_presence_of :first_name, :last_name, :cell_phone
