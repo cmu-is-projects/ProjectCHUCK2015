@@ -16,6 +16,7 @@ class Ability
         can :show, Volunteer
         can :survey, Household
         can :create, User
+        can :create, Guardian
       end   
     #
     # The first argument to `can` is the action you are giving the user
