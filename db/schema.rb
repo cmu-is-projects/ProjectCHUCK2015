@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160324030813) do
+ActiveRecord::Schema.define(version: 20160325025203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,13 +38,13 @@ ActiveRecord::Schema.define(version: 20160324030813) do
   create_table "guardians", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "household_id"
     t.string   "email"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "cell_phone"
     t.boolean  "receives_text_msgs"
     t.boolean  "active"
+    t.integer  "user_id"
   end
 
   create_table "households", force: true do |t|
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20160324030813) do
     t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "guardian_id"
   end
 
   create_table "locations", force: true do |t|
@@ -144,10 +145,10 @@ ActiveRecord::Schema.define(version: 20160324030813) do
     t.string   "twitter"
     t.string   "facebook"
     t.string   "instagram"
-    t.boolean  "poi_checkoff", default: false
-    t.boolean  "bc_checkoff", default: false
-    t.boolean  "rc_checkoff", default: false
-    t.boolean  "phy_checkoff", default: false
+    t.boolean  "poi_checkoff"
+    t.boolean  "bc_checkoff"
+    t.boolean  "rc_checkoff"
+    t.boolean  "phy_checkoff"
   end
 
   create_table "team_games", force: true do |t|
@@ -219,9 +220,9 @@ ActiveRecord::Schema.define(version: 20160324030813) do
     t.text     "suggestions"
     t.string   "volunteer_sign"
     t.date     "volunteer_sign_date"
-    t.boolean  "act33_clearance", default: false
-    t.boolean  "act34_clearance", default: false
-    t.boolean  "act153_clearance", default: false
+    t.boolean  "act33_clearance"
+    t.boolean  "act34_clearance"
+    t.boolean  "act153_clearance"
     t.date     "dob"
     t.integer  "user_id"
   end
