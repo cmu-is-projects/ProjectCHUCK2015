@@ -43,10 +43,10 @@
    
     <tr>
       <td><%= student.proper_name %></td>
-      <td><%= student.bc_checkoff ? "Done!" : student.has_birth_certificate ? "Checkoff" : "Not Uploaded" %></td>
-      <td><%= student.rc_checkoff ? "Done!" : student.has_report_card ? "Checkoff" : "Not Uploaded" %></td>
-      <td><%= student.poi_checkoff ? "Done!" : student.has_proof_of_insurance ? "Checkoff" : "Not Uploaded" %></td>
-      <td><%= student.phy_checkoff ? "Done!" : student.has_physical ? "Checkoff" : "Not Uploaded" %></td>   
+      <td><%= student.bc_checkoff ? "Done!" : student.has_birth_certificate ? (link_to "Checkoff", birth_certificate_student_path(student)) : "Not Uploaded" %></td>
+      <td><%= student.rc_checkoff ? "Done!" : student.has_report_card ? (link_to "Checkoff", report_card_student_path(student)) : "Not Uploaded" %></td>
+      <td><%= student.poi_checkoff ? "Done!" : student.has_proof_of_insurance ? (link_to "Checkoff", proof_of_insurance_student_path(student)) : "Not Uploaded" %></td>
+      <td><%= student.phy_checkoff ? "Done!" : student.has_physical ? (link_to "Checkoff", physical_student_path(student)) : "Not Uploaded" %></td>
     </tr>
   <% end %>
 </tbody>
