@@ -406,7 +406,28 @@ namespace :db do
     #trying faker
     #create 70 households with 1-4 students in each
     5.times do |i|
+        u = User.new
+        u.username = Faker::Name.first_name + Faker::Name.first_name
+        u.role = "guardian"
+        u.email = "user@user.com"
+        u.active = true
+        u.password = "secret"
+        u.password_confirmation = "secret"
+        u.save!
+
+        g = Guardian.new
+        g.user = u
+        g.first_name = Faker::Name.first_name
+        g.last_name = Faker::Name.last_name
+        g.email = u.email
+        g.cell_phone = rand(10 ** 10).to_s.rjust(10,'0')
+        g.receives_text_msgs = true
+        g.active = true
+        g.save!
+
+
         h = Household.new
+        h.guardian = g
         h.street = Faker::Address.street_address
         h.city = Faker::Address.city 
         h.state = Faker::Address.state_abbr

@@ -34,7 +34,7 @@ class StudentsController < ApplicationController
   # GET /students/1.json
   def show
     @household = @student.household
-    @guardians = @household.guardians
+    @guardians = @household.guardian
     @registrations = @student.registrations
     # @students = Student.all
   end
@@ -49,6 +49,7 @@ class StudentsController < ApplicationController
 
   # GET /students/1/edit
   def edit
+    @households = logged_in? ? current_user.role == "admin" ? Household.all : current_user.role == "guardian" ? Household.for_guard(current_user.guardian.id) : [] : []
   end
 
   # POST /students
@@ -71,6 +72,7 @@ class StudentsController < ApplicationController
   # PATCH/PUT /students/1
   # PATCH/PUT /students/1.json
   def update
+    @households = logged_in? ? current_user.role == "admin" ? Household.all : current_user.role == "guardian" ? Household.for_guard(current_user.guardian.id) : [] : []
     respond_to do |format|
       if @student.update(student_params)
         format.html { redirect_to @student, notice: 'Student was successfully updated.' }

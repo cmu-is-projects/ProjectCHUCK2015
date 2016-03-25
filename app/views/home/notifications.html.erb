@@ -38,11 +38,11 @@
   <tbody>
    <% @students.each do |student| %>
     <% if student.poi_checkoff and student.bc_checkoff and student.rc_checkoff and student.phy_checkoff %>
-      <% next %>
+      <%# next %>
     <% end %>
    
     <tr>
-      <td><%= student.proper_name %></td>
+      <td><%= link_to student.proper_name, student %></td>
       <td><%= student.bc_checkoff ? "Done!" : student.has_birth_certificate ? (link_to "Checkoff", birth_certificate_student_path(student)) : "Not Uploaded" %></td>
       <td><%= student.rc_checkoff ? "Done!" : student.has_report_card ? (link_to "Checkoff", report_card_student_path(student)) : "Not Uploaded" %></td>
       <td><%= student.poi_checkoff ? "Done!" : student.has_proof_of_insurance ? (link_to "Checkoff", proof_of_insurance_student_path(student)) : "Not Uploaded" %></td>

@@ -4,23 +4,36 @@ class Ability
   def initialize(user)
     # Define abilities for the passed in user here. For example:
     #
-      user ||= User.new # guest user (not logged in)
-      if user.role? :admin
-        can :manage, :all
-      elsif user.role? :guardian
-        can :create, Student
-        can :create, Household
-      else
-        can :create, Household
-        # can :read, Household
-        can :create, Volunteer
-        can :read, Volunteer
-        # can :show, Household
-        can :show, Volunteer
-        can :survey, Household
-        can :create, User
-        can :create, Guardian
-      end   
+    user ||= User.new # guest user (not logged in)
+    if user.role? :admin
+      can :manage, :all
+    elsif user.role? :guardian
+      can :read, Student do |this_student|  
+        my_houses = user.guardian.households.to_a
+        my_students = []
+        for house in my_houses
+          studs = house.students.to_a
+          studs.each {|s| my_students.push(s.id)}
+        end
+        my_students.include? this_student.id 
+      end
+      can :read, Household do |this_household|  
+        my_houses = user.guardian.households.map(&:id)
+        my_houses.include? this_household.id 
+      end
+      can :create, Student
+      can :create, Household
+    else
+      can :create, Household
+      # can :read, Household
+      can :create, Volunteer
+      can :read, Volunteer
+      # can :show, Household
+      can :show, Volunteer
+      can :survey, Household
+      can :create, User
+      can :create, Guardian
+    end   
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.
