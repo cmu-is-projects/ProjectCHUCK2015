@@ -29,12 +29,16 @@ include Activeable
 
   # Scopes (active and inactive defined in activeable)
   # -----------------------------
+  scope :for_guard, ->(gid) { where("guardian_id = ?", gid) }
 
   # Methods
   # -----------------------------
 
 #get city - might be useful later but NOT NOW
 
+  def format_address
+    street + ", " + zip
+  end
 
   def self.counties
     active_households = Household.all

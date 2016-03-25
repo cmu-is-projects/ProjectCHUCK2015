@@ -258,28 +258,28 @@ include Activeable
     notif_stu = []
     for stu in Student.current.active
       if not(stu.bc_checkoff)
-        if !stu.has_birth_certificate?
+        if not(stu.has_birth_certificate)
           notif_stu.push([stu,"bc","no_pic"])
         else
           notif_stu.push([stu,"bc","yes_pic"])
         end
       end
       if not(stu.rc_checkoff)
-        if !stu.has_report_card?
+        if not(stu.has_report_card)
           notif_stu.push([stu,"rc","no_pic"])
         else
           notif_stu.push([stu,"rc","yes_pic"])
         end
       end
       if not(stu.poi_checkoff)
-        if !stu.has_proof_of_insurance?
+        if not(stu.has_proof_of_insurance)
           notif_stu.push([stu,"poi","no_pic"])
         else
           notif_stu.push([stu,"poi","yes_pic"])
         end
       end
       if not(stu.phy_checkoff)
-        if !stu.has_physical?
+        if not(stu.has_physical)
           notif_stu.push([stu,"ph","no_pic"])
         else
           notif_stu.push([stu,"ph","yes_pic"])
