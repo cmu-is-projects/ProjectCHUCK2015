@@ -13,7 +13,7 @@ include Activeable
   before_save :reformat_day_phone
   before_save :set_active, on: :create
 
-  accepts_nested_attributes_for :user, reject_if: lambda { |user| user[:username].blank? }, allow_destroy: true
+  accepts_nested_attributes_for :user, reject_if: lambda { |user| user[:username].blank? }#, allow_destroy: true
 
   #validations
 
