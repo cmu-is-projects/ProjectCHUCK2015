@@ -28,18 +28,18 @@
 
       <hr>
 
-      <h3>Parent(s)/Guardian(s) in this Household</h3> <br>
-      <%= household_form.simple_fields_for :guardians do |guardian_form| %>
-      <%= render :partial => "guardian_fields", :locals => { :f => guardian_form } %>
-      <% end %> 
-      <p>
-        <%= household_form.link_to_add "+ Add Another Parent/Guardian", :guardians, :class => "btn addlink" %>
-      </p><br /><br />
+      <!-- <h3>Parent(s)/Guardian(s) in this Household</h3> <br> -->
+      <%# household_form.simple_fields_for :guardians do |guardian_form| %>
+      <%# render :partial => "guardian_fields", :locals => { :f => guardian_form } %>
+      <%# end %>
+      <!-- <p>
+        <%# household_form.link_to_add "+ Add Another Parent/Guardian", :guardians, :class => "btn addlink" %>
+      </p><br /><br /> -->
 
-      <button class = "btn btn-primary step"> Proceed to Step 2 </button>
+      <!-- <button class = "btn btn-primary step"> Proceed to Step 2 </button> -->
 
 
-    </div>
+    <!-- </div> -->
     <!-- </div>  -->
 
     <!-- <div class="span7">  -->
@@ -47,17 +47,17 @@
     <!-- </div> -->
 
     <!-- <div class="span7">  -->
-    <h3>Step 2: Participant(s) Details</h3>
-    <div id="household_students" class="well" class="ui-accordion-content">
+    <!-- <h3>Step 2: Participant(s) Details</h3> -->
+    <!-- <div id="household_students" class="well" class="ui-accordion-content"> -->
       <%= household_form.simple_fields_for :students do |student_form| %>
       <%= render :partial => "student_fields", :locals => { :f => student_form } %>
       <% end %> 
 
       <p>
-       <%= household_form.link_to_add("+ Add Another Participant", :students, :class => "btn addlink") %>
+       <%= household_form.link_to_add("+ Add Another Student", :students, :class => "btn addlink") %>
      </p> <br /><br />
 
-     <button class = "btn btn-primary"> Return to Step 1 (if needed)</button>
+     <!-- <button class = "btn btn-primary"> Return to Step 1 (if needed)</button> -->
 
      <div class="row">
       <div class="col-xs-6 col-sm-6 col-md-6">

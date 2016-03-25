@@ -110,6 +110,14 @@
       <%= f.input_field :pastparticipation, collection: Student::PROJECTCHUCK_YEARS, prompt: "Please Select...", :class => "input-lg" %>
     </div>
   </div>
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%#= f.label :household_id, :label => "Please indicate number of years you have participated in Project CHUCK. If none, please enter 0." %>
+      <%#= f.input_field :pastparticipation, collection: Student::PROJECTCHUCK_YEARS, prompt: "Please Select...", :class => "input-lg" %>
+      <%= f.label :household_id, :label => "Home Address" %><br>
+      <%= f.collection_select :household_id, @households, :id, lambda{|house| house.format_address}, prompt: "Select..." %>
+    </div>
+  </div>
 </div>
 
 <br>
@@ -264,6 +272,80 @@
 </div>
 
 <br>
+
+<br>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-12">
+    <p class="widthfit">Facts concerning the child's medical history including allergies, medications, and any physical impairment to which a physician should be alerted are listed below. I represent that the list below is current and accurate and includes all allergies. In case of an accident or illness, I hereby authorize a representative of Project C.H.U.C.K., a program of Best of the Batch Foundation, to use his/her judgment in obtaining immediate medical care. I give my consent for the administration of emergency medical treatment by an emergency medical team, licensed physician or hospital chosen by Best of the Batch Foundation. </p>
+  </div>
+  <div class="col-xs-12 col-sm-12">
+    <div class="field">
+      <%= f.check_box :parent_consent_agree %>
+      <%= f.label :parent_consent_agree, :label => "Parent/Guardian - Click to agree with the above" %>
+      <!-- <div class="input-group">
+      <span class="input-group-addon">
+        <input type="checkbox" aria-label="...">
+      </span>
+      <label type="text" class="form-control" aria-label="Parent/Guardian - Click if you agree:">
+      </div> -->
+
+    </div>
+  </div>
+</div>
+
+<br>
+
+<h3>Promise</h3>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-12">
+    <p class="widthfit">I agree to take responsibility as a student-athlete to read my assigned book, attend study hall, and to review and follow all Best of the Batch Foundation and Project C.H.U.C.K. rules. (Click if you agree)</p>
+    <!-- <h3>Click to agree to the above statement</h3><br> -->
+  </div>
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.check_box :child_promise_agree %>
+      <%= f.label :child_promise_agree, :label => "Student Participant - Click to agree with the above" %> <br>
+    </div>
+  </div>
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.check_box :parent_promise_agree %>
+      <%= f.label :parent_promise_agree, :label => "Parent/Guardian - Click to agree with the above" %> <br>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<h3>Statement of Parental Responsibilities and Release</h3>
+
+<br>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-12">
+    <p class="widthfit">To participate in Project C.H.U.C.K. in consideration of the services to be performed by its sponsors, officers, and volunteers, I do hereby assume all the risks and hazards incidental to the conduct of the activities, and I do further hereby release, absolve, indemnify, and hold harmless Project C.H.U.C.K., operated and sponsored by Best of the Batch, its sponsors, officers, and volunteers of and from all manner of action and actions, cause or causes of action, suits, debts and sums of money, claims of demands whatsoever, in law or equity, arising out of or pursuant to the conduct of the activities. I am fully aware of risks inherent to this activity and should not participate or allow my child to participate unless medically able. I assume all risks associated with this activity. I also agree that photographs, recordings or any other record may be used for the purpose of promoting programs operated or sponsored by Best of the Batch. In case of accident or illness, I authorize a representative of Best of the Batch to obtain immediate care deemed necessary by licensed medical personnel. I have read and fully understand that these terms are contractual and are not a mere recital and sign it voluntarily, and hereby take responsibility for the above information and it is accurate to the best of my knowledge. I also understand that if not correct, my above-named child will be ineligible to play for the season.</p>
+  </div>
+  <div class="col-xs-12 col-sm-12">
+    <div class="field">
+      <%= f.check_box :parent_release_agree %>
+      <%= f.label :parent_release_agree, :label => "Parent/Guardian - Click to agree with the above" %>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-8">
+    <div class="field">
+      <%= f.label :child_signature, :label => "Student Participant - If you agree with the above, please type your name:" %> <br>
+      <%= f.text_field :child_signature, :class => "input-lg" %>
+    </div>
+  </div>
+</div>
+</div>
 
   <!-- <div class="container">
     <div class="row">
