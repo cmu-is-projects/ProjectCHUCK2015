@@ -45,6 +45,9 @@ include Activeable
   validates_date :dob, :on_or_before => lambda { 6.years.ago.to_date }, :on_or_after => lambda {18.years.ago.to_date}, :message => "must be betweeen ages of 7 and 18"
   #validates_uniqueness_of :email, allow_blank: true
   # validates_format_of :email, :with => /[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))/i
+  #validates :email, format: { :with => /\A[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))\z/i, :message => "is not a valid format" }, :allow_blank => true
+  #validates :cell_phone, format: { with: /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/, message: "should be 10 digits (area code needed)" }, :allow_blank => true
+  #validates :emergency_contact_phone, format: { with: /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/, message: "should be 10 digits (area code needed)" }, :allow_blank => false
   validates :email, format: { :with => /[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))/, :message => "is not a valid format" }, :allow_blank => true
   validates :cell_phone, format: { with: /\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}/, message: "should be 10 digits (area code needed)" }, :allow_blank => true
   validates :emergency_contact_phone, format: { with: /\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}/, message: "should be 10 digits (area code needed)" }, :allow_blank => false
@@ -255,28 +258,28 @@ include Activeable
     notif_stu = []
     for stu in Student.current.active
       if not(stu.bc_checkoff)
-        if stu.birth_certificate.url.nil?
+        if !stu.has_birth_certificate?
           notif_stu.push([stu,"bc","no_pic"])
         else
           notif_stu.push([stu,"bc","yes_pic"])
         end
       end
       if not(stu.rc_checkoff)
-        if stu.report_card.url.nil?
+        if !stu.has_report_card?
           notif_stu.push([stu,"rc","no_pic"])
         else
           notif_stu.push([stu,"rc","yes_pic"])
         end
       end
       if not(stu.poi_checkoff)
-        if stu.proof_of_insurance.url.nil?
+        if !stu.has_proof_of_insurance?
           notif_stu.push([stu,"poi","no_pic"])
         else
           notif_stu.push([stu,"poi","yes_pic"])
         end
       end
       if not(stu.phy_checkoff)
-        if stu.physical.url.nil?
+        if !stu.has_physical?
           notif_stu.push([stu,"ph","no_pic"])
         else
           notif_stu.push([stu,"ph","yes_pic"])

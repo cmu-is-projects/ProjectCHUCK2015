@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-  before_action :set_student, only: [:show, :edit, :update, :destroy]
+  before_action :set_student, only: [:show, :edit, :update, :destroy, :birth_certificate, :birth_certificate_checkoff, :birth_certificate_deny, :report_card, :report_card_checkoff, :report_card_deny, :proof_of_insurance, :proof_of_insurance_checkoff, :proof_of_insurance_deny, :physical, :physical_checkoff, :physical_deny]
   before_action :check_login, :except => [:show]
   authorize_resource
 
@@ -88,6 +88,67 @@ class StudentsController < ApplicationController
       format.html { redirect_to students_url }
       format.json { head :no_content }
     end
+  end
+
+  #Birth_Certificates page to checkoff if valid and then delete the birth certificate
+  def birth_certificate
+  end
+
+  def birth_certificate_checkoff
+    @student.bc_checkoff = true
+    @student.save!
+    redirect_to notifications_path
+  end
+
+  def birth_certificate_deny
+    @student.has_birth_certificate = false
+    @student.save!
+    redirect_to notifications_path
+  end
+
+  def report_card
+  end
+
+  def report_card_checkoff
+    @student.rc_checkoff = true
+    @student.save!
+    redirect_to notifications_path
+  end
+
+  def report_card_deny
+    @student.has_report_card = false
+    @student.save!
+    redirect_to notifications_path
+  end
+
+  def proof_of_insurance
+  end
+
+  def proof_of_insurance_checkoff
+    @student.poi_checkoff = true
+    @student.save!
+    redirect_to notifications_path
+  end
+
+  def proof_of_insurance_deny
+    @student.has_proof_of_insurance = false
+    @student.save!
+    redirect_to notifications_path
+  end
+
+  def physical
+  end
+
+  def physical_checkoff
+    @student.phy_checkoff = true
+    @student.save!
+    redirect_to notifications_path
+  end
+
+  def physical_deny
+    @student.has_physical = false
+    @student.save!
+    redirect_to notifications_path
   end
 
   #Activate/Deactive action, used for 'deactivate' button (instead of delete in student index)

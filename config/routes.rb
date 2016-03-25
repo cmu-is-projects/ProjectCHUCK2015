@@ -29,6 +29,18 @@ ProjectChuck2015::Application.routes.draw do
   resources :students do
       member do 
         put :change_active
+        get :birth_certificate
+        get :birth_certificate_checkoff
+        get :birth_certificate_deny
+        get :report_card
+        get :report_card_checkoff
+        get :report_card_deny
+        get :proof_of_insurance
+        get :proof_of_insurance_checkoff
+        get :proof_of_insurance_deny
+        get :physical
+        get :physical_checkoff
+        get :physical_deny
       end
   end
   
