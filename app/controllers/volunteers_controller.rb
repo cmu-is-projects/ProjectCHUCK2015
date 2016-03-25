@@ -17,6 +17,7 @@ class VolunteersController < ApplicationController
   # GET /volunteers/new
   def new
     @volunteer = Volunteer.new
+    @volunteer.user = User.new
   end
 
   # GET /volunteers/1/edit
@@ -27,6 +28,10 @@ class VolunteersController < ApplicationController
   # POST /volunteers.json
   def create
     @volunteer = Volunteer.new(volunteer_params)
+    @volunteer.user = User.new(volunteer_params[:user_attributes])
+    @volunteer.user.role = "volunteer"
+    @volunteer.user.active = true
+    @volunteer.user.email = @volunteer.email
 
     require 'open3'
     instructions = JSON.parse(params[:output]).map { |h| "line #{h['mx'].to_i},#{h['my'].to_i} #{h['lx'].to_i},#{h['ly'].to_i}" } * ' '
@@ -37,7 +42,11 @@ class VolunteersController < ApplicationController
     @volunteer.volunteer_sign = tempfile
 
     respond_to do |format|
-      if @volunteer.save
+      if (@volunteer.user.save && @volunteer.save)
+        if current_user.nil?
+          current_user = @volunteer.user
+          session[:user_id] = @volunteer.user.id
+        end
         format.html { redirect_to home_path, notice: "Congratulations! You have successfully registered as a volunteer for Project C.H.U.C.K" }
       else
         format.html { render action: 'new' }
@@ -92,6 +101,6 @@ class VolunteersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def volunteer_params
-      params.require(:volunteer).permit(:team_id, :email, :first_name, :last_name, :role, :active, :receives_text_msgs, :cell_phone, :dob, :act33_clearance, :act34_clearance, :act153_clearance, :shirt_size, :years_with_proj_chuck, :date, :street, :city, :state, :zip, :day_phone, :position, :team_coached, :child_name, :clearance_copy, :not_available, :two_skills, :suggestions, :volunteer_sign, :volunteer_sign_date)
+      params.require(:volunteer).permit(:team_id, :email, :first_name, :last_name, :role, :active, :receives_text_msgs, :cell_phone, :dob, :act33_clearance, :act34_clearance, :act153_clearance, :shirt_size, :years_with_proj_chuck, :date, :street, :city, :state, :zip, :day_phone, :position, :team_coached, :child_name, :clearance_copy, :not_available, :two_skills, :suggestions, :volunteer_sign, :volunteer_sign_date, user_attributes: [:id, :username, :password, :password_confirmation])
     end
 end
