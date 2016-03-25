@@ -1,6 +1,6 @@
 class GuardiansController < ApplicationController
   before_action :set_guardian, only: [:show, :edit, :update, :destroy]
-  before_action :check_login, :except => [:show]
+  before_action :check_login, :except => [:show, :create, :new]
   authorize_resource
 
   # GET /guardians
@@ -17,7 +17,8 @@ class GuardiansController < ApplicationController
   # GET /guardians/new
   def new
     @guardian = Guardian.new
-    @guardian.household_id = params[:household_id] unless params[:household_id].nil?
+    @guardian.user = User.new
+    # @guardian.household_id = params[:household_id] unless params[:household_id].nil?
   end
 
   # GET /guardians/1/edit
@@ -28,9 +29,18 @@ class GuardiansController < ApplicationController
   # POST /guardians.json
   def create
     @guardian = Guardian.new(guardian_params)
+    @guardian.active = true
+    @guardian.user = User.new(guardian_params[:user_attributes])
+    @guardian.user.role = "guardian"
+    @guardian.user.active = true
+    @guardian.user.email = @guardian.email
 
     respond_to do |format|
-      if @guardian.save
+      if (@guardian.user.save && @guardian.save)
+        if current_user.nil?
+          current_user = @guardian.user
+          session[:user_id] = @guardian.user.id
+        end
         format.html { redirect_to @guardian, notice: 'Guardian was successfully created.' }
         format.json { render action: 'show', status: :created, location: @guardian }
       else
@@ -72,6 +82,6 @@ class GuardiansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def guardian_params
-      params.require(:guardian).permit(:relation, :household_id, :email, :first_name, :last_name, :cell_phone, :receives_text_msgs, :active)
+      params.require(:guardian).permit(:relation, :household_id, :email, :first_name, :last_name, :cell_phone, :receives_text_msgs, :active, user_attributes: [:id, :username, :password, :password_confirmation])
     end
 end
