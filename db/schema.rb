@@ -144,10 +144,10 @@ ActiveRecord::Schema.define(version: 20160324030813) do
     t.string   "twitter"
     t.string   "facebook"
     t.string   "instagram"
-    t.boolean  "poi_checkoff"
-    t.boolean  "bc_checkoff"
-    t.boolean  "rc_checkoff"
-    t.boolean  "phy_checkoff"
+    t.boolean  "poi_checkoff", default: false
+    t.boolean  "bc_checkoff", default: false
+    t.boolean  "rc_checkoff", default: false
+    t.boolean  "phy_checkoff", default: false
   end
 
   create_table "team_games", force: true do |t|
@@ -219,9 +219,9 @@ ActiveRecord::Schema.define(version: 20160324030813) do
     t.text     "suggestions"
     t.string   "volunteer_sign"
     t.date     "volunteer_sign_date"
-    t.boolean  "act33_clearance"
-    t.boolean  "act34_clearance"
-    t.boolean  "act153_clearance"
+    t.boolean  "act33_clearance", default: false
+    t.boolean  "act34_clearance", default: false
+    t.boolean  "act153_clearance", default: false
     t.date     "dob"
     t.integer  "user_id"
   end
