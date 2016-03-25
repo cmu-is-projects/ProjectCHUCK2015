@@ -30,6 +30,8 @@ ProjectChuck2015::Application.routes.draw do
       member do 
         put :change_active
         get :birth_certificate
+        get :birth_certificate_checkoff
+        get :birth_certificate_deny
       end
   end
   

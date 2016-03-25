@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-  before_action :set_student, only: [:show, :edit, :update, :destroy, :birth_certificate]
+  before_action :set_student, only: [:show, :edit, :update, :destroy, :birth_certificate, :birth_certificate_checkoff, :birth_certificate_deny]
   before_action :check_login, :except => [:show]
   authorize_resource
 
@@ -92,6 +92,18 @@ class StudentsController < ApplicationController
 
   #Birth_Certificates page to checkoff if valid and then delete the birth certificate
   def birth_certificate
+  end
+
+  def birth_certificate_checkoff
+    @student.bc_checkoff = true
+    @student.save!
+    redirect_to action: 'index'
+  end
+
+  def birth_certificate_deny
+    @student.has_birth_certificate = false
+    @student.save!
+    redirect_to action: 'index'
   end
 
   #Activate/Deactive action, used for 'deactivate' button (instead of delete in student index)
