@@ -20,6 +20,7 @@ include Activeable
   after_save :studentActive
 
   #uploaders for carrierwave
+  mount_uploader :birth_certificate, AvatarUploader
   mount_uploader :report_card, AvatarUploader
   mount_uploader :physical, AvatarUploader
   mount_uploader :proof_of_insurance, AvatarUploader
@@ -33,7 +34,7 @@ include Activeable
   has_many :brackets, through: :registrations
   has_many :teams, through: :roster_spots
 
-  mount_uploader :birth_certificate, AvatarUploader
+  
 
   accepts_nested_attributes_for :registrations, reject_if: lambda { |registration| registration[:student_id].blank? }, allow_destroy: true
 

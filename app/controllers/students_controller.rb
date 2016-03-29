@@ -96,12 +96,14 @@ class StudentsController < ApplicationController
 
   def birth_certificate_checkoff
     @student.bc_checkoff = true
+    @student.remove_birth_certificate!
     @student.save!
     redirect_to notifications_path
   end
 
   def birth_certificate_deny
     @student.has_birth_certificate = false
+    @student.remove_birth_certificate!
     @student.save!
     redirect_to notifications_path
   end
@@ -111,12 +113,14 @@ class StudentsController < ApplicationController
 
   def report_card_checkoff
     @student.rc_checkoff = true
+    @student.remove_report_card!
     @student.save!
     redirect_to notifications_path
   end
 
   def report_card_deny
     @student.has_report_card = false
+    @student.remove_report_card!
     @student.save!
     redirect_to notifications_path
   end
@@ -126,12 +130,14 @@ class StudentsController < ApplicationController
 
   def proof_of_insurance_checkoff
     @student.poi_checkoff = true
+    @student.remove_proof_of_insurance!
     @student.save!
     redirect_to notifications_path
   end
 
   def proof_of_insurance_deny
     @student.has_proof_of_insurance = false
+    @student.remove_proof_of_insurance!
     @student.save!
     redirect_to notifications_path
   end
@@ -141,12 +147,14 @@ class StudentsController < ApplicationController
 
   def physical_checkoff
     @student.phy_checkoff = true
+    @student.remove_physical!
     @student.save!
     redirect_to notifications_path
   end
 
   def physical_deny
     @student.has_physical = false
+    @student.remove_physical!
     @student.save!
     redirect_to notifications_path
   end
