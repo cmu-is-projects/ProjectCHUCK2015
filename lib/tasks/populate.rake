@@ -39,8 +39,49 @@ namespace :db do
     scitech.county = "Other"
     scitech.save!
 
+    #Guardian Users
+    g1user = User.new
+    g1user.username = "guardian1"
+    g1user.role = "guardian"
+    g1user.email = "guardian1@gmail.com"
+    g1user.active = true
+    g1user.password = "secret"
+    g1user.password_confirmation = "secret"
+    g1user.save!
+
+    g2user = User.new
+    g2user.username = "guardian2"
+    g2user.role = "guardian"
+    g2user.email = "guardian2@gmail.com"
+    g2user.active = true
+    g2user.password = "secret"
+    g2user.password_confirmation = "secret"
+    g2user.save!
+
+    #GUARDIANS
+    g1 = Guardian.new
+    g1.user = g1user
+    g1.first_name = "Bob"
+    g1.last_name = "Jones"
+    g1.email = "guardian1@gmail.com"
+    g1.cell_phone = rand(10 ** 10).to_s.rjust(10,'0')
+    g1.receives_text_msgs = true
+    g1.active = true
+    g1.save!
+
+    g2 = Guardian.new
+    g2.user = g2user
+    g2.first_name = "Sue"
+    g2.last_name = "Smith"
+    g2.email = "guardian2@gmail.com"
+    g2.cell_phone = rand(10 ** 10).to_s.rjust(10,'0')
+    g2.receives_text_msgs = true
+    g2.active = true
+    g2.save!
+
     # Step 2: Create some households
     durants = Household.new
+    durants.guardian = g1
     durants.street = "1 Durant Lane"
     durants.city = "Pittsburgh"
     durants.state = "PA"
@@ -51,6 +92,7 @@ namespace :db do
     durants.save!
 
     james = Household.new
+    james.guardian = g2
     james.street = "23 James Lane"
     james.city = "Pittsburgh"
     james.state = "PA"
@@ -364,7 +406,28 @@ namespace :db do
     #trying faker
     #create 70 households with 1-4 students in each
     5.times do |i|
+        u = User.new
+        u.username = Faker::Name.first_name + Faker::Name.first_name
+        u.role = "guardian"
+        u.email = "user@user.com"
+        u.active = true
+        u.password = "secret"
+        u.password_confirmation = "secret"
+        u.save!
+
+        g = Guardian.new
+        g.user = u
+        g.first_name = Faker::Name.first_name
+        g.last_name = Faker::Name.last_name
+        g.email = u.email
+        g.cell_phone = rand(10 ** 10).to_s.rjust(10,'0')
+        g.receives_text_msgs = true
+        g.active = true
+        g.save!
+
+
         h = Household.new
+        h.guardian = g
         h.street = Faker::Address.street_address
         h.city = Faker::Address.city 
         h.state = Faker::Address.state_abbr
@@ -428,7 +491,7 @@ namespace :db do
         num_gs = [1,2].sample
         num_gs.times do |k|
             g = Guardian.new
-            g.household_id = h.id
+            # g.household_id = h.id
             g.first_name = Faker::Name.first_name
             g.last_name = Faker::Name.last_name
             g.email = "#{g.first_name}.#{g.last_name}@example.com".downcase

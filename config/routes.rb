@@ -59,8 +59,10 @@ ProjectChuck2015::Application.routes.draw do
   get 'home/contact', to: 'home#contact', as: :contact
   get 'home/notifications' => 'home#notifications', as: :notifications
 
-  get 'registerstudent', to: 'households#new', :as => :registerstudent
+  get 'registerstudent', to: 'students#new', :as => :registerstudent
   get 'registervolunteer', to: 'volunteers#new', :as => :registervolunteer
+  get 'registerguardian', to: 'guardians#new', :as => :registerguardian
+  get 'registerhousehold', to: 'households#new', :as => :registerhousehold
 
   # set the root url
   root to: 'home#index'

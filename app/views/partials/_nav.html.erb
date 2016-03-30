@@ -4,6 +4,20 @@
 			<%= link_to image_tag('boblogo.png'), home_path %><br>
 			<h1>Project C.H.U.C.K. </h1>
       <h5>Continuously Helping Uplift Community Kids</h5>
+      <% if logged_in? && current_user.role == "guardian" %>
+        <br>
+        <div class="container">
+  <div class="row">
+    <div class = "col-sm-12">
+      <ul class="nav nav-pills nav-justified">
+        <li><%= link_to 'Students', students_path %></li>
+        <li><%= link_to 'Households', households_path %></li>
+        <li><%= link_to image_tag('logout16.png'), logout_path %></li>
+        <!-- <li><%#= link_to image_tag('logout16.png'), render :partial => "secondary" %></li>  -->
+      </div>
+    </div>
+  </div>
+      <% end %>
 		</center>
 	</div>
 </div>

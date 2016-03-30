@@ -16,7 +16,7 @@
   </thead>
 
   <tbody>
-    <% @guardians.each do |guardian| %>
+    <% guardian = @guardians#@guardians.each do |guardian| %>
       <tr>
         <td><%= link_to guardian.proper_name, guardian %></td>
         <td><%= guardian.email %></td>
@@ -32,7 +32,7 @@
         <td><%= link_to(image_tag('edit.png'), edit_guardian_path(guardian)) %></td>
         <td><%= link_to(image_tag('delete.png'), guardian, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
       </tr>
-    <% end %>
+    <%# end %>
   </tbody>
 </table>
 

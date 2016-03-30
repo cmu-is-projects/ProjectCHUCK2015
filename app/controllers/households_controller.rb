@@ -19,7 +19,7 @@ class HouseholdsController < ApplicationController
     @household = Household.new
     # students = @household.students.build
     @household.students.build
-    @household.guardians.build
+    # @household.guardians.build
     # students.registrations.build
     # registrations = students.registrations.build
   end
@@ -35,6 +35,9 @@ class HouseholdsController < ApplicationController
   # POST /households.json
   def create
     @household = Household.new(household_params)
+    if current_user.role == "guardian"
+      @household.guardian = current_user.guardian
+    end
 
     require 'open3'
     instructions = JSON.parse(params[:output]).map { |h| "line #{h['mx'].to_i},#{h['my'].to_i} #{h['lx'].to_i},#{h['ly'].to_i}" } * ' '
@@ -44,6 +47,7 @@ class HouseholdsController < ApplicationController
     end
     @household.students.each do |student|
       student.parent_signature = tempfile
+      student.save
     end
 
     respond_to do |format|
@@ -51,7 +55,7 @@ class HouseholdsController < ApplicationController
         format.html { redirect_to survey_path, notice: "Congratulations! You have successfully registered for Project C.H.U.C.K" }
       else
         @household.students.build if @household.students.blank?
-        @household.guardians.build if @household.guardians.blank?
+        # @household.guardians.build if @household.guardians.blank?
 
         format.html { render action: 'new' }
         format.json { render json: @household.errors, status: :unprocessable_entity }
