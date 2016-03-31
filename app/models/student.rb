@@ -20,6 +20,7 @@ include Activeable
   after_save :studentActive
 
   #uploaders for carrierwave
+  mount_uploader :birth_certificate, AvatarUploader
   mount_uploader :report_card, AvatarUploader
   mount_uploader :physical, AvatarUploader
   mount_uploader :proof_of_insurance, AvatarUploader
@@ -33,7 +34,7 @@ include Activeable
   has_many :brackets, through: :registrations
   has_many :teams, through: :roster_spots
 
-  mount_uploader :birth_certificate, AvatarUploader
+  
 
   accepts_nested_attributes_for :registrations, reject_if: lambda { |registration| registration[:student_id].blank? }, allow_destroy: true
 
@@ -45,9 +46,12 @@ include Activeable
   validates_date :dob, :on_or_before => lambda { 6.years.ago.to_date }, :on_or_after => lambda {18.years.ago.to_date}, :message => "must be betweeen ages of 7 and 18"
   #validates_uniqueness_of :email, allow_blank: true
   # validates_format_of :email, :with => /[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))/i
-  validates :email, format: { :with => /\A[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))\z/i, :message => "is not a valid format" }, :allow_blank => true
-  validates :cell_phone, format: { with: /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/, message: "should be 10 digits (area code needed)" }, :allow_blank => true
-  validates :emergency_contact_phone, format: { with: /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/, message: "should be 10 digits (area code needed)" }, :allow_blank => false
+  #validates :email, format: { :with => /\A[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))\z/i, :message => "is not a valid format" }, :allow_blank => true
+  #validates :cell_phone, format: { with: /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/, message: "should be 10 digits (area code needed)" }, :allow_blank => true
+  #validates :emergency_contact_phone, format: { with: /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/, message: "should be 10 digits (area code needed)" }, :allow_blank => false
+  validates :email, format: { :with => /[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))/, :message => "is not a valid format" }, :allow_blank => true
+  validates :cell_phone, format: { with: /\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}/, message: "should be 10 digits (area code needed)" }, :allow_blank => true
+  validates :emergency_contact_phone, format: { with: /\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}/, message: "should be 10 digits (area code needed)" }, :allow_blank => false
   validates_numericality_of :grade
   GRADESWITHK_ARRAY = [["K", 0], [1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9], [10, 10], [11, 11], [12, 12], ["College", 13]]
   GRADES_ARRAY = (0..13).to_a
@@ -139,10 +143,10 @@ include Activeable
     order("students.grade #{ direction }")
   when /^female_/
     # Simple sort on the name colums
-    where("students.gender = ?", 'Female')
+    where("students.gender = ?", 'female')
   when /^male_/
     # Simple sort on the name colums
-    where("students.gender = ?", 'Male')
+    where("students.gender = ?", 'male')
   when /^has_allergies_/
     # Simple sort on the name colums
     where("students.allergies != ?", '')
@@ -248,6 +252,42 @@ include Activeable
       end
     end
     counties.to_a
+  end
+
+  def self.students_with_notifications
+    cur_reg_students = Student.current.active.alphabetical
+    notif_stu = []
+    for stu in Student.current.active
+      if not(stu.bc_checkoff)
+        if not(stu.has_birth_certificate)
+          notif_stu.push([stu,"bc","no_pic"])
+        else
+          notif_stu.push([stu,"bc","yes_pic"])
+        end
+      end
+      if not(stu.rc_checkoff)
+        if not(stu.has_report_card)
+          notif_stu.push([stu,"rc","no_pic"])
+        else
+          notif_stu.push([stu,"rc","yes_pic"])
+        end
+      end
+      if not(stu.poi_checkoff)
+        if not(stu.has_proof_of_insurance)
+          notif_stu.push([stu,"poi","no_pic"])
+        else
+          notif_stu.push([stu,"poi","yes_pic"])
+        end
+      end
+      if not(stu.phy_checkoff)
+        if not(stu.has_physical)
+          notif_stu.push([stu,"ph","no_pic"])
+        else
+          notif_stu.push([stu,"ph","yes_pic"])
+        end
+      end
+    end
+    notif_stu
   end
 
 

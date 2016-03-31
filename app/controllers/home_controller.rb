@@ -1,7 +1,9 @@
 class HomeController < ApplicationController
 
   def index
-    if  !current_user.nil? 
+    if  !current_user.nil?
+      @notifications = Student.students_with_notifications
+      @notifications_length = @notifications.length
       @tournament = Tournament.first
       # @guardians_receiving_texts = Guardian.active.alphabetical.receive_text_notifications.paginate(:page => params[:page]).per_page(10)
   #     @registrations = Registration.active
@@ -168,6 +170,29 @@ class HomeController < ApplicationController
       #       })
       # end 
     end   
+  end
+
+  def notifications
+    @filterrific = initialize_filterrific(
+      Student,
+      params[:filterrific],
+      select_options: {
+        sorted_by: Student.options_for_sorted_by,
+      }
+        #persistence_id: 'shared_key',
+        #default_filter_params: {},
+        #available_filters: [],
+        ) or return
+
+    @students = @filterrific.find.page(params[:page]).per_page(5)
+
+    if logged_in? && not(current_user.role?(:admin))
+      flash[:error] = "You must be logged in as an administrator to view this page."
+      redirect_to home_path
+    elsif !logged_in?
+      flash[:error] = "You must login to access this page."
+      redirect_to home_path
+    end
   end
 end
 
