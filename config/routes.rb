@@ -32,6 +32,7 @@ ProjectChuck2015::Application.routes.draw do
         get :birth_certificate
         get :birth_certificate_checkoff
         get :birth_certificate_deny
+        get :birth_certificate_reset
         get :report_card
         get :report_card_checkoff
         get :report_card_deny

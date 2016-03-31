@@ -93,10 +93,17 @@
       <div class="col-sm-12">
         <p>
           <strong>Birth Certificate:</strong>
-          <% if @student.has_birth_certificate == false %>
-          No Birth Certificate Submitted
+          <% if @student.bc_checkoff %>
+          Checked off
+              <% if logged_in? && current_user.role == "admin" %>
+                  <%= link_to "(Reset)", birth_certificate_reset_student_path(@student) %>
+              <% end %>
           <% else %>
-          <%= link_to "Click here", @student.birth_certificate.url, :target => '_blank' %>
+              <% if @student.has_birth_certificate == false %>
+              No Birth Certificate Submitted
+              <% else %>
+              <%= link_to "Click here", @student.birth_certificate.url, :target => '_blank' %>
+              <% end %>
           <% end %>
         </p>
       </div>
