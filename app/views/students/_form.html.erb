@@ -1,4 +1,5 @@
 <%= simple_form_for(@student) do |f| %>
+
 <% if @student.errors.any? %>
 <div id="error_explanation">
   <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
@@ -161,12 +162,14 @@
       <%= f.input_field :emergency_contact_relation, :class => "input-lg" %>
     </div>
   </div>
-  <div class="col-xs-6 col-sm-6">
-    <div class="field">
-      <%= f.label :birth_certificate, :label => "Birth Certificate Upload" %>
-      <%= f.input_field :birth_certificate, :as => :file, :class => "input-lg" %>
-    </div>
-  </div>
+  <% if !@student.bc_checkoff %>
+      <div class="col-xs-6 col-sm-6">
+        <div class="field">
+          <%= f.label :birth_certificate, :label => "Birth Certificate Upload" %>
+          <%= f.input_field :birth_certificate, :as => :file, :class => "input-lg" %>
+        </div>
+      </div>
+  <% end %>
 </div>
 
 <br>
@@ -178,12 +181,14 @@
       <%= f.input_field :jersey_size, collection: Student::JERSEYSIZES, prompt: "Please Select...", :class => "input-lg" %>
     </div>
   </div>
-  <div class="col-xs-6 col-sm-6">
-    <div class="field">
-      <%= f.label :report_card, :label => "Report Card Upload" %> <br>
-      <%= f.input_field :report_card, :as => :file, :class => "input-lg" %>
-    </div>
-  </div> 
+  <% if !@student.rc_checkoff %>
+      <div class="col-xs-6 col-sm-6">
+        <div class="field">
+          <%= f.label :report_card, :label => "Report Card Upload" %> <br>
+          <%= f.input_field :report_card, :as => :file, :class => "input-lg" %>
+        </div>
+      </div>
+  <% end %>
 </div>
 
 <br><hr>
@@ -207,14 +212,16 @@
 
 <br>
 
-<div class ="row">
-  <div class="col-xs-6 col-sm-6">
-   <div class="field">
-     <%= f.label :proof_of_insurance, :label => "Proof of Insurance Upload" %>
-     <%= f.input_field :proof_of_insurance, :as => :file, :class => "input-lg" %>
-   </div>
- </div> 
-</div>
+<% if !@student.poi_checkoff %>
+    <div class ="row">
+      <div class="col-xs-6 col-sm-6">
+       <div class="field">
+         <%= f.label :proof_of_insurance, :label => "Proof of Insurance Upload" %>
+         <%= f.input_field :proof_of_insurance, :as => :file, :class => "input-lg" %>
+       </div>
+     </div>
+    </div>
+<% end %>
 
 <br> <hr>
 
@@ -238,12 +245,14 @@
 <br>
 
 <div class="row">
-  <div class="col-xs-6 col-sm-6">
-    <div class="field">
-      <%= f.label :physical, :label => "Physical Upload" %>
-      <%= f.input_field :physical, :as => :file, :class => "input-lg" %>
-    </div>
-  </div>
+  <% if !@student.phy_checkoff %>
+      <div class="col-xs-6 col-sm-6">
+        <div class="field">
+          <%= f.label :physical, :label => "Physical Upload" %>
+          <%= f.input_field :physical, :as => :file, :class => "input-lg" %>
+        </div>
+      </div>
+  <% end %>
   <div class="col-xs-4 col-sm-4">
     <div class="field">
       <%= f.label :physical_date %><br>
