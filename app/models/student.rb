@@ -174,7 +174,11 @@ include Activeable
     now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
   end
 
-   def self.options_for_sorted_by
+  def on_team?
+    not(self.teams.empty?)
+  end
+
+  def self.options_for_sorted_by
     [
       ['Name (A-Z)', 'name_asc'],
       ['Grades', 'grade_asc'],
@@ -254,7 +258,7 @@ include Activeable
     counties.to_a
   end
 
-  def self.students_with_notifications
+  def self.all_pending_notifications
     cur_reg_students = Student.current.active.alphabetical
     notif_stu = []
     for stu in Student.current.active
@@ -285,6 +289,17 @@ include Activeable
         else
           notif_stu.push([stu,"ph","yes_pic"])
         end
+      end
+    end
+    notif_stu
+  end
+
+  def self.students_with_notifications
+    cur_reg_students = Student.current.active.alphabetical
+    notif_stu = []
+    for stu in Student.current.active
+      if not(stu.bc_checkoff) or not(stu.rc_checkoff) or not(stu.poi_checkoff) or not(stu.phy_checkoff)
+        notif_stu.push(stu)
       end
     end
     notif_stu

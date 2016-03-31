@@ -5,9 +5,9 @@
    <thead>
     <tr>
       <th>Name</th>
-      <!-- <th>Age</th>
-      <th></th>
-      <th></th> -->
+      <th>Age</th>
+      <th>Gender</th>
+      <!-- <th></th> -->
     </tr>
   </thead> 
 
@@ -28,7 +28,8 @@
       <%else%>
       <td class="girl"><%= link_to student.proper_name, student %></td>
       <%end%> 
-      <!-- <td><%= student.age %></td> -->
+      <td><%= student.age %></td>
+      <td><%= student.gender.capitalize %></td>
       <!-- <td><%#= link_to(image_tag('edit.png'), edit_student_path(student)) %></td> -->
       <!-- <td><%#= link_to(image_tag('delete.png'), student, method: :delete, data: { confirm: 'Are you sure?' }) %></td> -->
     </tr>

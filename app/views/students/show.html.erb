@@ -26,6 +26,19 @@
     <div class="row">
       <div class="col-sm-12">
         <p>
+          <strong>Team:</strong>
+          <% if @student.on_team? %>
+            <%= link_to @student.teams.first.name, @student.teams.first %>
+          <% else %>
+            <%= "Not Currently Assigned" %>
+          <% end %>
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <p>
           <strong>Household:</strong>
           <%= link_to @student.last_name, @student.household %>
         </p>
