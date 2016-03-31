@@ -162,7 +162,7 @@
       <%= f.input_field :emergency_contact_relation, :class => "input-lg" %>
     </div>
   </div>
-  <% if !@student.bc_checkoff %>
+  <% if !@student.bc_checkoff || (logged_in? && current_user.role == "admin") %>
       <div class="col-xs-6 col-sm-6">
         <div class="field">
           <%= f.label :birth_certificate, :label => "Birth Certificate Upload" %>
@@ -181,7 +181,7 @@
       <%= f.input_field :jersey_size, collection: Student::JERSEYSIZES, prompt: "Please Select...", :class => "input-lg" %>
     </div>
   </div>
-  <% if !@student.rc_checkoff %>
+  <% if !@student.rc_checkoff || (logged_in? && current_user.role == "admin") %>
       <div class="col-xs-6 col-sm-6">
         <div class="field">
           <%= f.label :report_card, :label => "Report Card Upload" %> <br>
@@ -212,7 +212,7 @@
 
 <br>
 
-<% if !@student.poi_checkoff %>
+<% if !@student.poi_checkoff || (logged_in? && current_user.role == "admin") %>
     <div class ="row">
       <div class="col-xs-6 col-sm-6">
        <div class="field">
@@ -245,7 +245,7 @@
 <br>
 
 <div class="row">
-  <% if !@student.phy_checkoff %>
+  <% if !@student.phy_checkoff || (logged_in? && current_user.role == "admin") %>
       <div class="col-xs-6 col-sm-6">
         <div class="field">
           <%= f.label :physical, :label => "Physical Upload" %>
