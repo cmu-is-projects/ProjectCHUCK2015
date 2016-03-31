@@ -3,10 +3,13 @@ class Guardian < ActiveRecord::Base
 include Activeable
 
   #relationships
-  belongs_to :household
+  has_many :households
+  belongs_to :user
   
+  accepts_nested_attributes_for :user, reject_if: lambda { |user| user[:username].blank? }#, allow_destroy: true
+
   #validations
-  validates_presence_of :first_name, :last_name, :cell_phone
+  validates_presence_of :first_name, :last_name, :cell_phone, :email
   validates :email, format: { :with => /\A[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))\z/i, :message => "is not a valid format" }, :allow_blank => true
   validates :cell_phone, format: { with: /\A\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}\z/, message: "should be 10 digits (area code needed)" }
   # validate :household_is_active_in_system

@@ -26,6 +26,8 @@
 
 /vendor/assets/javascripts/.DS_Store
 
+/config/initializers/secret_token.rb
+
 output.txt
 
 /config/initializers/secret_token.rb

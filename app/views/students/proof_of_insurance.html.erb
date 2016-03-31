@@ -1,0 +1,9 @@
+<center>
+    <h1>Proof of Insurance</h1>
+    <h3><%= @student.proper_name %></h3>
+    <iframe src="<%= @student.proof_of_insurance_url %>" width="100%" height="400px"></iframe>
+    <div>
+        <%= link_to "Checkoff", proof_of_insurance_checkoff_student_path(@student) %>
+        <%= link_to "Deny", proof_of_insurance_deny_student_path(@student) %>
+    </div>
+</center>

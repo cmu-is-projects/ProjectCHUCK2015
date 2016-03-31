@@ -29,6 +29,18 @@ ProjectChuck2015::Application.routes.draw do
   resources :students do
       member do 
         put :change_active
+        get :birth_certificate
+        get :birth_certificate_checkoff
+        get :birth_certificate_deny
+        get :report_card
+        get :report_card_checkoff
+        get :report_card_deny
+        get :proof_of_insurance
+        get :proof_of_insurance_checkoff
+        get :proof_of_insurance_deny
+        get :physical
+        get :physical_checkoff
+        get :physical_deny
       end
   end
   
@@ -45,9 +57,12 @@ ProjectChuck2015::Application.routes.draw do
   get 'home', to: 'home#index', as: :home
   get 'home/about', to: 'home#about', as: :about
   get 'home/contact', to: 'home#contact', as: :contact
+  get 'home/notifications' => 'home#notifications', as: :notifications
 
-  get 'registerstudent', to: 'households#new', :as => :registerstudent
+  get 'registerstudent', to: 'students#new', :as => :registerstudent
   get 'registervolunteer', to: 'volunteers#new', :as => :registervolunteer
+  get 'registerguardian', to: 'guardians#new', :as => :registerguardian
+  get 'registerhousehold', to: 'households#new', :as => :registerhousehold
 
   # set the root url
   root to: 'home#index'

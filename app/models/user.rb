@@ -7,6 +7,7 @@ include Activeable
   
   #Relationship Validations
   has_one :volunteer
+  has_one :guardian
 
 
   # validations

@@ -17,10 +17,21 @@
     </tr>
   </thead>
 
+  <% my_houses = [] %>
+  <% if logged_in? && current_user.role == "guardian" %>
+    <% my_houses = current_user.guardian.households.map(&:id) %>
+  <% end %>
+
   <tbody>
     <% @households.each do |household| %>
+    <% if my_houses != [] %>
+      <% if not(my_houses.include?(household.id)) %>
+        <% next %>
+      <% end %>
+    <% end %>
+
       <tr>
-        <td><%= household.street %></td>
+        <td><%= link_to household.street, household %></td>
         <td><%= household.county %></td>
         <!-- <td><%= household.city %></td>
         <td><%= household.state %></td>

@@ -12,6 +12,9 @@
 <% end %>
 
 <div class="container well">
+  <%= f.simple_fields_for :user do |user_form| %>
+  <%= render :partial => "user_fields", :locals => { :f => user_form } %>
+  <% end %>
   <div class="row">
     <div class="col-xs-6 col-sm-6">
       <div class="field">
@@ -63,6 +66,7 @@
     <div class="col-sm-6">
        <% if controller.action_name=="edit" || controller.action_name=="new"%>
       <%= link_to 'Cancel', teams_path, :class => 'btn btn-primary' %>
+      <% end %>
     </div>
   </div>
 <% end %>
