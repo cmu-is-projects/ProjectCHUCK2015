@@ -3,10 +3,11 @@ class Guardian < ActiveRecord::Base
 include Activeable
 
   #relationships
-  has_many :households
+  has_one :household
   belongs_to :user
   
   accepts_nested_attributes_for :user, reject_if: lambda { |user| user[:username].blank? }#, allow_destroy: true
+  accepts_nested_attributes_for :household, reject_if: lambda { |household| household[:street].blank? }#, allow_destroy: true
 
   #validations
   validates_presence_of :first_name, :last_name, :cell_phone, :email

@@ -57,6 +57,7 @@ class StudentsController < ApplicationController
   def create
     @households = logged_in? ? current_user.role == "admin" ? Household.all : current_user.role == "guardian" ? Household.for_guard(current_user.guardian.id) : [] : []
     @student = Student.new(student_params)
+    @student.active = true
 
     respond_to do |format|
       if @student.save
