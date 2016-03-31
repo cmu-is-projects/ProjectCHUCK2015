@@ -9,7 +9,7 @@ class Ability
       can :manage, :all
     elsif user.role? :guardian
       can :read, Student do |this_student|
-        my_houses = user.guardian.households.to_a
+        my_houses = [].push user.guardian.household
         my_students = []
         for house in my_houses
           studs = house.students.to_a
@@ -18,7 +18,7 @@ class Ability
         my_students.include? this_student.id
       end
       can :read, Household do |this_household|
-        my_houses = user.guardian.households.map(&:id)
+        my_houses = [].push user.guardian.household.id
         my_houses.include? this_household.id
       end
       can :create, Student

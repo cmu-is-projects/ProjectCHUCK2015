@@ -20,7 +20,7 @@
 
   <% my_students = [] %>
   <% if logged_in? && current_user.role == "guardian" %>
-    <% my_houses = current_user.guardian.households.to_a %>
+    <% my_houses = [].push(current_user.guardian.household) %>
     <% for house in my_houses %>
       <% studs = house.students.to_a %>
       <% studs.each {|s| my_students.push(s.id)} %>
@@ -30,11 +30,11 @@
 
   <tbody>
    <% @students.each do |student| %>
-   <% if my_students != [] %>
+   <%# if my_students != [] %>
     <% if not(my_students.include?(student.id)) %>
       <% next %>
     <% end %>
-  <% end %>
+  <%# end %>
    
    <tr>
     <% if student.gender == "Male"%>

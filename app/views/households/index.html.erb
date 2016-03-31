@@ -19,16 +19,17 @@
 
   <% my_houses = [] %>
   <% if logged_in? && current_user.role == "guardian" %>
-    <% my_houses = current_user.guardian.households.map(&:id) %>
+    <% my_houses = [].push(current_user.guardian.household.id) %>
+    <%# my_houses.sdf %>
   <% end %>
 
   <tbody>
     <% @households.each do |household| %>
-    <% if my_houses != [] %>
+    <%# if my_houses != [] %>
       <% if not(my_houses.include?(household.id)) %>
         <% next %>
       <% end %>
-    <% end %>
+    <%# end %>
 
       <tr>
         <td><%= link_to household.street, household %></td>
