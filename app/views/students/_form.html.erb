@@ -111,28 +111,44 @@
       <%= f.input_field :pastparticipation, collection: Student::PROJECTCHUCK_YEARS, prompt: "Please Select...", :class => "input-lg" %>
     </div>
   </div>
-  <div class="col-xs-6 col-sm-6">
-    <div class="field">
-      <%#= f.label :household_id, :label => "Please indicate number of years you have participated in Project CHUCK. If none, please enter 0." %>
-      <%#= f.input_field :pastparticipation, collection: Student::PROJECTCHUCK_YEARS, prompt: "Please Select...", :class => "input-lg" %>
-      <%= f.label :household_id, :label => "Home Address" %><br>
-      <%= f.collection_select :household_id, @households, :id, lambda{|house| house.format_address}, prompt: "Select..." %>
+  <% if logged_in? and current_user.role == "admin" %>
+    <div class="col-xs-6 col-sm-6">
+      <div class="field">
+        <%#= f.label :household_id, :label => "Please indicate number of years you have participated in Project CHUCK. If none, please enter 0." %>
+        <%#= f.input_field :pastparticipation, collection: Student::PROJECTCHUCK_YEARS, prompt: "Please Select...", :class => "input-lg" %>
+        <%= f.label :household_id, :label => "Guardian" %><br>
+        <%= f.collection_select :household_id, @households, :id, lambda{|house| house.guardian.name}, prompt: "Select..." %>
+      </div>
     </div>
-  </div>
+  <% end %>
 </div>
 
 <br>
 
- <div class="row">
-  <div class="col-xs-6 col-sm-6">
-    <div class="field">
-      <%= f.label :active, :label => "Active:" %> <br>
-      <%= f.input_field :active, as: :radio_buttons %>
-    </div>
-  </div> 
- </div>
-
 <br>
+
+  <div class ="row">
+    <div class="col-xs-3 col-sm-3">
+      <div class="field">
+        <%= f.label :facebook %> <br>
+        <%= f.text_field :facebook, :class => "input-lg", :placeholder => "facebook.com/________" %>
+      </div>
+    </div>
+    <div class="col-xs-3 col-sm-3">
+      <div class="field">
+        <%= f.label :twitter %> <br>
+        <%= f.text_field :twitter, :class => "input-lg", :placeholder => "@__________" %>
+      </div>
+    </div>
+    <div class="col-xs-3 col-sm-3">
+      <div class="field">
+        <%= f.label :instagram %> <br>
+        <%= f.text_field :instagram, :class => "input-lg", :placeholder => "@__________" %>
+      </div>
+    </div>
+  </div>
+
+  <br>
 
 <hr>
 

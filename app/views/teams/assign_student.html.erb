@@ -1,0 +1,29 @@
+
+
+<div class="container well">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <h2>Assign a Student to the <%= @team.name.pluralize %></h2>
+      <br><br>
+
+      <% @team.eligible_students.each do |stu| %>
+        <%= link_to stu.name, send_assign_student_path(@team,stu) %>
+        <br>
+      <% end %>
+      <% if @team.eligible_students.blank? %>
+        No Available Students
+      <% end %>
+    </div>
+
+  </div>
+</div>
+<div class = "row">
+  <div class="actions">
+    <div class="col-sm-1">
+      <%# f.submit "Create", :class => 'btn btn-primary' %>
+    </div>
+    <div class="col-sm-10">
+      <%= link_to 'Back', team_path(@team), :class => 'btn btn-primary' %>
+    </div>
+  </div>

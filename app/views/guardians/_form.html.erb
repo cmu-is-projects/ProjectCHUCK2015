@@ -15,6 +15,7 @@
   <%= f.simple_fields_for :user do |user_form| %>
   <%= render :partial => "user_fields", :locals => { :f => user_form } %>
   <% end %>
+  <br><hr><br>
   <div class="row">
     <div class="col-xs-6 col-sm-6">
       <div class="field">
@@ -54,6 +55,10 @@
       </div>
     </div>
   </div>
+  <br><hr><br>
+  <%= f.simple_fields_for :household do |household_form| %>
+  <% render :partial => "household_fields", :locals => { :f => household_form } %>
+  <% end %>
 </div>
 <div class = "row">
       <div class="col-sm-6">

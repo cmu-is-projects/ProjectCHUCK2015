@@ -30,13 +30,13 @@ include Activeable
 	belongs_to :household
 	# belongs_to :school #for this iteration we are handling school/district as fields in the student model
 	has_many :roster_spots
-	has_many :registrations, :dependent => :destroy
+	has_many :registrations
   has_many :brackets, through: :registrations
   has_many :teams, through: :roster_spots
 
   
 
-  accepts_nested_attributes_for :registrations, reject_if: lambda { |registration| registration[:student_id].blank? }, allow_destroy: true
+  # accepts_nested_attributes_for :registrations, reject_if: lambda { |registration| registration[:student_id].blank? }, allow_destroy: true
 
   # Validations
   # -----------------------------
@@ -174,7 +174,21 @@ include Activeable
     now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
   end
 
-   def self.options_for_sorted_by
+  def on_team?
+    not(self.teams.empty?)
+  end
+
+  def find_bracket
+    act_br = Bracket.active
+    act_br.each do |br|
+      if br.gender == gender && br.min_age <= self.age && br.max_age >= self.age
+        return br
+      end
+    end
+    return nil
+  end
+
+  def self.options_for_sorted_by
     [
       ['Name (A-Z)', 'name_asc'],
       ['Grades', 'grade_asc'],
@@ -254,7 +268,7 @@ include Activeable
     counties.to_a
   end
 
-  def self.students_with_notifications
+  def self.all_pending_notifications
     cur_reg_students = Student.current.active.alphabetical
     notif_stu = []
     for stu in Student.current.active
@@ -285,6 +299,17 @@ include Activeable
         else
           notif_stu.push([stu,"ph","yes_pic"])
         end
+      end
+    end
+    notif_stu
+  end
+
+  def self.students_with_notifications
+    cur_reg_students = Student.current.active.alphabetical
+    notif_stu = []
+    for stu in Student.current.active
+      if not(stu.bc_checkoff) or not(stu.rc_checkoff) or not(stu.poi_checkoff) or not(stu.phy_checkoff)
+        notif_stu.push(stu)
       end
     end
     notif_stu

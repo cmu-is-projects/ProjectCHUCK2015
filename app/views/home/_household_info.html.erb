@@ -1,0 +1,42 @@
+<center><h3>Home Information</h3></center>
+<br>
+<div class="row">
+  <div class="col-xs-6 col-sm-6">
+    <b>Street:</b> <%= current_user.guardian.household.street %>
+  </div>
+  <div class="col-xs-6 col-sm-6">
+    <b>Zip Code:</b> <%= current_user.guardian.household.zip %>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6">
+    <b>City:</b> <%= current_user.guardian.household.city %>
+  </div>
+  <div class="col-xs-6 col-sm-6">
+    <b>County:</b> <%= current_user.guardian.household.county %>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6">
+    <b>State:</b> <%= current_user.guardian.household.full_state_name %>
+  </div>
+  <div class="col-xs-6 col-sm-6">
+    <% if not(current_user.guardian.household.home_phone.blank?) %>
+      <b>Home Phone:</b> <%= current_user.guardian.household.format_home_phone %>
+    <% end %>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-12">
+    Is all of this information correct? If not, please <%= link_to 'Click Here', edit_household_path(current_user.guardian.household) %>.
+  </div>
+</div>

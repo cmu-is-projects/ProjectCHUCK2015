@@ -18,7 +18,11 @@ include Activeable
   has_many :students, through: :registrations
 
   #Validations
-  validates_presence_of :gender
+  GENDER_ARRAY = ["male","female"]
+
+  validates :gender, inclusion: { in: GENDER_ARRAY, allow_blank: false }
+
+  validates_presence_of :gender, :max_students, :min_age, :max_age
   validates_numericality_of :max_students, :min_age, :max_age
   validate :minlessmax
   validate :valid_tournament_id

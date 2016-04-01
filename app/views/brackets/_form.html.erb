@@ -19,7 +19,7 @@
       </div><br>
       <div class="field">
         <%= f.label :gender %><br>
-        <%= f.input_field :gender , :class => "input-lg"%>
+        <%= f.input_field :gender, collection: Bracket::GENDER_ARRAY, prompt: "Please Select..." , :class => "input-lg" %>
       </div><br>
       <div class="field">
         <%= f.label :min_age %><br>

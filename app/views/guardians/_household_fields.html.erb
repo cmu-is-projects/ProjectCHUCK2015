@@ -1,0 +1,51 @@
+
+  <div class="row">
+    <div class="col-xs-6 col-sm-6">
+      <div class="field">
+        <%= f.label :street, :label => "Street Address" %> <br>
+        <%= f.text_field :street, :class => "input-lg required"  %>
+      </div>
+    </div>
+    <div class="col-xs-6 col-sm-6">
+      <div class="field">
+        <%= f.label :city %><br>
+        <%= f.text_field :city, :class => "input-lg required" %>
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="col-xs-6 col-sm-6">
+      <div class="field">
+        <%= f.label :county %><br>
+        <%= f.input_field :county, prompt: "Please Select...", collection: Household::COUNTY_ARRAY %>
+      </div>
+    </div>
+    <div class="col-xs-6 col-sm-6">
+      <div class="field">
+        <%= f.label :state %><br>
+        <%= f.input_field :state, prompt: "Please Select...", collection: Household::STATES_LIST %>
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="col-xs-6 col-sm-6">
+      <div class="field">
+        <%= f.label :zip %><br>
+        <%= f.text_field :zip, :class => "input-lg required zip" %>
+      </div>
+    </div>
+    <div class="col-xs-6 col-sm-6">
+      <div class="field">
+        <%= f.label :home_phone %> <br>
+        <%= f.text_field :home_phone, :class => "input-lg phone", as: :string %>
+      </div>
+    </div>
+  </div>
+
+<br>

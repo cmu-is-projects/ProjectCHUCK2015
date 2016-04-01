@@ -12,16 +12,16 @@
 </div>
 <% end %>
 
-<div id="accordiondiv">
+<!-- <div id="accordiondiv">
   <center><h2>Participant Registration Form</h2></center> <br><br>
-</div>
+</div> -->
 
 <fieldset>
   <div id = "accordion" class ="ui-accordion-content">
     <!-- <div class="row"> -->
 
     <!-- <div class="span7"> -->
-    <h3>Step 1: Household Details</h3>
+    <h3>Household Details</h3>
     <div class="well">
       <h3>General Household Information</h3> <br>
       <%= render :partial => "household_fields", :locals => { :f => household_form } %>
@@ -49,24 +49,24 @@
     <!-- <div class="span7">  -->
     <!-- <h3>Step 2: Participant(s) Details</h3> -->
     <!-- <div id="household_students" class="well" class="ui-accordion-content"> -->
-      <%= household_form.simple_fields_for :students do |student_form| %>
-      <%= render :partial => "student_fields", :locals => { :f => student_form } %>
-      <% end %> 
+      <%# household_form.simple_fields_for :students do |student_form| %>
+      <%# render :partial => "student_fields", :locals => { :f => student_form } %>
+      <%# end %>
 
       <p>
-       <%= household_form.link_to_add("+ Add Another Student", :students, :class => "btn addlink") %>
+       <%# household_form.link_to_add("+ Add Another Student", :students, :class => "btn addlink") %>
      </p> <br /><br />
 
      <!-- <button class = "btn btn-primary"> Return to Step 1 (if needed)</button> -->
 
-     <div class="row">
+     <!-- <div class="row">
       <div class="col-xs-6 col-sm-6 col-md-6">
         <h2>For Parents:</h2>
         <p> Please sign in the box to the right agreeing that all the information entered is accurate to the best of your knowledge and that you have agreed to all terms and conditions necessary for your child to participate in Project CHUCK.</p>
       </div>
       <div class="col-xs-6 col-sm-6 col-md-6">
         <div class="sigPad">
-          <!-- <p class="drawItDesc">* Parent: Sign in the box below</p> -->
+
           <ul class="sigNav">
             <li class="drawIt"></li>
             <li class="clearButton"><a href="#clear">Clear</a></li>
@@ -77,17 +77,17 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <br>
 
     <div class="actions">
       <div class="row">
         <div class="col-sm-6">
-          <%= link_to 'Cancel Registration', "/home", :class => 'btn btn-primary cancelbtn', data:{ confirm:"Are you sure you want to cancel this form?"} %>
+          <%= link_to 'Cancel', "/home", :class => 'btn btn-primary cancelbtn'%>
         </div>
         <div class="col-sm-6">
-          <%= household_form.submit "Final Step: Submit Registration", :class => 'btn btn-primary successbtn', data:{ confirm:"By submitting, you affirm that all information entered is accurate to the best of your knowledge. Upon submission, you will be redirected to a survey to complete."} %>
+          <%= household_form.submit "Submit", :class => 'btn btn-primary successbtn'%>
         </div>
       </div>
     </div>

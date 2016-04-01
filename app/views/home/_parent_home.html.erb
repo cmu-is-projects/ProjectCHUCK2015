@@ -1,21 +1,27 @@
 
-<br> <br>
+<br>
+<center><h2>Welcome to the Project C.H.U.C.K. registration portal, <%= current_user.guardian.first_name%>.</h2></center>
+<br>
 <div class = "row">
 
   <div class= "col-xs-6 col-sm-6">
+    <%= render partial: 'household_info' %>
+  </div>
+  <div class= "col-xs-6 col-sm-6">
     <center>
+      <br>
       <%= image_tag "basketball-64.png" %> <br><br>
       <p id="homebutton">STUDENTS</p>
       <%= link_to 'Register', registerstudent_path, :class => 'btn btn-primary btn-lg outline' %> <br><br>
     </center>
   </div>
-  <div class= "col-xs-6 col-sm-6">
+  <!-- <div class= "col-xs-6 col-sm-6">
     <center>
       <%= image_tag "home-64.png" %> <br><br>
       <p id="homebutton">HOUSEHOLDS</p>
       <%= link_to 'Register', registerhousehold_path, :class => 'btn btn-primary btn-lg outline' %>
     </center>
-  </div>
+  </div> -->
 </div>
 
 <br><br>

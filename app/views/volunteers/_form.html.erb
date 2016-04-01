@@ -59,11 +59,13 @@
   </div>
   <div class="col-xs-6 col-sm-6">
     <div class="field">
-      <%= f.label :dob, :label => "Birthday" %> <br>
+      <%= f.label :dob, :label => "Birthday: Month/Day" %> <br>
       <%= f.date_select :dob, { :discard_year => true} %>
     </div>
   </div>
-</div><br>
+</div>
+
+<br>
 
 <div class="row">
   <div class="col-xs-6 col-sm-6">
@@ -73,7 +75,27 @@
       <%= f.input_field :shirt_size, prompt: "Please Select...", collection: Volunteer::SHIRTSIZES %>
     </div>
   </div>
-</div><br>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :gender, :label => "Gender:" %><br>
+      <%= f.input_field :gender, prompt: "Please Select...", collection: Volunteer::GENDER_ARRAY %>
+    </div>
+  </div>
+  <div class="col-xs-6 col-sm-6">
+    <div class="field">
+      <%= f.label :age_range, :label => "Age Range:" %><br>
+      <%= f.input_field :age_range, prompt: "Please Select...", collection: Volunteer::AGE_RANGE_LIST %>
+    </div>
+  </div>
+</div>
+<br>
+<hr>
+<br>
 <%= f.simple_fields_for :user do |user_form| %>
   <%= render :partial => "user_fields", :locals => { :f => user_form } %>
   <% end %><br>

@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_action :set_team, only: [:show, :edit, :update, :destroy]
+  before_action :set_team, only: [:show, :edit, :update, :destroy, :assign_student]
   before_action :check_login
   authorize_resource
 
@@ -66,6 +66,30 @@ class TeamsController < ApplicationController
     end
   end
 
+  def assign_student
+  end
+
+  def send_assign_student
+    @team = Team.find(params[:team_id])
+    @student = Student.find(params[:student_id])
+    jersey_nums = @team.taken_jersey_numbers
+    num = 1
+    while jersey_nums.include? num
+      num += 1
+    end
+    @rs = RosterSpot.new
+    @rs.team = @team
+    @rs.student = @student
+    @rs.jersey_number = num
+    if @rs.save
+      redirect_to @team, notice: 'Roster Spot was successfully created.'
+      # format.json { render action: 'show', status: :created, location: @team }
+    else
+      redirect_to assign_student_path(@team), notice: 'Could not create roster spot'
+      # format.json { render json: @team.errors, status: :unprocessable_entity }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_team
@@ -74,7 +98,7 @@ class TeamsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def team_params
-      params.require(:team).permit(:bracket_id, :name, :max_students, :num_wins, :num_losses, :student_ids => [], :volunteer_ids => [])
+      params.require(:team).permit(:bracket_id, :name, :max_students, :num_wins, :num_losses, :student_id, :student_ids => [], :volunteer_ids => [])
       # NOTE: volunteer_id is no longer in the system
     end
 end

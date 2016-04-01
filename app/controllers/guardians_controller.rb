@@ -18,6 +18,7 @@ class GuardiansController < ApplicationController
   def new
     @guardian = Guardian.new
     @guardian.user = User.new
+    @guardian.household = Household.new
     # @guardian.household_id = params[:household_id] unless params[:household_id].nil?
   end
 
@@ -36,7 +37,7 @@ class GuardiansController < ApplicationController
     @guardian.user.email = @guardian.email
 
     respond_to do |format|
-      if (@guardian.user.save && @guardian.save)
+      if (@guardian.user.save && @guardian.save && @guardian.household.save)
         if current_user.nil?
           current_user = @guardian.user
           session[:user_id] = @guardian.user.id
@@ -82,6 +83,6 @@ class GuardiansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def guardian_params
-      params.require(:guardian).permit(:relation, :household_id, :email, :first_name, :last_name, :cell_phone, :receives_text_msgs, :active, user_attributes: [:id, :username, :password, :password_confirmation])
+      params.require(:guardian).permit(:relation, :household_id, :email, :first_name, :last_name, :cell_phone, :receives_text_msgs, :active, user_attributes: [:id, :username, :password, :password_confirmation], household_attributes: [:id, :street, :city, :state, :zip, :home_phone, :county])
     end
 end

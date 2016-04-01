@@ -30,6 +30,7 @@ include Activeable
   # Scopes (active and inactive defined in activeable)
   # -----------------------------
   scope :for_guard, ->(gid) { where("guardian_id = ?", gid) }
+  scope :alph_by_guard, -> { joins(:guardian).order('guardians.last_name').order('guardians.first_name') }
 
   # Methods
   # -----------------------------
@@ -38,6 +39,20 @@ include Activeable
 
   def format_address
     street + ", " + zip
+  end
+
+  def format_home_phone
+    hp = home_phone
+    "(" + hp[0..2] + ") " + hp[3..5] + " " + hp[6..10]
+  end
+
+  def full_state_name
+    STATES_LIST.each do |state|
+      if state[1] == self.state
+        return state[0]
+      end
+    end
+    return "No Matching State"
   end
 
   def self.counties
