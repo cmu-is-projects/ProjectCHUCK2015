@@ -20,12 +20,12 @@
   <tbody>
     <% @teams.each do |team| %>
       <tr>
-        <% if team.bracket.gender == "Male"%>
+        <% if team.bracket.gender == "male"%>
         <td class="boy"><%= link_to team.name, team %></td>
         <%else%>
         <td class="girl"><%= link_to team.name, team %></td>
         <%end%> 
-        <td><%= "#{team.bracket.min_age} - #{team.bracket.max_age}" %></td>
+        <td><%= team.bracket.name %></td>
         <td>
           <!-- <div class="progress">
             <div class="progress-bar" role="progressbar" aria-valuenow="#{team.roster_spots.count}" aria-valuemin="0" aria-valuemax="#{team.max_students}" style="width: #{team.roster_spots.count}%;"></div>

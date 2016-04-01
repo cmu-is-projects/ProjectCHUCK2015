@@ -356,10 +356,10 @@ namespace :db do
     
 
     # Step 13: Create some games
-    game1 = Game.new
-    game1.location_id = cea.id
-    game1.date = Date.new(2015,6,14)
-    game1.save!
+    #game1 = Game.new
+    #game1.location_id = cea.id
+    #game1.date = Date.new(2015,6,14)
+    #game1.save!
     
     # Step 14: Create some teams games
     # okcgame1 = TeamGame.new

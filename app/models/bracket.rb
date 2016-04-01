@@ -8,6 +8,7 @@ include Activeable
 
   #Callbacks
   before_validation :checkTournamentActive, on: :create
+  before_save :setName
   after_save :bracketActive
 
   #Relationships 
@@ -25,8 +26,8 @@ include Activeable
   # Scopes
   scope :alphabetical, -> { order('gender, min_age') }
   # by gender 
-  scope :male, -> { where("gender = ?","Male") }
-  scope :female, -> { where("gender = ?", "Female") }
+  scope :male, -> { where("gender = ?","male") }
+  scope :female, -> { where("gender = ?", "female") }
 
   #by age group
   #this needs some clarification 
@@ -54,6 +55,10 @@ include Activeable
       true
       #^without this, it fails the before_validation check
     end
+  end
+
+  def setName
+   self.name = "#{self.gender.camelize}: #{self.min_age}-#{self.max_age}"
   end
 
   def bracketActive
