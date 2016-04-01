@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160325025203) do
+ActiveRecord::Schema.define(version: 20160401021150) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -225,6 +225,8 @@ ActiveRecord::Schema.define(version: 20160325025203) do
     t.boolean  "act153_clearance"
     t.date     "dob"
     t.integer  "user_id"
+    t.string   "gender"
+    t.string   "age_range"
   end
 
 end
