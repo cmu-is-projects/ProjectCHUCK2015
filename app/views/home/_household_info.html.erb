@@ -28,7 +28,7 @@
   </div>
   <div class="col-xs-6 col-sm-6">
     <% if not(current_user.guardian.household.home_phone.blank?) %>
-      <b>Home Phone:</b> <%= current_user.guardian.household.home_phone %>
+      <b>Home Phone:</b> <%= current_user.guardian.household.format_home_phone %>
     <% end %>
   </div>
 </div>

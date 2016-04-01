@@ -178,6 +178,16 @@ include Activeable
     not(self.teams.empty?)
   end
 
+  def find_bracket
+    act_br = Bracket.active
+    act_br.each do |br|
+      if br.gender == gender && br.min_age <= self.age && br.max_age >= self.age
+        return br
+      end
+    end
+    return nil
+  end
+
   def self.options_for_sorted_by
     [
       ['Name (A-Z)', 'name_asc'],

@@ -41,6 +41,11 @@ include Activeable
     street + ", " + zip
   end
 
+  def format_home_phone
+    hp = home_phone
+    "(" + hp[0..2] + ") " + hp[3..5] + " " + hp[6..10]
+  end
+
   def full_state_name
     STATES_LIST.each do |state|
       if state[1] == self.state

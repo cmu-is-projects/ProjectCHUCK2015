@@ -61,6 +61,9 @@ class StudentsController < ApplicationController
     if logged_in? and current_user.role == "guardian"
       @student.household_id = current_user.guardian.household.id
     end
+    if not(@student.find_bracket.nil?)
+      @student.bracket = @student.find_bracket
+    end
 
     respond_to do |format|
       if @student.save
