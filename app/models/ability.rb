@@ -23,6 +23,15 @@ class Ability
       end
       can :create, Student
       can :create, Household
+      can :edit, Student do |this_student|
+        my_houses = user.guardian.households.to_a
+        my_students = []
+        for house in my_houses
+          studs = house.students.to_a
+          studs.each {|s| my_students.push(s.id)}
+        end
+        my_students.include? this_student.id
+      end
     else
       can :create, Household
       # can :read, Household

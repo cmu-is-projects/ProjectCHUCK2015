@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-  before_action :set_student, only: [:show, :edit, :update, :destroy, :birth_certificate, :birth_certificate_checkoff, :birth_certificate_deny, :report_card, :report_card_checkoff, :report_card_deny, :proof_of_insurance, :proof_of_insurance_checkoff, :proof_of_insurance_deny, :physical, :physical_checkoff, :physical_deny]
+  before_action :set_student, only: [:show, :edit, :update, :destroy, :birth_certificate, :birth_certificate_checkoff, :birth_certificate_deny, :birth_certificate_reset, :report_card, :report_card_checkoff, :report_card_deny, :report_card_reset, :proof_of_insurance, :proof_of_insurance_checkoff, :proof_of_insurance_deny, :proof_of_insurance_reset, :physical, :physical_checkoff, :physical_deny, :physical_reset]
   before_action :check_login, :except => [:show]
   authorize_resource
 
@@ -100,16 +100,26 @@ class StudentsController < ApplicationController
 
   def birth_certificate_checkoff
     @student.bc_checkoff = true
+    @student.has_birth_certificate = false
     @student.remove_birth_certificate!
     @student.save!
     redirect_to notifications_path
   end
 
   def birth_certificate_deny
+    @student.bc_checkoff = false
     @student.has_birth_certificate = false
     @student.remove_birth_certificate!
     @student.save!
     redirect_to notifications_path
+  end
+
+  def birth_certificate_reset
+    @student.bc_checkoff = false
+    @student.has_birth_certificate = false
+    @student.remove_birth_certificate!
+    @student.save!
+    redirect_to student_path(@student)
   end
 
   def report_card
@@ -117,16 +127,26 @@ class StudentsController < ApplicationController
 
   def report_card_checkoff
     @student.rc_checkoff = true
+    @student.has_report_card = false
     @student.remove_report_card!
     @student.save!
     redirect_to notifications_path
   end
 
   def report_card_deny
+    @student.rc_checkoff = false
     @student.has_report_card = false
     @student.remove_report_card!
     @student.save!
     redirect_to notifications_path
+  end
+
+  def report_card_reset
+    @student.rc_checkoff = false
+    @student.has_report_card = false
+    @student.remove_report_card!
+    @student.save!
+    redirect_to student_path(@student)
   end
 
   def proof_of_insurance
@@ -134,16 +154,26 @@ class StudentsController < ApplicationController
 
   def proof_of_insurance_checkoff
     @student.poi_checkoff = true
+    @student.has_proof_of_insurance = false
     @student.remove_proof_of_insurance!
     @student.save!
     redirect_to notifications_path
   end
 
   def proof_of_insurance_deny
+    @student.poi_checkoff = false
     @student.has_proof_of_insurance = false
     @student.remove_proof_of_insurance!
     @student.save!
     redirect_to notifications_path
+  end
+
+  def proof_of_insurance_reset
+    @student.poi_checkoff = false
+    @student.has_proof_of_insurance = false
+    @student.remove_proof_of_insurance!
+    @student.save!
+    redirect_to student_path(@student)
   end
 
   def physical
@@ -151,16 +181,26 @@ class StudentsController < ApplicationController
 
   def physical_checkoff
     @student.phy_checkoff = true
+    @student.has_physical = false
     @student.remove_physical!
     @student.save!
     redirect_to notifications_path
   end
 
   def physical_deny
+    @student.phy_checkoff = false
     @student.has_physical = false
     @student.remove_physical!
     @student.save!
     redirect_to notifications_path
+  end
+
+  def physical_reset
+    @student.phy_checkoff = false
+    @student.has_physical = false
+    @student.remove_physical!
+    @student.save!
+    redirect_to student_path(@student)
   end
 
   #Activate/Deactive action, used for 'deactivate' button (instead of delete in student index)

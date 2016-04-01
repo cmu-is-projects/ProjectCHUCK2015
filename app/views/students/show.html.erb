@@ -80,10 +80,17 @@
       <div class="col-sm-12">
         <p>
           <strong>Report Card:</strong>
-          <% if @student.has_report_card == false %>
-          No Report Card Submitted
+          <% if @student.rc_checkoff %>
+          Checked off
+              <% if logged_in? && current_user.role == "admin" %>
+                  <%= link_to "(Reset)", report_card_reset_student_path(@student) %>
+              <% end %>
           <% else %>
-          <%= link_to "Click here", @student.report_card.url, :target => '_blank' %>
+              <% if @student.has_report_card == false %>
+              No Report Card Submitted
+              <% else %>
+              <%= link_to "Checkoff", report_card_student_path(@student) %>
+              <% end %>
           <% end %>
         </p>
       </div>
@@ -93,10 +100,17 @@
       <div class="col-sm-12">
         <p>
           <strong>Birth Certificate:</strong>
-          <% if @student.has_birth_certificate == false %>
-          No Birth Certificate Submitted
+          <% if @student.bc_checkoff %>
+          Checked off
+              <% if logged_in? && current_user.role == "admin" %>
+                  <%= link_to "(Reset)", birth_certificate_reset_student_path(@student) %>
+              <% end %>
           <% else %>
-          <%= link_to "Click here", @student.birth_certificate.url, :target => '_blank' %>
+              <% if @student.has_birth_certificate == false %>
+              No Birth Certificate Submitted
+              <% else %>
+              <%= link_to "Checkoff", birth_certificate_student_path(@student) %>
+              <% end %>
           <% end %>
         </p>
       </div>
@@ -106,10 +120,17 @@
       <div class="col-sm-12">
         <p>
           <strong>Proof of Insurance:</strong>
-          <% if @student.has_proof_of_insurance == false %>
-          No Proof of Insurance Submitted
+          <% if @student.poi_checkoff %>
+          Checked off
+              <% if logged_in? && current_user.role == "admin" %>
+                  <%= link_to "(Reset)", proof_of_insurance_reset_student_path(@student) %>
+              <% end %>
           <% else %>
-          <%= link_to "Click here", @student.proof_of_insurance.url, :target => '_blank' %>
+              <% if @student.has_proof_of_insurance == false %>
+              No Proof of Insurance Submitted
+              <% else %>
+              <%= link_to "Checkoff", proof_of_insurance_student_path(@student) %>
+              <% end %>
           <% end %>
         </p>
       </div>
@@ -119,10 +140,17 @@
       <div class="col-sm-12">
         <p>
           <strong>Physical:</strong>
-          <% if @student.has_physical == false %>
-          No Physical Submitted
+          <% if @student.phy_checkoff %>
+          Checked off
+              <% if logged_in? && current_user.role == "admin" %>
+                  <%= link_to "(Reset)", physical_reset_student_path(@student) %>
+              <% end %>
           <% else %>
-          <%= link_to "Click here", @student.physical.url, :target => '_blank' %>
+              <% if @student.has_physical == false %>
+              No Physical Submitted
+              <% else %>
+              <%= link_to "Checkoff", physical_student_path(@student) %>
+              <% end %>
           <% end %>
         </p>
       </div>
