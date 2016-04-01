@@ -18,8 +18,10 @@ class Ability
         my_students.include? this_student.id
       end
       can :read, Household do |this_household|
-        my_houses = [].push user.guardian.household.id
-        my_houses.include? this_household.id
+        user.guardian.household.id==this_household.id
+      end
+      can :edit, Household do |this_household|
+        user.guardian.household.id==this_household.id
       end
       can :create, Student
       can :create, Household

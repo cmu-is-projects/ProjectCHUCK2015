@@ -40,6 +40,15 @@ include Activeable
     street + ", " + zip
   end
 
+  def full_state_name
+    STATES_LIST.each do |state|
+      if state[1] == self.state
+        return state[0]
+      end
+    end
+    return "No Matching State"
+  end
+
   def self.counties
     active_households = Household.all
     counties = Hash.new
