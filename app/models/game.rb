@@ -18,6 +18,10 @@ class Game < ActiveRecord::Base
 
   #Scopes
   scope :chronological, -> { order('date') }
+  #figure out why current is not working
+  scope :current, -> { where("date = ?", Date.today) }
+  scope :past, -> { where("date < ?", Date.today) }
+  scope :upcoming, -> { where("date > ?", Date.today) }
 
 private
 

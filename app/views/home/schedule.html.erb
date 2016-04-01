@@ -1,0 +1,115 @@
+<div class="container well">
+    <center><h1>Schedule</h1></center>
+
+    <br>
+    
+    <div class="row">
+        <div class="col-md-4">
+            <center><h3>Past Games</h3></center>
+            <% if @past.size > 0 %>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Team 1</th>
+                  <th>Team 2</th>
+                  <th>Date</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @past.each do |game| %>
+                  <tr>
+                    <% game.team_games.each do |tg| %>
+                       <td><%= link_to tg.team.name, tg.team %></td>
+                    <% end %>
+                    <td><%= link_to game.date, game %></td>
+                    <td><%= link_to(image_tag('edit.png'), edit_game_path(game)) %></td>
+                    <td><%= link_to(image_tag('delete.png'), game, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+
+            <span class="paginate">
+            <%= will_paginate @past, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+            </span>
+            <% else %>
+            <center>No Previous Games!</center>
+            <% end %>
+        </div>
+
+        <div class="col-md-4">
+            <center><h3>Today's Games</h3></center>
+            <% if @current.size > 0 %>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Team 1</th>
+                  <th>Team 2</th>
+                  <th>Date</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @current.each do |game| %>
+                  <tr>
+                    <% game.team_games.each do |tg| %>
+                       <td><%= link_to tg.team.name, tg.team %></td>
+                    <% end %>
+                    <td><%= link_to game.date, game %></td>
+                    <td><%= link_to(image_tag('edit.png'), edit_game_path(game)) %></td>
+                    <td><%= link_to(image_tag('delete.png'), game, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+
+            <span class="paginate">
+            <%= will_paginate @current, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+            </span>
+            <% else %>
+            <center>No Games Today!</center>
+            <% end %>
+        </div>
+
+        <div class="col-md-4">
+            <center><h3>Upcoming Games</h3></center>
+            <% if @upcoming.size > 0 %>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Team 1</th>
+                  <th>Team 2</th>
+                  <th>Date</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @upcoming.each do |game| %>
+                  <tr>
+                    <% game.team_games.each do |tg| %>
+                       <td><%= link_to tg.team.name, tg.team %></td>
+                    <% end %>
+                    <td><%= link_to game.date, game %></td>
+                    <td><%= link_to(image_tag('edit.png'), edit_game_path(game)) %></td>
+                    <td><%= link_to(image_tag('delete.png'), game, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+
+            <span class="paginate">
+            <%= will_paginate @upcoming, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+            </span>
+            <% else %>
+            <center>No Upcoming Games!</center>
+            <% end %>
+        </div>
+    </div>
+</div>

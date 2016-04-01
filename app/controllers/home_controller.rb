@@ -194,5 +194,11 @@ class HomeController < ApplicationController
       redirect_to home_path
     end
   end
+
+  def schedule
+    @past = Game.past.paginate(:page => params[:page]).per_page(5)
+    @current = Game.current.paginate(:page => params[:page]).per_page(5)
+    @upcoming = Game.upcoming.paginate(:page => params[:page]).per_page(5)
+  end
 end
 
