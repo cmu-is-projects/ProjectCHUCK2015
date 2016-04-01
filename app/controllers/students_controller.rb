@@ -41,7 +41,7 @@ class StudentsController < ApplicationController
 
   # GET /students/new
   def new
-    @households = logged_in? ? current_user.role == "admin" ? Household.all : current_user.role == "guardian" ? Household.for_guard(current_user.guardian.id) : [] : []
+    @households = logged_in? ? current_user.role == "admin" ? Household.alph_by_guard : current_user.role == "guardian" ? Household.for_guard(current_user.guardian.id) : [] : []
     @student = Student.new
     @student.household_id = params[:household_id] unless params[:household_id].nil?
     # @student.registrations.build
@@ -49,15 +49,18 @@ class StudentsController < ApplicationController
 
   # GET /students/1/edit
   def edit
-    @households = logged_in? ? current_user.role == "admin" ? Household.all : current_user.role == "guardian" ? Household.for_guard(current_user.guardian.id) : [] : []
+    @households = logged_in? ? current_user.role == "admin" ? Household.alph_by_guard  : current_user.role == "guardian" ? Household.for_guard(current_user.guardian.id) : [] : []
   end
 
   # POST /students
   # POST /students.json
   def create
-    @households = logged_in? ? current_user.role == "admin" ? Household.all : current_user.role == "guardian" ? Household.for_guard(current_user.guardian.id) : [] : []
+    @households = logged_in? ? current_user.role == "admin" ? Household.alph_by_guard  : current_user.role == "guardian" ? Household.for_guard(current_user.guardian.id) : [] : []
     @student = Student.new(student_params)
     @student.active = true
+    if logged_in? and current_user.role == "guardian"
+      @student.household_id = current_user.guardian.household.id
+    end
 
     respond_to do |format|
       if @student.save
@@ -73,7 +76,7 @@ class StudentsController < ApplicationController
   # PATCH/PUT /students/1
   # PATCH/PUT /students/1.json
   def update
-    @households = logged_in? ? current_user.role == "admin" ? Household.all : current_user.role == "guardian" ? Household.for_guard(current_user.guardian.id) : [] : []
+    @households = logged_in? ? current_user.role == "admin" ? Household.alph_by_guard  : current_user.role == "guardian" ? Household.for_guard(current_user.guardian.id) : [] : []
     respond_to do |format|
       if @student.update(student_params)
         format.html { redirect_to @student, notice: 'Student was successfully updated.' }

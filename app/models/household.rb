@@ -30,6 +30,7 @@ include Activeable
   # Scopes (active and inactive defined in activeable)
   # -----------------------------
   scope :for_guard, ->(gid) { where("guardian_id = ?", gid) }
+  scope :alph_by_guard, -> { joins(:guardian).order('guardians.last_name').order('guardians.first_name') }
 
   # Methods
   # -----------------------------

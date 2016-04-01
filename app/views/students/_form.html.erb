@@ -111,14 +111,16 @@
       <%= f.input_field :pastparticipation, collection: Student::PROJECTCHUCK_YEARS, prompt: "Please Select...", :class => "input-lg" %>
     </div>
   </div>
-  <div class="col-xs-6 col-sm-6">
-    <div class="field">
-      <%#= f.label :household_id, :label => "Please indicate number of years you have participated in Project CHUCK. If none, please enter 0." %>
-      <%#= f.input_field :pastparticipation, collection: Student::PROJECTCHUCK_YEARS, prompt: "Please Select...", :class => "input-lg" %>
-      <%= f.label :household_id, :label => "Home Address" %><br>
-      <%= f.collection_select :household_id, @households, :id, lambda{|house| house.format_address}, prompt: "Select..." %>
+  <% if logged_in? and current_user.role == "admin" %>
+    <div class="col-xs-6 col-sm-6">
+      <div class="field">
+        <%#= f.label :household_id, :label => "Please indicate number of years you have participated in Project CHUCK. If none, please enter 0." %>
+        <%#= f.input_field :pastparticipation, collection: Student::PROJECTCHUCK_YEARS, prompt: "Please Select...", :class => "input-lg" %>
+        <%= f.label :household_id, :label => "Guardian" %><br>
+        <%= f.collection_select :household_id, @households, :id, lambda{|house| house.guardian.name}, prompt: "Select..." %>
+      </div>
     </div>
-  </div>
+  <% end %>
 </div>
 
 <br>
