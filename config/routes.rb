@@ -69,6 +69,9 @@ ProjectChuck2015::Application.routes.draw do
   get 'registerguardian', to: 'guardians#new', :as => :registerguardian
   get 'registerhousehold', to: 'households#new', :as => :registerhousehold
 
+  get 'assign_student/:id' => 'teams#assign_student', as: :assign_student
+  get 'send_assign_student/:team_id/:student_id' => 'teams#send_assign_student', as: :send_assign_student
+
   # set the root url
   root to: 'home#index'
 

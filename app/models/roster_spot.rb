@@ -16,7 +16,7 @@ include Activeable
   #Scopes
   scope :by_position, -> { order('position') }
   #NOTE: end_date is not there in the database schema
-  #scope :active, -> { where('end_date IS NULL') }
+  # scope :active, -> { where('end_date IS NULL') }
   scope :by_student,   -> { joins(:student).order('students.last_name, students.first_name') }
   #scope :unassigned, -> { joins(:student).where('student.roster_spot.team_id IS NULL') }
 

@@ -30,13 +30,13 @@ include Activeable
 	belongs_to :household
 	# belongs_to :school #for this iteration we are handling school/district as fields in the student model
 	has_many :roster_spots
-	has_many :registrations, :dependent => :destroy
+	has_many :registrations
   has_many :brackets, through: :registrations
   has_many :teams, through: :roster_spots
 
   
 
-  accepts_nested_attributes_for :registrations, reject_if: lambda { |registration| registration[:student_id].blank? }, allow_destroy: true
+  # accepts_nested_attributes_for :registrations, reject_if: lambda { |registration| registration[:student_id].blank? }, allow_destroy: true
 
   # Validations
   # -----------------------------
