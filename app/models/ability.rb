@@ -26,7 +26,7 @@ class Ability
       can :create, Student
       can :create, Household
       can :edit, Student do |this_student|
-        my_houses = user.guardian.households.to_a
+        my_houses = [].push user.guardian.household
         my_students = []
         for house in my_houses
           studs = house.students.to_a
