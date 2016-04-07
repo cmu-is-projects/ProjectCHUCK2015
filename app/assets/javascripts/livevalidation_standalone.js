@@ -634,6 +634,12 @@ var Validate = {
     	var paramsObj = paramsObj || {};
     	var message = paramsObj.failureMessage || "Not valid!";
       var pattern = paramsObj.pattern || /./;
+      //Roger's edit to get around the fact that \A and \z do not work in browsers.
+      //The \A and \z checks will occur on the server side. not the client side
+      // pattern.replace("\\A","")
+      // pattern.replace("\\z","")
+      // paramsObj.pattern = pattern
+      //End of Roger's edits
       var negate = paramsObj.negate || false;
       if(!negate && !pattern.test(value)) Validate.fail(message); // normal
       if(negate && pattern.test(value)) Validate.fail(message); // negated
