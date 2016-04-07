@@ -28,6 +28,4 @@
 
 /config/initializers/secret_token.rb
 
-/config/fog_credentials.yml
-
 output.txt
