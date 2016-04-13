@@ -27,3 +27,7 @@
 /vendor/assets/javascripts/.DS_Store
 
 output.txt
+
+#production files
+config/fog_credentials.yml
+config/initializers/secret_token.rb
