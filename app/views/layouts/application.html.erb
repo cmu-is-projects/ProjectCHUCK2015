@@ -37,5 +37,19 @@
     <%= javascript_include_tag "application" %>
     <%= javascript_include_tag "my_code" %>
 
+    <!-- Get rid of \A and \z from regex because they don't play well with html -->
+    <script>
+      var inputs = document.getElementsByTagName("INPUT");
+      var i;
+      for (i = 0; i < inputs.length; i++){
+        var input = inputs[i];
+        var p = input.pattern
+        if (p != null){
+          var new_p = p.replace("\\A", "").replace("\\z", "")
+          input.setAttribute("pattern", new_p)
+        }
+      }
+    </script>
+
   </body>
 </html>
