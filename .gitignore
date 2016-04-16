@@ -28,6 +28,8 @@
 
 output.txt
 
+brakeman_results.html
+
 #production files
 config/fog_credentials.yml
 config/initializers/secret_token.rb
