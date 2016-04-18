@@ -64,6 +64,7 @@ ProjectChuck2015::Application.routes.draw do
   get 'home/notifications' => 'home#notifications', as: :notifications
   get 'home/schedule' => 'home#schedule', as: :schedule
   get 'home/standings' => 'home#standings', as: :standings
+  get 'home/analytics' => 'home#analytics', as: :analytics
 
   get 'registerstudent', to: 'students#new', :as => :registerstudent
   get 'registervolunteer', to: 'volunteers#new', :as => :registervolunteer
