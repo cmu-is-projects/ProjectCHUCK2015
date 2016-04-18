@@ -3,7 +3,7 @@ class Volunteer < ActiveRecord::Base
 include Activeable
 	
   #Relationship Validations
-	belongs_to :team
+	has_one :team
 	belongs_to :user
   
   

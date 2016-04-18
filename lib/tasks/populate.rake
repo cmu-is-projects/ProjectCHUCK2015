@@ -287,7 +287,7 @@ namespace :db do
     # Step 12: Create some volunteers
     tasha = Volunteer.new
     tasha.gender = "female"
-    tasha.age_range = "25-40"
+    tasha.age_range = "25-39"
     tasha.team_id = 1
     tasha.role = "Administrator"
     tasha.email = "aswilson@andrew.cmu.edu"
@@ -312,7 +312,7 @@ namespace :db do
 
     alliewilson = Volunteer.new
     alliewilson.gender = "female"
-    alliewilson.age_range = "18-25"
+    alliewilson.age_range = "18-24"
     alliewilson.team_id = 1
     alliewilson.role = "Coach"
     alliewilson.email = "aswilson@andrew.cmu.edu"
@@ -337,7 +337,7 @@ namespace :db do
 
     scottbrooks = Volunteer.new
     scottbrooks.gender = "male"
-    scottbrooks.age_range = "40-60"
+    scottbrooks.age_range = "40-59"
     scottbrooks.team_id = 1
     scottbrooks.role = "Coach"
     scottbrooks.email = "scottbrooks@gmail.com"

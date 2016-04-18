@@ -200,5 +200,12 @@ class HomeController < ApplicationController
     @current = Game.current.paginate(:page => params[:page]).per_page(5)
     @upcoming = Game.upcoming.paginate(:page => params[:page]).per_page(5)
   end
+
+  def standings
+  end
+
+  def analytics
+    
+  end
 end
 
