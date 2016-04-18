@@ -31,7 +31,7 @@
   <tbody>
    <% @students.each do |student| %>
    <%# if my_students != [] %>
-    <% if not(my_students.include?(student.id)) %>
+    <% if logged_in? && current_user.role == "guardian" && not(my_students.include?(student.id)) %>
       <% next %>
     <% end %>
   <%# end %>
@@ -80,4 +80,6 @@
 </tbody>
 </table>
 
-<%= will_paginate students %>
+<span class="paginate">
+    <%= will_paginate @students, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>

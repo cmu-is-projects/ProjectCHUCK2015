@@ -26,7 +26,7 @@
   <tbody>
     <% @households.each do |household| %>
     <%# if my_houses != [] %>
-      <% if not(my_houses.include? household.id) %>
+      <% if logged_in? && current_user.role == "guardian" && not(my_houses.include? household.id) %>
         <% next %>
       <% end %>
     <%# end %>
