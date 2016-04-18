@@ -4,41 +4,36 @@
   <% Bracket.active.each do |br| %>
     <br>
     <div class="col-md-12">
-        <center><h3><%= br.name + " Standings" %></h3></center>
-        <% if @past.size > 0 %>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Team 1</th>
-              <th>Score</th>
-              <th>Team 2</th>
-              <th>Score</th>
-              <th>Date</th>
-              <!-- <th></th>
-              <th></th> -->
-            </tr>
-          </thead>
-
-          <tbody>
-            <% @past.each do |game| %>
+        <center><h3><%= br.name + " - Standings" %></h3></center>
+        <% if br.teams.to_a.size > 0 %>
+          <% teams = br.teams.standings %>
+          <table class="table">
+            <thead>
               <tr>
-                <% game.team_games.each do |tg| %>
-                   <td><%= link_to tg.team.name, tg.team %></td>
-                   <td><%= tg.score %></td>
-                <% end %>
-                <td><%= link_to game.date.strftime("%B %d, %I:%M %P"), game %></td>
-                <!-- <td><%= link_to(image_tag('edit.png'), edit_game_path(game)) %></td>
-                <td><%= link_to(image_tag('delete.png'), game, method: :delete, data: { confirm: 'Are you sure?' }) %></td> -->
+                <th>Team Name</th>
+                <th>Wins</th>
+                <th>Losses</th>
+                <!-- <th></th>
+                <th></th> -->
               </tr>
-            <% end %>
-          </tbody>
-        </table>
+            </thead>
+
+            <tbody>
+              <% teams.each do |team| %>
+                <tr>
+                  <td><%= link_to team.name, team %></td>
+                  <td><%= team.num_wins %></td>
+                  <td><%= team.num_losses %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
 
         <span class="paginate">
-        <%= will_paginate @past, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+        <%# will_paginate @past, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
         </span>
         <% else %>
-        <center>No Previous Games!</center>
+        <center>No Teams in this Bracket!</center>
         <% end %>
     </div>
     <br>
