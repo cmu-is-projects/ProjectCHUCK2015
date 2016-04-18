@@ -8,7 +8,7 @@
 	</div>
 </div>
 <hr> -->
-<br> <br>
+<!-- <br> <br>
 <div class = "row">
 	<center>
 	<h1 style= "font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;" >
@@ -17,21 +17,25 @@
 	<h3 style= "margin: 0"> Please contact the <a href="http://www.batchfoundation.org">Best of the Batch</a> office </h3> &nbsp;
 	<h3 style= "margin: 0"> at 412-326-0119 for more information.</h3>
 
-	</center>
-	<!-- <div class= "col-xs-6 col-sm-6">
-		<center>
-			<%#= image_tag "basketball-64.png" %> <br><br>
-			<p id="homebutton">STUDENTS</p>
-			<%#= link_to 'Register', registerstudent_path, :class => 'btn btn-primary btn-lg outline' %> <br><br>
-		</center>
-	</div>
+	</center> -->
+	<center><h3>Register for Project C.H.U.C.K.</h3></center>
+	<br><br>
 	<div class= "col-xs-6 col-sm-6">
-		<center>
-			<%#= image_tag "icon_coach.png" %> <br><br> 
-			<p id="homebutton">VOLUNTEERS</p>
-			<%#= link_to 'Register', registervolunteer_path, :class => 'btn btn-primary btn-lg outline' %>
-		</center>
-	</div> -->
+    <center>
+      <br>
+      <%= image_tag "basketball-64.png" %> <br><br>
+      <p id="homebutton">STUDENTS</p>
+      <%= link_to 'Register as a Parent/Guardian', registerguardian_path, :class => 'btn btn-primary btn-lg outline' %> <br><br>
+    </center>
+  </div>
+	<div class= "col-xs-6 col-sm-6">
+    <center>
+      <br>
+      <%= image_tag "icon_coach.png" %> <br><br>
+      <p id="homebutton">STUDENTS</p>
+      <%= link_to 'Register as a Volunteer', registervolunteer_path, :class => 'btn btn-primary btn-lg outline' %> <br><br>
+    </center>
+  </div>
 </div>
 
 <br><br>
@@ -40,6 +44,8 @@
 	<% if logged_in? %>
 	<%= link_to 'Administrators', 'home' %>
 	<% else %>
-	<%= link_to 'Administrators: Login here', new_session_path %>
+	<br>
+	Already have an account? <br>
+	<%= link_to 'Login here', new_session_path %>
 	<% end %>
 	<center>
