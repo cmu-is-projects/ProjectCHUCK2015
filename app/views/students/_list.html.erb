@@ -80,4 +80,6 @@
 </tbody>
 </table>
 
-<%= will_paginate students %>
+<span class="paginate">
+    <%= will_paginate @students, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>
