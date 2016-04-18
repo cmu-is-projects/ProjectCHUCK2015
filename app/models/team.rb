@@ -63,6 +63,7 @@ class Team < ActiveRecord::Base
   scope :alphabetical, -> { order('name') }
   scope :wins, -> { order ('num_wins desc') }
   scope :losses, -> { order('num_losses desc') }
+  scope :standings, -> { order('num_wins desc, num_losses asc') }
   scope :by_bracket, -> { order('bracket_id')}
 
 
