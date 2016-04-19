@@ -43,7 +43,7 @@ include Activeable
   # make sure required fields are present
   validates_presence_of :first_name, :last_name, :gender, :emergency_contact_name, :emergency_contact_phone, :emergency_contact_relation, :dob, :grade, :pastparticipation, :jersey_size, :school, :district, :gpa, :message => "can't be blank"
   #validates_date :dob, :before => lambda { Date.current }, :message => "cannot be in the future", allow_blank: false, on: :create
-  validates_date :dob, :on_or_before => lambda { 6.years.ago.to_date }, :on_or_after => lambda {18.years.ago.to_date}, :message => "must be betweeen ages of 6 and 18"
+  validates_date :dob, :on_or_before => lambda { 6.years.ago.to_date }, :on_or_after => lambda {18.years.ago.to_date}, :on_or_after_message => "must be betweeen ages of 6 and 18", :on_or_before_message => "must be betweeen ages of 6 and 18"
   #validates_uniqueness_of :email, allow_blank: true
   # validates_format_of :email, :with => /[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))/i
   #validates :email, format: { :with => /\A[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))\z/i, :message => "is not a valid format" }, :allow_blank => true
