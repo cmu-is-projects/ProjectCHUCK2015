@@ -37,10 +37,10 @@
 <h3>Contact Information</h3>
 <p>
 	<strong>Day Phone:</strong>
-  		<%= @volunteer.day_phone %><br>
+  		<%= number_to_phone @volunteer.day_phone %><br>
 
   	<strong>Cell Phone:</strong>
-  		<%= @volunteer.cell_phone %> <br>
+  		<%= number_to_phone @volunteer.cell_phone %> <br>
 
   	<strong>Receives text messages:</strong>
   		<% if @volunteer.receives_text_msgs==true %>

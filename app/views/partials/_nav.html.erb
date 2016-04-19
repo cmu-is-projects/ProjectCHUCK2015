@@ -20,7 +20,7 @@
     </div>
   </div>
       <% elsif logged_in? && current_user.role == "volunteer" %>
-        <% if current_user.volunteer.role == "Coach" or current_user.role == "Assistant Coach" %>
+        <% if current_user.volunteer.role == "Coach" or current_user.volunteer.role == "Assistant Coach" %>
           <br>
         <div class="container">
           <div class="row">

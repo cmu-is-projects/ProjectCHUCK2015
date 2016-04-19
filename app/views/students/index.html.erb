@@ -1,8 +1,14 @@
 <center>
+  <% if logged_in? and current_user.role? :admin %>
     <h1>Students</h1>
-    <% if logged_in? and current_user.role? :admin %>
-      <%= link_to "Add a student", new_student_path %>
-    <% end %>
+    <%= link_to "Add a student", new_student_path %>
+  <% elsif logged_in? and current_user.role? :guaridan %>
+    <h1>My Students</h1>
+  <% elsif logged_in? and current_user.role? :volunteer %>
+    <h1>My Team</h1>
+  <% else %>
+    <h1>Students</h1>
+  <% end %>
 </center>
 <br>
 
