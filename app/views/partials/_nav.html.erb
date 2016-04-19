@@ -10,12 +10,43 @@
   <div class="row">
     <div class = "col-sm-12">
       <ul class="nav nav-pills nav-justified">
+        <li><%= link_to 'Home', home_path %></li>
         <li><%= link_to 'My Students', students_path %></li>
+        <li><%= link_to 'Schedule', schedule_path %></li>
+        <li><%= link_to 'Standings', standings_path %></li>
         <li><%= link_to image_tag('logout16.png'), logout_path %></li>
-        <!-- <li><%#= link_to image_tag('logout16.png'), render :partial => "secondary" %></li>  -->
       </div>
     </div>
   </div>
+      <% elsif logged_in? && current_user.role == "volunteer" %>
+        <% if current_user.volunteer.role == "Coach" or current_user.role == "Assistant Coach" %>
+          <br>
+        <div class="container">
+          <div class="row">
+            <div class = "col-sm-12">
+              <ul class="nav nav-pills nav-justified">
+                <li><%= link_to 'Home', home_path %></li>
+                <li><%= link_to 'My Team', students_path %></li>
+                <li><%= link_to 'Schedule', schedule_path %></li>
+                <li><%= link_to 'Standings', standings_path %></li>
+                <li><%= link_to image_tag('logout16.png'), logout_path %></li>
+              </div>
+            </div>
+          </div>
+        <% else %>
+          <br>
+        <div class="container">
+          <div class="row">
+            <div class = "col-sm-12">
+              <ul class="nav nav-pills nav-justified">
+                <li><%= link_to 'Home', home_path %></li>
+                <li><%= link_to 'Schedule', schedule_path %></li>
+                <li><%= link_to 'Standings', standings_path %></li>
+                <li><%= link_to image_tag('logout16.png'), logout_path %></li>
+              </div>
+            </div>
+          </div>
+        <% end %>
       <% end %>
 		</center>
 	</div>
