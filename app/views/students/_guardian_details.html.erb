@@ -20,7 +20,7 @@
       <tr>
         <td><%= link_to guardian.proper_name, guardian %></td>
         <td><%= guardian.email %></td>
-        <td><%= guardian.cell_phone %></td>
+        <td><%= number_to_phone guardian.cell_phone %></td>
         <td>
          <% if guardian.receives_text_msgs == true %>
          <%= link_to(image_tag('check16.png')) %> 

@@ -20,12 +20,18 @@ class Ability
       can :read, Household do |this_household|
         user.guardian.household.id==this_household.id
       end
-      can :edit, Household do |this_household|
+      can :update, Household do |this_household|
         user.guardian.household.id==this_household.id
+      end
+      can :read, Guardian do |this_guardian|
+        user.guardian.id==this_guardian.id
+      end
+      can :update, Guardian do |this_guardian|
+        user.guardian.id==this_guardian.id
       end
       can :create, Student
       can :create, Household
-      can :edit, Student do |this_student|
+      can :update, Student do |this_student|
         my_houses = [].push user.guardian.household
         my_students = []
         for house in my_houses
@@ -33,6 +39,22 @@ class Ability
           studs.each {|s| my_students.push(s.id)}
         end
         my_students.include? this_student.id
+      end
+    elsif user.role? :volunteer
+      if user.volunteer.role == "Coach" or user.volunteer.role == "Assistant Coach"
+        can :read, Student do |this_student|
+          my_students = []
+          if not(user.volunteer.team.nil?)
+            user.volunteer.team.students.each {|s| my_students.push(s.id)}
+          end
+          my_students.include? this_student.id
+        end
+      end
+      can :read, Volunteer do |this_volunteer|
+        user.volunteer.id = this_volunteer.id
+      end
+      can :update, Volunteer do |this_volunteer|
+        user.volunteer.id = this_volunteer.id
       end
     else
       can :create, Household

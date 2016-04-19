@@ -68,7 +68,11 @@ class HouseholdsController < ApplicationController
   def update
     respond_to do |format|
       if @household.update(household_params)
-        format.html { redirect_to @household, notice: 'Household was successfully updated.' }
+        if logged_in? and current_user.role? :guardian
+          format.html { redirect_to home_path, notice: 'Household was successfully updated.' }
+        else
+          format.html { redirect_to @household, notice: 'Household was successfully updated.' }
+        end
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

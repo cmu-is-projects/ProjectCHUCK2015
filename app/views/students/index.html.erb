@@ -1,6 +1,8 @@
 <center>
     <h1>Students</h1>
-    <%= link_to "Add a student", new_student_path %>
+    <% if logged_in? and current_user.role? :admin %>
+      <%= link_to "Add a student", new_student_path %>
+    <% end %>
 </center>
 <br>
 
@@ -16,6 +18,7 @@
   <div class = "col-sm-3">
   </div>
   <div class = "col-sm-6"><center>
+    <% if logged_in? and current_user.role? :admin %>
 <%= form_for_filterrific @filterrific do |f| %>
   <div>
     Search
@@ -37,6 +40,7 @@
   </div>
   <%# add an automated spinner to your form when the list is refreshed %>
   <%= render_filterrific_spinner %>
+  <% end %>
 <% end %>
 </center>
 </div>

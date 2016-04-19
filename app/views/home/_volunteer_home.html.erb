@@ -1,0 +1,83 @@
+<div class="container well">
+  <div class="container">
+
+    <div class="col-md-6">
+      <center><h3>Today's Games</h3></center>
+      <% if @current.size > 0 %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Team 1</th>
+            <th>Team 2</th>
+            <th>Date</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @current.each do |game| %>
+            <tr>
+              <% game.team_games.each do |tg| %>
+                 <td><%= link_to tg.team.name, tg.team %></td>
+              <% end %>
+              <td><%= link_to game.date.strftime("%B %d at %I:%M %P"), game %></td>
+              <td><%= link_to(image_tag('edit.png'), edit_game_path(game)) %></td>
+              <td><%= link_to(image_tag('delete.png'), game, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <span class="paginate">
+      <%= will_paginate @current, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+      </span>
+      <% else %>
+      <center>No Games Today!</center>
+      <% end %>
+    </div>
+
+    <!-- <div class="col-md-2">
+    </div> -->
+
+    <div class="col-md-6">
+      <% if (current_user.volunteer.role == "Coach" or current_user.volunteer.role == "Assistant Coach") and not(current_user.volunteer.team.nil?) %>
+        <% br = current_user.volunteer.team.bracket %>
+      <% else %>
+        <% br = Bracket.all.to_a.sample %>
+      <% end %>
+        <center><h3><%= br.name + " - Standings" %></h3></center>
+        <% if br.teams.to_a.size > 0 %>
+          <% teams = br.teams.standings %>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Team Name</th>
+                <th>Wins</th>
+                <th>Losses</th>
+                <!-- <th></th>
+                <th></th> -->
+              </tr>
+            </thead>
+
+            <tbody>
+              <% teams.each do |team| %>
+                <tr>
+                  <% if logged_in? and current_user.role == "admin" %>
+                    <td><%= link_to team.name, team %></td>
+                  <% else %>
+                    <td><%= team.name %></td>
+                  <% end %>
+                  <td><%= team.num_wins %></td>
+                  <td><%= team.num_losses %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        <% else %>
+        <center>No Teams in this Bracket!</center>
+        <% end %>
+    <br>
+    </div>
+
+  </div>
+</div>
