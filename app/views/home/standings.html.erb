@@ -21,7 +21,11 @@
             <tbody>
               <% teams.each do |team| %>
                 <tr>
-                  <td><%= link_to team.name, team %></td>
+                  <% if logged_in? and current_user.role == "admin" %>
+                    <td><%= link_to team.name, team %></td>
+                  <% else %>
+                    <td><%= team.name %></td>
+                  <% end %>
                   <td><%= team.num_wins %></td>
                   <td><%= team.num_losses %></td>
                 </tr>

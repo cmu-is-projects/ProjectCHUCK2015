@@ -16,8 +16,18 @@ class StudentsController < ApplicationController
         #default_filter_params: {},
         #available_filters: [],
         ) or return
+    if logged_in?
+      if current_user.role? :admin
+        @students = @filterrific.find.page(params[:page]).per_page(20)
+      elsif current_user.role? :guardian
+        @students = Student.for_guardian(current_user.guardian.id)
+      elsif current_user.role? :volunteer
+        if current_user.volunteer.role == "Coach" or current_user.volunteer.role == "Assistant Coach"
+          @students = Student.for_volunteer(current_user.volunteer.id)
+        end
+      end
+    end
 
-    @students = @filterrific.find.page(params[:page]).per_page(20)
 
     # Respond to html for initial page load and to js for AJAX filter updates.
     respond_to do |format|

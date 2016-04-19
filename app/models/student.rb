@@ -73,6 +73,8 @@ include Activeable
 
 	# Scopes
   # -----------------------------
+  scope :for_guardian, -> (g_id) { joins(:household => :guardian).where("guardians.id = ?", g_id)}
+  scope :for_volunteer, -> (v_id) { joins(:roster_spots => {:team => :volunteers}).where("volunteers.id = ?", v_id)}
   scope :alphabetical, -> { order('last_name, first_name') }
   scope :by_age, -> { order ('dob DESC') }
   # scope :by_school,   -> { joins(:school).order('schools.name') }

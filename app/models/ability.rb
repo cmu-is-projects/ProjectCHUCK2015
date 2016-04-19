@@ -34,6 +34,16 @@ class Ability
         end
         my_students.include? this_student.id
       end
+    elsif user.role? :volunteer
+      if user.volunteer.role == "Coach" or user.volunteer.role == "Assistant Coach"
+        can :read, Student do |this_student|
+          my_students = []
+          if not(user.volunteer.team.nil?)
+            user.volunteer.team.students.each {|s| my_students.push(s.id)}
+          end
+          my_students.include? this_student.id
+        end
+      end
     else
       can :create, Household
       # can :read, Household
