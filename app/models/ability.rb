@@ -23,6 +23,12 @@ class Ability
       can :update, Household do |this_household|
         user.guardian.household.id==this_household.id
       end
+      can :read, Guardian do |this_guardian|
+        user.guardian.id==this_guardian.id
+      end
+      can :update, Guardian do |this_guardian|
+        user.guardian.id==this_guardian.id
+      end
       can :create, Student
       can :create, Household
       can :update, Student do |this_student|

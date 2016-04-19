@@ -13,8 +13,10 @@
       <th>Medications</th>
       <th>Cleared?</th>
       <th>Active?</th>
-      <th></th>
-      <th></th>
+      <% if logged_in? and not(current_user.role? :volunteer) %>
+        <th></th>
+        <th></th>
+      <% end %>
     </tr>
   </thead> 
 
@@ -51,8 +53,8 @@
       <%end%>
     </td>
     <!-- <td><%#= student.team.name unless student.team.name.nil?%></td> -->
-    <td width="40"><%= student.cell_phone %></td>
-    <td><%= student.household.home_phone %></td>
+    <td width="40"><%= number_to_phone student.cell_phone %></td>
+    <td><%= number_to_phone student.household.home_phone %></td>
     <td width="40"><%= student.allergies %></td>
     <td width="40"><%= student.medications %></td> 
         <td>
@@ -72,9 +74,11 @@
           <% deact = "Activate" %>
          <%end%>
         </td>
+        <% if logged_in? and not(current_user.role? :volunteer) %>
     <td><%= link_to(image_tag('edit.png'), edit_student_path(student)) %></td>
     <td><%= link_to(deact, change_active_student_path(student), method: :put, data: { confirm: 'Are you sure you?' }) %></td>
     <td><%= link_to(image_tag('delete.png'), student, method: :delete, data: { confirm: 'Are you sure you want to DELETE the student?' }) %></td>
+    <% end %>
   </tr>
   <% end %>
 </tbody>

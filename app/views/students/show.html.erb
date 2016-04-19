@@ -13,6 +13,7 @@
         <% end %>
       </div>
     </div>
+    <% if logged_in? and not(current_user.role? :volunteer) %>
     <div class="row">
       <div class="col-sm-12">
         <h1> <%= @student.proper_name %></h1>
@@ -20,6 +21,7 @@
         <%= link_to(image_tag('back16.png'), students_path) %> Back
       </div>
     </div>
+    <% end %>
 
     <br>
 
@@ -177,7 +179,7 @@
         </p>
       </div>
     </div>
-
+<% if logged_in? and not(current_user.role? :volunteer) %>
     <h3>School Information</h3>
 
     <div class="row">
@@ -206,6 +208,7 @@
         </p>
       </div>
     </div>
+    <% end %>
 
     <h3>Contact Information</h3>
 
@@ -277,6 +280,7 @@
             <%= render :partial => 'reg_details' %>
           </div>
         </div>
+        <% if logged_in? and not(current_user.role? :volunteer) %>
         <div class="row">
           <div class="col-sm-12">
             <%= render :partial =>  'household_details' %>
@@ -287,6 +291,7 @@
             <%= render :partial => 'guardian_details' %>
           </div>
         </div>
+        <% end %>
       </div>
     </div>
 

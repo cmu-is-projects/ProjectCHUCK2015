@@ -96,7 +96,7 @@
 <br>
 <hr>
 
-<% if controller.action_name=="new"%>
+<% if controller.action_name=="new" or (logged_in? and current_user.role? :admin) %>
 <br>
 <%= f.simple_fields_for :user do |user_form| %>
   <%= render :partial => "user_fields", :locals => { :f => user_form } %>
