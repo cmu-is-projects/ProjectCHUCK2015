@@ -1,6 +1,8 @@
 <center>
     <h1>Students</h1>
-    <%= link_to "Add a student", new_student_path %>
+    <% if logged_in? and current_user.role? :admin %>
+      <%= link_to "Add a student", new_student_path %>
+    <% end %>
 </center>
 <br>
 
