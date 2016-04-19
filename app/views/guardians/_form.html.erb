@@ -57,12 +57,12 @@
       </div>
     </div>
   </div>
-  <% if controller.action_name=="new" or (logged_in? and current_user.role? :admin) %>
+  <%# if controller.action_name=="new" or (logged_in? and current_user.role? :admin) %>
   <br><hr><br>
   <%= f.simple_fields_for :household do |household_form| %>
   <% render :partial => "household_fields", :locals => { :f => household_form } %>
   <% end %>
-  <% end %>
+  <%# end %>
 </div>
 <div class = "row">
       <div class="col-sm-6">

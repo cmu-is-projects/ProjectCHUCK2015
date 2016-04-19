@@ -42,7 +42,7 @@ class GuardiansController < ApplicationController
           current_user = @guardian.user
           session[:user_id] = @guardian.user.id
         end
-        format.html { redirect_to @guardian, notice: 'Guardian was successfully created.' }
+        format.html { redirect_to home_path, notice: 'Guardian was successfully created.' }
         format.json { render action: 'show', status: :created, location: @guardian }
       else
         if !@guardian.user.nil?
