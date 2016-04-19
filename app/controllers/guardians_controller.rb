@@ -45,6 +45,15 @@ class GuardiansController < ApplicationController
         format.html { redirect_to @guardian, notice: 'Guardian was successfully created.' }
         format.json { render action: 'show', status: :created, location: @guardian }
       else
+        if !@guardian.user.nil?
+            @guardian.user.destroy
+        end
+        if !@guardian.nil?
+            @guardian.destroy
+        end
+        if !@guardian.household.nil?
+            @guardian.household.destroy
+        end
         format.html { render action: 'new' }
         format.json { render json: @guardian.errors, status: :unprocessable_entity }
       end
