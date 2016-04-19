@@ -1,0 +1,41 @@
+<div class="container well">
+  <center><h1>Standings</h1></center>
+
+  <% Bracket.active.each do |br| %>
+    <br>
+    <div class="col-md-12">
+        <center><h3><%= br.name + " - Standings" %></h3></center>
+        <% if br.teams.to_a.size > 0 %>
+          <% teams = br.teams.standings %>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Team Name</th>
+                <th>Wins</th>
+                <th>Losses</th>
+                <!-- <th></th>
+                <th></th> -->
+              </tr>
+            </thead>
+
+            <tbody>
+              <% teams.each do |team| %>
+                <tr>
+                  <td><%= link_to team.name, team %></td>
+                  <td><%= team.num_wins %></td>
+                  <td><%= team.num_losses %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+
+        <span class="paginate">
+        <%# will_paginate @past, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+        </span>
+        <% else %>
+        <center>No Teams in this Bracket!</center>
+        <% end %>
+    </div>
+    <br>
+  <% end %>
+</div>

@@ -40,7 +40,6 @@ include Activeable
   scope :full, -> { where("max_students = ? ", num_registered) }
   scope :not_full, -> { where("max_students > ?", num_registered) }
 
-
   #Methods
   def get_teams
   	return self.teams.to_a
