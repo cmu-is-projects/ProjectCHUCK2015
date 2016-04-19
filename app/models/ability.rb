@@ -20,12 +20,12 @@ class Ability
       can :read, Household do |this_household|
         user.guardian.household.id==this_household.id
       end
-      can :edit, Household do |this_household|
+      can :update, Household do |this_household|
         user.guardian.household.id==this_household.id
       end
       can :create, Student
       can :create, Household
-      can :edit, Student do |this_student|
+      can :update, Student do |this_student|
         my_houses = [].push user.guardian.household
         my_students = []
         for house in my_houses
@@ -43,6 +43,12 @@ class Ability
           end
           my_students.include? this_student.id
         end
+      end
+      can :read, Volunteer do |this_volunteer|
+        user.volunteer.id = this_volunteer.id
+      end
+      can :update, Volunteer do |this_volunteer|
+        user.volunteer.id = this_volunteer.id
       end
     else
       can :create, Household
