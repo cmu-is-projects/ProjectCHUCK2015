@@ -184,7 +184,7 @@ class HomeController < ApplicationController
         #available_filters: [],
         ) or return
 
-    @students = @filterrific.find.page(params[:page]).per_page(5)
+    @students = @filterrific.find.page(params[:page]).per_page(20)
 
     if logged_in? && not(current_user.role?(:admin))
       flash[:error] = "You must be logged in as an administrator to view this page."
@@ -199,6 +199,13 @@ class HomeController < ApplicationController
     @past = Game.past.paginate(:page => params[:page]).per_page(5)
     @current = Game.current.paginate(:page => params[:page]).per_page(5)
     @upcoming = Game.upcoming.paginate(:page => params[:page]).per_page(5)
+  end
+
+  def standings
+  end
+
+  def analytics
+
   end
 end
 

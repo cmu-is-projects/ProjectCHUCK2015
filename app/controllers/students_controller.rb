@@ -17,7 +17,7 @@ class StudentsController < ApplicationController
         #available_filters: [],
         ) or return
 
-    @students = @filterrific.find.page(params[:page])
+    @students = @filterrific.find.page(params[:page]).per_page(20)
 
     # Respond to html for initial page load and to js for AJAX filter updates.
     respond_to do |format|
