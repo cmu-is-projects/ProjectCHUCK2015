@@ -34,12 +34,14 @@ class VolunteersController < ApplicationController
     @volunteer.user.email = @volunteer.email
 
     require 'open3'
-    instructions = JSON.parse(params[:output]).map { |h| "line #{h['mx'].to_i},#{h['my'].to_i} #{h['lx'].to_i},#{h['ly'].to_i}" } * ' '
-    tempfile = Tempfile.new(["volunteer_sign", '.png'])
-    Open3.popen3("convert -size 398x150 xc:transparent -stroke blue -draw @- #{tempfile.path}") do |input, output, error|
-        input.puts instructions
+    if not(params[:output].nil? or params[:output] == "")
+      instructions = JSON.parse(params[:output]).map { |h| "line #{h['mx'].to_i},#{h['my'].to_i} #{h['lx'].to_i},#{h['ly'].to_i}" } * ' '
+      tempfile = Tempfile.new(["volunteer_sign", '.png'])
+      Open3.popen3("convert -size 398x150 xc:transparent -stroke blue -draw @- #{tempfile.path}") do |input, output, error|
+          input.puts instructions
+      end
+      @volunteer.volunteer_sign = tempfile
     end
-    @volunteer.volunteer_sign = tempfile
 
     respond_to do |format|
       if (@volunteer.user.save && @volunteer.save)
@@ -49,6 +51,12 @@ class VolunteersController < ApplicationController
         end
         format.html { redirect_to home_path, notice: "Congratulations! You have successfully registered as a volunteer for Project C.H.U.C.K" }
       else
+        if !@volunteer.user.nil?
+          @volunteer.user.destroy
+        end
+        if !@volunteer.nil?
+          @volunteer.destroy
+        end
         format.html { render action: 'new' }
         format.json { render json: @volunteer.errors, status: :unprocessable_entity }
       end

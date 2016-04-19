@@ -14,6 +14,7 @@
 <div class ="container well">
 
   <% if controller.action_name=="edit"%>
+  <% if logged_in? and not(current_user.role? :volunteer) %>
   <h3>Team Assignment</h3><br>
   <div class="row">
     <div class="col-xs-6 col-sm-6">
@@ -26,6 +27,7 @@
 
 
   <br>
+  <% end %>
   <% end %>
 
 
@@ -96,14 +98,14 @@
 <br>
 <hr>
 
-<% if controller.action_name=="new" or (logged_in? and current_user.role? :admin) %>
+<%# if controller.action_name=="new" or (logged_in? and current_user.role? :admin) %>
 <br>
 <%= f.simple_fields_for :user do |user_form| %>
   <%= render :partial => "user_fields", :locals => { :f => user_form } %>
   <% end %><br>
 
 <br><hr>
-<% end %>
+<%# end %>
 
 <h3>Address</h3>
 

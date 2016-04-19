@@ -295,7 +295,7 @@ namespace :db do
     tasha.last_name = "Wilson-Batch"
     tasha.cell_phone = "4108889999"
     tasha.shirt_size = "S"
-    tasha.dob = Date.new(1970,6,14)
+    tasha.dob = Date.new(1980,6,14)
     tasha.street = "4 Forbes Ave"
     tasha.city = "Pittsburgh"
     tasha.state = "PA"
