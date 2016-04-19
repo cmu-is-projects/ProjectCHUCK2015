@@ -22,7 +22,7 @@
           <td><%= link_to volunteer.proper_name, volunteer %></td>
           <td>
             <% if volunteer.team.nil? %> 
-              "Not Assigned"
+              Not Assigned
             <% else %>
               <%= volunteer.team.name %>
             <% end %>
