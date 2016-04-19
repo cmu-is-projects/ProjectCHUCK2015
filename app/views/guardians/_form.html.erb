@@ -73,9 +73,10 @@
       <% end %>
     </div>
     <div class="col-sm-6">
-       <% if controller.action_name=="edit" || controller.action_name=="new"%>
+       <%# if controller.action_name=="edit" || controller.action_name=="new"%>
+       <!-- NOTE: what is the controller action on a failed submission? -->
       <%= link_to 'Cancel', teams_path, :class => 'btn btn-primary' %>
-      <% end %>
+      <%# end %>
     </div>
   </div>
 <% end %>
