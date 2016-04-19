@@ -14,7 +14,6 @@
 //= require jquery	  
 //= require twitter/bootstrap
 //= require jquery.signaturepad.js
-//= require livevalidation_standalone.js
 //= require jquery_nested_form
 //= require bootstrap-sprockets
 //= require jquery-ui   
