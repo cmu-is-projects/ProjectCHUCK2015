@@ -169,6 +169,7 @@ class HomeController < ApplicationController
       #         }
       #       })
       # end 
+      @current = Game.current.paginate(:page => params[:page]).per_page(5)
     end   
   end
 

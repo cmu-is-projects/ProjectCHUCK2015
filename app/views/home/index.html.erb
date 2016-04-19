@@ -5,11 +5,11 @@
     <%= render :partial => 'parent_home' %>
     <%= render :partial => 'logout' %>
   <% elsif current_user.role? :volunteer %>
-    <% if current_user.volunteer.role == "Coach" or current_user.volunteer.role == "Assistant Coach" %>
-      <%= render :partial => 'coach_home' %>
-    <% else %>
+    <%# if current_user.volunteer.role == "Coach" or current_user.volunteer.role == "Assistant Coach" %>
+      <%# render :partial => 'coach_home' %>
+    <%# else %>
       <%= render :partial => 'volunteer_home' %>
-    <% end %>
+    <%# end %>
     <%= render :partial => 'logout' %>
   <% else %>
     <%= render :partial => 'logout' %>
