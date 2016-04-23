@@ -5,7 +5,7 @@
   <% elsif logged_in? and current_user.role? :guaridan %>
     <h1>My Students</h1>
   <% elsif logged_in? and current_user.role? :volunteer %>
-    <h1>My Team</h1>
+    <h1><%= current_user.volunteer.team.nil? ? "Not Yet Assigned" : current_user.volunteer.team.name %></h1>
   <% else %>
     <h1>Students</h1>
   <% end %>

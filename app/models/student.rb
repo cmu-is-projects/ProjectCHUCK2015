@@ -73,6 +73,7 @@ include Activeable
 
 	# Scopes
   # -----------------------------
+  scope :by_bracket, -> { joins(:roster_spots => {:team => :bracket}).order('brackets.id') }
   scope :for_guardian, -> (g_id) { joins(:household => :guardian).where("guardians.id = ?", g_id)}
   scope :for_volunteer, -> (v_id) { joins(:roster_spots => {:team => :volunteers}).where("volunteers.id = ?", v_id)}
   scope :alphabetical, -> { order('last_name, first_name') }
@@ -155,6 +156,8 @@ include Activeable
   when /^has_medications_/
     # Simple sort on the name colums
     where("students.medications != ?", '')
+  when /^by_bracket_/
+    joins(:roster_spots => {:team => :bracket}).order('brackets.id')
   else
       raise(ArgumentError, "Invalid sort option: #{ sort_option.inspect }")
   end
@@ -197,7 +200,8 @@ include Activeable
       ['Gender - Female', 'female_asc'],
       ['Gender - Male', 'male_asc'],
       ['Has Allergies', 'has_allergies_asc'],
-      ['Has Medications', 'has_medications_asc']   
+      ['Has Medications', 'has_medications_asc'],
+      ['By Bracket', 'by_bracket_asc']
     ]
   end
 
