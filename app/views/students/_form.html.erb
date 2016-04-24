@@ -506,23 +506,23 @@
   </div> -->
   </div>
   <div class = "row">
-      <% if controller.action_name=="edit"%>
+      <% if controller.action_name=="edit" or controller.action_name == "update" %>
         <div class="col-sm-6">
-          <%= f.submit "Update", :class => 'btn btn-primary' %>
+          <%= f.submit "Update", :class => 'btn btn-success' %>
         </div>
         <div class="col-sm-6">
-           <% if controller.action_name=="edit" || controller.action_name=="new"%>
-          <%= link_to 'Cancel', teams_path, :class => 'btn btn-primary' %>
-          <%end%>
+           <%# if controller.action_name=="edit" || controller.action_name=="new"%>
+          <%= link_to 'Cancel', home_path, :class => 'btn btn-danger' %>
+          <%#end%>
         </div>
       <% else %>
         <div class="col-sm-6">
-          <%= f.submit "Submit", :class => 'btn btn-primary' %>
+          <%= f.submit "Submit", :class => 'btn btn-success' %>
         </div>
         <div class="col-sm-6">
-           <% if controller.action_name=="edit" || controller.action_name=="new"%>
-          <%= link_to 'Cancel', teams_path, :class => 'btn btn-primary' %>
-          <%end%>
+           <%# if controller.action_name=="edit" || controller.action_name=="new"%>
+          <%= link_to 'Cancel', home_path, :class => 'btn btn-danger' %>
+          <%#end%>
         </div>
       <% end %>
   </div>

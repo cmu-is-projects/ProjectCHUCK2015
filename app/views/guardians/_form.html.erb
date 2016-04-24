@@ -66,15 +66,15 @@
 </div>
 <div class = "row">
       <div class="col-sm-6">
-      <% if controller.action_name=="edit"%>
-      <%= f.submit "Update", :class => 'btn btn-primary' %>
+      <% if controller.action_name=="edit" or controller.action_name == "update" %>
+      <%= f.submit "Update", :class => 'btn btn-success' %>
       <% else %>
-      <%= f.submit "Create", :class => 'btn btn-primary' %>
+      <%= f.submit "Create", :class => 'btn btn-success' %>
       <% end %>
     </div>
     <div class="col-sm-6">
        <%# if controller.action_name=="edit" || controller.action_name=="new"%>
-      <%= link_to 'Cancel', teams_path, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', teams_path, :class => 'btn btn-danger' %>
       <%# end %>
     </div>
   </div>
