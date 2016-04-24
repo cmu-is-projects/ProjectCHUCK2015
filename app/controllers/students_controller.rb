@@ -46,7 +46,7 @@ class StudentsController < ApplicationController
     @household = @student.household
     @guardians = @household.guardian
     @registrations = @student.registrations
-    @teams = Student.last.registrations.active[0].bracket.teams
+    @teams = @student.registrations.active[0].bracket.teams
     # @students = Student.all
   end
 

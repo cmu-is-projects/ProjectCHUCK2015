@@ -18,6 +18,7 @@ include Activeable
   after_create :create_reg
   before_validation :set_active, on: :create
   after_save :studentActive
+  after_update :update_reg
 
   #uploaders for carrierwave
   mount_uploader :birth_certificate, AvatarUploader
@@ -453,6 +454,16 @@ include Activeable
         reg.save!
       end
     end
+  end
+
+  def update_reg
+    self.registrations.each do |reg|
+      reg.active = false
+      reg.save!
+    end
+    reg = Registration.new
+    reg.student_id = self.id
+    reg.save!
   end
 
 
