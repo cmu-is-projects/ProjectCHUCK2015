@@ -1,0 +1,29 @@
+
+
+<div class="container well">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <h2>Assign a Coach to the <%= @team.name.pluralize %></h2>
+      <br><br>
+
+      <% @coaches.each do |coach| %>
+        <%= link_to coach.name, send_assign_coach_path(@team,coach) %>
+        <br>
+      <% end %>
+      <% if @coaches.to_a.length == 0 %>
+        No Available Coaches
+      <% end %>
+    </div>
+
+  </div>
+</div>
+<div class = "row">
+  <div class="actions">
+    <div class="col-sm-1">
+      <%# f.submit "Create", :class => 'btn btn-primary' %>
+    </div>
+    <div class="col-sm-10">
+      <%= link_to 'Back', team_path(@team), :class => 'btn btn-primary' %>
+    </div>
+  </div>

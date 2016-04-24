@@ -44,6 +44,24 @@ class Team < ActiveRecord::Base
     return el_stu
   end
 
+   def eligible_coaches
+    el_stu = []
+    act_stu = Student.active
+    assigned_stu = RosterSpot.active.map{ |rs| rs.student_id }
+    act_stu.each do |stu|
+      reg_flag = false
+      stu.registrations.each do |reg|
+        if reg.bracket == self.bracket
+          reg_flag = true
+        end
+      end
+      if (reg_flag && not(assigned_stu.include? stu.id)) #and check not already assigned
+        el_stu.push(stu)
+      end
+    end
+    return el_stu
+  end
+
   def check_wins_losses
     if self.num_wins.nil?
         self.num_wins = 0

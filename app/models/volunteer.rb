@@ -44,6 +44,7 @@ include Activeable
   scope :alphabetical, -> { order('last_name, first_name') }
   scope :by_role, ->(role) { where("role = ?", role) }
   scope :by_receives_text_msgs, -> { where(receives_text_msgs: true) }
+  scope :unassigned_coaches, -> { where('team_id IS NULL and (role = ? or role = ?)' , "Coach", "Assistant_Coach") }
   
   def proper_name
     first_name + " " + last_name

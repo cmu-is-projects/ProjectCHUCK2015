@@ -73,6 +73,8 @@ ProjectChuck2015::Application.routes.draw do
 
   get 'assign_student/:id' => 'teams#assign_student', as: :assign_student
   get 'send_assign_student/:team_id/:student_id' => 'teams#send_assign_student', as: :send_assign_student
+  get 'assign_coach/:id' => 'teams#assign_coach', as: :assign_coach
+  get 'send_assign_coach/:team_id/:volunteer_id' => 'teams#send_assign_coach', as: :send_assign_coach
 
   get 'vol_assign_coach/:team_id/:volunteer_id' => 'volunteers#vol_assign_coach', as: :vol_assign_coach
   get 'stu_send_assign_student/:team_id/:student_id' => 'students#send_assign_student', as: :stu_send_assign_student
