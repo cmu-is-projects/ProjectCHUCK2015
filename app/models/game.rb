@@ -45,15 +45,66 @@ private
     tgs = self.team_games.to_a
     team1 = Team.all.where(id: tgs[0].team_id)[0]
     team2 = Team.all.where(id: tgs[1].team_id)[0]
-    if tgs[0].score > tgs[1].score
-      team1.num_wins += 1
-      team2.num_losses += 1
-    elsif tgs[0].score < tgs[1].score
-      team1.num_losses += 1
-      team2.num_wins += 1
+    team1.num_wins = 0
+    team2.num_wins = 0
+    team1.num_losses = 0
+    team2.num_losses = 0
+    Game.all.each do |game|
+      gtgs = game.team_games
+      t1_flag = false
+      t2_flag = false
+      gtgs.each do |gtg|
+        if gtg.team_id == team1.id
+          t1_flag = true
+        end
+        if gtg.team_id == team2.id
+          t2_flag = true
+        end
+      end
+      if t1_flag
+        if gtgs[0].team_id == team1.id
+          if gtgs[0].score > gtgs[1].score
+            team1.num_wins += 1
+          elsif gtgs[0].score < gtgs[1].score
+            team1.num_losses += 1
+          end
+        else
+           if gtgs[0].score < gtgs[1].score
+            team1.num_wins += 1
+          elsif gtgs[0].score > gtgs[1].score
+            team1.num_losses += 1
+          end
+        end
+      end
+      if t2_flag
+        if gtgs[0].team_id == team2.id
+          if gtgs[0].score > gtgs[1].score
+            team2.num_wins += 1
+          elsif gtgs[0].score < gtgs[1].score
+            team2.num_losses += 1
+          end
+        else
+           if gtgs[0].score < gtgs[1].score
+            team2.num_wins += 1
+          elsif gtgs[0].score > gtgs[1].score
+            team2.num_losses += 1
+          end
+        end
+      end
     end
     team1.save!
     team2.save!
+
+
+    # if tgs[0].score > tgs[1].score
+    #   team1.num_wins += 1
+    #   team2.num_losses += 1
+    # elsif tgs[0].score < tgs[1].score
+    #   team1.num_losses += 1
+    #   team2.num_wins += 1
+    # end
+    # team1.save!
+    # team2.save!
   end
 
   def location_is_active_in_system
