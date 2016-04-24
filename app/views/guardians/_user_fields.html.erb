@@ -28,6 +28,7 @@
     </div>
   </div> -->
   <br>
+  <% if not(logged_in?) or (logged_in? and current_user.role == "volunteer") %>
   <div class="row">
     <div class="col-sm-6">
       <div class="field">
@@ -42,3 +43,4 @@
       </div>
     </div>
   </div><br>
+  <% end %>
