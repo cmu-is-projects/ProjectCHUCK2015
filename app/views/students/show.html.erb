@@ -121,7 +121,7 @@
           <% if @student.bc_checkoff %>
           Checked off
               <% if logged_in? && current_user.role == "admin" %>
-                  <%= link_to "(Reset)", birth_certificate_reset_student_path(@student) %>
+                  - <%= link_to "(Reset)", birth_certificate_reset_student_path(@student) %>
               <% end %>
           <% else %>
               <% if @student.has_birth_certificate == false %>
@@ -143,7 +143,7 @@
           <% if @student.poi_checkoff %>
           Checked off
               <% if logged_in? && current_user.role == "admin" %>
-                  <%= link_to "(Reset)", proof_of_insurance_reset_student_path(@student) %>
+                  - <%= link_to "(Reset)", proof_of_insurance_reset_student_path(@student) %>
               <% end %>
           <% else %>
               <% if @student.has_proof_of_insurance == false %>
