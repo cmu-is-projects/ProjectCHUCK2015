@@ -20,7 +20,7 @@ class Game < ActiveRecord::Base
 
   #Scopes
   scope :chronological, -> { order('date') }
-  #NOTE: figure out why current is not working
+  scope :chronologicald, -> { order('date desc') }
   scope :current, -> { where("? <= date and date <= ?", DateTime.new(Date.today.year,Date.today.month,Date.today.day,0,0,0), DateTime.new(Date.tomorrow.year,Date.tomorrow.month,Date.tomorrow.day,0,0,0)) }
   scope :past, -> { where("date < ?", DateTime.new(Date.today.year,Date.today.month,Date.today.day,0,0,0)) }
   scope :upcoming, -> { where("date > ?", DateTime.new(Date.tomorrow.year,Date.tomorrow.month,Date.tomorrow.day,0,0,0)) }

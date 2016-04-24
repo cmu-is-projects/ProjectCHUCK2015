@@ -199,9 +199,9 @@ class HomeController < ApplicationController
   end
 
   def schedule
-    @past = Game.past.paginate(:page => params[:page]).per_page(5)
-    @current = Game.current.paginate(:page => params[:page]).per_page(5)
-    @upcoming = Game.upcoming.paginate(:page => params[:page]).per_page(5)
+    @past = Game.past.chronologicald.paginate(:page => params[:page]).per_page(10)
+    @current = Game.current.chronologicald.paginate(:page => params[:page]).per_page(10)
+    @upcoming = Game.upcoming.chronologicald.paginate(:page => params[:page]).per_page(10)
   end
 
   def standings
