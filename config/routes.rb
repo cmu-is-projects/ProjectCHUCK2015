@@ -79,6 +79,9 @@ ProjectChuck2015::Application.routes.draw do
   get 'vol_assign_coach/:team_id/:volunteer_id' => 'volunteers#vol_assign_coach', as: :vol_assign_coach
   get 'stu_send_assign_student/:team_id/:student_id' => 'students#send_assign_student', as: :stu_send_assign_student
 
+  get 'physical_view_student/:id' => 'students#physical_view_student', as: :physical_view_student
+  get 'report_card_view_student/:id' => 'students#report_card_view_student', as: :report_card_view_student
+
   # set the root url
   root to: 'home#index'
 

@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-  before_action :set_student, only: [:show, :edit, :update, :destroy, :birth_certificate, :birth_certificate_checkoff, :birth_certificate_deny, :birth_certificate_reset, :report_card, :report_card_checkoff, :report_card_deny, :report_card_reset, :proof_of_insurance, :proof_of_insurance_checkoff, :proof_of_insurance_deny, :proof_of_insurance_reset, :physical, :physical_checkoff, :physical_deny, :physical_reset]
+  before_action :set_student, only: [:show, :edit, :update, :destroy, :birth_certificate, :birth_certificate_checkoff, :birth_certificate_deny, :birth_certificate_reset, :report_card, :report_card_checkoff, :report_card_deny, :report_card_reset, :proof_of_insurance, :proof_of_insurance_checkoff, :proof_of_insurance_deny, :proof_of_insurance_reset, :physical, :physical_checkoff, :physical_deny, :physical_reset, :physical_view_student, :report_card_view_student]
   before_action :check_login, :except => [:show]
   authorize_resource
 
@@ -145,8 +145,8 @@ class StudentsController < ApplicationController
 
   def report_card_checkoff
     @student.rc_checkoff = true
-    @student.has_report_card = false
-    @student.remove_report_card!
+    @student.has_report_card = true
+    # @student.remove_report_card!
     @student.save!
     redirect_to notifications_path
   end
@@ -199,8 +199,8 @@ class StudentsController < ApplicationController
 
   def physical_checkoff
     @student.phy_checkoff = true
-    @student.has_physical = false
-    @student.remove_physical!
+    @student.has_physical = true
+    # @student.remove_physical!
     @student.save!
     redirect_to notifications_path
   end
@@ -265,6 +265,12 @@ class StudentsController < ApplicationController
       redirect_to @student, notice: 'Could not assign'
       # format.json { render json: @team.errors, status: :unprocessable_entity }
     end
+  end
+
+  def physical_view_student
+  end
+
+  def report_card_view_student
   end
 
   private

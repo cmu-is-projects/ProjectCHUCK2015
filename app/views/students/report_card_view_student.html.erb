@@ -1,0 +1,16 @@
+<center>
+    <h1>Physical</h1>
+    <h3><%= @student.proper_name %></h3>
+    <iframe src="<%= @student.report_card_url %>" width="100%" height="400px"></iframe>
+    <div>
+      <div class = "row">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-8">
+          <%= link_to "Back", @student, html_options = {:class => 'btn btn-primary'} %>
+        </div>
+        <div class="col-sm-2">
+        </div>
+      </div>
+    </div>
+</center>
