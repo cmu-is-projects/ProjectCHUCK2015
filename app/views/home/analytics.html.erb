@@ -76,7 +76,7 @@
           <% county_val = county_a[1] %>
 
           <tr>
-            <td><%= county.capitalize %></td>
+            <td><%= county.split(" ").map{|s| s.capitalize}.join(" ") %></td>
             <td><%= (county_val.size.to_f/@students.length.to_f*100.0).round(2) %></td>
             <td><%= county_val.size %></td>
             <td><%= @students.length %></td>

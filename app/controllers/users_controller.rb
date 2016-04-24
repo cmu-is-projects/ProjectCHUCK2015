@@ -27,6 +27,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    @user.active = true
 
     respond_to do |format|
       if @user.save

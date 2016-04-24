@@ -73,6 +73,7 @@ include Activeable
 
 	# Scopes
   # -----------------------------
+  scope :by_school_district, -> { order('district asc') }
   scope :for_age, -> (age) { where("? <= dob and dob <= ?", Date.new(Date.tomorrow.year-age-1,Date.tomorrow.month,Date.tomorrow.day), Date.new(Date.today.year-age,Date.today.month,Date.today.day)) }
   scope :for_school_disctict, -> (sd) { where('district = ?', sd) }
   scope :for_county, -> (county) { joins(:household).where('households.county = ?', county) }
@@ -247,7 +248,7 @@ include Activeable
   end
 
   def self.school_district_stats
-    sds = Set.new(Student.all.map{|s| s.district}).to_a
+    sds = Set.new(Student.all.by_school_district.map{|s| s.district}).to_a
     sd_stats = Hash.new
     sds.each do |sd|
       sd_stats[sd] = Student.for_school_disctict(sd)
