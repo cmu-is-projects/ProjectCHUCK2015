@@ -46,6 +46,7 @@ class StudentsController < ApplicationController
     @household = @student.household
     @guardians = @household.guardian
     @registrations = @student.registrations
+    @teams = Student.last.registrations.active[0].bracket.teams
     # @students = Student.all
   end
 
@@ -244,6 +245,27 @@ class StudentsController < ApplicationController
     end
     redirect_to action: 'index'
   end 
+
+  def send_assign_student
+    @team = Team.find(params[:team_id])
+    @student = Student.find(params[:student_id])
+    jersey_nums = @team.taken_jersey_numbers
+    num = 1
+    while jersey_nums.include? num
+      num += 1
+    end
+    @rs = RosterSpot.new
+    @rs.team = @team
+    @rs.student = @student
+    @rs.jersey_number = num
+    if @rs.save
+      redirect_to @student, notice: 'Assigned!'
+      # format.json { render action: 'show', status: :created, location: @team }
+    else
+      redirect_to @student, notice: 'Could not assign'
+      # format.json { render json: @team.errors, status: :unprocessable_entity }
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
