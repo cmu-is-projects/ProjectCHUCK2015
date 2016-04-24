@@ -19,6 +19,7 @@ include Activeable
   before_validation :set_active, on: :create
   after_save :studentActive
   after_update :update_reg
+  before_save :check_team
 
   #uploaders for carrierwave
   mount_uploader :birth_certificate, AvatarUploader
@@ -190,7 +191,7 @@ include Activeable
   end
 
   def on_team?
-    not(self.teams.empty?)
+    not(self.roster_spots.active.empty?)
   end
 
   def find_bracket
@@ -465,6 +466,29 @@ include Activeable
     reg.student_id = self.id
     reg.save!
   end
+
+  def check_team
+    rss = self.roster_spots.active
+    if rss.length == 0
+      return true
+    elsif rss.length > 1
+      rss.each do |rs|
+        rs.active = false
+        rs.save!
+      end
+    end
+    bracket = rss[0].team.bracket
+    flag = bracket.gender == self.gender and bracket.min_age <= self.age and bracket.max_age >= self.age
+    if flag
+      return true
+    else
+      rss[0].active = false
+      rss[0].save!
+    end
+    true
+  end
+
+
 
 
   #function is causing tests to error - not sure why

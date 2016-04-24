@@ -30,7 +30,7 @@
         <p>
           <strong>Team:</strong>
           <% if @student.on_team? %>
-            <%= link_to @student.teams.first.name, @student.teams.first %>
+            <%= link_to @student.roster_spots.active[0].team.name, @student.roster_spots.active[0].team %>
           <% else %>
             <%= "Not Currently Assigned" %>
           <% end %>
@@ -271,7 +271,7 @@
 
       <div class="col-xs-6 col-sm-6">
         <div class = "row">
-          <% if @student.roster_spots.to_a.length == 0 and logged_in? and current_user.role == "admin" %>
+          <% if @student.roster_spots.active.to_a.length == 0 and logged_in? and current_user.role == "admin" %>
             <center><h3>Assign Student To Team</h3></center>
             <div class="fixedheight">
               <table class="table table-bordered">
