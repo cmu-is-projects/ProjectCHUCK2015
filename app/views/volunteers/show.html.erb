@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<div class="row">
+  <div class="col-sm-6">
 <p>
   <h2><strong><%= @volunteer.proper_name %></strong></h2>
 
@@ -82,3 +84,28 @@
 	<strong>What suggestions would you have to improve this year’s camp if you volunteered last year?</strong>
 		<%= @volunteer.suggestions %><br>
 </p><br>
+</div>
+  <% if @volunteer.team.nil? %>
+  <center><h3>Assign Coach To Team</h3></center>
+  <div class="col-sm-6 fixedheight">
+      <table class="table table-bordered">
+   <thead>
+    <tr>
+      <th>Team</th>
+      <th>Assign?</th>
+    </tr>
+  </thead>
+
+  <tbody>
+   <% @teams.each do |team| %>
+     <tr>
+      <td><%= team.name %></td>
+      <td><%= link_to "Assign", vol_assign_coach_path(team,@volunteer) %></td>
+    </tr>
+  <% end %>
+  <% end %>
+</tbody>
+</table>
+  </div>
+
+</div>
