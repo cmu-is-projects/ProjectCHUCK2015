@@ -4,7 +4,8 @@ class Game < ActiveRecord::Base
 
   # before_save :update_records, on: :update
   before_save :check_score, on: [:update, :create]
-  before_save :assign_win_loss, on: [:update, :create]
+  after_save :assign_win_loss
+  before_save :check_same_bracket, message: "The two teams you selected are not in the same bracket"
 
   #Relationship Validations
   belongs_to :location
@@ -31,6 +32,19 @@ private
   #   tstart = self.teams.to_a[1].bracket.tournament.start_date
   #   return date >= tstart
   # end
+
+  def check_same_bracket
+    tgs = self.team_games
+    if tgs.length != 2
+      return false
+    end
+    team1 = tgs[0].team
+    team2 = tgs[1].team
+    if team1.bracket != team2.bracket
+      return false
+    end
+    true
+  end
 
   def check_score
     self.team_games.to_a.each do |tg|

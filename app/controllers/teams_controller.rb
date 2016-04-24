@@ -15,7 +15,7 @@ class TeamsController < ApplicationController
     @volunteers = @team.volunteers
     #@students = @team.roster_spots.map { |i| i.student_id }
     @students = @team.students
-    @tgames = @team.team_games
+    @tgames = @team.team_games.chronological
   end
 
   # GET /teams/new
