@@ -158,6 +158,11 @@ include Activeable
     where("students.medications != ?", '')
   when /^by_bracket_/
     joins(:roster_spots => {:team => :bracket}).order('brackets.id')
+  when /^assigned_/
+    #for if a student has a roster spot, inner join on roster spots will suffice
+    joins(:roster_spots)
+  when /^unassigned_/
+    joins("LEFT JOIN roster_spots on students.id = roster_spots.student_id where roster_spots.student_id IS NULL")
   else
       raise(ArgumentError, "Invalid sort option: #{ sort_option.inspect }")
   end
@@ -201,7 +206,9 @@ include Activeable
       ['Gender - Male', 'male_asc'],
       ['Has Allergies', 'has_allergies_asc'],
       ['Has Medications', 'has_medications_asc'],
-      ['By Bracket', 'by_bracket_asc']
+      ['By Bracket (of assigned students)', 'by_bracket_asc'],
+      ['Assigned', 'assigned_asc'],
+      ['Unassigned', 'unassigned_asc']
     ]
   end
 
