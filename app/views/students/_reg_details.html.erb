@@ -1,4 +1,4 @@
-<center><h2>Registrations</h2></center>
+<center><h2>Current Registration</h2></center>
 
 <br>
 
@@ -16,8 +16,7 @@
   </thead>
 
   <tbody>
-    <%# @registrations.each do |registration| %>
-    <% registration = @registrations.last %>
+    <% @registrations.active.each do |registration| %>
       <tr>
         <td><%= link_to(image_tag('expand24.png'), registration) %></td>
         <!-- <td><%= registration.student.proper_name %></td> -->
@@ -37,6 +36,6 @@
         <td><%= link_to(image_tag('delete.png'), registration, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
         <% end %>
       </tr>
-    <%# end %>
+    <% end %>
   </tbody>
 </table>

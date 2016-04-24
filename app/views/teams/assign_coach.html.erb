@@ -1,21 +1,41 @@
 
 
+
 <div class="container well">
   <div class="row">
-    <div class="col-sm-12">
-
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-8">
+<center>
       <h2>Assign a Coach to the <%= @team.name.pluralize %></h2>
       <br><br>
+    <% if @coaches.to_a.length == 0 %>
+      No Available Coaches
+    <% else %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Coach</th>
+      <th>Role</th>
+      <th>Assign to Team?</th>
+    </tr>
+  </thead>
 
-      <% @coaches.each do |coach| %>
-        <%= link_to coach.name, send_assign_coach_path(@team,coach) %>
-        <br>
-      <% end %>
-      <% if @coaches.to_a.length == 0 %>
-        No Available Coaches
-      <% end %>
+  <tbody>
+    <% @coaches.each do |coach| %>
+      <tr>
+        <td><%= coach.name %></td>
+        <td><%= coach.role %></td>
+        <td><%= link_to "Assign?", send_assign_coach_path(@team,coach) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+      </center>
     </div>
-
+    <div class="col-sm-2">
+    </div>
   </div>
 </div>
 <div class = "row">
