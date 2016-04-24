@@ -10,7 +10,9 @@ class HomeController < ApplicationController
       @students = Student.active.alphabetical
       @current_registered_students = Student.alphabetical.active
       @school_districts = Student.by_district.size
-      @volunteers = Volunteer.alphabetical.by_role("Coach")
+      cs = Volunteer.alphabetical.by_role("Coach").to_a
+      assis_cs = Volunteer.alphabetical.by_role("Assistant Coach").to_a
+      @volunteers = cs + assis_cs
       #@students_missing_docs = Student.alphabetical.missing_forms(@current_registered_students).paginate(:page => params[:missing_docs_page], :per_page => 10)
       # @students_missing_docs = Student.alphabetical.current.without_forms.active.paginate(:page => params[:missing_docs_page], :per_page => 10)     
       @male_students = @current_registered_students.male.size

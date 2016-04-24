@@ -1,0 +1,30 @@
+
+  <center><h2>Team Schedule</h2>
+<br>
+
+  <table class="table">
+   <thead>
+    <tr>
+      <th>Win/Loss</th>
+      <th>Opponent</th>
+      <th>Date</th>
+      <th>Your Score</th>
+      <th>Opponent's Score</th>
+    </tr>
+  </thead>
+
+  <tbody>
+   <% @tgames.each do |tg| %>
+   <% your_score = tg.score %>
+   <% opp_team = tg.game.team_games.select{|tg2| tg2.team_id!=tg.team.id}[0].team %>
+   <% opp_score = tg.game.team_games.select{|tg2| tg2.team_id!=tg.team.id}[0].score %>
+   <tr>
+    <td><%= your_score > opp_score ? "W" : opp_score > your_score ? "L" : "TBA" %></td>
+    <td><%= link_to opp_team.name , team_path(opp_team) %></td>
+    <td><%= tg.game.date.strftime("%B %d at %I:%M %P") %></td>
+    <td><%= your_score %></td>
+    <td><%= opp_score %></td>
+  </tr>
+  <% end %>
+</tbody>
+</table>
