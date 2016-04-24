@@ -73,6 +73,9 @@ include Activeable
 
 	# Scopes
   # -----------------------------
+  scope :for_age, -> (age) { where("? <= dob and dob <= ?", Date.new(Date.tomorrow.year-age-1,Date.tomorrow.month,Date.tomorrow.day), Date.new(Date.today.year-age,Date.today.month,Date.today.day)) }
+  scope :for_school_disctict, -> (sd) { where('district = ?', sd) }
+  scope :for_county, -> (county) { joins(:household).where('households.county = ?', county) }
   scope :by_bracket, -> { joins(:roster_spots => {:team => :bracket}).order('brackets.id') }
   scope :for_guardian, -> (g_id) { joins(:household => :guardian).where("guardians.id = ?", g_id)}
   scope :for_volunteer, -> (v_id) { joins(:roster_spots => {:team => :volunteers}).where("volunteers.id = ?", v_id)}
@@ -90,8 +93,8 @@ include Activeable
   scope :with_gender, lambda { |genders|
     where(gender: [*genders])
   }
-  scope :male, -> { where("gender = ?","Male") }
-  scope :female, -> { where("gender = ?", "Female") }
+  scope :male, -> { where("gender = ?","male") }
+  scope :female, -> { where("gender = ?", "female") }
   scope :has_allergies, -> { where('allergies IS NOT NULL')}
   scope :has_medications, -> { where('medications IS NOT NULL')}
   scope :has_rc, -> { where(has_report_card: true) }
@@ -210,6 +213,46 @@ include Activeable
       ['Assigned', 'assigned_asc'],
       ['Unassigned', 'unassigned_asc']
     ]
+  end
+
+  def self.gender_stats
+    genders = ['male', 'female']
+    gender_stats = Hash.new
+    genders.each do |gender|
+      if gender == 'male'
+        gender_stats['male'] = Student.male
+      else
+        gender_stats['female'] = Student.female
+      end
+    end
+    return gender_stats
+  end
+
+  def self.age_stats
+    ages = Set.new(Student.all.by_age.map{|s| s.age}).to_a
+    age_stats = Hash.new
+    ages.each do |age|
+      age_stats[age] = Student.for_age(age)
+    end
+    age_stats
+  end
+
+  def self.county_stats
+    counties = Set.new(Student.all.map{|s| s.household.county}).to_a
+    county_stats = Hash.new
+    counties.each do |county|
+      county_stats[county] = Student.for_county(county)
+    end
+    county_stats
+  end
+
+  def self.school_district_stats
+    sds = Set.new(Student.all.map{|s| s.district}).to_a
+    sd_stats = Hash.new
+    sds.each do |sd|
+      sd_stats[sd] = Student.for_school_disctict(sd)
+    end
+    sd_stats
   end
 
   def self.genders

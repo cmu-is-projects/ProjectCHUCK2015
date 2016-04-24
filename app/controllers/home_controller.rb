@@ -208,7 +208,11 @@ class HomeController < ApplicationController
   end
 
   def analytics
-
+    @students = Student.all
+    @gender_stats = Student.gender_stats
+    @age_stats = Student.age_stats
+    @county_stats = Student.county_stats
+    @school_district_stats = Student.school_district_stats
   end
 end
 
