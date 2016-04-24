@@ -13,7 +13,7 @@
 <% if @volunteer.role == "Coach" %> 
   <p>
   <strong>Team:</strong>
-  <% if @volunteer.team.nil? %> 
+  <% if @volunteer.team.nil? and logged_in? and current_user.role == "admin" %>
   Not Assigned
   <% else %>
     <%= @volunteer.team.name %>
@@ -85,7 +85,7 @@
 		<%= @volunteer.suggestions %><br>
 </p><br>
 </div>
-  <% if @volunteer.team.nil? %>
+  <% if @volunteer.team.nil? and logged_in? and current_user.role == "admin" %>
   <center><h3>Assign Coach To Team</h3></center>
   <div class="col-sm-6 fixedheight">
       <table class="table table-bordered">
