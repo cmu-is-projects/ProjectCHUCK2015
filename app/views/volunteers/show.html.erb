@@ -13,7 +13,7 @@
 <% if @volunteer.role == "Coach" %> 
   <p>
   <strong>Team:</strong>
-  <% if @volunteer.team.nil? and logged_in? and current_user.role == "admin" %>
+  <% if @volunteer.team.nil?# and logged_in? and current_user.role == "admin" %>
   Not Assigned
   <% else %>
     <%= @volunteer.team.name %>
