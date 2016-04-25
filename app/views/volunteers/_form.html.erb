@@ -13,16 +13,7 @@
 
 <div class ="container well">
 
-<h2>Instructions:</h2><br>
-  <p>
-    Please fill in your personal information to register with the Project C.H.U.C.K. system. Note that fields with a * next to them are required to complete the registration process.<br>
-    Additionally, as your account will be stored with Project C.H.U.C.K., you will set a username and password so that you can log into the application at a later time, if you wish. As such, please pick a username and password that you can rememeber.<br><br>
-    Thank You!<br>
-    -The Project C.H.U.C.K. Team
-  </p>
-  <br>
-  <hr>
-  <br>
+  <%= render :partial => 'partials/instructions' %>
 
   <% if controller.action_name=="edit"%>
   <% if logged_in? and not(current_user.role? :volunteer) %>
@@ -204,12 +195,12 @@
   <div class="col-xs-6 col-sm-6">
     <div class="field">
       <%= f.label :years_with_proj_chuck, :label => "Please indicate number of years you have been with Project CHUCK. If none, please enter 0." %><br>
-      <%= f.input_field :years_with_proj_chuck, prompt: "Please Select...", collection: Volunteer::PROJECTCHUCK_YEARS %>
+      <%= f.input_field :years_with_proj_chuck, prompt: "Please Select...", collection: Volunteer::PROJECTCHUCK_YEARS.map {|y| y.to_s == "1" ? y.to_s + " year" : y.to_s + " years"} %>
     </div>
   </div>
   <div class="col-xs-6 col-sm-6">
     <div class="field">
-      <%= f.label "What position would you like to volunteer for?" %> <br>
+      <%= f.label "What position(s) would you like to volunteer for?" %> <br>
       <%= f.input_field :position, :class => "input-lg" %>
     </div>
   </div>

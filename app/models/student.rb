@@ -188,7 +188,7 @@ include Activeable
 
   def age
     thisyear = Time.now.year
-    now = Date.new(thisyear, 6, 1)
+    now = Date.today
     now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
   end
 
