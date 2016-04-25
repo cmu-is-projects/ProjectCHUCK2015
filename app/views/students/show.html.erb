@@ -42,7 +42,7 @@
       <div class="col-sm-12">
         <p>
           <strong>Household:</strong>
-          <%= (logged_in? and current_user.role == "admin") ? link_to(@student.last_name, @student.household) : @student.last_name %>
+          <%= (logged_in? and not(current_user.role? :volunteer)) ? link_to(@student.last_name, @student.household) : @student.last_name %>
         </p>
       </div>
     </div>

@@ -6,6 +6,7 @@ class VolunteersController < ApplicationController
   # GET /volunteers
   # GET /volunteers.json
   def index
+    redirect_to home_path if not(logged_in?) or not(current_user.role == "admin")
     @volunteers = Volunteer.all.paginate(:page => params[:page]).per_page(10)
   end
 
