@@ -216,13 +216,14 @@ class HomeController < ApplicationController
   end
 
   def download_data
-  	@users = User.all()
-    respond_to do |format|
-    	format.html
-    	format.csv { send_data  @users.to_csv }
-    	format.xls { send_data  @users.to_csv(col_sep: "\t") }
+    #load_and_authorize_resource figure out a way to stop everyone from viewing this
+	@users = User.all
+	respond_to do |format|
+		format.html
+		format.csv { send_data  @users.to_csv }
+		format.xls #{ send_data  @users.to_csv(col_sep: "\t") }
 	end
-  end
+end
 
 end
 
