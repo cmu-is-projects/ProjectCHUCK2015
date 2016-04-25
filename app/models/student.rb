@@ -20,6 +20,7 @@ include Activeable
   after_save :studentActive
   after_update :update_reg
   before_save :check_team
+  before_save :set_checkoff
 
   #uploaders for carrierwave
   mount_uploader :birth_certificate, AvatarUploader
@@ -108,6 +109,7 @@ include Activeable
   scope :no_insurance, -> { where(has_proof_of_insurance: false) }
   scope :jerseysize, -> (size) { where("jersey_size LIKE ?", size) }
   scope :has_missing_docs, -> { where("has_report_card = ? OR has_physical = ? OR has_proof_of_insurance = ?", false, false, false) }
+  scope :not_fully_checked_off, -> { where("rc_checkoff = ? OR poi_checkoff = ? OR bc_checkoff = ? OR phy_checkoff = ?", false, false, false, false) }
   scope :current, joins(:registrations).where('? <= registrations.created_at and registrations.created_at <= ? and registrations.active = ?', Date.new(Date.today.year,1,1), Date.new(Date.today.year,12,31), true)
   scope :search_query, lambda { |query|
   # Searches the students table on the 'first_name' and 'last_name' columns.
@@ -488,6 +490,21 @@ include Activeable
     true
   end
 
+  def set_checkoff
+    if self.poi_checkoff.nil?
+      self.poi_checkoff = false
+    end
+    if self.bc_checkoff.nil?
+      self.bc_checkoff = false
+    end
+    if self.rc_checkoff.nil?
+      self.rc_checkoff = false
+    end
+    if self.phy_checkoff.nil?
+      self.phy_checkoff = false
+    end
+    true
+  end
 
 
 

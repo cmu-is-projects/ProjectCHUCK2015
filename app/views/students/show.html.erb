@@ -42,7 +42,7 @@
       <div class="col-sm-12">
         <p>
           <strong>Household:</strong>
-          <%= link_to @student.last_name, @student.household %>
+          <%= (logged_in? and current_user.role == "admin") ? link_to(@student.last_name, @student.household) : @student.last_name %>
         </p>
       </div>
     </div>
@@ -185,7 +185,7 @@
       <div class="col-sm-12">
         <p>
           <strong>Parent Signature:</strong>
-          <%= link_to "Click here", @student.parent_signature.url, :target => '_blank' %>
+          <%= (logged_in? and current_user.role == "admin") ? link_to("Click here", @student.parent_signature.url, :target => '_blank') : "Signed" %>
         </p>
       </div>
     </div>

@@ -8,14 +8,14 @@ class Game < ActiveRecord::Base
   before_save :check_same_bracket, message: "The two teams you selected are not in the same bracket"
 
   #Relationship Validations
-  belongs_to :location
+  # belongs_to :location
   has_many :team_games
   has_many :teams, through: :team_games
 
   accepts_nested_attributes_for :team_games, reject_if: lambda { |team_game| team_game[:team_id].blank? }, allow_destroy: true
   
   #Validations
-  validate :location_is_active_in_system
+  # validate :location_is_active_in_system
   # validate :date_after_tourney_start 
 
   #Scopes
@@ -121,12 +121,12 @@ private
     # team2.save!
   end
 
-  def location_is_active_in_system
-    all_active_locations = Location.active.to_a.map{|u| u.id}
-    unless all_active_locations.include?(self.location_id)
-      errors.add(:location_id, "is not an active location in the system")
-    end
-  end
+  # def location_is_active_in_system
+  #   all_active_locations = Location.active.to_a.map{|u| u.id}
+  #   unless all_active_locations.include?(self.location_id)
+  #     errors.add(:location_id, "is not an active location in the system")
+  #   end
+  # end
   
 end
 

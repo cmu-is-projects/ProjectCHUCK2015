@@ -23,7 +23,7 @@
     <% @team.eligible_students.each do |stu| %>
       <tr>
         <td><%= stu.name %></td>
-        <td><%= link_to "Assign?", send_assign_student_path(@team,stu), html_options = { :class => "btn btn-secondary"} %></td>
+        <td><%= link_to "Assign?", send_assign_student_path(@team,stu) %></td>
       </tr>
     <% end %>
   </tbody>

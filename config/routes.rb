@@ -16,7 +16,7 @@ ProjectChuck2015::Application.routes.draw do
 
   resources :teams
 
-  resources :locations
+  # resources :locations
 
   resources :games
 

@@ -177,7 +177,7 @@ class HomeController < ApplicationController
 
   def notifications
     @filterrific = initialize_filterrific(
-      Student,
+      Student.not_fully_checked_off,
       params[:filterrific],
       select_options: {
         sorted_by: Student.options_for_sorted_by,

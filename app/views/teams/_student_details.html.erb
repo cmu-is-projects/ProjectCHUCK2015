@@ -1,6 +1,9 @@
 
   <center><h2>Team Roster</h2>
-<%= link_to 'Add Student', assign_student_path(@team) %></center>
+    <% if logged_in? and current_user.role == "admin" %>
+<%= link_to 'Add Student', assign_student_path(@team) %>
+<% end %>
+</center>
 <br>
 
   <table class="table">

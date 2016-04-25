@@ -117,23 +117,23 @@ namespace :db do
     fifteen.save!
 
     # Step 4: Create some locations
-    barclays = Location.new
-    barclays.name = "Barclays Center"
-    barclays.street = "1 Atlantic Avenue"
-    barclays.city = "New York"
-    barclays.state = "NY"
-    barclays.zip = "11217"
-    barclays.active = true
-    barclays.save!
+    # barclays = Location.new
+    # barclays.name = "Barclays Center"
+    # barclays.street = "1 Atlantic Avenue"
+    # barclays.city = "New York"
+    # barclays.state = "NY"
+    # barclays.zip = "11217"
+    # barclays.active = true
+    # barclays.save!
 
-    cea = Location.new
-    cea.name = "Chesapeake Energy Arena"
-    cea.street = "100 W Reno Ave"
-    cea.city = "Oklahoma City"
-    cea.state = "OK"
-    cea.zip = "73102"
-    cea.active = true
-    cea.save!
+    # cea = Location.new
+    # cea.name = "Chesapeake Energy Arena"
+    # cea.street = "100 W Reno Ave"
+    # cea.city = "Oklahoma City"
+    # cea.state = "OK"
+    # cea.zip = "73102"
+    # cea.active = true
+    # cea.save!
 
     # Step 5: Create some guardians
     # daddydurant = Guardian.new
