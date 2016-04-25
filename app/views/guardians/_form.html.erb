@@ -12,10 +12,11 @@
 <% end %>
 
 <div class="container well">
-  <%# if controller.action_name=="new" or (logged_in? and current_user.role? :admin) %>
+  <%= render :partial => 'partials/instructions' %>
+  <% if controller.action_name=="new" or (logged_in? and current_user.role? :admin) or controller.action_name=="create" %>
   <%= f.simple_fields_for :user do |user_form| %>
   <%= render :partial => "user_fields", :locals => { :f => user_form } %>
-  <%# end %>
+  <% end %>
   <br><hr><br>
   <% end %>
   <div class="row">
@@ -57,25 +58,24 @@
       </div>
     </div>
   </div>
-  <%# if controller.action_name=="new" or (logged_in? and current_user.role? :admin) %>
+  <% if controller.action_name=="new" or (logged_in? and current_user.role? :admin) or controller.action_name=="create" %>
   <br><hr><br>
   <%= f.simple_fields_for :household do |household_form| %>
   <% render :partial => "household_fields", :locals => { :f => household_form } %>
   <% end %>
-  <%# end %>
+  <% end %>
 </div>
 <div class = "row">
       <div class="col-sm-6">
-      <% if controller.action_name=="edit"%>
-      <%= f.submit "Update", :class => 'btn btn-primary' %>
+      <% if controller.action_name=="edit" or controller.action_name == "update" %>
+      <%= f.submit "Update", :class => 'btn btn-success' %>
       <% else %>
-      <%= f.submit "Create", :class => 'btn btn-primary' %>
+      <%= f.submit "Create", :class => 'btn btn-success' %>
       <% end %>
     </div>
     <div class="col-sm-6">
        <%# if controller.action_name=="edit" || controller.action_name=="new"%>
-       <!-- NOTE: what is the controller action on a failed submission? -->
-      <%= link_to 'Cancel', teams_path, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', home_path, :class => 'btn btn-danger' %>
       <%# end %>
     </div>
   </div>

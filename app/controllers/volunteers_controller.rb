@@ -6,12 +6,14 @@ class VolunteersController < ApplicationController
   # GET /volunteers
   # GET /volunteers.json
   def index
+    redirect_to home_path if not(logged_in?) or not(current_user.role == "admin")
     @volunteers = Volunteer.all.paginate(:page => params[:page]).per_page(10)
   end
 
   # GET /volunteers/1
   # GET /volunteers/1.json
   def show
+    @teams = Team.all.alphabetical
   end
 
   # GET /volunteers/new
@@ -100,6 +102,19 @@ class VolunteersController < ApplicationController
   		format.json {render json: @volunteers.map {|r| r.to_json}}
   	end
   end
+
+  def vol_assign_coach
+    @volunteer = Volunteer.find(params[:volunteer_id])
+    @volunteer.team_id = params[:team_id]
+    if @volunteer.save
+      redirect_to @volunteer, notice: 'Coach was assigned to team'
+      # format.json { render action: 'show', status: :created, location: @team }
+    else
+      redirect_to @volunteer, notice: 'Could not assign Coach to team'
+      # format.json { render json: @team.errors, status: :unprocessable_entity }
+    end
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

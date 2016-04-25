@@ -18,6 +18,9 @@ include Activeable
   after_create :create_reg
   before_validation :set_active, on: :create
   after_save :studentActive
+  after_update :update_reg
+  before_save :check_team
+  before_save :set_checkoff
 
   #uploaders for carrierwave
   mount_uploader :birth_certificate, AvatarUploader
@@ -73,6 +76,11 @@ include Activeable
 
 	# Scopes
   # -----------------------------
+  scope :by_school_district, -> { order('district asc') }
+  scope :for_age, -> (age) { where("? <= dob and dob <= ?", Date.new(Date.tomorrow.year-age-1,Date.tomorrow.month,Date.tomorrow.day), Date.new(Date.today.year-age,Date.today.month,Date.today.day)) }
+  scope :for_school_disctict, -> (sd) { where('district = ?', sd) }
+  scope :for_county, -> (county) { joins(:household).where('households.county = ?', county) }
+  scope :by_bracket, -> { joins(:roster_spots => {:team => :bracket}).order('brackets.id') }
   scope :for_guardian, -> (g_id) { joins(:household => :guardian).where("guardians.id = ?", g_id)}
   scope :for_volunteer, -> (v_id) { joins(:roster_spots => {:team => :volunteers}).where("volunteers.id = ?", v_id)}
   scope :alphabetical, -> { order('last_name, first_name') }
@@ -89,8 +97,8 @@ include Activeable
   scope :with_gender, lambda { |genders|
     where(gender: [*genders])
   }
-  scope :male, -> { where("gender = ?","Male") }
-  scope :female, -> { where("gender = ?", "Female") }
+  scope :male, -> { where("gender = ?","male") }
+  scope :female, -> { where("gender = ?", "female") }
   scope :has_allergies, -> { where('allergies IS NOT NULL')}
   scope :has_medications, -> { where('medications IS NOT NULL')}
   scope :has_rc, -> { where(has_report_card: true) }
@@ -101,6 +109,7 @@ include Activeable
   scope :no_insurance, -> { where(has_proof_of_insurance: false) }
   scope :jerseysize, -> (size) { where("jersey_size LIKE ?", size) }
   scope :has_missing_docs, -> { where("has_report_card = ? OR has_physical = ? OR has_proof_of_insurance = ?", false, false, false) }
+  scope :not_fully_checked_off, -> { where("rc_checkoff = ? OR poi_checkoff = ? OR bc_checkoff = ? OR phy_checkoff = ?", false, false, false, false) }
   scope :current, joins(:registrations).where('? <= registrations.created_at and registrations.created_at <= ? and registrations.active = ?', Date.new(Date.today.year,1,1), Date.new(Date.today.year,12,31), true)
   scope :search_query, lambda { |query|
   # Searches the students table on the 'first_name' and 'last_name' columns.
@@ -155,6 +164,13 @@ include Activeable
   when /^has_medications_/
     # Simple sort on the name colums
     where("students.medications != ?", '')
+  when /^by_bracket_/
+    joins(:roster_spots => {:team => :bracket}).order('brackets.id')
+  when /^assigned_/
+    #for if a student has a roster spot, inner join on roster spots will suffice
+    joins(:roster_spots)
+  when /^unassigned_/
+    joins("LEFT JOIN roster_spots on students.id = roster_spots.student_id where roster_spots.student_id IS NULL")
   else
       raise(ArgumentError, "Invalid sort option: #{ sort_option.inspect }")
   end
@@ -172,12 +188,12 @@ include Activeable
 
   def age
     thisyear = Time.now.year
-    now = Date.new(thisyear, 6, 1)
+    now = Date.today
     now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
   end
 
   def on_team?
-    not(self.teams.empty?)
+    not(self.roster_spots.active.empty?)
   end
 
   def find_bracket
@@ -197,8 +213,51 @@ include Activeable
       ['Gender - Female', 'female_asc'],
       ['Gender - Male', 'male_asc'],
       ['Has Allergies', 'has_allergies_asc'],
-      ['Has Medications', 'has_medications_asc']   
+      ['Has Medications', 'has_medications_asc'],
+      ['By Bracket (of assigned students)', 'by_bracket_asc'],
+      ['Assigned', 'assigned_asc'],
+      ['Unassigned', 'unassigned_asc']
     ]
+  end
+
+  def self.gender_stats
+    genders = ['male', 'female']
+    gender_stats = Hash.new
+    genders.each do |gender|
+      if gender == 'male'
+        gender_stats['male'] = Student.male
+      else
+        gender_stats['female'] = Student.female
+      end
+    end
+    return gender_stats
+  end
+
+  def self.age_stats
+    ages = Set.new(Student.all.by_age.map{|s| s.age}).to_a
+    age_stats = Hash.new
+    ages.each do |age|
+      age_stats[age] = Student.for_age(age)
+    end
+    age_stats
+  end
+
+  def self.county_stats
+    counties = Set.new(Student.all.map{|s| s.household.county}).to_a
+    county_stats = Hash.new
+    counties.each do |county|
+      county_stats[county] = Student.for_county(county)
+    end
+    county_stats
+  end
+
+  def self.school_district_stats
+    sds = Set.new(Student.all.by_school_district.map{|s| s.district}).to_a
+    sd_stats = Hash.new
+    sds.each do |sd|
+      sd_stats[sd] = Student.for_school_disctict(sd)
+    end
+    sd_stats
   end
 
   def self.genders
@@ -399,6 +458,54 @@ include Activeable
       end
     end
   end
+
+  def update_reg
+    self.registrations.each do |reg|
+      reg.active = false
+      reg.save!
+    end
+    reg = Registration.new
+    reg.student_id = self.id
+    reg.save!
+  end
+
+  def check_team
+    rss = self.roster_spots.active
+    if rss.length == 0
+      return true
+    elsif rss.length > 1
+      rss.each do |rs|
+        rs.active = false
+        rs.save!
+      end
+    end
+    bracket = rss[0].team.bracket
+    flag = bracket.gender == self.gender and bracket.min_age <= self.age and bracket.max_age >= self.age
+    if flag
+      return true
+    else
+      rss[0].active = false
+      rss[0].save!
+    end
+    true
+  end
+
+  def set_checkoff
+    if self.poi_checkoff.nil?
+      self.poi_checkoff = false
+    end
+    if self.bc_checkoff.nil?
+      self.bc_checkoff = false
+    end
+    if self.rc_checkoff.nil?
+      self.rc_checkoff = false
+    end
+    if self.phy_checkoff.nil?
+      self.phy_checkoff = false
+    end
+    true
+  end
+
 
 
   #function is causing tests to error - not sure why

@@ -10,7 +10,9 @@ class HomeController < ApplicationController
       @students = Student.active.alphabetical
       @current_registered_students = Student.alphabetical.active
       @school_districts = Student.by_district.size
-      @volunteers = Volunteer.alphabetical.by_role("Coach")
+      cs = Volunteer.alphabetical.by_role("Coach").to_a
+      assis_cs = Volunteer.alphabetical.by_role("Assistant Coach").to_a
+      @volunteers = cs + assis_cs
       #@students_missing_docs = Student.alphabetical.missing_forms(@current_registered_students).paginate(:page => params[:missing_docs_page], :per_page => 10)
       # @students_missing_docs = Student.alphabetical.current.without_forms.active.paginate(:page => params[:missing_docs_page], :per_page => 10)     
       @male_students = @current_registered_students.male.size
@@ -175,7 +177,7 @@ class HomeController < ApplicationController
 
   def notifications
     @filterrific = initialize_filterrific(
-      Student,
+      Student.not_fully_checked_off,
       params[:filterrific],
       select_options: {
         sorted_by: Student.options_for_sorted_by,
@@ -197,16 +199,20 @@ class HomeController < ApplicationController
   end
 
   def schedule
-    @past = Game.past.paginate(:page => params[:page]).per_page(5)
-    @current = Game.current.paginate(:page => params[:page]).per_page(5)
-    @upcoming = Game.upcoming.paginate(:page => params[:page]).per_page(5)
+    @past = Game.past.chronologicald.paginate(:page => params[:page]).per_page(10)
+    @current = Game.current.chronologicald.paginate(:page => params[:page]).per_page(10)
+    @upcoming = Game.upcoming.chronologicald.paginate(:page => params[:page]).per_page(10)
   end
 
   def standings
   end
 
   def analytics
-
+    @students = Student.all
+    @gender_stats = Student.gender_stats
+    @age_stats = Student.age_stats
+    @county_stats = Student.county_stats
+    @school_district_stats = Student.school_district_stats
   end
 end
 

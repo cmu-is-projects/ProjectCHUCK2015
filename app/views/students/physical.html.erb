@@ -3,7 +3,19 @@
     <h3><%= @student.proper_name %></h3>
     <iframe src="<%= @student.physical_url %>" width="100%" height="400px"></iframe>
     <div>
-        <%= link_to "Checkoff", physical_checkoff_student_path(@student) %>
-        <%= link_to "Deny", physical_deny_student_path(@student) %>
+      <div class = "row">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-3">
+          <%= link_to "Checkoff", physical_checkoff_student_path(@student), html_options = {:class => 'btn btn-success'} %>
+        </div>
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-3">
+          <%= link_to "Deny", physical_deny_student_path(@student), html_options = {:class => 'btn btn-danger'} %>
+        </div>
+        <div class="col-sm-2">
+        </div>
+      </div>
     </div>
 </center>

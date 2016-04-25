@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<div class="row">
+  <div class="col-sm-6">
 <p>
   <h2><strong><%= @volunteer.proper_name %></strong></h2>
 
@@ -11,7 +13,7 @@
 <% if @volunteer.role == "Coach" %> 
   <p>
   <strong>Team:</strong>
-  <% if @volunteer.team.nil? %> 
+  <% if @volunteer.team.nil?# and logged_in? and current_user.role == "admin" %>
   Not Assigned
   <% else %>
     <%= @volunteer.team.name %>
@@ -82,3 +84,28 @@
 	<strong>What suggestions would you have to improve this year’s camp if you volunteered last year?</strong>
 		<%= @volunteer.suggestions %><br>
 </p><br>
+</div>
+  <% if @volunteer.team.nil? and logged_in? and current_user.role == "admin" %>
+  <center><h3>Assign Coach To Team</h3></center>
+  <div class="col-sm-6 fixedheight">
+      <table class="table table-bordered">
+   <thead>
+    <tr>
+      <th>Team</th>
+      <th>Assign?</th>
+    </tr>
+  </thead>
+
+  <tbody>
+   <% @teams.each do |team| %>
+     <tr>
+      <td><%= team.name %></td>
+      <td><%= link_to "Assign", vol_assign_coach_path(team,@volunteer) %></td>
+    </tr>
+  <% end %>
+</tbody>
+</table>
+<% end %>
+  </div>
+
+</div>

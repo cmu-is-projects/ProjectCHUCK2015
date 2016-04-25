@@ -7,13 +7,14 @@
       <th>Age</th>
       <th>Grade</th>
       <!-- <th>Team</th> -->
-      <th>Student Cell phone</th>
+      <!-- <th>Student Cell phone</th> -->
       <th>Home phone</th>
       <th>Allergies</th>
       <th>Medications</th>
       <th>Cleared?</th>
+      
+      <% if logged_in? and current_user.role? "admin" %>
       <th>Active?</th>
-      <% if logged_in? and not(current_user.role? :volunteer) %>
         <th></th>
         <th></th>
       <% end %>
@@ -39,7 +40,7 @@
   <%# end %>
    
    <tr>
-    <% if student.gender == "Male"%>
+    <% if student.gender == "male"%>
     <td class="boy"><%= link_to student.proper_name, student %></td>
     <%else%>
     <td class="girl"><%= link_to student.proper_name, student %></td>
@@ -53,18 +54,19 @@
       <%end%>
     </td>
     <!-- <td><%#= student.team.name unless student.team.name.nil?%></td> -->
-    <td width="40"><%= number_to_phone student.cell_phone %></td>
+    <!-- <td width="40"><%# number_to_phone student.cell_phone %></td> -->
     <td><%= number_to_phone student.household.home_phone %></td>
     <td width="40"><%= student.allergies %></td>
     <td width="40"><%= student.medications %></td> 
         <td>
-         <% if (student.has_report_card) && (student.has_proof_of_insurance) && (student.has_physical) && (student.has_birth_certificate) %>
+         <% if (student.rc_checkoff) && (student.poi_checkoff) && (student.phy_checkoff) && (student.bc_checkoff) %>
          <%= link_to(image_tag('check16.png')) %> 
          <%else%>
          <%= link_to(image_tag('missing16.png')) %> 
          <%end%>
         </td>
-        <td>
+        <% if logged_in? and current_user.role == "admin" %>
+         <td>
         <% deact = "" %>
          <% if (student.active) %>
          <%= link_to(image_tag('check16.png')) %> 
@@ -74,7 +76,6 @@
           <% deact = "Activate" %>
          <%end%>
         </td>
-        <% if logged_in? and not(current_user.role? :volunteer) %>
     <td><%= link_to(image_tag('edit.png'), edit_student_path(student)) %></td>
     <td><%= link_to(deact, change_active_student_path(student), method: :put, data: { confirm: 'Are you sure you?' }) %></td>
     <td><%= link_to(image_tag('delete.png'), student, method: :delete, data: { confirm: 'Are you sure you want to DELETE the student?' }) %></td>

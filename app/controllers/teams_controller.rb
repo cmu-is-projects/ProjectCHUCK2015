@@ -1,12 +1,12 @@
 class TeamsController < ApplicationController
-  before_action :set_team, only: [:show, :edit, :update, :destroy, :assign_student]
+  before_action :set_team, only: [:show, :edit, :update, :destroy, :assign_student, :assign_coach]
   before_action :check_login
   authorize_resource
 
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.alphabetical.paginate(:page => params[:page]).per_page(10)
+    @teams = Team.by_bracket.paginate(:page => params[:page]).per_page(10)
   end
 
   # GET /teams/1
@@ -15,6 +15,7 @@ class TeamsController < ApplicationController
     @volunteers = @team.volunteers
     #@students = @team.roster_spots.map { |i| i.student_id }
     @students = @team.students
+    @tgames = @team.team_games.chronological
   end
 
   # GET /teams/new
@@ -86,6 +87,23 @@ class TeamsController < ApplicationController
       # format.json { render action: 'show', status: :created, location: @team }
     else
       redirect_to assign_student_path(@team), notice: 'Could not create roster spot'
+      # format.json { render json: @team.errors, status: :unprocessable_entity }
+    end
+  end
+
+  def assign_coach
+    @coaches = Volunteer.unassigned_coaches
+  end
+
+  def send_assign_coach
+    @team = Team.find(params[:team_id])
+    @volunteer = Volunteer.find(params[:volunteer_id])
+    @volunteer.team_id = params[:team_id]
+    if @volunteer.save
+      redirect_to @team, notice: 'Coach was assigned to team'
+      # format.json { render action: 'show', status: :created, location: @team }
+    else
+      redirect_to @team, notice: 'Could not assign Coach to team'
       # format.json { render json: @team.errors, status: :unprocessable_entity }
     end
   end

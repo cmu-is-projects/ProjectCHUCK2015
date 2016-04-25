@@ -6,7 +6,7 @@
     <div class="row">
 
       <div class="col-sm-12">
-        <% if @student.gender=="Male" %>
+        <% if @student.gender=="male" %>
         <%=link_to image_tag("maleuser64.png")%>
         <% else %>
         <%=link_to image_tag("femaleuser64.png")%>
@@ -30,7 +30,7 @@
         <p>
           <strong>Team:</strong>
           <% if @student.on_team? %>
-            <%= link_to @student.teams.first.name, @student.teams.first %>
+            <%= link_to @student.roster_spots.active[0].team.name, @student.roster_spots.active[0].team %>
           <% else %>
             <%= "Not Currently Assigned" %>
           <% end %>
@@ -42,7 +42,7 @@
       <div class="col-sm-12">
         <p>
           <strong>Household:</strong>
-          <%= link_to @student.last_name, @student.household %>
+          <%= (logged_in? and not(current_user.role? :volunteer)) ? link_to(@student.last_name, @student.household) : @student.last_name %>
         </p>
       </div>
     </div>
@@ -98,13 +98,16 @@
           <% if @student.rc_checkoff %>
           Checked off
               <% if logged_in? && current_user.role == "admin" %>
-                  <%= link_to "(Reset)", report_card_reset_student_path(@student) %>
+                  - <%= link_to "View", report_card_view_student_path(@student) %>
+                  - <%= link_to "(Reset)", report_card_reset_student_path(@student) %>
               <% end %>
           <% else %>
               <% if @student.has_report_card == false %>
               No Report Card Submitted
-              <% else %>
+              <% elsif logged_in? and current_user.role == "admin" %>
               <%= link_to "Checkoff", report_card_student_path(@student) %>
+              <% else %>
+              Pending Approval
               <% end %>
           <% end %>
         </p>
@@ -118,13 +121,15 @@
           <% if @student.bc_checkoff %>
           Checked off
               <% if logged_in? && current_user.role == "admin" %>
-                  <%= link_to "(Reset)", birth_certificate_reset_student_path(@student) %>
+                  - <%= link_to "(Reset)", birth_certificate_reset_student_path(@student) %>
               <% end %>
           <% else %>
               <% if @student.has_birth_certificate == false %>
               No Birth Certificate Submitted
-              <% else %>
+              <% elsif logged_in? and current_user.role == "admin" %>
               <%= link_to "Checkoff", birth_certificate_student_path(@student) %>
+              <% else %>
+              Pending Approval
               <% end %>
           <% end %>
         </p>
@@ -138,13 +143,15 @@
           <% if @student.poi_checkoff %>
           Checked off
               <% if logged_in? && current_user.role == "admin" %>
-                  <%= link_to "(Reset)", proof_of_insurance_reset_student_path(@student) %>
+                  - <%= link_to "(Reset)", proof_of_insurance_reset_student_path(@student) %>
               <% end %>
           <% else %>
               <% if @student.has_proof_of_insurance == false %>
               No Proof of Insurance Submitted
-              <% else %>
+              <% elsif logged_in? and current_user.role == "admin" %>
               <%= link_to "Checkoff", proof_of_insurance_student_path(@student) %>
+              <% else %>
+              Pending Approval
               <% end %>
           <% end %>
         </p>
@@ -158,13 +165,16 @@
           <% if @student.phy_checkoff %>
           Checked off
               <% if logged_in? && current_user.role == "admin" %>
-                  <%= link_to "(Reset)", physical_reset_student_path(@student) %>
+                  - <%= link_to "View", physical_view_student_path(@student) %>
+                  - <%= link_to "(Reset)", physical_reset_student_path(@student) %>
               <% end %>
           <% else %>
               <% if @student.has_physical == false %>
               No Physical Submitted
-              <% else %>
+              <% elsif logged_in? and current_user.role == "admin" %>
               <%= link_to "Checkoff", physical_student_path(@student) %>
+              <% else %>
+              Pending Approval
               <% end %>
           <% end %>
         </p>
@@ -175,7 +185,7 @@
       <div class="col-sm-12">
         <p>
           <strong>Parent Signature:</strong>
-          <%= link_to "Click here", @student.parent_signature.url, :target => '_blank' %>
+          <%= (logged_in? and current_user.role == "admin") ? link_to("Click here", @student.parent_signature.url, :target => '_blank') : "Signed" %>
         </p>
       </div>
     </div>
@@ -270,6 +280,29 @@
     </div>
 
       <div class="col-xs-6 col-sm-6">
+        <div class = "row">
+          <% if @student.roster_spots.active.to_a.length == 0 and logged_in? and current_user.role == "admin" %>
+            <center><h3>Assign Student To Team</h3></center>
+            <div class="fixedheight">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Team</th>
+                    <th>Assign?</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                <% @teams.each do |team| %>
+                  <tr>
+                    <td><%= team.name %></td>
+                    <td><%= link_to "Assign", stu_send_assign_student_path(team,@student) %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          <% end %>
+        </div>
         <div class="row">
           <div class="col-sm-12">
             <%= render :partial => 'docs' %>

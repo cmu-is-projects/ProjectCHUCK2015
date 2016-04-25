@@ -1,7 +1,116 @@
 <div class="container well">
   <center><h1>Analytics</h1></center>
   <br>
-  <b>Gender Statistics:</b>
-  <br>Female: y% (a out of b students)
-  <br>Male: x% (a out of b students)
+  <div class="row">
+    <div class="col-sm-6">
+      <b>Gender Statistics:</b>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Gender</th>
+            <th>Percentage</th>
+            <th>Count</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+
+        <tbody>
+        <% @gender_stats.each do |gender_a| %>
+          <% gender = gender_a[0] %>
+          <% gender_val = gender_a[1] %>
+
+          <tr>
+            <td><%= gender.capitalize %></td>
+            <td><%= (gender_val.size.to_f/@students.length.to_f*100.0).round(2) %></td>
+            <td><%= gender_val.size %></td>
+            <td><%= @students.length %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-6">
+      <b>Age Statistics:</b>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Age</th>
+            <th>Percentage</th>
+            <th>Count</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+
+        <tbody>
+        <% @age_stats.each do |age_a| %>
+          <% age = age_a[0] %>
+          <% age_val = age_a[1] %>
+
+          <tr>
+            <td><%= age %></td>
+            <td><%= (age_val.size.to_f/@students.length.to_f*100.0).round(2) %></td>
+            <td><%= age_val.size %></td>
+            <td><%= @students.length %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <b>Conuty Statistics:</b>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>County</th>
+            <th>Percentage</th>
+            <th>Count</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+
+        <tbody>
+        <% @county_stats.each do |county_a| %>
+          <% county = county_a[0] %>
+          <% county_val = county_a[1] %>
+
+          <tr>
+            <td><%= county.split(" ").map{|s| s.capitalize}.join(" ") %></td>
+            <td><%= (county_val.size.to_f/@students.length.to_f*100.0).round(2) %></td>
+            <td><%= county_val.size %></td>
+            <td><%= @students.length %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-6">
+      <b>School District Statistics:</b>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>School District</th>
+            <th>Percentage</th>
+            <th>Count</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+
+        <tbody>
+        <% @school_district_stats.each do |school_district_a| %>
+          <% school_district = school_district_a[0] %>
+          <% school_district_val = school_district_a[1] %>
+
+          <tr>
+            <td><%= school_district.split(" ").map{|s| s.capitalize}.join(" ") %></td>
+            <td><%= (school_district_val.size.to_f/@students.length.to_f*100.0).round(2) %></td>
+            <td><%= school_district_val.size %></td>
+            <td><%= @students.length %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

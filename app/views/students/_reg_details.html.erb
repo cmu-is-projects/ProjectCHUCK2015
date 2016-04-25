@@ -1,4 +1,4 @@
-<center><h2>Registrations</h2></center>
+<center><h2>Current Registration</h2></center>
 
 <br>
 
@@ -16,7 +16,7 @@
   </thead>
 
   <tbody>
-    <% @registrations.each do |registration| %>
+    <% @registrations.active.each do |registration| %>
       <tr>
         <td><%= link_to(image_tag('expand24.png'), registration) %></td>
         <!-- <td><%= registration.student.proper_name %></td> -->

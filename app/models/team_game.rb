@@ -10,6 +10,8 @@ class TeamGame < ActiveRecord::Base
   #Custom validations
   validate :valid_team_and_game_id
 
+  scope :chronological, -> { joins(:game).order('games.date') }
+
   #team_id exists in system
   #game_id exists in the system
   def valid_team_and_game_id

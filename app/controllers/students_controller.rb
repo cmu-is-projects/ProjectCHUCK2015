@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-  before_action :set_student, only: [:show, :edit, :update, :destroy, :birth_certificate, :birth_certificate_checkoff, :birth_certificate_deny, :birth_certificate_reset, :report_card, :report_card_checkoff, :report_card_deny, :report_card_reset, :proof_of_insurance, :proof_of_insurance_checkoff, :proof_of_insurance_deny, :proof_of_insurance_reset, :physical, :physical_checkoff, :physical_deny, :physical_reset]
+  before_action :set_student, only: [:show, :edit, :update, :destroy, :birth_certificate, :birth_certificate_checkoff, :birth_certificate_deny, :birth_certificate_reset, :report_card, :report_card_checkoff, :report_card_deny, :report_card_reset, :proof_of_insurance, :proof_of_insurance_checkoff, :proof_of_insurance_deny, :proof_of_insurance_reset, :physical, :physical_checkoff, :physical_deny, :physical_reset, :physical_view_student, :report_card_view_student]
   before_action :check_login, :except => [:show]
   authorize_resource
 
@@ -46,6 +46,7 @@ class StudentsController < ApplicationController
     @household = @student.household
     @guardians = @household.guardian
     @registrations = @student.registrations
+    @teams = @student.registrations.active[0].bracket.teams
     # @students = Student.all
   end
 
@@ -77,7 +78,7 @@ class StudentsController < ApplicationController
 
     respond_to do |format|
       if @student.save
-        format.html { redirect_to home_path, notice: 'Student was successfully created.' }
+        format.html { redirect_to survey_path, notice: 'Student was successfully created.' }
         format.json { render action: 'show', status: :created, location: @student }
       else
         format.html { render action: 'new' }
@@ -144,8 +145,8 @@ class StudentsController < ApplicationController
 
   def report_card_checkoff
     @student.rc_checkoff = true
-    @student.has_report_card = false
-    @student.remove_report_card!
+    @student.has_report_card = true
+    # @student.remove_report_card!
     @student.save!
     redirect_to notifications_path
   end
@@ -198,8 +199,8 @@ class StudentsController < ApplicationController
 
   def physical_checkoff
     @student.phy_checkoff = true
-    @student.has_physical = false
-    @student.remove_physical!
+    @student.has_physical = true
+    # @student.remove_physical!
     @student.save!
     redirect_to notifications_path
   end
@@ -244,6 +245,33 @@ class StudentsController < ApplicationController
     end
     redirect_to action: 'index'
   end 
+
+  def send_assign_student
+    @team = Team.find(params[:team_id])
+    @student = Student.find(params[:student_id])
+    jersey_nums = @team.taken_jersey_numbers
+    num = 1
+    while jersey_nums.include? num
+      num += 1
+    end
+    @rs = RosterSpot.new
+    @rs.team = @team
+    @rs.student = @student
+    @rs.jersey_number = num
+    if @rs.save
+      redirect_to @student, notice: 'Assigned!'
+      # format.json { render action: 'show', status: :created, location: @team }
+    else
+      redirect_to @student, notice: 'Could not assign'
+      # format.json { render json: @team.errors, status: :unprocessable_entity }
+    end
+  end
+
+  def physical_view_student
+  end
+
+  def report_card_view_student
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

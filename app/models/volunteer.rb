@@ -23,7 +23,8 @@ include Activeable
 
   validates :gender, inclusion: { in: GENDER_ARRAY, allow_blank: false }
   validates :age_range, inclusion: { in: AGE_RANGE_LIST, allow_blank: false }
-  validates_presence_of :first_name, :last_name, :role, :dob, :street, :city, :state, :zip, :day_phone, :years_with_proj_chuck, :cell_phone, :email, :shirt_size, :gender, :age_range#, :act33_clearance, :act34_clearance, :act153_clearance#, :volunteer_sign
+  validates_presence_of :first_name, :last_name, :role, :dob, :street, :city, :state, :zip, :day_phone, :years_with_proj_chuck, :cell_phone, :email, :shirt_size, :gender, :age_range#, :volunteer_sign#, :act33_clearance, :act34_clearance, :act153_clearance#
+  #REQUIRE VOLUNTEER_SIGN AS A DEPLOYMENT CHANGE
 
   validates_format_of :email, :with => /\A[\w]([^@\s,;]+)@(([a-z0-9.-]+\.)+(com|edu|org|net|gov|mil|biz|info))\z/i, :message => "is not a valid format", :allow_blank => true
   validates_format_of :cell_phone, with: /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/, message: "should be 10 digits (area code needed) and delimited with dashes only", :allow_blank => true
@@ -44,6 +45,7 @@ include Activeable
   scope :alphabetical, -> { order('last_name, first_name') }
   scope :by_role, ->(role) { where("role = ?", role) }
   scope :by_receives_text_msgs, -> { where(receives_text_msgs: true) }
+  scope :unassigned_coaches, -> { where('team_id IS NULL and (role = ? or role = ?)' , "Coach", "Assistant Coach") }
   
   def proper_name
     first_name + " " + last_name
