@@ -28,7 +28,7 @@
     </div>
   </div> -->
   <br>
-  <% if not(logged_in?) or (logged_in? and current_user.role == "volunteer") %>
+  <% if not(logged_in?) or (logged_in? and current_user.role == "volunteer") or (logged_in? and current_user.role == "admin" and (controller.action_name == "new" or controller.action_name == "create")) %>
   <div class="row">
     <div class="col-sm-6">
       <div class="field">
