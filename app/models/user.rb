@@ -34,5 +34,15 @@ include Activeable
     return false if role.nil?
     role.downcase.to_sym == authorized_role
   end
+
+  #for csv
+  def self.to_csv(options = {})
+	CSV.generate(options) do |csv|
+		csv << column_names
+		all.each do |user|
+			csv << user.attributes.values_at(*column_names)
+		end
+	end
+  end
   
 end

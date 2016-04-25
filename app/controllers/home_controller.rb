@@ -214,5 +214,15 @@ class HomeController < ApplicationController
     @county_stats = Student.county_stats
     @school_district_stats = Student.school_district_stats
   end
+
+  def download_data
+  	@users = User.all()
+    respond_to do |format|
+    	format.html
+    	format.csv { send_data  @users.to_csv }
+    	format.xls { send_data  @users.to_csv(col_sep: "\t") }
+	end
+  end
+
 end
 
