@@ -30,4 +30,24 @@
     <% end %>
     </Table>
   </Worksheet>
+  <Worksheet ss:Name="Volunteer">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Name</Data></Cell>
+        <Cell><Data ss:Type="String">Role</Data></Cell>
+        <Cell><Data ss:Type="String">Email</Data></Cell>
+        <Cell><Data ss:Type="String">Cell phone</Data></Cell>
+        <Cell><Data ss:Type="String">Receives text messages?</Data></Cell>
+      </Row>
+    <% @volunteers.each do |volunteer| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= volunteer.proper_name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= volunteer.role %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= volunteer.email %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= volunteer.cell_phone %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= if volunteer.receives_text_msgs? then "Yes" else "No" end %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
 </Workbook>

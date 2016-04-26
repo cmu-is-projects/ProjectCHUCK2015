@@ -27,3 +27,29 @@
       <% end %>
     </tbody>
 </table>
+<br>
+<center><h3>Volunteers</h3></center>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Email</th>
+            <th>Cell phone</th>
+            <th>Receives text messages?</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @volunteers.each do |volunteer| %>
+            <tr>
+                <td><%= volunteer.proper_name %></td>
+                <td><%= volunteer.role %></td>
+                <td><%= volunteer.email %></td>
+                <td><%= volunteer.cell_phone %></td>
+                <td><%= if volunteer.receives_text_msgs? then "Yes" else "No" end %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
