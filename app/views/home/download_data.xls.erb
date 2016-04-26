@@ -4,33 +4,23 @@
   xmlns:x="urn:schemas-microsoft-com:office:excel"
   xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
   xmlns:html="http://www.w3.org/TR/REC-html40">
-  <Worksheet ss:Name="Sheet1">
+  <Worksheet ss:Name="Student">
     <Table>
       <Row>
-        <Cell><Data ss:Type="String">ID</Data></Cell>
-        <Cell><Data ss:Type="String">First Name</Data></Cell>
-        <Cell><Data ss:Type="String">Last Name</Data></Cell>
-        <Cell><Data ss:Type="String">G Email</Data></Cell>
-        <Cell><Data ss:Type="String">G ID</Data></Cell>
-        <Cell><Data ss:Type="String">G FN</Data></Cell>
-        <Cell><Data ss:Type="String">G LN</Data></Cell>
-        <Cell><Data ss:Type="String">H ID</Data></Cell>
-        <Cell><Data ss:Type="String">H Street</Data></Cell>
-        <Cell><Data ss:Type="String">H City</Data></Cell>
-        <Cell><Data ss:Type="String">H State</Data></Cell>
-        <Cell><Data ss:Type="String">H Zip</Data></Cell>
-        <Cell><Data ss:Type="String">H County</Data></Cell>
+        <Cell><Data ss:Type="String">Student Name</Data></Cell>
+        <Cell><Data ss:Type="String">Guardian Name</Data></Cell>
+        <Cell><Data ss:Type="String">Guardian Email</Data></Cell>
+        <Cell><Data ss:Type="String">Street</Data></Cell>
+        <Cell><Data ss:Type="String">City</Data></Cell>
+        <Cell><Data ss:Type="String">State</Data></Cell>
+        <Cell><Data ss:Type="String">Zip</Data></Cell>
+        <Cell><Data ss:Type="String">County</Data></Cell>
       </Row>
     <% @students.each do |student| %>
       <Row>
-        <Cell><Data ss:Type="Number"><%= student['id'] %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= student['first_name'] %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= student['last_name'] %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= student['first_name'] + " " + student['last_name'] %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= student['g_first_name'] + " " + student['g_last_name'] %></Data></Cell>
         <Cell><Data ss:Type="String"><%= student['g_email'] %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= student['g_id'] %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= student['g_first_name'] %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= student['g_last_name'] %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= student['h_id'] %></Data></Cell>
         <Cell><Data ss:Type="String"><%= student['h_street'] %></Data></Cell>
         <Cell><Data ss:Type="String"><%= student['h_city'] %></Data></Cell>
         <Cell><Data ss:Type="String"><%= student['h_state'] %></Data></Cell>
