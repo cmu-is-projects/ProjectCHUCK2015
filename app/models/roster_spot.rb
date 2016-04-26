@@ -14,6 +14,7 @@ include Activeable
   validate :student_is_active_in_system
 
   #Scopes
+  scope :by_bracket_team_jersey, -> { joins(:team => :bracket).order('brackets.id, teams.id, roster_spots.jersey_number') }
   scope :by_position, -> { order('position') }
   #NOTE: end_date is not there in the database schema
   # scope :active, -> { where('end_date IS NULL') }
