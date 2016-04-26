@@ -1,0 +1,55 @@
+<center><h3>Students</h3></center>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Student Name</th>
+            <th>Guardian Name</th>
+            <th>Guardian Email</th>
+            <th>Street</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip</th>
+            <th>County</th>
+        </tr>
+    </thead>
+    <tbody>
+      <% @students.each do |student| %>
+          <tr>
+            <td><%= student['first_name'] + " " + student['last_name'] %></td>
+            <td><%= student['g_first_name'] + " " + student['g_last_name'] %></td>
+            <td><%= student['g_email'] %></td>
+            <td><%= student['h_street'] %></td>
+            <td><%= student['h_city'] %></td>
+            <td><%= student['h_state'] %></td>
+            <td><%= student['h_zip'] %></td>
+            <td><%= student['h_county'] %></td>
+          </tr>
+      <% end %>
+    </tbody>
+</table>
+<br>
+<center><h3>Volunteers</h3></center>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Email</th>
+            <th>Cell phone</th>
+            <th>Receives text messages?</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @volunteers.each do |volunteer| %>
+            <tr>
+                <td><%= volunteer.proper_name %></td>
+                <td><%= volunteer.role %></td>
+                <td><%= volunteer.email %></td>
+                <td><%= volunteer.cell_phone %></td>
+                <td><%= if volunteer.receives_text_msgs? then "Yes" else "No" end %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>

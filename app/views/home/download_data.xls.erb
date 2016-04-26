@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Student">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Student Name</Data></Cell>
+        <Cell><Data ss:Type="String">Guardian Name</Data></Cell>
+        <Cell><Data ss:Type="String">Guardian Email</Data></Cell>
+        <Cell><Data ss:Type="String">Street</Data></Cell>
+        <Cell><Data ss:Type="String">City</Data></Cell>
+        <Cell><Data ss:Type="String">State</Data></Cell>
+        <Cell><Data ss:Type="String">Zip</Data></Cell>
+        <Cell><Data ss:Type="String">County</Data></Cell>
+      </Row>
+    <% @students.each do |student| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= student['first_name'] + " " + student['last_name'] %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= student['g_first_name'] + " " + student['g_last_name'] %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= student['g_email'] %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= student['h_street'] %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= student['h_city'] %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= student['h_state'] %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= student['h_zip'] %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= student['h_county'] %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+  <Worksheet ss:Name="Volunteer">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Name</Data></Cell>
+        <Cell><Data ss:Type="String">Role</Data></Cell>
+        <Cell><Data ss:Type="String">Email</Data></Cell>
+        <Cell><Data ss:Type="String">Cell phone</Data></Cell>
+        <Cell><Data ss:Type="String">Receives text messages?</Data></Cell>
+      </Row>
+    <% @volunteers.each do |volunteer| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= volunteer.proper_name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= volunteer.role %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= volunteer.email %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= volunteer.cell_phone %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= if volunteer.receives_text_msgs? then "Yes" else "No" end %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+  <Worksheet ss:Name="Roster Spots">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Bracket</Data></Cell>
+        <Cell><Data ss:Type="String">Team</Data></Cell>
+        <Cell><Data ss:Type="String">Student</Data></Cell>
+        <Cell><Data ss:Type="String">Jersey Number</Data></Cell>
+      </Row>
+    <% @roster_spots.each do |roster_spot| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= roster_spot.team.bracket.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= roster_spot.team.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= roster_spot.student.proper_name %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= roster_spot.jersey_number %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
