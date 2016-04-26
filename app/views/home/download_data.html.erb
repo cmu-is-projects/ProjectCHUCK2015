@@ -1,14 +1,38 @@
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Username</th>
-    <th>Role</th>
-  </row>
-<% @users.each do |user| %>
-  <tr>
-    <td><%= user.id %></td>
-    <td><%= user.username %></td>
-    <td><%= user.role %></td>
-  </tr>
-<% end %>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>G Email</th>
+            <th>G ID</th>
+            <th>G FN</th>
+            <th>G LN</th>
+            <th>H ID</th>
+            <th>H Street</th>
+            <th>H City</th>
+            <th>H State</th>
+            <th>H Zip</th>
+            <th>H County</th>
+        </tr>
+    </thead>
+    <tbody>
+      <% @students.each do |student| %>
+          <tr>
+            <td><%= student['id'] %></td>
+            <td><%= student['first_name'] %></td>
+            <td><%= student['last_name'] %></td>
+            <td><%= student['g_email'] %></td>
+            <td><%= student['g_id'] %></td>
+            <td><%= student['g_first_name'] %></td>
+            <td><%= student['g_last_name'] %></td>
+            <td><%= student['h_id'] %></td>
+            <td><%= student['h_street'] %></td>
+            <td><%= student['h_city'] %></td>
+            <td><%= student['h_state'] %></td>
+            <td><%= student['h_zip'] %></td>
+            <td><%= student['h_county'] %></td>
+          </tr>
+      <% end %>
+    </tbody>
 </table>

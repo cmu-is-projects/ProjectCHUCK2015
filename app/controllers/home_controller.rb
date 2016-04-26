@@ -217,11 +217,16 @@ class HomeController < ApplicationController
 
   def download_data
     #load_and_authorize_resource figure out a way to stop everyone from viewing this
-	@users = User.all
+    sql = '''SELECT s.id, s.first_name, s.last_name, g.email AS "g_email", g.id AS "g_id", g.first_name AS "g_first_name", g.last_name AS "g_last_name", h.id AS "h_id", h.street AS "h_street", h.city AS "h_city", h.state AS "h_state", h.zip AS "h_zip", h.county AS "h_county"
+                FROM students AS s 
+                INNER JOIN households AS h ON h.id = s.household_id
+                INNER JOIN guardians AS g ON g.id = h.guardian_id;
+          '''
+    @students = ActiveRecord::Base.connection.execute(sql)
 	respond_to do |format|
 		format.html
-		format.csv { send_data  @users.to_csv }
-		format.xls #{ send_data  @users.to_csv(col_sep: "\t") }
+		format.csv { send_data  @students.to_csv }
+		format.xls #{ send_data  @students.to_csv(col_sep: "\t") }
 	end
 end
 
