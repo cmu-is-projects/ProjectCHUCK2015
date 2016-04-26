@@ -50,4 +50,20 @@
     <% end %>
     </Table>
   </Worksheet>
+  <Worksheet ss:Name="Roster Spots">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Team</Data></Cell>
+        <Cell><Data ss:Type="String">Student</Data></Cell>
+        <Cell><Data ss:Type="String">Jersey Number</Data></Cell>
+      </Row>
+    <% @roster_spots.each do |roster_spot| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= roster_spot.team.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= roster_spot.student.proper_name %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= roster_spot.jersey_number %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
 </Workbook>

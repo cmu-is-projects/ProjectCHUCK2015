@@ -239,6 +239,7 @@ class HomeController < ApplicationController
           '''
     @students = ActiveRecord::Base.connection.execute(sql)
     @volunteers = Volunteer.all
+    @roster_spots = RosterSpot.all
 	respond_to do |format|
 		format.html
 		#format.csv { send_data  @students.to_csv }
