@@ -119,6 +119,7 @@ GEM
     lazy_high_charts (1.5.4)
       bundler (>= 1.0)
       hash-deep-merge
+    libv8 (3.16.14.7)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     meta_request (0.3.4)
@@ -162,6 +163,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     rdoc (4.2.0)
+    ref (1.0.5)
     rmagick (2.13.2)
     ruby-hmac (0.4.0)
     ruby2ruby (2.3.0)
@@ -208,6 +210,9 @@ GEM
       sprockets (>= 2.8, < 4.0)
     temple (0.7.6)
     terminal-table (1.5.2)
+    therubyracer (0.12.2)
+      libv8 (~> 3.16.14.0)
+      ref
     thin (1.6.3)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0)
@@ -272,6 +277,7 @@ DEPENDENCIES
   shoulda-matchers
   simple_form (= 3.0.1)
   simplecov
+  therubyracer
   thin
   turn
   twitter-bootstrap-rails
@@ -279,6 +285,3 @@ DEPENDENCIES
   validates_timeliness
   will_paginate
   wirble
-
-BUNDLED WITH
-   1.11.2
