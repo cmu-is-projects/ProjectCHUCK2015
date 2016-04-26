@@ -40,7 +40,7 @@
     </div> -->
 
     <div class="col-md-6">
-      <% if (current_user.volunteer.role == "Coach" or current_user.volunteer.role == "Assistant Coach") and not(current_user.volunteer.team.nil?) %>
+      <% if logged_in? and (current_user.volunteer.role == "Coach" or current_user.volunteer.role == "Assistant Coach") and not(current_user.volunteer.team.nil?) %>
         <% br = current_user.volunteer.team.bracket %>
       <% else %>
         <% br = Bracket.all.to_a.sample %>
