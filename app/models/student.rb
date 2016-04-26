@@ -171,6 +171,8 @@ include Activeable
     joins(:roster_spots)
   when /^unassigned_/
     joins("LEFT JOIN roster_spots on students.id = roster_spots.student_id where roster_spots.student_id IS NULL")
+  when /^age_/
+    order('dob')
   else
       raise(ArgumentError, "Invalid sort option: #{ sort_option.inspect }")
   end
@@ -209,12 +211,13 @@ include Activeable
   def self.options_for_sorted_by
     [
       ['Name (A-Z)', 'name_asc'],
+      ['Age', 'age_asc'],
       ['Grades', 'grade_asc'],
       ['Gender - Female', 'female_asc'],
       ['Gender - Male', 'male_asc'],
       ['Has Allergies', 'has_allergies_asc'],
       ['Has Medications', 'has_medications_asc'],
-      ['By Bracket (of assigned students)', 'by_bracket_asc'],
+      ['By Bracket (only students on teams)', 'by_bracket_asc'],
       ['Assigned', 'assigned_asc'],
       ['Unassigned', 'unassigned_asc']
     ]
