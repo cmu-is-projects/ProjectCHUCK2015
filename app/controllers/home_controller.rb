@@ -208,6 +208,13 @@ class HomeController < ApplicationController
   end
 
   def analytics
+    if logged_in? && not(current_user.role?(:admin))
+      flash[:error] = "You must be logged in as an administrator to view this page."
+      redirect_to home_path
+    elsif !logged_in?
+      flash[:error] = "You must login to access this page."
+      redirect_to home_path
+    end
     @students = Student.all
     @gender_stats = Student.gender_stats
     @age_stats = Student.age_stats
@@ -216,7 +223,15 @@ class HomeController < ApplicationController
   end
 
   def download_data
-    #load_and_authorize_resource figure out a way to stop everyone from viewing this
+    if logged_in? && not(current_user.role?(:admin))
+      flash[:error] = "You must be logged in as an administrator to view this page."
+      redirect_to home_path
+      return
+    elsif !logged_in?
+      flash[:error] = "You must login to access this page."
+      redirect_to home_path
+      return
+    end
     sql = '''SELECT s.id, s.first_name, s.last_name, g.email AS "g_email", g.id AS "g_id", g.first_name AS "g_first_name", g.last_name AS "g_last_name", h.id AS "h_id", h.street AS "h_street", h.city AS "h_city", h.state AS "h_state", h.zip AS "h_zip", h.county AS "h_county"
                 FROM students AS s 
                 INNER JOIN households AS h ON h.id = s.household_id
