@@ -46,7 +46,11 @@ class VolunteersController < ApplicationController
     end
 
     respond_to do |format|
-      if (@volunteer.user.save && @volunteer.save)
+      volunteer_bool = @volunteer.valid?
+      user_bool = @volunteer.user.valid?
+      if (volunteer_bool && user_bool)
+        @volunteer.user.save
+        @volunteer.save
         if current_user.nil?
           current_user = @volunteer.user
           session[:user_id] = @volunteer.user.id
