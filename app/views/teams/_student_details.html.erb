@@ -1,6 +1,6 @@
 
   <center><h2>Team Roster</h2>
-    <% if logged_in? and current_user.role == "admin" %>
+    <% if logged_in? and current_user.role == "admin" and not(@team.full?) %>
 <%= link_to 'Add Student', assign_student_path(@team) %>
 <% end %>
 </center>

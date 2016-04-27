@@ -4,8 +4,8 @@ class RosterSpot < ActiveRecord::Base
 include Activeable
 
   #Callback
-  before_validation :checkActive, on: :create
   before_create :deactivate_old_roster_spots
+  before_create :checkActive
 
   #Relationship Validations
   belongs_to :student
@@ -37,14 +37,13 @@ include Activeable
   def deactivate_old_roster_spots
     rss = self.student.roster_spots
     rss.each do |rs|
-      if rs = self
-        next
-      end
+      # if rs = self
+      #   next
+      # end
       rs.active = false
       rs.save!
     end
-    self.active = true
-    self.save!
+    true
   end
 
   def checkActive

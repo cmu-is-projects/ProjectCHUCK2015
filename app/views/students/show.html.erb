@@ -283,6 +283,9 @@
         <div class = "row">
           <% if @student.roster_spots.active.to_a.length == 0 and logged_in? and current_user.role == "admin" %>
             <center><h3>Assign Student To Team</h3></center>
+          <% else %>
+            <center><h3>Assign Student To New Team</h3></center>
+          <% end %>
             <div class="fixedheight">
               <table class="table table-bordered">
                 <thead>
@@ -301,7 +304,6 @@
                 <% end %>
               </tbody>
             </table>
-          <% end %>
         </div>
         <div class="row">
           <div class="col-sm-12">

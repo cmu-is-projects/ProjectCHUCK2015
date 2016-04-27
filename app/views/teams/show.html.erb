@@ -15,7 +15,7 @@
 
       <h4>
         <!-- <strong>Spots Filled:</strong> -->
-        <%= @team.roster_spots.count.to_s + " out of " + @team.max_students.to_s %> spots filled
+        <%= @team.active_rs.length.to_s + " out of " + @team.max_students.to_s %> spots filled
       </h4>
 
     </div>
