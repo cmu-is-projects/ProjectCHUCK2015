@@ -1,5 +1,5 @@
 <%= simple_form_for(@guardian) do |f| %>
-<% if @guardian.errors.any? or @guardian.user.errors.any? or @guaridan.household.errors.any?%>
+<% if @guardian.errors.any? or @guardian.user.errors.any? or @guardian.household.errors.any?%>
 <div id="error_explanation">
   <h2><%= pluralize(@guardian.errors.count + @guardian.user.errors.count + @guardian.household.errors.count, "error") %> prohibited this guardian from being saved:</h2>
 

@@ -1,10 +1,13 @@
 <%= simple_nested_form_for(@volunteer) do |f| %>
-<% if @volunteer.errors.any? %>
+<% if @volunteer.errors.any? or @volunteer.user.errors.any? %>
 <div id="error_explanation">
-  <h2><%= pluralize(@volunteer.errors.count, "error") %> prohibited this volunteer from being saved:</h2>
+  <h2><%= pluralize(@volunteer.errors.count + @volunteer.user.errors.count, "error") %> prohibited this volunteer from being saved:</h2>
 
   <ul>
     <% @volunteer.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+    <% @volunteer.user.errors.full_messages.each do |msg| %>
     <li><%= msg %></li>
     <% end %>
   </ul>
