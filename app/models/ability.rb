@@ -41,6 +41,9 @@ class Ability
         my_students.include? this_student.id
       end
       can :survey, Household
+      can :update, User do |this_user|
+        this_user.id == user.id
+      end
     elsif user.role? :volunteer
       if user.volunteer.role == "Coach" or user.volunteer.role == "Assistant Coach"
         can :read, Student do |this_student|
@@ -60,6 +63,9 @@ class Ability
       can :survey, Household
       can :read, Team do |this_team|
         this_team.id == user.volunteer.team_id
+      end
+      can :update, User do |this_user|
+        this_user.id == user.id
       end
     else
       can :create, Household
