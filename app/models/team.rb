@@ -18,9 +18,13 @@ class Team < ActiveRecord::Base
   validate :valid_bracket_id
   validate :has_available_spots?
 
+  def full?
+    self.roster_spots.active.length >= 10
+  end
+
   def taken_jersey_numbers
     nums = []
-    self.roster_spots.each do |rs|
+    self.roster_spots.active.each do |rs|
       nums.push rs.jersey_number
     end
     nums
@@ -90,6 +94,20 @@ class Team < ActiveRecord::Base
     if (self.roster_spots.length > self.max_students)
       errors.add(:team, "has no spots left.")
     end
+  end
+
+  def self.not_full
+    ret = []
+    Team.all.each do |team|
+      if team.roster_spots.active.length < team.max_students
+        ret.push(team)
+      end
+    end
+    ret
+  end
+
+  def active_rs
+    self.roster_spots.active
   end
 
   #NOTE: one more function to be added later

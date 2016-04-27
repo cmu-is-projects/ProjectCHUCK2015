@@ -494,18 +494,18 @@ namespace :db do
         end
 
         #create 1 or 2 guardians for each household
-        num_gs = [1,2].sample
-        num_gs.times do |k|
-            g = Guardian.new
-            # g.household_id = h.id
-            g.first_name = Faker::Name.first_name
-            g.last_name = Faker::Name.last_name
-            g.email = "#{g.first_name}.#{g.last_name}@example.com".downcase
-            g.cell_phone = rand(10 ** 10).to_s.rjust(10,'0')
-            g.receives_text_msgs = true
-            g.active = true
-            g.save!
-        end
+        # num_gs = [1,2].sample
+        # num_gs.times do |k|
+        #     g = Guardian.new
+        #     # g.household_id = h.id
+        #     g.first_name = Faker::Name.first_name
+        #     g.last_name = Faker::Name.last_name
+        #     g.email = "#{g.first_name}.#{g.last_name}@example.com".downcase
+        #     g.cell_phone = rand(10 ** 10).to_s.rjust(10,'0')
+        #     g.receives_text_msgs = true
+        #     g.active = true
+        #     g.save!
+        # end
                 
 
 

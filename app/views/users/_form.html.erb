@@ -19,12 +19,12 @@
         <%= f.input_field :username, :class => "input-lg" %>
       </div>
     </div>
-    <div class="col-sm-6">
+    <!-- <div class="col-sm-6">
       <div class="field">
-        <%= f.label :role %><br>
-        <%= f.input_field :role, :class => "input-lg" %>
+        <%# f.label :role %><br>
+        <%# f.input_field :role, collection: User::ROLES, prompt: "Please Select...", :class => "input-lg" %>
       </div>
-    </div>
+    </div> -->
   </div>
   <br>
   <div class="row">
@@ -88,9 +88,15 @@
 </div>
 <div class = "row">
   <div class="actions">
-    <div class="col-sm-6">
-      <%= f.submit "Create", :class => 'btn btn-primary' %>
-    </div>
+    <% if controller.action_name == "new" or controller.action_name == "create" %>
+      <div class="col-sm-6">
+        <%= f.submit "Create", :class => 'btn btn-primary' %>
+      </div>
+    <% else %>
+      <div class="col-sm-6">
+        <%= f.submit "Update", :class => 'btn btn-primary' %>
+      </div>
+    <% end %>
     <div class="col-sm-6">
       <%= link_to 'Back', users_path, :class => 'btn btn-primary' %>
     </div>

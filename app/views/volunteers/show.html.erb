@@ -5,7 +5,8 @@
 <p>
   <h2><strong><%= @volunteer.proper_name %></strong></h2>
 
-  <%= link_to(image_tag('edit.png'), edit_volunteer_path(@volunteer)) %> Edit | 
+  <%= link_to(image_tag('edit.png'), edit_volunteer_path(@volunteer)) %> Edit Volunteer Info |
+  <%= link_to(image_tag('edit.png'), edit_user_path(@volunteer.user)) %> Edit User Info | 
   <%= link_to(image_tag('back16.png'), volunteers_path) %> Back <br><br>
 
   <strong>Role:</strong> <%= @volunteer.role %> <br>
