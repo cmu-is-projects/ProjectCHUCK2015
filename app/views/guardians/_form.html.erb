@@ -1,10 +1,16 @@
 <%= simple_form_for(@guardian) do |f| %>
-<% if @guardian.errors.any? %>
+<% if @guardian.errors.any? or @guardian.user.errors.any? or @guaridan.household.errors.any?%>
 <div id="error_explanation">
-  <h2><%= pluralize(@guardian.errors.count, "error") %> prohibited this guardian from being saved:</h2>
+  <h2><%= pluralize(@guardian.errors.count + @guardian.user.errors.count + @guardian.household.errors.count, "error") %> prohibited this guardian from being saved:</h2>
 
   <ul>
     <% @guardian.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+    <% @guardian.user.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+    <% @guardian.household.errors.full_messages.each do |msg| %>
     <li><%= msg %></li>
     <% end %>
   </ul>

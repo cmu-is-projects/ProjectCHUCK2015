@@ -32,12 +32,19 @@ class GuardiansController < ApplicationController
     @guardian = Guardian.new(guardian_params)
     @guardian.active = true
     @guardian.user = User.new(guardian_params[:user_attributes])
+    @guardian.household = Household.new(guardian_params[:household_attributes])
     @guardian.user.role = "guardian"
     @guardian.user.active = true
     @guardian.user.email = @guardian.email
 
     respond_to do |format|
-      if (@guardian.user.save && @guardian.save && @guardian.household.save)
+      guardian_bool = @guardian.valid?
+      user_bool = @guardian.user.valid?
+      household_bool = @guardian.household.valid?
+      if (guardian_bool && user_bool && household_bool)
+        @guardian.user.save
+        @guardian.save
+        @guardian.household.save
         if current_user.nil?
           current_user = @guardian.user
           session[:user_id] = @guardian.user.id
