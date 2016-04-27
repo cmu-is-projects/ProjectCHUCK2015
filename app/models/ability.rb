@@ -64,6 +64,9 @@ class Ability
       can :read, Team do |this_team|
         this_team.id == user.volunteer.team_id
       end
+      can :update, User do |this_user|
+        this_user.id == user.id
+      end
     else
       can :create, Household
       # can :read, Household
