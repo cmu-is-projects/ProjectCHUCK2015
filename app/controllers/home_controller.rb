@@ -223,7 +223,7 @@ class HomeController < ApplicationController
     @school_district_stats = Student.school_district_stats
   end
 
-  def main
+  def control_panel
   end
 
   def download_data
