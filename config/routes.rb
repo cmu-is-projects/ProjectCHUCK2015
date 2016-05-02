@@ -66,6 +66,7 @@ ProjectChuck2015::Application.routes.draw do
   get 'home/standings' => 'home#standings', as: :standings
   get 'home/analytics' => 'home#analytics', as: :analytics
   get 'home/download_data' => 'home#download_data', as: :download_data
+  get 'home/main' => 'home#main', as: :main
 
   get 'registerstudent', to: 'students#new', :as => :registerstudent
   get 'registervolunteer', to: 'volunteers#new', :as => :registervolunteer

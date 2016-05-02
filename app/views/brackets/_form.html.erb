@@ -33,19 +33,19 @@
         <%= f.label :max_students %><br>
         <%= f.input_field :max_students, :class => "input-lg" %>
       </div><br>
-      <div class="field">
+<!--       <div class="field">
         <%= f.label :active, :label => "Active:" %> <br>
         <%= f.input_field :active, collection: [['Yes', true],['No',false]], as: :radio_buttons, :class => "input-lg" %><br>
-      </div>
+      </div> -->
     </div>
-   <div class="studentchoice col-sm-6">
+<!--    <div class="studentchoice col-sm-6">
     <h2>Add teams</h2>
     <div class="fixedheight">
       <% if controller.action_name=="edit" || controller.action_name=="new"%>
-      <%= f.input :student_ids, label: "", collection: Team.alphabetical, as: :check_boxes %>
+      <%# f.input :student_ids, label: "", collection: Team.alphabetical, as: :check_boxes %>
       <% end %>
     </div>
-  </div>
+  </div> -->
 
     <!-- <div class="col-sm-4">
       <h2>Add coaches</h2>

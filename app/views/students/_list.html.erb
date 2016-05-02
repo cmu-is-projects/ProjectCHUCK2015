@@ -13,7 +13,7 @@
       <th>Medications</th>
       <th>Cleared?</th>
       
-      <% if logged_in? and current_user.role? "admin" %>
+      <% if logged_in? and current_user.role == "admin" %>
       <th>Active?</th>
         <th></th>
         <th></th>
