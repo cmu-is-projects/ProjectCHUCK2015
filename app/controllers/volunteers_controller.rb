@@ -119,6 +119,18 @@ class VolunteersController < ApplicationController
     end
   end
 
+  def send_remove_volunteer
+    @volunteer = Volunteer.find(params[:volunteer_id])
+    @volunteer.team_id = nil
+    if @volunteer.save
+      redirect_to @volunteer, notice: 'Coach was assigned to team'
+      # format.json { render action: 'show', status: :created, location: @team }
+    else
+      redirect_to @volunteer, notice: 'Could not assign Coach to team'
+      # format.json { render json: @team.errors, status: :unprocessable_entity }
+    end
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

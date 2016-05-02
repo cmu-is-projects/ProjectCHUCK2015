@@ -86,8 +86,12 @@
 		<%= @volunteer.suggestions %><br>
 </p><br>
 </div>
-  <% if @volunteer.team.nil? and logged_in? and current_user.role == "admin" %>
-  <center><h3>Assign Coach To Team</h3></center>
+  <% if logged_in? and current_user.role == "admin" %>
+    <% if @volunteer.team.nil? %>
+      <center><h3>Assign Coach To Team</h3></center>
+    <% else %>
+      <center><h3>Assign Coach To New Team</h3></center>
+    <% end %>
   <div class="col-sm-6 fixedheight">
       <table class="table table-bordered">
    <thead>
@@ -98,6 +102,12 @@
   </thead>
 
   <tbody>
+    <% if not(@volunteer.team.nil?) %>
+      <tr>
+        <td><%= "Remove From Team" %></td>
+        <td><%= link_to "Remove", send_remove_volunteer_path(@volunteer) %></td>
+      </tr>
+    <% end %>
    <% @teams.each do |team| %>
      <tr>
       <td><%= team.name %></td>
