@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_action :check_login, :only => [:main]
+  before_action :check_login, :only => [:control_panel]
 
   def index
     if  !current_user.nil?

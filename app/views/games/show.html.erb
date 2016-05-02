@@ -1,8 +1,18 @@
 <p id="notice"><%= notice %></p>
 
+<% tgs = @game.team_games %>
+<% if tgs.length == 2 %>
+  <% team1 = tgs[0] %>
+  <% team2 = tgs[1] %>
+  <h3><%= team1.team.name + " vs. " +team2.team.name %></h3><br>
+  <h4><%= "Score: " + team1.score.to_s + " - " + team2.score.to_s %></h4><br>
+<% else %>
+  <h3>Wrong Number Of Associated Teams</h3><br>
+<% end %>
+
+
 <p>
-  <strong>Date:</strong>
-  <%= @game.date.strftime("%B %d at %I:%M %P") %>
+  <h4><%= "Date: " + @game.date.strftime("%B %d at %I:%M %P") %></h4><br><br>
 </p>
 
 <!-- <p>
