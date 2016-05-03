@@ -21,8 +21,8 @@
     <div class = "col-sm-12">
       <ul class="nav nav-pills nav-justified">
         <li><%= link_to 'Students', students_path %></li> 
+        <li><%= link_to 'Teams', teams_path %></li> 
         <li><%= link_to 'Volunteers', volunteers_path %></li>
-        <li><%= link_to 'Analytics', analytics_path %></li>
         <li><%= link_to 'Notifications', notifications_path %></li>
         <li><%= link_to 'Instructions', instructions_path %></li>
         <li><%= link_to 'Database', control_panel_path %></li>
@@ -39,11 +39,11 @@
     <div class = "col-sm-8">
       <ul class="nav nav-pills nav-justified">
         <li class="small"><%= link_to 'Home', home_path %></li>
+        <li class="small"><%= link_to 'Analytics', analytics_path %></li>
         <li class="small"><%= link_to 'Schedule', schedule_path %></li>
         <li class="small"><%= link_to 'Standings', standings_path %></li>
-        <li class="small"><%= link_to 'Add Student', registerstudent_path %></li> 
-        <li class="small"><%= link_to 'Add Guardian', registerguardian_path %></li> 
-        <li class="small"><%= link_to 'Add Volunteer', registervolunteer_path %></li>
+        <li class="small"><%= link_to 'Create Student/User', create_student_user_path %></li> 
+        <li class="small"><%= link_to 'Manage Tournament', manage_tournament_path %></li>
         <!-- <li><%#= link_to image_tag('logout16.png'), render :partial => "secondary" %></li>  -->
       </div>
     </div>

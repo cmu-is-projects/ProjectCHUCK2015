@@ -68,6 +68,8 @@ ProjectChuck2015::Application.routes.draw do
   get 'home/download_data' => 'home#download_data', as: :download_data
   get 'home/control_panel' => 'home#control_panel', as: :control_panel
   get 'home/instructions' => 'home#instructions', as: :instructions
+  get 'home/create_student_user' => 'home#create_student_user', as: :create_student_user
+  get 'home/manage_tournament' => 'home#manage_tournament', as: :manage_tournament
 
   get 'registerstudent', to: 'students#new', :as => :registerstudent
   get 'registervolunteer', to: 'volunteers#new', :as => :registervolunteer
