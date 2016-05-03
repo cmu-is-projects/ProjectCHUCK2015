@@ -277,8 +277,8 @@ namespace :db do
     tasha_admin.role = "admin"
     tasha_admin.email = "lwilson@batchfoundation.org"
     tasha_admin.active = true
-    tasha_admin.password = "admin"
-    tasha_admin.password_confirmation = "admin"
+    tasha_admin.password = "2000West"
+    tasha_admin.password_confirmation = "2000West"
     # tasha_admin.volunteer_id = tasha.id
     tasha_admin.save!
 
@@ -309,6 +309,112 @@ namespace :db do
     tasha.act34_clearance = true
     tasha.act153_clearance = true
     tasha.save!
+
+    #Ruth
+    ruth_admin = User.new
+    ruth_admin.username = "ruth_admin"
+    ruth_admin.role = "admin"
+    ruth_admin.email = "ruth.sk@batchfoundation.org"
+    ruth_admin.active = true
+    ruth_admin.password = "2000West"
+    ruth_admin.password_confirmation = "2000West"
+    ruth_admin.save!
+
+    ruth = Volunteer.new
+    ruth.gender = "female"
+    ruth.age_range = "25-39"
+    ruth.team_id = 1
+    ruth.role = "Administrator"
+    ruth.email = "ruth.sk@batchfoundation.org"
+    ruth.first_name = "Ruth"
+    ruth.last_name = "Spurlock Kim"
+    ruth.cell_phone = "4108889999"
+    ruth.shirt_size = "S"
+    ruth.dob = Date.new(1980,6,14)
+    ruth.street = "4 Forbes Ave"
+    ruth.city = "Pittsburgh"
+    ruth.state = "PA"
+    ruth.zip = "15289"
+    ruth.day_phone = "2139193454"
+    ruth.receives_text_msgs = false
+    ruth.active = true
+    ruth.user_id = ruth_admin.id
+    ruth.years_with_proj_chuck = 0
+    ruth.act33_clearance = true
+    ruth.act34_clearance = true
+    ruth.act153_clearance = true
+    ruth.save!
+
+    #RyKai
+    rykai_admin = User.new
+    rykai_admin.username = "rykai_admin"
+    rykai_admin.role = "admin"
+    rykai_admin.email = "rwright@batchfoundation.org"
+    rykai_admin.active = true
+    rykai_admin.password = "2000West"
+    rykai_admin.password_confirmation = "2000West"
+    rykai_admin.save!
+
+    rykai = Volunteer.new
+    rykai.gender = "female"
+    rykai.age_range = "18-24"
+    rykai.team_id = 1
+    rykai.role = "Administrator"
+    rykai.email = "rwright@batchfoundation.org"
+    rykai.first_name = "RyKai"
+    rykai.last_name = "Wright"
+    rykai.cell_phone = "4108889999"
+    rykai.shirt_size = "S"
+    rykai.dob = Date.new(19995,6,14)
+    rykai.street = "4 Forbes Ave"
+    rykai.city = "Pittsburgh"
+    rykai.state = "PA"
+    rykai.zip = "15289"
+    rykai.day_phone = "2139193454"
+    rykai.receives_text_msgs = false
+    rykai.active = true
+    rykai.user_id = rykai_admin.id
+    rykai.years_with_proj_chuck = 0
+    rykai.act33_clearance = true
+    rykai.act34_clearance = true
+    rykai.act153_clearance = true
+    rykai.save!
+
+    #Taylor
+    taylor_admin = User.new
+    taylor_admin.username = "taylor_admin"
+    taylor_admin.role = "admin"
+    taylor_admin.email = "tthorp@batchfoundation.org"
+    taylor_admin.active = true
+    taylor_admin.password = "2000West"
+    taylor_admin.password_confirmation = "2000West"
+    taylor_admin.save!
+
+    taylor = Volunteer.new
+    taylor.gender = "female"
+    taylor.age_range = "25-39"
+    taylor.team_id = 1
+    taylor.role = "Administrator"
+    taylor.email = "tthorp@batchfoundation.org"
+    taylor.first_name = "Taylor"
+    taylor.last_name = "Thorp"
+    taylor.cell_phone = "4108889999"
+    taylor.shirt_size = "S"
+    taylor.dob = Date.new(1990,6,14)
+    taylor.street = "4 Forbes Ave"
+    taylor.city = "Pittsburgh"
+    taylor.state = "PA"
+    taylor.zip = "15289"
+    taylor.day_phone = "2139193454"
+    taylor.receives_text_msgs = false
+    taylor.active = true
+    taylor.user_id = taylor_admin.id
+    taylor.years_with_proj_chuck = 0
+    taylor.act33_clearance = true
+    taylor.act34_clearance = true
+    taylor.act153_clearance = true
+    taylor.save!
+
 
     alliewilson = Volunteer.new
     alliewilson.gender = "female"

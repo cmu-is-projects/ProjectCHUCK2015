@@ -21,6 +21,7 @@
 #Ignore DS_Store
 .DS_Store
 /.DS_Store
+db/.DS_Store
 
 /public/assets/.DS_Store
 
