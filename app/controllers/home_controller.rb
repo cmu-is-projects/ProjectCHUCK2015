@@ -249,7 +249,10 @@ class HomeController < ApplicationController
 		#format.csv { send_data  @students.to_csv }
 		format.xls #{ send_data  @students.to_csv(col_sep: "\t") }
 	end
-end
+  end
+
+  def instructions
+  end
 
 end
 
