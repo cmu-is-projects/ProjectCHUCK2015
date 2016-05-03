@@ -267,6 +267,27 @@ class StudentsController < ApplicationController
     end
   end
 
+  def send_remove_student
+    @student = Student.find(params[:student_id])
+    @rs = @student.roster_spots.active
+    if @rs.length > 0
+      @rs = @rs[0]
+    else
+      alskdjflsdkfj
+    end
+    if @rs.nil?
+      sdkjfhasdkjfh
+    end
+    @rs.active = false
+    if @rs.save
+      redirect_to @student, notice: 'Assigned!'
+      # format.json { render action: 'show', status: :created, location: @team }
+    else
+      redirect_to @student, notice: 'Could not assign'
+      # format.json { render json: @team.errors, status: :unprocessable_entity }
+    end
+  end
+
   def physical_view_student
   end
 

@@ -297,6 +297,12 @@
                 </thead>
 
                 <tbody>
+                <% if @student.roster_spots.active.length > 0 %>
+                  <tr>
+                    <td><%= "Remove From Team" %></td>
+                    <td><%= link_to "Remove", send_remove_student_path(@student) %></td>
+                  </tr>
+                <% end %>
                 <% @teams.each do |team| %>
                   <tr>
                     <td><%= team.name %></td>

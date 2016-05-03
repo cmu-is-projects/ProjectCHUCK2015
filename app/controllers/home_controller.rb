@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  before_action :check_login, :only => [:control_panel]
 
   def index
     if  !current_user.nil?
@@ -220,6 +221,9 @@ class HomeController < ApplicationController
     @age_stats = Student.age_stats
     @county_stats = Student.county_stats
     @school_district_stats = Student.school_district_stats
+  end
+
+  def control_panel
   end
 
   def download_data

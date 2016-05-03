@@ -66,6 +66,7 @@ ProjectChuck2015::Application.routes.draw do
   get 'home/standings' => 'home#standings', as: :standings
   get 'home/analytics' => 'home#analytics', as: :analytics
   get 'home/download_data' => 'home#download_data', as: :download_data
+  get 'home/control_panel' => 'home#control_panel', as: :control_panel
 
   get 'registerstudent', to: 'students#new', :as => :registerstudent
   get 'registervolunteer', to: 'volunteers#new', :as => :registervolunteer
@@ -79,6 +80,8 @@ ProjectChuck2015::Application.routes.draw do
 
   get 'vol_assign_coach/:team_id/:volunteer_id' => 'volunteers#vol_assign_coach', as: :vol_assign_coach
   get 'stu_send_assign_student/:team_id/:student_id' => 'students#send_assign_student', as: :stu_send_assign_student
+  get 'send_remove_student/:student_id' => 'students#send_remove_student', as: :send_remove_student
+  get 'send_remove_volunteer/:volunteer_id' => 'volunteers#send_remove_volunteer', as: :send_remove_volunteer
 
   get 'physical_view_student/:id' => 'students#physical_view_student', as: :physical_view_student
   get 'report_card_view_student/:id' => 'students#report_card_view_student', as: :report_card_view_student

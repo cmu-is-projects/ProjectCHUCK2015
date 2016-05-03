@@ -165,10 +165,10 @@ include Activeable
     # Simple sort on the name colums
     where("students.medications != ?", '')
   when /^by_bracket_/
-    joins(:roster_spots => {:team => :bracket}).order('brackets.id')
+    joins(:roster_spots => {:team => :bracket}).order('brackets.id').where('roster_spots.active = ?', true)
   when /^assigned_/
     #for if a student has a roster spot, inner join on roster spots will suffice
-    joins(:roster_spots)
+    joins(:roster_spots).where('roster_spots.active = ?', true)
   when /^unassigned_/
     joins("LEFT JOIN roster_spots on students.id = roster_spots.student_id where roster_spots.student_id IS NULL")
   when /^age_/
