@@ -42,9 +42,11 @@ private
     team1 = tgs[0].team
     team2 = tgs[1].team
     if team1.bracket != team2.bracket
+      errors.add(:team, "The two teams you have selected are from different brackets. Please pick teams from the same bracket.")
       return false
     end
     if team1 == team2
+      errors.add(:team, "Please pick two different teams.")
       return false
     end
     true
