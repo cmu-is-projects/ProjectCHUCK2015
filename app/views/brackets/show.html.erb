@@ -75,7 +75,7 @@
   </thead> 
 
   <tbody>
-   <% @bracket.students.by_age.each do |student| %>
+   <% @bracket.registrations.active.map{|r| r.student}.each do |student| %>
    
    <tr>
     <% if student.gender == "male"%>
@@ -92,8 +92,8 @@
       <%end%>
     </td>
     <!-- <td><%#= student.team.name unless student.team.name.nil?%></td> -->
-    <td width="40"><%= student.cell_phone %></td>
-    <td><%= student.household.home_phone %></td>
+    <td width="40"><%= number_to_phone student.cell_phone %></td>
+    <td><%= number_to_phone student.household.home_phone %></td>
     <td width="40"><%= student.allergies %></td>
     <td width="40"><%= student.medications %></td> 
         <td>

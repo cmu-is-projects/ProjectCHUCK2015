@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  before_action :check_login, :only => [:control_panel]
 
   def index
     if  !current_user.nil?
@@ -222,6 +223,9 @@ class HomeController < ApplicationController
     @school_district_stats = Student.school_district_stats
   end
 
+  def control_panel
+  end
+
   def download_data
     if logged_in? && not(current_user.role?(:admin))
       flash[:error] = "You must be logged in as an administrator to view this page."
@@ -245,7 +249,10 @@ class HomeController < ApplicationController
 		#format.csv { send_data  @students.to_csv }
 		format.xls #{ send_data  @students.to_csv(col_sep: "\t") }
 	end
-end
+  end
+
+  def instructions
+  end
 
 end
 

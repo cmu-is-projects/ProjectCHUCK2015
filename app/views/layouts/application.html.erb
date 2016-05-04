@@ -16,7 +16,8 @@
 </head>
 <body>
   <% if logged_in? and current_user.role? :admin %>
-    <%= render :partial => "partials/admin_nav" %> 
+    <%# render :partial => "partials/admin_nav" %> 
+    <%= render :partial => "partials/admin_nav_prod" %> 
   <% else %>
     <%= render :partial => "partials/nav" %>
   <% end %>  

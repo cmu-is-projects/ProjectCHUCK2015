@@ -14,7 +14,8 @@
         <li><%= link_to 'My Students', students_path %></li>
         <li><%= link_to 'Schedule', schedule_path %></li>
         <li><%= link_to 'Standings', standings_path %></li>
-        <li><%= link_to 'View/Edit My Info', guardian_path(current_user.guardian) %></li>
+        <li><%= link_to 'My Info', guardian_path(current_user.guardian) %></li>
+        <li><%= link_to 'Instructions', instructions_path %></li>
         <li><%= link_to image_tag('logout16.png'), logout_path %></li>
       </div>
     </div>
@@ -30,7 +31,8 @@
                 <li><%= link_to 'My Team', students_path %></li>
                 <li><%= link_to 'Schedule', schedule_path %></li>
                 <li><%= link_to 'Standings', standings_path %></li>
-                <li><%= link_to 'View/Edit My Info', volunteer_path(current_user.volunteer) %></li>
+                <li><%= link_to 'My Info', volunteer_path(current_user.volunteer) %></li>
+                <li><%= link_to 'Instructions', instructions_path %></li>
                 <li><%= link_to image_tag('logout16.png'), logout_path %></li>
               </div>
             </div>
@@ -44,7 +46,8 @@
                 <li><%= link_to 'Home', home_path %></li>
                 <li><%= link_to 'Schedule', schedule_path %></li>
                 <li><%= link_to 'Standings', standings_path %></li>
-                <li><%= link_to 'View/Edit My Info', volunteer_path(current_user.volunteer) %></li>
+                <li><%= link_to 'My Info', volunteer_path(current_user.volunteer) %></li>
+                <li><%= link_to 'Instructions', instructions_path %></li>
                 <li><%= link_to image_tag('logout16.png'), logout_path %></li>
               </div>
             </div>

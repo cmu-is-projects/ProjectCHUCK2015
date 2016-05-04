@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :check_login, :except => [:create, :new, :show]
+  before_action :send_home, only: [:new, :create]
   authorize_resource
 
   # GET /users
@@ -74,5 +75,9 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:username, :role, :email, :active, :password_digest, :active_after, :password_reset_token, :password_reset_sent_at, :volunteer_id, :password, :password_confirmation)
       #NOTE: volunteer_id is no longer in the system
+    end
+
+    def send_home
+      redirect_to home_url, alert: "Must create user through volutneer or guardian"
     end
 end

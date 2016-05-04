@@ -1,0 +1,13 @@
+<% if logged_in? %>
+  <% if current_user.role? :admin %>
+    <%= render :partial => 'admin_instructions' %>
+  <% elsif current_user.role? :guardian %>
+    <%= render :partial => 'parent_instructions' %>
+  <% elsif current_user.role? :volunteer %>
+    <%= render :partial => 'volunteer_instructions' %>
+  <% else %>
+    <%= render :partial => 'logout' %>
+  <% end %>
+<% else %>
+  <%= render :partial => 'general_instructions' %>
+<% end %>
