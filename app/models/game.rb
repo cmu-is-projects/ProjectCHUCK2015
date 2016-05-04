@@ -36,6 +36,7 @@ private
   def check_same_bracket
     tgs = self.team_games
     if tgs.length != 2
+      errors.add(:team, "Please pick two teams")
       return false
     end
     team1 = tgs[0].team
