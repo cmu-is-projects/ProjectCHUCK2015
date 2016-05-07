@@ -5,7 +5,7 @@ class School < ActiveRecord::Base
   
   #validations
   validates_presence_of :name
-  DISTRICT_ARRAY = ["Allegheny Valley School District","Avonworth School District",
+  DISTRICT_ARRAY = ["Steel Valley School District", "Allegheny Valley School District","Avonworth School District",
                           "Baldwin-Whitehall School District","Bethel Park School District",
                           "Brentwood Borough School District","Carlynton School District",
                           "Chartiers Valley School District","Clairton City School District",
@@ -22,7 +22,7 @@ class School < ActiveRecord::Base
                           "Plum Borough School District","Quaker Valley School District",
                           "Riverview School District",
                           "Shaler Area School District","South Allegheny School District",
-                          "South Fayette Township School District", "Steel Valley School District",
+                          "South Fayette Township School District", 
                           "Sto-Rox School District","Upper St. Clair School District",
                           "West Allegheny School District","West Jefferson Hills School District",
                           "West Mifflin Area School District","Wilkinsburg School District",
