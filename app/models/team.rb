@@ -91,6 +91,7 @@ class Team < ActiveRecord::Base
 
   #custom functions
   def has_available_spots?
+    #should be "self.roster_spots.active.length > self.max_students"
     if (self.roster_spots.length > self.max_students)
       errors.add(:team, "has no spots left.")
     end
